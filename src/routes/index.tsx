@@ -290,7 +290,7 @@ function Platforms() {
     { icon: Smartphone, title: "Mobile app", text: "iOS & Android. The full Aim experience in your pocket." },
     { icon: Watch, title: "Watch app", text: "Glanceable balance, goals and alerts on your wrist." },
     { icon: Monitor, title: "Web app", text: "Deep analytics and planning on the big screen." },
-    { icon: Globe, title: "Worldwide", text: "Built in Kazakhstan. Designed for users everywhere." },
+    { icon: Globe, title: "Worldwide", text: "Designed for users everywhere." },
   ];
   return (
     <section id="platforms" className="py-24 md:py-32">
