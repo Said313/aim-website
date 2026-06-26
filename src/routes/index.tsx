@@ -139,28 +139,26 @@ function Hero() {
 
 function StatBar() {
   const stats = [
-    { label: "Financial health", value: "82", suffix: "/100" },
-    { label: "User ranking", value: "Top 13%" },
-    { label: "Freedom age", value: "51" },
-    { label: "Goal probability", value: "87%" },
-    { label: "Time saved", value: "10+ h/mo" },
+    { value: "1st", label: "Company onboarded to Open Banking in Kazakhstan" },
+    { value: "1st", label: "Fintech AI startup in Kazakhstan" },
+    { value: "100+", label: "Users on the pre-launch waitlist" },
   ];
   return (
     <section className="border-y border-border bg-card/30 backdrop-blur-sm">
-      <div className="mx-auto max-w-7xl px-6 py-10 grid grid-cols-2 md:grid-cols-5 gap-8">
+      <div className="mx-auto max-w-7xl px-6 py-12 grid sm:grid-cols-3 gap-8">
         {stats.map((s) => (
-          <div key={s.label}>
-            <div className="font-display text-3xl font-semibold">
+          <div key={s.label} className="text-center sm:text-left">
+            <div className="font-display text-5xl font-semibold leading-none">
               <span className="text-gradient">{s.value}</span>
-              {s.suffix && <span className="text-muted-foreground text-lg">{s.suffix}</span>}
             </div>
-            <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">{s.label}</div>
+            <div className="text-sm text-muted-foreground mt-3 leading-snug">{s.label}</div>
           </div>
         ))}
       </div>
     </section>
   );
 }
+
 
 function Features() {
   const features = [
