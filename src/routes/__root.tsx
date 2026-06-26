@@ -80,6 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Aim" },
       { name: "twitter:card", content: "summary_large_image" },
+      { title: "Aim - Your Financial Compass" },
+      { property: "og:title", content: "Aim - Your Financial Compass" },
+      { name: "twitter:title", content: "Aim - Your Financial Compass" },
+      { name: "description", content: "Aim is an AI-powered financial compass that connects your bank accounts for comprehensive insights and management." },
+      { property: "og:description", content: "Aim is an AI-powered financial compass that connects your bank accounts for comprehensive insights and management." },
+      { name: "twitter:description", content: "Aim is an AI-powered financial compass that connects your bank accounts for comprehensive insights and management." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a3b91ae3-501a-433d-8bc4-dcd25c48a799/id-preview-68670db3--9b3fda90-dce2-4756-a87d-b5fed0ee6a49.lovable.app-1782471108403.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a3b91ae3-501a-433d-8bc4-dcd25c48a799/id-preview-68670db3--9b3fda90-dce2-4756-a87d-b5fed0ee6a49.lovable.app-1782471108403.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -91,14 +99,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
     scripts: [
-      {
-        src: "https://www.googletagmanager.com/gtag/js?id=G-X8MMPFXYDJ",
-        async: true,
-      },
-      {
-        children:
-          "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-X8MMPFXYDJ');",
-      },
       {
         type: "application/ld+json",
         children: JSON.stringify({
