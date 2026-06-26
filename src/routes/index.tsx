@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Aim is your personal AI CFO. Connect every bank account via Open Banking, get insights, set goals, plan the future. Built in Kazakhstan, working worldwide.",
+          "Aim is your personal AI CFO. Connect every bank account via Open Banking, get insights, set goals, plan the future. Working worldwide.",
       },
       { property: "og:title", content: "Aim — Your AI CFO" },
       {
@@ -91,7 +91,7 @@ function Hero() {
         <div>
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            Built in Kazakhstan · Working worldwide
+            Working worldwide
           </div>
           <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight">
             <span className="sr-only">Aim — Your Personal AI CFO. </span>
@@ -145,8 +145,8 @@ function Hero() {
 
 function StatBar() {
   const stats = [
-    { value: "1st", label: "Company onboarded to Open Banking in Kazakhstan" },
-    { value: "1st", label: "Fintech AI startup in Kazakhstan" },
+    { value: "1st", label: "Company onboarded to Open Banking" },
+    { value: "1st", label: "Fintech AI startup in the region" },
     { value: "100+", label: "Users on the pre-launch waitlist" },
   ];
   return (
@@ -290,7 +290,7 @@ function Platforms() {
     { icon: Smartphone, title: "Mobile app", text: "iOS & Android. The full Aim experience in your pocket." },
     { icon: Watch, title: "Watch app", text: "Glanceable balance, goals and alerts on your wrist." },
     { icon: Monitor, title: "Web app", text: "Deep analytics and planning on the big screen." },
-    { icon: Globe, title: "Worldwide", text: "Built in Kazakhstan. Designed for users everywhere." },
+    { icon: Globe, title: "Worldwide", text: "Designed for users everywhere." },
   ];
   return (
     <section id="platforms" className="py-24 md:py-32">
@@ -611,7 +611,7 @@ function Founders() {
             Built by people who <span className="text-gradient">aim higher.</span>
           </h2>
           <p className="mt-5 text-muted-foreground">
-            From Kazakhstan to the world — on a mission to give everyone a personal AI CFO.
+            On a mission to give everyone a personal AI CFO.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">

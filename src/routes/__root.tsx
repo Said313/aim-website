@@ -119,7 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "Personal AI CFO that connects every bank account via Open Banking and turns complex finances into clear next steps.",
           url: "/",
           logo: "/favicon.ico",
-          foundingLocation: { "@type": "Place", name: "Kazakhstan" },
+          areaServed: "Worldwide",
           founder: [
             { "@type": "Person", name: "Umidzhan Rakhmankulov" },
             { "@type": "Person", name: "Saidgaffor Sabyrov" },
