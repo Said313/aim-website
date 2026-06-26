@@ -22,7 +22,7 @@ import logo from "@/assets/aim-logo.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aim — Your AI CFO. Confidence to live at scale." },
+      { title: "Aim — Your AI CFO. Confidence to live bigger." },
       {
         name: "description",
         content:
@@ -89,9 +89,9 @@ function Hero() {
             Built in Kazakhstan · Working worldwide
           </div>
           <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight">
-            Confidence to live
+            Confidence to
             <br />
-            <span className="text-gradient">at scale.</span>
+            <span className="text-gradient">live bigger.</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Aim is your personal AI CFO. It connects every bank account via Open Banking,
