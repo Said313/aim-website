@@ -23,6 +23,7 @@ import {
 import heroImg from "@/assets/hero-mountain.jpg";
 import appMockup from "@/assets/app-mockup.png";
 import logo from "@/assets/aim-logo.png";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -66,7 +67,7 @@ function Nav() {
           </nav>
           <a
             href="#waitlist"
-            className="bg-gradient-brand text-primary-foreground rounded-full px-5 py-2 text-sm font-semibold hover:opacity-90 transition"
+            className="bg-accent text-accent-foreground rounded-full px-5 py-2 text-sm font-semibold hover:opacity-90 transition"
           >
             Join waitlist
           </a>
@@ -84,11 +85,11 @@ function Hero() {
         alt=""
         width={1600}
         height={1200}
-        className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-background/70 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
-        <div>
+        <Reveal variant="left">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
             Working worldwide
@@ -97,7 +98,7 @@ function Hero() {
             <span className="sr-only">Aim — Your Personal AI CFO. </span>
             <span aria-hidden="true">Confidence to</span>
             <br aria-hidden="true" />
-            <span className="text-gradient" aria-hidden="true">live bigger.</span>
+            <span className="text-accent" aria-hidden="true">live bigger.</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Aim is your personal AI CFO. It connects every bank account via Open Banking,
@@ -107,7 +108,7 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#waitlist"
-              className="bg-gradient-brand text-primary-foreground rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
+              className="bg-accent text-accent-foreground rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
             >
               Get early access <ArrowRight className="h-4 w-4" />
             </a>
@@ -126,18 +127,19 @@ function Hero() {
               <Globe className="h-4 w-4 text-accent" /> Open Banking
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="relative flex justify-center">
-          <div className="absolute -inset-10 bg-gradient-radial blur-3xl opacity-70" />
-          <img
-            src={appMockup}
-            alt="Aim mobile app dashboard"
-            width={520}
-            height={780}
-            className="relative w-[80%] max-w-[460px] drop-shadow-[0_40px_80px_rgba(120,80,255,0.35)]"
-          />
-        </div>
+        <Reveal variant="zoom-in" delay={200} className="relative flex justify-center">
+          <div className="float-slow">
+            <img
+              src={appMockup}
+              alt="Aim mobile app dashboard"
+              width={520}
+              height={780}
+              className="relative w-[80%] max-w-[460px] mx-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)]"
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -150,21 +152,46 @@ function StatBar() {
     { value: "100+", label: "Users on the pre-launch waitlist" },
   ];
   return (
-    <section className="border-y border-border bg-card/30 backdrop-blur-sm">
+    <section className="border-y border-border bg-card/30 backdrop-blur-sm overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 py-12 grid sm:grid-cols-3 gap-8">
-        {stats.map((s) => (
-          <div key={s.label} className="text-center sm:text-left">
-            <div className="font-display text-5xl font-semibold leading-none">
-              <span className="text-gradient">{s.value}</span>
+        {stats.map((s, i) => (
+          <Reveal key={s.label} variant="up" delay={i * 150} className="text-center sm:text-left">
+            <div className="font-display text-5xl font-semibold leading-none text-accent">
+              {s.value}
             </div>
             <div className="text-sm text-muted-foreground mt-3 leading-snug">{s.label}</div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
   );
 }
 
+function Marquee() {
+  const words = [
+    "Open Banking",
+    "AI CFO",
+    "Goals",
+    "Insights",
+    "Investments",
+    "Budget",
+    "Confidence",
+    "Plan ahead",
+  ];
+  const row = [...words, ...words];
+  return (
+    <div className="border-b border-border overflow-hidden py-6">
+      <div className="drift-marquee flex gap-12 whitespace-nowrap text-muted-foreground/70">
+        {row.map((w, i) => (
+          <span key={i} className="flex items-center gap-12 font-display text-2xl tracking-tight">
+            {w}
+            <span className="h-1.5 w-1.5 rounded-full bg-accent/60" />
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function Features() {
   const features = [
@@ -199,39 +226,32 @@ function Features() {
       text: "Bank-level encryption. Your data is yours. Read-only access, always.",
     },
   ];
+  const variants = ["up", "zoom-in", "roll", "left", "right", "zoom-out"] as const;
   return (
     <section id="features" className="py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-2xl mb-16">
+        <Reveal variant="up" className="max-w-2xl mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">What Aim does</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            A CFO that understands <span className="text-gradient">your life.</span>
+            A CFO that understands <span className="text-accent">your life.</span>
           </h2>
-        </div>
+        </Reveal>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f) => (
-            <div
+          {features.map((f, i) => (
+            <Reveal
               key={f.title}
-              className="glass-card rounded-3xl p-7 hover:translate-y-[-2px] transition group"
+              variant={variants[i % variants.length]}
+              delay={i * 120}
+              className="glass-card rounded-3xl p-7 transition hover:-translate-y-1 duration-500"
             >
-              <div className="h-12 w-12 rounded-2xl bg-gradient-brand p-[1px] mb-5">
-                <div className="h-full w-full rounded-2xl bg-background flex items-center justify-center">
-                  <f.icon className="h-5 w-5 text-gradient" style={{ stroke: "url(#g)" }} />
-                </div>
+              <div className="h-12 w-12 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center mb-5">
+                <f.icon className="h-5 w-5 text-accent" />
               </div>
               <h3 className="font-display text-xl font-semibold mb-2">{f.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{f.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
-        <svg width="0" height="0" className="absolute">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="oklch(0.82 0.18 200)" />
-              <stop offset="100%" stopColor="oklch(0.7 0.27 340)" />
-            </linearGradient>
-          </defs>
-        </svg>
       </div>
     </section>
   );
@@ -241,7 +261,7 @@ function ProblemSolution() {
   return (
     <section className="py-24 md:py-32 relative">
       <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12">
-        <div className="glass-card rounded-3xl p-10">
+        <Reveal variant="left" className="glass-card rounded-3xl p-10">
           <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">The problem</div>
           <h3 className="font-display text-3xl font-semibold mb-6">Too many banks. Too little clarity.</h3>
           <ul className="space-y-4 text-muted-foreground">
@@ -259,9 +279,8 @@ function ProblemSolution() {
           <p className="mt-8 text-foreground font-medium">
             People don't need another tool. They need a financial partner.
           </p>
-        </div>
-        <div className="glass-card rounded-3xl p-10 relative overflow-hidden">
-          <div className="absolute -top-20 -right-20 h-64 w-64 bg-gradient-brand rounded-full opacity-20 blur-3xl" />
+        </Reveal>
+        <Reveal variant="right" delay={150} className="glass-card rounded-3xl p-10 relative overflow-hidden">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">Our answer</div>
           <h3 className="font-display text-3xl font-semibold mb-6">One AI CFO. Every account. Real decisions.</h3>
           <ul className="space-y-4 text-muted-foreground">
@@ -279,7 +298,7 @@ function ProblemSolution() {
           <p className="mt-8 text-foreground font-medium">
             The right moment for a new standard in personal finance.
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -292,26 +311,30 @@ function Platforms() {
     { icon: Monitor, title: "Web app", text: "Deep analytics and planning on the big screen." },
     { icon: Globe, title: "Worldwide", text: "Designed for users everywhere." },
   ];
+  const variants = ["zoom-in", "up", "zoom-out", "roll"] as const;
   return (
     <section id="platforms" className="py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">Everywhere you are</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            One AI CFO, <span className="text-gradient">every device.</span>
+            One AI CFO, <span className="text-accent">every device.</span>
           </h2>
-        </div>
+        </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {platforms.map((p) => (
-            <div key={p.title} className="glass-card rounded-3xl p-7 text-center">
-              <div className="mx-auto h-14 w-14 rounded-2xl bg-gradient-brand p-[1px] mb-5">
-                <div className="h-full w-full rounded-2xl bg-background flex items-center justify-center">
-                  <p.icon className="h-6 w-6" />
-                </div>
+          {platforms.map((p, i) => (
+            <Reveal
+              key={p.title}
+              variant={variants[i % variants.length]}
+              delay={i * 140}
+              className="glass-card rounded-3xl p-7 text-center transition hover:-translate-y-1 duration-500"
+            >
+              <div className="mx-auto h-14 w-14 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center mb-5">
+                <p.icon className="h-6 w-6 text-accent" />
               </div>
               <h3 className="font-display text-lg font-semibold mb-2">{p.title}</h3>
               <p className="text-sm text-muted-foreground">{p.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -323,22 +346,19 @@ function Vision() {
   return (
     <section id="vision" className="py-24 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="glass-card rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-radial opacity-50" />
-          <div className="relative">
-            <Sparkles className="h-8 w-8 text-accent mx-auto mb-6" />
-            <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Our vision</div>
-            <h2 className="font-display text-4xl md:text-6xl font-semibold leading-[1.05]">
-              A world where every person has a personal{" "}
-              <span className="text-gradient">AI CFO</span> — helping them live the life
-              they actually dream of.
-            </h2>
-            <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Premium AI. A marketplace. Investments, insurance, lending, mortgages — and much more.
-              We're just getting started.
-            </p>
-          </div>
-        </div>
+        <Reveal variant="zoom-out" className="glass-card rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
+          <Sparkles className="h-8 w-8 text-accent mx-auto mb-6" />
+          <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Our vision</div>
+          <h2 className="font-display text-4xl md:text-6xl font-semibold leading-[1.05]">
+            A world where every person has a personal{" "}
+            <span className="text-accent">AI CFO</span> — helping them live the life
+            they actually dream of.
+          </h2>
+          <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto">
+            Premium AI. A marketplace. Investments, insurance, lending, mortgages — and much more.
+            We're just getting started.
+          </p>
+        </Reveal>
       </div>
     </section>
   );
@@ -395,10 +415,10 @@ function CTA() {
 
   return (
     <section id="waitlist" className="py-24 md:py-32">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <Brain className="h-10 w-10 text-gradient mx-auto mb-6" style={{ stroke: "url(#g)" }} />
+      <Reveal variant="zoom-in" className="mx-auto max-w-4xl px-6 text-center">
+        <Brain className="h-10 w-10 text-accent mx-auto mb-6" />
         <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
-          Be the first to <span className="text-gradient">aim higher.</span>
+          Be the first to <span className="text-accent">aim higher.</span>
         </h2>
         <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
           Join the waitlist. Early users get premium AI features free at launch.
@@ -425,7 +445,7 @@ function CTA() {
             />
             <button
               type="submit"
-              className="bg-gradient-brand text-primary-foreground rounded-full px-6 py-3.5 text-sm font-semibold shadow-glow hover:opacity-90 transition"
+              className="bg-accent text-accent-foreground rounded-full px-6 py-3.5 text-sm font-semibold shadow-glow hover:opacity-90 transition"
             >
               Get early access
             </button>
@@ -435,7 +455,7 @@ function CTA() {
         {step === "email" && error && (
           <p role="alert" className="mt-4 text-sm text-destructive">{error}</p>
         )}
-      </div>
+      </Reveal>
 
       {step === "confirm" && (
         <ThankYouModal
@@ -473,7 +493,7 @@ function CTA() {
               </button>
               <button
                 type="submit"
-                className="flex-1 bg-gradient-brand text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold shadow-glow hover:opacity-90 transition"
+                className="flex-1 bg-accent text-accent-foreground rounded-full px-5 py-3 text-sm font-semibold shadow-glow hover:opacity-90 transition"
               >
                 Confirm
               </button>
@@ -485,13 +505,11 @@ function CTA() {
       {step === "done" && (
         <ThankYouModal title="You're on the list" onClose={reset}>
           <div className="flex flex-col items-center text-center">
-            <div className="h-14 w-14 rounded-2xl bg-gradient-brand p-[2px] mb-5">
-              <div className="h-full w-full rounded-2xl bg-background flex items-center justify-center">
-                <CheckCircle2 className="h-7 w-7 text-accent" />
-              </div>
+            <div className="h-14 w-14 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center mb-5">
+              <CheckCircle2 className="h-7 w-7 text-accent" />
             </div>
             <h3 className="font-display text-2xl font-semibold">
-              Thank you — welcome to <span className="text-gradient">Aim.</span>
+              Thank you — welcome to <span className="text-accent">Aim.</span>
             </h3>
             <p className="mt-3 text-sm text-muted-foreground">
               We've added <span className="text-foreground font-medium">{submittedEmail}</span> to the waitlist.
@@ -540,7 +558,7 @@ function CTA() {
               <button
                 type="button"
                 onClick={reset}
-                className="flex-1 bg-gradient-brand text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold shadow-glow hover:opacity-90 transition"
+                className="flex-1 bg-accent text-accent-foreground rounded-full px-5 py-3 text-sm font-semibold shadow-glow hover:opacity-90 transition"
               >
                 Done
               </button>
@@ -591,42 +609,37 @@ function ThankYouModal({
 
 function Founders() {
   const founders = [
-    {
-      name: "Umidzhan Rakhmankulov",
-      role: "Co-founder",
-      initials: "UR",
-    },
-    {
-      name: "Saidgaffor Sabyrov",
-      role: "Co-founder",
-      initials: "SS",
-    },
+    { name: "Umidzhan Rakhmankulov", role: "Co-founder", initials: "UR" },
+    { name: "Saidgaffor Sabyrov", role: "Co-founder", initials: "SS" },
   ];
   return (
     <section id="founders" className="py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">Founders</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            Built by people who <span className="text-gradient">aim higher.</span>
+            Built by people who <span className="text-accent">aim higher.</span>
           </h2>
           <p className="mt-5 text-muted-foreground">
             On a mission to give everyone a personal AI CFO.
           </p>
-        </div>
+        </Reveal>
         <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
-          {founders.map((f) => (
-            <div key={f.name} className="glass-card rounded-3xl p-8 flex items-center gap-5">
-              <div className="h-20 w-20 rounded-2xl bg-gradient-brand p-[2px] flex-none">
-                <div className="h-full w-full rounded-2xl bg-background flex items-center justify-center">
-                  <span className="font-display text-2xl font-semibold text-gradient">{f.initials}</span>
-                </div>
+          {founders.map((f, i) => (
+            <Reveal
+              key={f.name}
+              variant={i === 0 ? "left" : "right"}
+              delay={i * 150}
+              className="glass-card rounded-3xl p-8 flex items-center gap-5"
+            >
+              <div className="h-20 w-20 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center flex-none">
+                <span className="font-display text-2xl font-semibold text-accent">{f.initials}</span>
               </div>
               <div className="min-w-0">
                 <div className="font-display text-lg font-semibold leading-tight">{f.name}</div>
                 <div className="text-sm text-muted-foreground mt-1">{f.role}</div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -657,6 +670,7 @@ function Landing() {
       <Nav />
       <Hero />
       <StatBar />
+      <Marquee />
       <Features />
       <ProblemSolution />
       <Platforms />
