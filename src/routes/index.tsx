@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   Brain,
   Building2,
@@ -14,6 +15,10 @@ import {
   Monitor,
   ArrowRight,
   Check,
+  X,
+  Mail,
+  Share2,
+  CheckCircle2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-mountain.jpg";
 import appMockup from "@/assets/app-mockup.png";
