@@ -145,8 +145,8 @@ function Hero() {
 
 function StatBar() {
   const stats = [
-    { value: "1st", label: "Company onboarded to Open Banking in Kazakhstan" },
-    { value: "1st", label: "Fintech AI startup in Kazakhstan" },
+    { value: "1st", label: "Company onboarded to Open Banking" },
+    { value: "1st", label: "Fintech AI startup in the region" },
     { value: "100+", label: "Users on the pre-launch waitlist" },
   ];
   return (
