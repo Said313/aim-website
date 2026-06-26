@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Aim is your personal AI CFO. Connect every bank account via Open Banking, get insights, set goals, plan the future. Built in Kazakhstan, working worldwide.",
+          "Aim is your personal AI CFO. Connect every bank account via Open Banking, get insights, set goals, plan the future. Working worldwide.",
       },
       { property: "og:title", content: "Aim — Your AI CFO" },
       {
