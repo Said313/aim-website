@@ -372,6 +372,51 @@ function CTA() {
   );
 }
 
+function Founders() {
+  const founders = [
+    {
+      name: "Umidzhan Rakhmankulov",
+      role: "Co-founder",
+      initials: "UR",
+    },
+    {
+      name: "Saidgaffor Sabyrov",
+      role: "Co-founder",
+      initials: "SS",
+    },
+  ];
+  return (
+    <section id="founders" className="py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">Founders</div>
+          <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
+            Built by people who <span className="text-gradient">aim higher.</span>
+          </h2>
+          <p className="mt-5 text-muted-foreground">
+            From Kazakhstan to the world — on a mission to give everyone a personal AI CFO.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+          {founders.map((f) => (
+            <div key={f.name} className="glass-card rounded-3xl p-8 flex items-center gap-5">
+              <div className="h-20 w-20 rounded-2xl bg-gradient-brand p-[2px] flex-none">
+                <div className="h-full w-full rounded-2xl bg-background flex items-center justify-center">
+                  <span className="font-display text-2xl font-semibold text-gradient">{f.initials}</span>
+                </div>
+              </div>
+              <div className="min-w-0">
+                <div className="font-display text-lg font-semibold leading-tight">{f.name}</div>
+                <div className="text-sm text-muted-foreground mt-1">{f.role}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="border-t border-border py-12">
@@ -399,6 +444,7 @@ function Landing() {
       <ProblemSolution />
       <Platforms />
       <Vision />
+      <Founders />
       <CTA />
       <Footer />
     </main>
