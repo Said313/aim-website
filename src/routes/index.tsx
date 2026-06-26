@@ -91,7 +91,7 @@ function Hero() {
         <div>
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            Built in Kazakhstan · Working worldwide
+            Working worldwide
           </div>
           <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight">
             <span className="sr-only">Aim — Your Personal AI CFO. </span>
