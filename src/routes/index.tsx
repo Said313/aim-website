@@ -611,7 +611,7 @@ function Founders() {
             Built by people who <span className="text-gradient">aim higher.</span>
           </h2>
           <p className="mt-5 text-muted-foreground">
-            From Kazakhstan to the world — on a mission to give everyone a personal AI CFO.
+            On a mission to give everyone a personal AI CFO.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
