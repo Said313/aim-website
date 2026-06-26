@@ -345,6 +345,54 @@ function Vision() {
 }
 
 function CTA() {
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [step, setStep] = useState<"email" | "confirm" | "done">("email");
+  const [error, setError] = useState<string | null>(null);
+  const [submittedEmail, setSubmittedEmail] = useState("");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function handleEmailSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+    if (!emailRegex.test(email.trim())) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    setStep("confirm");
+  }
+
+  function handleConfirmSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+    if (email.trim().toLowerCase() !== confirmEmail.trim().toLowerCase()) {
+      setError("Emails don't match. Please re-enter to confirm.");
+      return;
+    }
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    if (typeof w.gtag === "function") {
+      w.gtag("event", "waitlist_signup", {
+        event_category: "conversion",
+        event_label: "waitlist",
+        method: "email",
+      });
+      w.gtag("event", "conversion", { send_to: "G-X8MMPFXYDJ" });
+    }
+    console.info("Waitlist signup:", email);
+    setSubmittedEmail(email.trim());
+    setStep("done");
+    setEmail("");
+    setConfirmEmail("");
+  }
+
+  function reset() {
+    setStep("email");
+    setError(null);
+    setEmail("");
+    setConfirmEmail("");
+  }
+
   return (
     <section id="waitlist" className="py-24 md:py-32">
       <div className="mx-auto max-w-4xl px-6 text-center">
@@ -355,44 +403,189 @@ function CTA() {
         <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
           Join the waitlist. Early users get premium AI features free at launch.
         </p>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const form = e.currentTarget;
-            const email = (form.elements.namedItem("waitlist-email") as HTMLInputElement)?.value;
-            const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-            if (typeof w.gtag === "function") {
-              w.gtag("event", "waitlist_signup", {
-                event_category: "conversion",
-                event_label: "waitlist",
-                method: "email",
-              });
-              w.gtag("event", "conversion", { send_to: "G-X8MMPFXYDJ" });
-            }
-            form.reset();
-            console.info("Waitlist signup:", email);
-          }}
-          className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-        >
-          <label htmlFor="waitlist-email" className="sr-only">Email address</label>
-          <input
-            id="waitlist-email"
-            name="waitlist-email"
-            type="email"
-            required
-            placeholder="you@email.com"
-            aria-label="Email address"
-            className="flex-1 glass-card rounded-full px-5 py-3.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-          />
-          <button
-            type="submit"
-            className="bg-gradient-brand text-primary-foreground rounded-full px-6 py-3.5 text-sm font-semibold shadow-glow hover:opacity-90 transition"
+
+        {step === "email" && (
+          <form
+            onSubmit={handleEmailSubmit}
+            className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            noValidate
           >
-            Get early access
-          </button>
-        </form>
+            <label htmlFor="waitlist-email" className="sr-only">Email address</label>
+            <input
+              id="waitlist-email"
+              name="waitlist-email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@email.com"
+              aria-label="Email address"
+              aria-invalid={error ? "true" : "false"}
+              className="flex-1 glass-card rounded-full px-5 py-3.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+            <button
+              type="submit"
+              className="bg-gradient-brand text-primary-foreground rounded-full px-6 py-3.5 text-sm font-semibold shadow-glow hover:opacity-90 transition"
+            >
+              Get early access
+            </button>
+          </form>
+        )}
+
+        {step === "email" && error && (
+          <p role="alert" className="mt-4 text-sm text-destructive">{error}</p>
+        )}
       </div>
+
+      {step === "confirm" && (
+        <ThankYouModal
+          title="One quick confirmation"
+          onClose={reset}
+        >
+          <p className="text-muted-foreground text-sm">
+            We sent the signup to <span className="text-foreground font-medium">{email}</span>.
+            Please re-enter your email so we don't miss you at launch.
+          </p>
+          <form onSubmit={handleConfirmSubmit} className="mt-6 space-y-3" noValidate>
+            <label htmlFor="confirm-email" className="sr-only">Confirm email address</label>
+            <input
+              id="confirm-email"
+              type="email"
+              required
+              autoFocus
+              value={confirmEmail}
+              onChange={(e) => setConfirmEmail(e.target.value)}
+              placeholder="Re-enter your email"
+              aria-label="Confirm email address"
+              aria-invalid={error ? "true" : "false"}
+              className="w-full glass-card rounded-full px-5 py-3.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+            {error && (
+              <p role="alert" className="text-sm text-destructive text-left px-2">{error}</p>
+            )}
+            <div className="flex gap-3 pt-2">
+              <button
+                type="button"
+                onClick={reset}
+                className="flex-1 glass-card rounded-full px-5 py-3 text-sm font-semibold hover:bg-white/5 transition"
+              >
+                Edit email
+              </button>
+              <button
+                type="submit"
+                className="flex-1 bg-gradient-brand text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold shadow-glow hover:opacity-90 transition"
+              >
+                Confirm
+              </button>
+            </div>
+          </form>
+        </ThankYouModal>
+      )}
+
+      {step === "done" && (
+        <ThankYouModal title="You're on the list" onClose={reset}>
+          <div className="flex flex-col items-center text-center">
+            <div className="h-14 w-14 rounded-2xl bg-gradient-brand p-[2px] mb-5">
+              <div className="h-full w-full rounded-2xl bg-background flex items-center justify-center">
+                <CheckCircle2 className="h-7 w-7 text-accent" />
+              </div>
+            </div>
+            <h3 className="font-display text-2xl font-semibold">
+              Thank you — welcome to <span className="text-gradient">Aim.</span>
+            </h3>
+            <p className="mt-3 text-sm text-muted-foreground">
+              We've added <span className="text-foreground font-medium">{submittedEmail}</span> to the waitlist.
+              You'll be among the first to get access at launch.
+            </p>
+
+            <div className="w-full mt-8 text-left space-y-3">
+              <div className="text-xs uppercase tracking-[0.2em] text-accent">What's next</div>
+              <ul className="space-y-3">
+                {[
+                  { icon: Mail, text: "Check your inbox for a confirmation from the Aim team." },
+                  { icon: Sparkles, text: "We'll email you the moment early access opens." },
+                  { icon: Share2, text: "Help a friend live bigger — share Aim with them." },
+                ].map((item) => (
+                  <li key={item.text} className="flex gap-3 items-start">
+                    <span className="mt-0.5 h-8 w-8 rounded-xl glass-card flex items-center justify-center flex-none">
+                      <item.icon className="h-4 w-4 text-accent" />
+                    </span>
+                    <span className="text-sm text-muted-foreground">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="w-full flex flex-col sm:flex-row gap-3 mt-8">
+              <button
+                type="button"
+                onClick={() => {
+                  const url = typeof window !== "undefined" ? window.location.origin : "https://aim.app";
+                  const text = "I just joined the Aim waitlist — a personal AI CFO. Confidence to live bigger.";
+                  const nav = navigator as Navigator & { share?: (d: ShareData) => Promise<void> };
+                  if (nav.share) {
+                    nav.share({ title: "Aim", text, url }).catch(() => {});
+                  } else {
+                    window.open(
+                      `https://twitter.com/intent/tweet?text=${encodeURIComponent(text + " " + url)}`,
+                      "_blank",
+                      "noopener",
+                    );
+                  }
+                }}
+                className="flex-1 glass-card rounded-full px-5 py-3 text-sm font-semibold hover:bg-white/5 transition inline-flex items-center justify-center gap-2"
+              >
+                <Share2 className="h-4 w-4" /> Share Aim
+              </button>
+              <button
+                type="button"
+                onClick={reset}
+                className="flex-1 bg-gradient-brand text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold shadow-glow hover:opacity-90 transition"
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </ThankYouModal>
+      )}
     </section>
+  );
+}
+
+function ThankYouModal({
+  title,
+  children,
+  onClose,
+}: {
+  title: string;
+  children: React.ReactNode;
+  onClose: () => void;
+}) {
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+    >
+      <button
+        type="button"
+        aria-label="Close"
+        onClick={onClose}
+        className="absolute inset-0 bg-background/80 backdrop-blur-md"
+      />
+      <div className="relative glass-card rounded-3xl p-8 md:p-10 w-full max-w-md text-left shadow-glow">
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-4 right-4 h-9 w-9 rounded-full glass-card flex items-center justify-center hover:bg-white/5 transition"
+        >
+          <X className="h-4 w-4" />
+        </button>
+        {children}
+      </div>
+    </div>
   );
 }
 
