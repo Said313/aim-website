@@ -351,13 +351,30 @@ function CTA() {
           Join the waitlist. Early users get premium AI features free at launch.
         </p>
         <form
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={(e) => {
+            e.preventDefault();
+            const form = e.currentTarget;
+            const email = (form.elements.namedItem("waitlist-email") as HTMLInputElement)?.value;
+            const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+            if (typeof w.gtag === "function") {
+              w.gtag("event", "waitlist_signup", {
+                event_category: "conversion",
+                event_label: "waitlist",
+                method: "email",
+              });
+              w.gtag("event", "conversion", { send_to: "G-X8MMPFXYDJ" });
+            }
+            form.reset();
+            console.info("Waitlist signup:", email);
+          }}
           className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
         >
           <label htmlFor="waitlist-email" className="sr-only">Email address</label>
           <input
             id="waitlist-email"
+            name="waitlist-email"
             type="email"
+            required
             placeholder="you@email.com"
             aria-label="Email address"
             className="flex-1 glass-card rounded-full px-5 py-3.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
