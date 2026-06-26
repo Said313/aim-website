@@ -41,7 +41,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Logo({ className = "h-9 w-9" }: { className?: string }) {
-  return <img src={logo} alt="Aim logo" width={64} height={64} className={className} />;
+  return <img src={logo} alt="Aim Personal AI CFO" width={64} height={64} className={className} />;
 }
 
 function Nav() {
@@ -89,9 +89,10 @@ function Hero() {
             Built in Kazakhstan · Working worldwide
           </div>
           <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight">
-            Confidence to
-            <br />
-            <span className="text-gradient">live bigger.</span>
+            <span className="sr-only">Aim — Your Personal AI CFO. </span>
+            <span aria-hidden="true">Confidence to</span>
+            <br aria-hidden="true" />
+            <span className="text-gradient" aria-hidden="true">live bigger.</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Aim is your personal AI CFO. It connects every bank account via Open Banking,
@@ -353,9 +354,12 @@ function CTA() {
           onSubmit={(e) => e.preventDefault()}
           className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
         >
+          <label htmlFor="waitlist-email" className="sr-only">Email address</label>
           <input
+            id="waitlist-email"
             type="email"
             placeholder="you@email.com"
+            aria-label="Email address"
             className="flex-1 glass-card rounded-full px-5 py-3.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           />
           <button

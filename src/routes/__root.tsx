@@ -90,6 +90,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Aim",
+          alternateName: "Aim AI CFO",
+          url: "/",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Aim",
+          description:
+            "Personal AI CFO that connects every bank account via Open Banking and turns complex finances into clear next steps.",
+          url: "/",
+          logo: "/favicon.ico",
+          foundingLocation: { "@type": "Place", name: "Kazakhstan" },
+          founder: [
+            { "@type": "Person", name: "Umidzhan Rakhmankulov" },
+            { "@type": "Person", name: "Saidgaffor Sabyrov" },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
