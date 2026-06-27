@@ -119,108 +119,82 @@ function Hero({ lang }: { lang: Lang }) {
             <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background via-background/50 to-transparent pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-background/80 to-transparent pointer-events-none" />
 
-            {/* Transparent metric cards overlaid on the mountain */}
-            <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none p-[6%] flex flex-col gap-3 md:gap-4">
-              {/* Top row: 3 metric cards */}
-              <div className="grid grid-cols-3 gap-2 md:gap-3 float-slow">
-                {/* Financial Health gauge */}
-                <div className="rounded-2xl bg-white/5 backdrop-blur-md ring-1 ring-white/15 p-3 md:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
-                  <div className="text-[8px] md:text-[10px] uppercase tracking-wider text-white/70">Financial Health</div>
-                  <div className="mt-1 md:mt-2 relative aspect-square max-w-[80px] md:max-w-[110px] mx-auto">
-                    <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                      <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="8" />
-                      <circle cx="50" cy="50" r="42" fill="none" stroke="url(#gaugeG)" strokeWidth="8" strokeLinecap="round" strokeDasharray={`${0.82 * 2 * Math.PI * 42} ${2 * Math.PI * 42}`} />
-                      <defs>
-                        <linearGradient id="gaugeG" x1="0" y1="0" x2="1" y2="1">
-                          <stop offset="0%" stopColor="#ff3ea5" />
-                          <stop offset="50%" stopColor="#8b5cf6" />
-                          <stop offset="100%" stopColor="#22d3ee" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                    <div className="absolute inset-0 flex flex-col items-center justify-center">
-                      <span className="font-display text-2xl md:text-4xl font-semibold text-white leading-none">82</span>
-                      <span className="text-[8px] md:text-[10px] text-white/60">/ 100</span>
-                    </div>
-                  </div>
-                  <div className="mt-1 md:mt-2 text-center text-[8px] md:text-[10px] text-accent">↑ +3 this month</div>
-                </div>
+            {/* Naked metric labels & diagrams floating over the mountain (right half only) */}
+            <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
 
-                {/* Ranking distribution */}
-                <div className="rounded-2xl bg-white/5 backdrop-blur-md ring-1 ring-white/15 p-3 md:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
-                  <div className="text-[8px] md:text-[10px] uppercase tracking-wider text-white/70">Your Ranking</div>
-                  <div className="mt-2 md:mt-3 text-center">
-                    <span className="text-sm md:text-base text-white/80">Top </span>
-                    <span className="font-display text-2xl md:text-4xl font-semibold text-brand-gradient">13%</span>
-                  </div>
-                  <div className="text-center text-[8px] md:text-[10px] text-white/60 mt-1">of Aim users</div>
-                  <svg viewBox="0 0 100 36" className="w-full mt-1 md:mt-2">
-                    <path d="M0,34 C20,32 30,28 40,18 C45,10 50,4 55,4 C60,4 65,10 70,20 C80,30 90,33 100,34 L100,36 L0,36 Z" fill="rgba(139,92,246,0.25)" />
-                    <path d="M0,34 C20,32 30,28 40,18 C45,10 50,4 55,4 C60,4 65,10 70,20 C80,30 90,33 100,34" stroke="#a78bfa" strokeWidth="1" fill="none" />
-                    <circle cx="78" cy="28" r="2" fill="#22d3ee" />
+              {/* Financial Health gauge — top right */}
+              <div className="float-slow absolute right-[6%] top-[6%] w-[22%] max-w-[180px] text-center">
+                <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
+                <div className="relative mt-1 aspect-square">
+                  <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="6" />
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="url(#gaugeG)" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${0.82 * 2 * Math.PI * 42} ${2 * Math.PI * 42}`} />
+                    <defs>
+                      <linearGradient id="gaugeG" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor="#ff3ea5" />
+                        <stop offset="50%" stopColor="#a78bfa" />
+                        <stop offset="100%" stopColor="#22d3ee" />
+                      </linearGradient>
+                    </defs>
                   </svg>
-                  <div className="text-center text-[8px] md:text-[9px] text-white/50">Ahead of 87% of users</div>
-                </div>
-
-                {/* Freedom Age */}
-                <div className="rounded-2xl bg-white/5 backdrop-blur-md ring-1 ring-white/15 p-3 md:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
-                  <div className="text-[8px] md:text-[10px] uppercase tracking-wider text-white/70">Freedom Age</div>
-                  <div className="mt-2 md:mt-3 text-center">
-                    <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient leading-none">51</span>
-                    <div className="text-[8px] md:text-[10px] text-white/60 mt-0.5">years</div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">82</span>
+                    <span className="text-[9px] md:text-xs text-white/85">/ 100</span>
                   </div>
-                  <svg viewBox="0 0 100 28" className="w-full mt-1 md:mt-2">
-                    <path d="M0,26 L25,18 L45,22 L65,8 L85,16 L100,12 L100,28 L0,28 Z" fill="rgba(34,211,238,0.2)" />
-                    <path d="M0,26 L25,18 L45,22 L65,8 L85,16 L100,12" stroke="#22d3ee" strokeWidth="1" fill="none" />
-                    <circle cx="65" cy="8" r="2" fill="#ff3ea5" />
-                  </svg>
-                  <div className="text-center text-[8px] md:text-[10px] text-accent mt-1">↓ −2 yrs this 6 mo</div>
                 </div>
+                <div className="mt-1 text-[10px] md:text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
               </div>
 
-              {/* Banner */}
-              <div className="rounded-2xl bg-white/5 backdrop-blur-md ring-1 ring-white/15 px-4 py-2.5 md:py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.4)] float-slow" style={{ animationDelay: "1.2s" }}>
-                <div className="shrink-0 grid h-7 w-7 md:h-9 md:w-9 place-items-center rounded-full bg-white/10">
-                  <Target className="h-3.5 w-3.5 md:h-4 md:w-4 text-accent" />
+              {/* Ranking distribution — mid right */}
+              <div className="float-slow absolute right-[4%] top-[44%] w-[26%] max-w-[220px] text-center" style={{ animationDelay: "1.2s" }}>
+                <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
+                <div className="mt-1">
+                  <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
+                  <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient">13%</span>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <div className="text-[10px] md:text-xs font-semibold text-white">You're on track to financial freedom</div>
-                  <div className="text-[8px] md:text-[10px] text-white/60 truncate">Keep going — every step compounds.</div>
-                </div>
-                <ArrowRight className="h-3 w-3 md:h-4 md:w-4 text-white/50 shrink-0" />
+                <svg viewBox="0 0 100 30" className="w-full mt-1 drop-shadow-[0_0_10px_rgba(167,139,250,0.6)]">
+                  <path d="M0,28 C20,26 30,22 40,12 C45,4 50,-2 55,-2 C60,-2 65,4 70,14 C80,24 90,27 100,28" stroke="#e879f9" strokeWidth="1.5" fill="none" />
+                  <circle cx="78" cy="22" r="2.5" fill="#22d3ee" />
+                </svg>
+                <div className="text-[10px] md:text-xs text-white/85 mt-0.5">Ahead of 87% of users</div>
               </div>
 
-              {/* Goals list */}
-              <div className="rounded-2xl bg-white/5 backdrop-blur-md ring-1 ring-white/15 p-3 md:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.4)] float-slow flex-1 min-h-0" style={{ animationDelay: "2.4s" }}>
-                <div className="flex items-center justify-between mb-2 md:mb-3">
-                  <span className="text-[10px] md:text-xs uppercase tracking-wider text-white/70">My Goals</span>
-                  <span className="text-[9px] md:text-[10px] text-accent">All goals →</span>
+              {/* Freedom Age — bottom right */}
+              <div className="float-slow absolute right-[7%] bottom-[8%] w-[24%] max-w-[200px] text-center" style={{ animationDelay: "2.4s" }}>
+                <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
+                <div className="mt-1 flex items-baseline justify-center gap-2">
+                  <span className="font-display text-4xl md:text-6xl font-semibold text-brand-gradient leading-none">51</span>
+                  <span className="text-xs md:text-sm text-white/85">yrs</span>
                 </div>
-                <div className="space-y-1.5 md:space-y-2.5">
-                  {[
-                    { icon: Building2, label: "Apartment", pct: 67, color: "#8b5cf6" },
-                    { icon: Sparkles, label: "Trip to Japan", pct: 82, color: "#22d3ee" },
-                    { icon: TrendingUp, label: "New car", pct: 23, color: "#10b981" },
-                    { icon: Star, label: "Kids' education", pct: 41, color: "#f59e0b" },
-                  ].map((g) => (
-                    <div key={g.label} className="flex items-center gap-2 md:gap-3">
-                      <div className="shrink-0 grid h-6 w-6 md:h-8 md:w-8 place-items-center rounded-full bg-white/10">
-                        <g.icon className="h-3 w-3 md:h-4 md:w-4 text-white/80" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-baseline justify-between gap-2">
-                          <span className="text-[9px] md:text-xs text-white/90 truncate">{g.label}</span>
-                          <span className="text-[9px] md:text-xs font-semibold text-white">{g.pct}%</span>
-                        </div>
-                        <div className="mt-0.5 md:mt-1 h-1 md:h-1.5 rounded-full bg-white/10 overflow-hidden">
-                          <div className="h-full rounded-full" style={{ width: `${g.pct}%`, background: g.color }} />
-                        </div>
-                      </div>
+                <svg viewBox="0 0 100 24" className="w-full mt-1 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
+                  <path d="M0,22 L25,16 L45,18 L65,6 L85,12 L100,8" stroke="#22d3ee" strokeWidth="1.5" fill="none" />
+                  <circle cx="65" cy="6" r="2.5" fill="#ff3ea5" />
+                </svg>
+                <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-0.5">↓ −2 yrs in 6 mo</div>
+              </div>
+
+              {/* Goals — floating right column under the gauge */}
+              <div className="float-slow absolute right-[32%] top-[20%] w-[22%] max-w-[200px] space-y-2 md:space-y-2.5" style={{ animationDelay: "3.6s" }}>
+                <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium text-right">My Goals</div>
+                {[
+                  { label: "Apartment", pct: 67, color: "#a78bfa" },
+                  { label: "Trip to Japan", pct: 82, color: "#22d3ee" },
+                  { label: "New car", pct: 23, color: "#34d399" },
+                  { label: "Kids' education", pct: 41, color: "#fbbf24" },
+                ].map((g) => (
+                  <div key={g.label}>
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="text-[10px] md:text-xs text-white font-medium truncate">{g.label}</span>
+                      <span className="text-[10px] md:text-xs font-semibold text-white">{g.pct}%</span>
                     </div>
-                  ))}
-                </div>
+                    <div className="mt-0.5 h-1 md:h-1.5 rounded-full bg-white/25 overflow-hidden">
+                      <div className="h-full rounded-full shadow-[0_0_8px_currentColor]" style={{ width: `${g.pct}%`, background: g.color, color: g.color }} />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
+
           </div>
         </Reveal>
 
