@@ -83,10 +83,6 @@ function Hero({ lang }: { lang: Lang }) {
               <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.78_0.15_200)]" />
               Open Banking
             </div>
-            <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.78_0.15_150)]" />
-              {t(lang).hero.sec1}
-            </div>
           </div>
           <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight">
             <span className="sr-only">{s.srTitle} </span>
@@ -108,6 +104,12 @@ function Hero({ lang }: { lang: Lang }) {
             >
               {s.ctaSecondary}
             </a>
+          </div>
+          <div className="mt-5">
+            <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
+              <ShieldCheck className="h-3.5 w-3.5 text-[oklch(0.78_0.15_150)]" />
+              {t(lang).hero.sec1}
+            </div>
           </div>
         </Reveal>
 
