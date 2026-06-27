@@ -42,11 +42,11 @@ function Nav({ lang }: { lang: Lang }) {
   const s = t(lang);
   return (
     <header className="fixed top-0 inset-x-0 z-50">
-      <div className="mx-auto max-w-7xl px-6 py-4">
-        <div className="glass-card rounded-full flex items-center justify-between px-4 py-2.5">
-          <a href="#top" className="flex items-center gap-2">
-            <Logo className="h-16 w-16" alt="Aim Personal AI CFO" />
-            <span className="font-display text-2xl font-semibold tracking-tight">Aim</span>
+      <div className="mx-auto max-w-7xl px-4 md:px-6 py-3 md:py-4">
+        <div className="glass-card rounded-full flex items-center justify-between gap-2 px-2.5 md:px-4 py-1.5 md:py-2.5">
+          <a href="#top" className="flex items-center gap-1.5 md:gap-2 min-w-0">
+            <Logo className="h-9 w-9 md:h-16 md:w-16 shrink-0" alt="Aim Personal AI CFO" />
+            <span className="font-display text-lg md:text-2xl font-semibold tracking-tight">Aim</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#features" className="hover:text-foreground transition">{s.nav.features}</a>
@@ -54,11 +54,11 @@ function Nav({ lang }: { lang: Lang }) {
             <a href="#vision" className="hover:text-foreground transition">{s.nav.vision}</a>
             <a href="#investors" className="hover:text-foreground transition">{s.nav.investors}</a>
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 md:gap-3 shrink-0">
             <LanguageSwitcher current={lang} />
             <a
               href="#waitlist"
-              className="bg-accent text-accent-foreground rounded-full px-5 py-2 text-sm font-semibold hover:opacity-90 transition"
+              className="bg-accent text-accent-foreground rounded-full px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold hover:opacity-90 transition whitespace-nowrap"
             >
               {s.nav.cta}
             </a>
