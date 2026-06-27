@@ -118,8 +118,8 @@ function Hero({ lang }: { lang: Lang }) {
           </div>
         </Reveal>
 
-        <Reveal variant="zoom-in" delay={200} className="md:absolute md:inset-y-0 md:right-0 md:-top-36 md:w-[75%] lg:w-[70%] md:pointer-events-none">
-          <div className="relative h-full rounded-3xl overflow-hidden">
+        <Reveal variant="zoom-in" delay={200} className="-mx-6 -my-12 md:mx-0 md:my-0 md:absolute md:inset-y-0 md:right-0 md:-top-36 md:w-[75%] lg:w-[70%] md:pointer-events-none">
+          <div className="relative h-[60vh] min-h-[420px] md:h-full rounded-3xl overflow-hidden">
             <img
               src={heroImg}
               alt=""
