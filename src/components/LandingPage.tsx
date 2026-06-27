@@ -20,6 +20,7 @@ import {
 import heroImg from "@/assets/hero-mountain.jpg";
 import appMockup from "@/assets/app-mockup.png";
 import logo from "@/assets/aim-logo.png";
+import freedomMountain from "@/assets/freedom-mountain.png";
 import { Reveal } from "@/components/Reveal";
 import { UserWaitlistForm } from "@/components/UserWaitlistForm";
 import { InvestorContactForm } from "@/components/InvestorContactForm";
@@ -185,17 +186,17 @@ function Hero({ lang }: { lang: Lang }) {
                     </defs>
                     {/* baseline */}
                     <line x1="0" y1="30" x2="100" y2="30" stroke="rgba(255,255,255,0.18)" strokeWidth="0.5" />
-                    {/* bell curve filled area */}
-                    <path d="M0,30 C15,30 25,29 35,24 C42,19 46,10 50,6 C54,10 58,19 65,24 C75,29 85,30 100,30 Z" fill="url(#bellFill)" />
+                    {/* bell curve filled area — wider, flatter normal distribution */}
+                    <path d="M-5,30 C10,30 20,29 30,26 C38,22 44,14 50,12 C56,14 62,22 70,26 C80,29 90,30 105,30 Z" fill="url(#bellFill)" />
                     {/* top 13% highlight */}
                     <g clipPath="url(#bellTopClip)">
-                      <path d="M0,30 C15,30 25,29 35,24 C42,19 46,10 50,6 C54,10 58,19 65,24 C75,29 85,30 100,30 Z" fill="url(#bellHi)" />
+                      <path d="M-5,30 C10,30 20,29 30,26 C38,22 44,14 50,12 C56,14 62,22 70,26 C80,29 90,30 105,30 Z" fill="url(#bellHi)" />
                     </g>
                     {/* curve stroke */}
-                    <path d="M0,30 C15,30 25,29 35,24 C42,19 46,10 50,6 C54,10 58,19 65,24 C75,29 85,30 100,30" stroke="url(#bellStroke)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    <path d="M0,30 C12,30 20,29 30,26 C38,22 44,14 50,12 C56,14 62,22 70,26 C80,29 88,30 100,30" stroke="url(#bellStroke)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                     {/* you marker */}
-                    <line x1="87" y1="30" x2="87" y2="22" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="1.5 1.5" />
-                    <circle cx="87" cy="22" r="2.4" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.8" />
+                    <line x1="87" y1="30" x2="87" y2="24" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="1.5 1.5" />
+                    <circle cx="87" cy="24" r="2.4" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.8" />
                   </svg>
                   <div className="text-[10px] md:text-xs text-white/85 mt-2">Ahead of 87% of users</div>
                 </div>
@@ -207,23 +208,14 @@ function Hero({ lang }: { lang: Lang }) {
                     <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">51</span>
                     <span className="text-xs md:text-sm text-white/85">yrs</span>
                   </div>
-                  <svg viewBox="0 0 100 32" className="w-full mt-3 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]" preserveAspectRatio="none">
-                    <defs>
-                      <linearGradient id="freedomFill" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.45" />
-                        <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
-                      </linearGradient>
-                      <linearGradient id="freedomStroke" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stopColor="#a78bfa" />
-                        <stop offset="60%" stopColor="#22d3ee" />
-                        <stop offset="100%" stopColor="#5eead4" />
-                      </linearGradient>
-                    </defs>
-                    <line x1="0" y1="28" x2="100" y2="28" stroke="rgba(255,255,255,0.12)" strokeWidth="0.5" />
-                    <path d="M0,24 C12,22 20,20 30,18 C42,15 50,14 60,11 C72,8 82,7 100,5 L100,28 L0,28 Z" fill="url(#freedomFill)" />
-                    <path d="M0,24 C12,22 20,20 30,18 C42,15 50,14 60,11 C72,8 82,7 100,5" stroke="url(#freedomStroke)" strokeWidth="1.6" fill="none" strokeLinecap="round" />
-                    <circle cx="60" cy="11" r="2.4" fill="#ff3ea5" stroke="#0a0a1a" strokeWidth="0.8" />
-                  </svg>
+                  <img
+                    src={freedomMountain}
+                    alt="Mountain with flag at summit"
+                    loading="lazy"
+                    width={512}
+                    height={512}
+                    className="w-24 md:w-28 h-auto mt-2 drop-shadow-[0_0_18px_rgba(167,139,250,0.45)]"
+                  />
                   <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-2">↓ −2 yrs in 6 mo</div>
                 </div>
 
