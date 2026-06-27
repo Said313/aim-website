@@ -396,10 +396,6 @@ function Vision({ lang }: { lang: Lang }) {
 
         {/* Roadmap */}
         <Reveal variant="up" delay={100} className="mt-16 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] text-accent mb-6">
-            <Sparkles className="h-3.5 w-3.5" />
-            {s.eyebrow}
-          </div>
           <h3 className="font-display text-3xl md:text-5xl font-semibold leading-tight">
             {r.title} <span className="text-brand-gradient">{r.titleAccent}</span>
           </h3>
