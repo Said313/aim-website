@@ -216,7 +216,7 @@ function Hero({ lang }: { lang: Lang }) {
                       loading="lazy"
                       width={512}
                       height={512}
-                      className="w-10 md:w-14 lg:w-24 h-auto opacity-90"
+                      className="w-10 md:w-14 lg:w-24 h-auto opacity-100 brightness-150 saturate-150 contrast-110 drop-shadow-[0_0_12px_rgba(167,139,250,0.55)]"
                     />
                   </div>
                   <div className="text-[7px] md:text-[9px] lg:text-xs font-semibold text-[#5eead4] leading-tight">↓ −2 yrs / 6mo</div>
