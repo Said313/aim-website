@@ -121,15 +121,16 @@ function Hero() {
           </div>
         </Reveal>
 
-        <Reveal variant="zoom-in" delay={200} className="relative">
-          <div className="float-slow relative rounded-3xl overflow-hidden">
+        <Reveal variant="zoom-in" delay={200} className="relative md:-mr-24 lg:-mr-32">
+          <div className="float-slow relative rounded-3xl overflow-hidden md:scale-125 md:origin-left">
             <img
               src={heroImg}
               alt="A person on a mountain summit at twilight overlooking a city below"
               width={1024}
               height={1024}
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover brightness-125 contrast-105 saturate-110"
             />
+
             {/* Edge shading — blends image into the page background */}
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none" />
