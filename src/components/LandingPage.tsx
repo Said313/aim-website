@@ -174,7 +174,7 @@ function Hero({ lang }: { lang: Lang }) {
               </div>
 
               {/* Goals — floating right column under the gauge */}
-              <div className="float-slow absolute right-[32%] top-[20%] w-[22%] max-w-[200px] space-y-2 md:space-y-2.5" style={{ animationDelay: "3.6s" }}>
+              <div className="float-slow absolute right-[48%] top-[22%] w-[18%] max-w-[180px] space-y-2 md:space-y-2.5" style={{ animationDelay: "3.6s" }}>
                 <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium text-right">My Goals</div>
                 {[
                   { label: "Apartment", pct: 67, color: "#a78bfa" },
