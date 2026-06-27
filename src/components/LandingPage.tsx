@@ -122,76 +122,60 @@ function Hero({ lang }: { lang: Lang }) {
             {/* Naked metric labels & diagrams floating over the mountain (right half only) */}
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
 
-              {/* Financial Health gauge — top right */}
-              <div className="float-slow absolute right-[26%] top-[6%] w-[18%] max-w-[160px] text-center">
-                <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
-                <div className="relative mt-1 aspect-square">
-                  <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="6" />
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="url(#gaugeG)" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${0.82 * 2 * Math.PI * 42} ${2 * Math.PI * 42}`} />
-                    <defs>
-                      <linearGradient id="gaugeG" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stopColor="#ff3ea5" />
-                        <stop offset="50%" stopColor="#a78bfa" />
-                        <stop offset="100%" stopColor="#22d3ee" />
-                      </linearGradient>
-                    </defs>
+              {/* Three metrics in one row across the top */}
+              <div className="absolute left-[20%] right-[20%] top-[8%] flex items-start justify-between gap-4 md:gap-6">
+
+                {/* Financial Health gauge */}
+                <div className="float-slow flex-1 max-w-[160px] text-center">
+                  <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
+                  <div className="relative mt-1 aspect-square">
+                    <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
+                      <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="6" />
+                      <circle cx="50" cy="50" r="42" fill="none" stroke="url(#gaugeG)" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${0.82 * 2 * Math.PI * 42} ${2 * Math.PI * 42}`} />
+                      <defs>
+                        <linearGradient id="gaugeG" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stopColor="#ff3ea5" />
+                          <stop offset="50%" stopColor="#a78bfa" />
+                          <stop offset="100%" stopColor="#22d3ee" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">82</span>
+                      <span className="text-[9px] md:text-xs text-white/85">/ 100</span>
+                    </div>
+                  </div>
+                  <div className="mt-1 text-[10px] md:text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
+                </div>
+
+                {/* Ranking distribution */}
+                <div className="float-slow flex-1 max-w-[180px] text-center" style={{ animationDelay: "1.2s" }}>
+                  <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
+                  <div className="mt-1">
+                    <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
+                    <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient">13%</span>
+                  </div>
+                  <svg viewBox="0 0 100 30" className="w-full mt-1 drop-shadow-[0_0_10px_rgba(167,139,250,0.6)]">
+                    <path d="M0,28 C20,26 30,22 40,12 C45,4 50,-2 55,-2 C60,-2 65,4 70,14 C80,24 90,27 100,28" stroke="#e879f9" strokeWidth="1.5" fill="none" />
+                    <circle cx="78" cy="22" r="2.5" fill="#22d3ee" />
                   </svg>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">82</span>
-                    <span className="text-[9px] md:text-xs text-white/85">/ 100</span>
+                  <div className="text-[10px] md:text-xs text-white/85 mt-0.5">Ahead of 87% of users</div>
+                </div>
+
+                {/* Freedom Age */}
+                <div className="float-slow flex-1 max-w-[170px] text-center" style={{ animationDelay: "2.4s" }}>
+                  <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
+                  <div className="mt-1 flex items-baseline justify-center gap-2">
+                    <span className="font-display text-4xl md:text-6xl font-semibold text-brand-gradient leading-none">51</span>
+                    <span className="text-xs md:text-sm text-white/85">yrs</span>
                   </div>
+                  <svg viewBox="0 0 100 24" className="w-full mt-1 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
+                    <path d="M0,22 L25,16 L45,18 L65,6 L85,12 L100,8" stroke="#22d3ee" strokeWidth="1.5" fill="none" />
+                    <circle cx="65" cy="6" r="2.5" fill="#ff3ea5" />
+                  </svg>
+                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-0.5">↓ −2 yrs in 6 mo</div>
                 </div>
-                <div className="mt-1 text-[10px] md:text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
-              </div>
 
-              {/* Ranking distribution — mid right */}
-              <div className="float-slow absolute right-[25%] top-[46%] w-[20%] max-w-[190px] text-center" style={{ animationDelay: "1.2s" }}>
-                <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
-                <div className="mt-1">
-                  <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
-                  <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient">13%</span>
-                </div>
-                <svg viewBox="0 0 100 30" className="w-full mt-1 drop-shadow-[0_0_10px_rgba(167,139,250,0.6)]">
-                  <path d="M0,28 C20,26 30,22 40,12 C45,4 50,-2 55,-2 C60,-2 65,4 70,14 C80,24 90,27 100,28" stroke="#e879f9" strokeWidth="1.5" fill="none" />
-                  <circle cx="78" cy="22" r="2.5" fill="#22d3ee" />
-                </svg>
-                <div className="text-[10px] md:text-xs text-white/85 mt-0.5">Ahead of 87% of users</div>
-              </div>
-
-              {/* Freedom Age — bottom right */}
-              <div className="float-slow absolute right-[27%] bottom-[10%] w-[19%] max-w-[180px] text-center" style={{ animationDelay: "2.4s" }}>
-                <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
-                <div className="mt-1 flex items-baseline justify-center gap-2">
-                  <span className="font-display text-4xl md:text-6xl font-semibold text-brand-gradient leading-none">51</span>
-                  <span className="text-xs md:text-sm text-white/85">yrs</span>
-                </div>
-                <svg viewBox="0 0 100 24" className="w-full mt-1 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
-                  <path d="M0,22 L25,16 L45,18 L65,6 L85,12 L100,8" stroke="#22d3ee" strokeWidth="1.5" fill="none" />
-                  <circle cx="65" cy="6" r="2.5" fill="#ff3ea5" />
-                </svg>
-                <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-0.5">↓ −2 yrs in 6 mo</div>
-              </div>
-
-              {/* Goals — floating right column under the gauge */}
-              <div className="float-slow absolute right-[48%] top-[22%] w-[18%] max-w-[180px] space-y-2 md:space-y-2.5" style={{ animationDelay: "3.6s" }}>
-                <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium text-right">My Goals</div>
-                {[
-                  { label: "Apartment", pct: 67, color: "#a78bfa" },
-                  { label: "Trip to Japan", pct: 82, color: "#22d3ee" },
-                  { label: "New car", pct: 23, color: "#34d399" },
-                  { label: "Kids' education", pct: 41, color: "#fbbf24" },
-                ].map((g) => (
-                  <div key={g.label}>
-                    <div className="flex items-baseline justify-between gap-2">
-                      <span className="text-[10px] md:text-xs text-white font-medium truncate">{g.label}</span>
-                      <span className="text-[10px] md:text-xs font-semibold text-white">{g.pct}%</span>
-                    </div>
-                    <div className="mt-0.5 h-1 md:h-1.5 rounded-full bg-white/25 overflow-hidden">
-                      <div className="h-full rounded-full shadow-[0_0_8px_currentColor]" style={{ width: `${g.pct}%`, background: g.color, color: g.color }} />
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
 
