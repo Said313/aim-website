@@ -208,11 +208,11 @@ function Hero({ lang }: { lang: Lang }) {
 
 
                 {/* Freedom Age */}
-                <div className="h-full flex flex-col items-center text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col items-center text-center rounded-2xl bg-white/10 md:bg-black/55 backdrop-blur-sm px-2 md:px-3 py-3 md:py-4 ring-1 ring-white/15 md:ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
-                  <div className="mt-2 flex items-baseline justify-center gap-2">
-                    <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">51</span>
-                    <span className="text-xs md:text-sm text-white/85">yrs</span>
+                  <div className="mt-2 flex items-baseline justify-center gap-1 md:gap-2">
+                    <span className="font-display text-2xl md:text-5xl font-semibold text-white leading-none">51</span>
+                    <span className="text-[11px] md:text-sm text-white/85">yrs</span>
                   </div>
                   <div className="flex-1 flex items-center justify-center w-full my-1">
                     <img
