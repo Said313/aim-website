@@ -162,7 +162,7 @@ function Hero({ lang }: { lang: Lang }) {
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
                   <div className="mt-2">
                     <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
-                    <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient">13%</span>
+                    <span className="font-display text-3xl md:text-5xl font-semibold text-white">13%</span>
                   </div>
                   <svg viewBox="0 0 100 30" className="w-full mt-2 drop-shadow-[0_0_10px_rgba(167,139,250,0.6)]">
                     <path d="M0,28 C20,26 30,22 40,12 C45,4 50,-2 55,-2 C60,-2 65,4 70,14 C80,24 90,27 100,28" stroke="#e879f9" strokeWidth="1.5" fill="none" />
