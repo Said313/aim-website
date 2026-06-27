@@ -162,11 +162,11 @@ function Hero({ lang }: { lang: Lang }) {
                   <div className="mt-2 text-[10px] md:text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
                 </div>
 
-                <div className="h-full flex flex-col items-center text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col items-center text-center rounded-2xl bg-white/10 md:bg-black/55 backdrop-blur-sm px-2 md:px-3 py-3 md:py-4 ring-1 ring-white/15 md:ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
                   <div className="mt-2 flex items-baseline justify-center gap-1">
-                    <span className="text-base md:text-xl text-white/90 font-medium">Top</span>
-                    <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">13%</span>
+                    <span className="text-sm md:text-xl text-white/90 font-medium">Top</span>
+                    <span className="font-display text-2xl md:text-5xl font-semibold text-white leading-none">13%</span>
                   </div>
                   <div className="flex-1 flex items-center justify-center w-full my-1">
                     <svg viewBox="0 0 100 34" className="w-full drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]" preserveAspectRatio="none">
