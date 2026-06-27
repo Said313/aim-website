@@ -88,7 +88,7 @@ function Hero() {
             <span className="sr-only">Aim — Your Personal AI CFO. </span>
             <span aria-hidden="true">Confidence to</span>
             <br aria-hidden="true" />
-            <span className="text-accent" aria-hidden="true">live bigger.</span>
+            <span className="text-brand-gradient" aria-hidden="true">live bigger.</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Aim is your personal AI CFO. It connects every bank account via Open Banking,
