@@ -146,7 +146,7 @@ function Hero({ lang }: { lang: Lang }) {
               </div>
 
               {/* Ranking distribution — mid right */}
-              <div className="float-slow absolute right-[4%] top-[44%] w-[26%] max-w-[220px] text-center" style={{ animationDelay: "1.2s" }}>
+              <div className="float-slow absolute right-[25%] top-[46%] w-[20%] max-w-[190px] text-center" style={{ animationDelay: "1.2s" }}>
                 <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
                 <div className="mt-1">
                   <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
