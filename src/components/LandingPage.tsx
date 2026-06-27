@@ -234,11 +234,11 @@ function Hero({ lang }: { lang: Lang }) {
       <div className="md:hidden">
         <div className="relative">
           {/* Sticky mountain (image only) - stays under nav while intro scrolls over it */}
-          <div className="sticky top-14 h-[60vh] overflow-hidden z-0">
+          <div className="sticky top-16 h-[60vh] overflow-hidden z-0">
             <MountainImage className="[mask-image:linear-gradient(to_bottom,transparent_0%,black_18%,black_78%,transparent_100%)]" />
           </div>
           {/* Intro overlays on top of sticky mountain */}
-          <div className="relative z-10 -mt-[60vh] px-6 pt-24 pb-10 min-h-[60vh]">
+          <div className="relative z-10 -mt-[60vh] px-6 pt-28 pb-10 min-h-[60vh]">
             <HeroIntro lang={lang} />
           </div>
         </div>
