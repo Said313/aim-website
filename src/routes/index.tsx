@@ -121,7 +121,7 @@ function Hero() {
           </div>
         </Reveal>
 
-        <Reveal variant="zoom-in" delay={200} className="relative md:-ml-32 lg:-ml-48 md:-mr-8">
+        <Reveal variant="zoom-in" delay={200} className="relative z-0 md:-ml-32 lg:-ml-48 md:-mr-8 pointer-events-none">
           <div className="float-slow relative rounded-3xl overflow-hidden md:w-[130%] lg:w-[140%]">
             <img
               src={heroImg}
