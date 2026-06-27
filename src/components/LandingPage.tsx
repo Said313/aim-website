@@ -198,7 +198,7 @@ function Hero({ lang }: { lang: Lang }) {
                     <line x1="87" y1="30" x2="87" y2="29.5" stroke="#22d3ee" strokeWidth="0.6" strokeDasharray="1.5 1.5" />
                     <circle cx="87" cy="29.5" r="1.8" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.6" />
                   </svg>
-                  <div className="text-[10px] md:text-xs text-emerald-400 mt-2">Ahead of 87% of users</div>
+                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-2">Ahead of 87% of users</div>
                 </div>
 
                 {/* Freedom Age */}
