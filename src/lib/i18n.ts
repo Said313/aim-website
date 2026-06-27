@@ -158,6 +158,8 @@ const en = {
     titleB: "aim higher.",
     desc: "On a mission to give everyone a personal AI CFO.",
     role: "Co-founder",
+    roleCeo: "Founder & CEO",
+    roleCto: "Founder & CTO",
   },
   cta: {
     titleA: "Be the first to",
@@ -340,6 +342,8 @@ const ru: Dict = {
     titleB: "целится выше.",
     desc: "Наша миссия — дать каждому персонального AI-финдиректора.",
     role: "Сооснователь",
+    roleCeo: "Основатель и CEO",
+    roleCto: "Основатель и CTO",
   },
   cta: {
     titleA: "Будьте первым, кто",
@@ -520,6 +524,8 @@ const kz: Dict = {
     titleB: "көздейтіндер жасады.",
     desc: "Біздің миссия — әр адамға жеке AI қаржы директорын беру.",
     role: "Бірге құрылтайшы",
+    roleCeo: "Құрылтайшы және CEO",
+    roleCto: "Құрылтайшы және CTO",
   },
   cta: {
     titleA: "Жоғары көздейтін",
