@@ -112,12 +112,13 @@ function Hero({ lang }: { lang: Lang }) {
               alt=""
               width={1024}
               height={1024}
-              className="w-full h-auto object-cover brightness-110 contrast-105 saturate-110"
+              className="w-full h-full object-cover brightness-110 contrast-105 saturate-110"
             />
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background via-background/70 to-transparent pointer-events-none" />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/90 via-background/40 to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background via-background/50 to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-background/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background via-background/60 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-background/60 to-transparent pointer-events-none" />
 
             {/* Naked metric labels & diagrams floating over the mountain (right half only) */}
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
