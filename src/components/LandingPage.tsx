@@ -149,7 +149,7 @@ function Hero({ lang }: { lang: Lang }) {
                 </div>
 
                 {/* Ranking distribution */}
-                <div className="flex-1 max-w-[170px] text-center">
+                <div className="flex-1 max-w-[170px] text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
                   <div className="mt-2">
                     <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
