@@ -160,14 +160,14 @@ function Hero({ lang }: { lang: Lang }) {
                   <div className="mt-2 text-[10px] md:text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
                 </div>
 
-                {/* Ranking distribution */}
-                <div className="h-full flex flex-col items-center justify-center text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col items-center text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
                   <div className="mt-2 flex items-baseline justify-center gap-1">
                     <span className="text-base md:text-xl text-white/90 font-medium">Top</span>
                     <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">13%</span>
                   </div>
-                  <svg viewBox="0 0 100 34" className="w-full mt-3 drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]" preserveAspectRatio="none">
+                  <div className="flex-1 flex items-center justify-center w-full my-1">
+                    <svg viewBox="0 0 100 34" className="w-full drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]" preserveAspectRatio="none">
                     <defs>
                       <linearGradient id="bellFill" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.55" />
@@ -199,9 +199,11 @@ function Hero({ lang }: { lang: Lang }) {
                     {/* you marker */}
                     <line x1="87" y1="30" x2="87" y2="29.5" stroke="#22d3ee" strokeWidth="0.6" strokeDasharray="1.5 1.5" />
                     <circle cx="87" cy="29.5" r="1.8" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.6" />
-                  </svg>
-                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-2">Ahead of 87% of users</div>
+                    </svg>
+                  </div>
+                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4]">Ahead of 87% of users</div>
                 </div>
+
 
                 {/* Freedom Age */}
                 <div className="h-full flex flex-col items-center text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
