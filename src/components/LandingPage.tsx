@@ -125,13 +125,13 @@ function Hero({ lang }: { lang: Lang }) {
               alt=""
               width={1024}
               height={1024}
-              className="w-full h-full object-cover brightness-110 contrast-105 saturate-110"
+              className="w-full h-full object-cover brightness-[1.35] contrast-110 saturate-125 md:brightness-110 md:contrast-105 md:saturate-110"
             />
-            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
-            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background via-background/70 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background via-background/85 via-40% to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background via-background/60 to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-background/60 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_55%,var(--color-background)_98%)] md:bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
+            <div className="absolute inset-x-0 top-0 h-24 md:h-40 bg-gradient-to-b from-background/70 md:from-background via-background/30 md:via-background/70 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 md:h-1/2 bg-gradient-to-t from-background via-background/60 md:via-background/85 via-40% to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-1/6 md:w-1/3 bg-gradient-to-r from-background/60 md:from-background via-background/20 md:via-background/60 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/6 md:w-1/5 bg-gradient-to-l from-background/40 md:from-background/60 to-transparent pointer-events-none" />
 
             {/* Naked metric labels & diagrams floating over the mountain (right half only) */}
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
