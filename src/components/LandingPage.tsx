@@ -208,23 +208,14 @@ function Hero({ lang }: { lang: Lang }) {
                     <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">51</span>
                     <span className="text-xs md:text-sm text-white/85">yrs</span>
                   </div>
-                  <svg viewBox="0 0 100 32" className="w-full mt-3 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]" preserveAspectRatio="none">
-                    <defs>
-                      <linearGradient id="freedomFill" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.45" />
-                        <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
-                      </linearGradient>
-                      <linearGradient id="freedomStroke" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stopColor="#a78bfa" />
-                        <stop offset="60%" stopColor="#22d3ee" />
-                        <stop offset="100%" stopColor="#5eead4" />
-                      </linearGradient>
-                    </defs>
-                    <line x1="0" y1="28" x2="100" y2="28" stroke="rgba(255,255,255,0.12)" strokeWidth="0.5" />
-                    <path d="M0,24 C12,22 20,20 30,18 C42,15 50,14 60,11 C72,8 82,7 100,5 L100,28 L0,28 Z" fill="url(#freedomFill)" />
-                    <path d="M0,24 C12,22 20,20 30,18 C42,15 50,14 60,11 C72,8 82,7 100,5" stroke="url(#freedomStroke)" strokeWidth="1.6" fill="none" strokeLinecap="round" />
-                    <circle cx="60" cy="11" r="2.4" fill="#ff3ea5" stroke="#0a0a1a" strokeWidth="0.8" />
-                  </svg>
+                  <img
+                    src={freedomMountain}
+                    alt="Mountain with flag at summit"
+                    loading="lazy"
+                    width={512}
+                    height={512}
+                    className="w-24 md:w-28 h-auto mt-2 drop-shadow-[0_0_18px_rgba(167,139,250,0.45)]"
+                  />
                   <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-2">↓ −2 yrs in 6 mo</div>
                 </div>
 
