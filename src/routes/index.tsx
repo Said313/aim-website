@@ -410,8 +410,8 @@ function CTA() {
             <UserWaitlistForm />
           </Reveal>
 
-          <Reveal variant="right" delay={120} id="investors">
-            <div className="flex items-center gap-2 mb-4 text-xs uppercase tracking-[0.2em] text-accent">
+          <Reveal variant="right" delay={120}>
+            <div id="investors" className="flex items-center gap-2 mb-4 text-xs uppercase tracking-[0.2em] text-accent scroll-mt-24">
               <Briefcase className="h-4 w-4" />
               <span>Investor contact</span>
             </div>
