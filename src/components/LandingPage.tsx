@@ -175,7 +175,7 @@ function Hero({ lang }: { lang: Lang }) {
                 <div className="h-full flex flex-col text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
                   <div className="mt-2 flex items-baseline justify-center gap-2">
-                    <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient leading-none">51</span>
+                    <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">51</span>
                     <span className="text-xs md:text-sm text-white/85">yrs</span>
                   </div>
                   <svg viewBox="0 0 100 24" className="w-full mt-2 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
