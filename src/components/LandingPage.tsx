@@ -123,7 +123,7 @@ function Hero({ lang }: { lang: Lang }) {
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
 
               {/* Financial Health gauge — top right */}
-              <div className="float-slow absolute right-[6%] top-[6%] w-[22%] max-w-[180px] text-center">
+              <div className="float-slow absolute right-[26%] top-[6%] w-[18%] max-w-[160px] text-center">
                 <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
                 <div className="relative mt-1 aspect-square">
                   <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
@@ -146,7 +146,7 @@ function Hero({ lang }: { lang: Lang }) {
               </div>
 
               {/* Ranking distribution — mid right */}
-              <div className="float-slow absolute right-[4%] top-[44%] w-[26%] max-w-[220px] text-center" style={{ animationDelay: "1.2s" }}>
+              <div className="float-slow absolute right-[25%] top-[46%] w-[20%] max-w-[190px] text-center" style={{ animationDelay: "1.2s" }}>
                 <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
                 <div className="mt-1">
                   <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
@@ -160,7 +160,7 @@ function Hero({ lang }: { lang: Lang }) {
               </div>
 
               {/* Freedom Age — bottom right */}
-              <div className="float-slow absolute right-[7%] bottom-[8%] w-[24%] max-w-[200px] text-center" style={{ animationDelay: "2.4s" }}>
+              <div className="float-slow absolute right-[27%] bottom-[10%] w-[19%] max-w-[180px] text-center" style={{ animationDelay: "2.4s" }}>
                 <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
                 <div className="mt-1 flex items-baseline justify-center gap-2">
                   <span className="font-display text-4xl md:text-6xl font-semibold text-brand-gradient leading-none">51</span>
@@ -174,7 +174,7 @@ function Hero({ lang }: { lang: Lang }) {
               </div>
 
               {/* Goals — floating right column under the gauge */}
-              <div className="float-slow absolute right-[32%] top-[20%] w-[22%] max-w-[200px] space-y-2 md:space-y-2.5" style={{ animationDelay: "3.6s" }}>
+              <div className="float-slow absolute right-[48%] top-[22%] w-[18%] max-w-[180px] space-y-2 md:space-y-2.5" style={{ animationDelay: "3.6s" }}>
                 <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium text-right">My Goals</div>
                 {[
                   { label: "Apartment", pct: 67, color: "#a78bfa" },
