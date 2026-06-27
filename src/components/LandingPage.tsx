@@ -186,19 +186,19 @@ function Hero({ lang }: { lang: Lang }) {
                     </defs>
                     {/* baseline */}
                     <line x1="0" y1="30" x2="100" y2="30" stroke="rgba(255,255,255,0.18)" strokeWidth="0.5" />
-                    {/* bell curve filled area — wider, flatter normal distribution */}
-                    <path d="M-5,30 C10,30 20,29 30,26 C38,22 44,14 50,12 C56,14 62,22 70,26 C80,29 90,30 105,30 Z" fill="url(#bellFill)" />
+                    {/* bell curve filled area — true Gaussian */}
+                    <path d="M-2,30 L0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99 L102,30 Z" fill="url(#bellFill)" />
                     {/* top 13% highlight */}
                     <g clipPath="url(#bellTopClip)">
-                      <path d="M-5,30 C10,30 20,29 30,26 C38,22 44,14 50,12 C56,14 62,22 70,26 C80,29 90,30 105,30 Z" fill="url(#bellHi)" />
+                      <path d="M-2,30 L0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99 L102,30 Z" fill="url(#bellHi)" />
                     </g>
                     {/* curve stroke */}
-                    <path d="M0,30 C12,30 20,29 30,26 C38,22 44,14 50,12 C56,14 62,22 70,26 C80,29 88,30 100,30" stroke="url(#bellStroke)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    <path d="M0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99" stroke="url(#bellStroke)" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
                     {/* you marker */}
-                    <line x1="87" y1="30" x2="87" y2="24" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="1.5 1.5" />
-                    <circle cx="87" cy="24" r="2.4" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.8" />
+                    <line x1="87" y1="30" x2="87" y2="29.5" stroke="#22d3ee" strokeWidth="0.6" strokeDasharray="1.5 1.5" />
+                    <circle cx="87" cy="29.5" r="1.8" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.6" />
                   </svg>
-                  <div className="text-[10px] md:text-xs text-white/85 mt-2">Ahead of 87% of users</div>
+                  <div className="text-[10px] md:text-xs text-emerald-400 mt-2">Ahead of 87% of users</div>
                 </div>
 
                 {/* Freedom Age */}
