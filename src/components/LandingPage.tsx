@@ -68,7 +68,7 @@ function Hero({ lang }: { lang: Lang }) {
   const s = t(lang).hero;
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
-      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-8 items-center">
+      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-8 items-center min-h-[600px]">
         <Reveal variant="left" className="relative z-10">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
