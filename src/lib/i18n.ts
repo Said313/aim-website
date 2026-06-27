@@ -52,9 +52,9 @@ const en = {
     sec2: "Open Banking",
   },
   stats: [
-    { value: "1st", label: "Company onboarded to Open Banking" },
+    { value: "1st", label: "Company onboarded to Open Banking in Central Asia" },
     { value: "1st", label: "Fintech AI startup in the region" },
-    { value: "100+", label: "Users on the pre-launch waitlist" },
+    { value: "2,000+", label: "Users on the pre-launch waitlist" },
   ],
   marquee: [
     "Open Banking",
@@ -193,9 +193,9 @@ const ru: Dict = {
     sec2: "Open Banking",
   },
   stats: [
-    { value: "1-я", label: "Компания, подключённая к Open Banking" },
+    { value: "1-я", label: "Компания, подключённая к Open Banking в Центральной Азии" },
     { value: "1-й", label: "Финтех AI-стартап в регионе" },
-    { value: "100+", label: "Пользователей в листе ожидания" },
+    { value: "2 000+", label: "Пользователей в листе ожидания" },
   ],
   marquee: [
     "Open Banking",
@@ -332,9 +332,9 @@ const kz: Dict = {
     sec2: "Open Banking",
   },
   stats: [
-    { value: "1-ші", label: "Open Banking-ке қосылған компания" },
+    { value: "1-ші", label: "Орталық Азияда Open Banking-ке қосылған компания" },
     { value: "1-ші", label: "Аймақтағы Финтех AI стартап" },
-    { value: "100+", label: "Күту тізіміндегі пайдаланушылар" },
+    { value: "2 000+", label: "Күту тізіміндегі пайдаланушылар" },
   ],
   marquee: [
     "Open Banking",
