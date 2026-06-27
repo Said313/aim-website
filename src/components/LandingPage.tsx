@@ -126,7 +126,7 @@ function Hero({ lang }: { lang: Lang }) {
               <div className="absolute left-[20%] right-[20%] top-1/2 -translate-y-1/2 flex items-center justify-between gap-4 md:gap-6">
 
                 {/* Financial Health gauge */}
-                <div className="flex-1 max-w-[170px] text-center">
+                <div className="flex-1 max-w-[170px] text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
                   <div className="relative mt-2 aspect-square">
                     <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
