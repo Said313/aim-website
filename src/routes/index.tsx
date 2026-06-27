@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   Brain,
   Building2,
@@ -15,15 +14,14 @@ import {
   Monitor,
   ArrowRight,
   Check,
-  X,
-  Mail,
-  Share2,
-  CheckCircle2,
+  Briefcase,
 } from "lucide-react";
 import heroImg from "@/assets/hero-mountain.jpg";
 import appMockup from "@/assets/app-mockup.png";
 import logo from "@/assets/aim-logo.png";
 import { Reveal } from "@/components/Reveal";
+import { UserWaitlistForm } from "@/components/UserWaitlistForm";
+import { InvestorContactForm } from "@/components/InvestorContactForm";
 
 export const Route = createFileRoute("/")({
   head: () => ({
