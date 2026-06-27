@@ -556,8 +556,8 @@ function RoleSelector({ lang }: { lang: Lang }) {
 function Founders({ lang }: { lang: Lang }) {
   const s = t(lang).founders;
   const founders = [
-    { name: "Umidzhan Rakhmankulov", initials: "UR" },
-    { name: "Saidgaffor Sabyrov", initials: "SS" },
+    { name: "Umidzhan Rakhmankulov", initials: "UR", photo: founderUmidzhan },
+    { name: "Saidgaffor Sabyrov", initials: "SS", photo: null as string | null },
   ];
   return (
     <section id="founders" className="py-24 md:py-32">
@@ -577,8 +577,12 @@ function Founders({ lang }: { lang: Lang }) {
               delay={i * 150}
               className="glass-card rounded-3xl p-8 flex items-center gap-5"
             >
-              <div className="h-20 w-20 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center flex-none">
-                <span className="font-display text-2xl font-semibold text-accent">{f.initials}</span>
+              <div className="h-20 w-20 rounded-2xl border border-accent/30 bg-accent/10 overflow-hidden flex items-center justify-center flex-none">
+                {f.photo ? (
+                  <img src={f.photo} alt={f.name} className="h-full w-full object-cover" />
+                ) : (
+                  <span className="font-display text-2xl font-semibold text-accent">{f.initials}</span>
+                )}
               </div>
               <div className="min-w-0">
                 <div className="font-display text-lg font-semibold leading-tight">{f.name}</div>
