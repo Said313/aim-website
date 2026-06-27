@@ -125,7 +125,7 @@ function Hero({ lang }: { lang: Lang }) {
               alt=""
               width={1024}
               height={1024}
-              className="w-full h-full object-cover brightness-110 contrast-105 saturate-110"
+              className="w-full h-full object-cover brightness-[1.35] contrast-110 saturate-125"
             />
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background via-background/70 to-transparent pointer-events-none" />
@@ -140,7 +140,7 @@ function Hero({ lang }: { lang: Lang }) {
               <div className="absolute left-[4%] right-[4%] md:left-[48%] md:right-[3%] top-1/2 -translate-y-1/2 grid grid-cols-3 items-stretch gap-1.5 md:gap-2 lg:gap-4">
 
                 {/* Financial Health gauge */}
-                <div className="h-full flex flex-col items-center justify-center text-center rounded-xl md:rounded-2xl bg-black/55 backdrop-blur-sm px-1.5 py-2 md:px-2 md:py-3 lg:px-3 lg:py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col items-center justify-center text-center rounded-xl md:rounded-2xl bg-white/5 backdrop-blur-md px-1.5 py-2 md:px-2 md:py-3 lg:px-3 lg:py-4 ring-1 ring-white/10">
                   <div className="text-[7px] md:text-[9px] lg:text-xs uppercase tracking-[0.12em] lg:tracking-[0.18em] text-white font-medium leading-tight">Financial Health</div>
                   <div className="relative mt-1 lg:mt-2 aspect-square w-full">
                     <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
@@ -162,7 +162,7 @@ function Hero({ lang }: { lang: Lang }) {
                   <div className="mt-1 lg:mt-2 text-[7px] md:text-[9px] lg:text-xs font-semibold text-[#5eead4] leading-tight">↑ +3 this month</div>
                 </div>
 
-                <div className="h-full flex flex-col items-center justify-center text-center rounded-xl md:rounded-2xl bg-black/55 backdrop-blur-sm px-1.5 py-2 md:px-2 md:py-3 lg:px-3 lg:py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col items-center justify-center text-center rounded-xl md:rounded-2xl bg-white/5 backdrop-blur-md px-1.5 py-2 md:px-2 md:py-3 lg:px-3 lg:py-4 ring-1 ring-white/10">
                   <div className="text-[7px] md:text-[9px] lg:text-xs uppercase tracking-[0.12em] lg:tracking-[0.18em] text-white font-medium leading-tight">Your Ranking</div>
                   <div className="mt-1 lg:mt-2 flex items-baseline justify-center gap-0.5 lg:gap-1">
                     <span className="text-[9px] md:text-xs lg:text-xl text-white/90 font-medium">Top</span>
@@ -203,7 +203,7 @@ function Hero({ lang }: { lang: Lang }) {
 
 
                 {/* Freedom Age */}
-                <div className="h-full flex flex-col items-center justify-center text-center rounded-xl md:rounded-2xl bg-black/55 backdrop-blur-sm px-1.5 py-2 md:px-2 md:py-3 lg:px-3 lg:py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col items-center justify-center text-center rounded-xl md:rounded-2xl bg-white/5 backdrop-blur-md px-1.5 py-2 md:px-2 md:py-3 lg:px-3 lg:py-4 ring-1 ring-white/10">
                   <div className="text-[7px] md:text-[9px] lg:text-xs uppercase tracking-[0.12em] lg:tracking-[0.18em] text-white font-medium leading-tight">Freedom Age</div>
                   <div className="mt-1 lg:mt-2 flex items-baseline justify-center gap-0.5 lg:gap-2">
                     <span className="font-display text-base md:text-2xl lg:text-5xl font-semibold text-white leading-none">51</span>
