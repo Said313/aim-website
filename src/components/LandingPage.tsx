@@ -495,7 +495,7 @@ function RoleSelector({ lang }: { lang: Lang }) {
 
   if (role === null) {
     return (
-      <Reveal variant="up" className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <div className="text-center text-xs uppercase tracking-[0.2em] text-accent mb-6">
           {s.rolePrompt}
         </div>
@@ -529,12 +529,12 @@ function RoleSelector({ lang }: { lang: Lang }) {
             </div>
           </button>
         </div>
-      </Reveal>
+      </div>
     );
   }
 
   return (
-    <Reveal variant="up" className="max-w-xl mx-auto">
+    <div className="max-w-xl mx-auto">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-accent">
           {role === "user" ? <Sparkles className="h-4 w-4" /> : <Briefcase className="h-4 w-4" />}
@@ -549,7 +549,7 @@ function RoleSelector({ lang }: { lang: Lang }) {
         </button>
       </div>
       {role === "user" ? <UserWaitlistForm lang={lang} /> : <InvestorContactForm lang={lang} />}
-    </Reveal>
+    </div>
   );
 }
 
