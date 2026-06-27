@@ -105,6 +105,11 @@ function Hero({ lang }: { lang: Lang }) {
               {s.ctaSecondary}
             </a>
           </div>
+          <div className="mt-5">
+            <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
+              <ShieldCheck className="h-3.5 w-3.5 text-[oklch(0.78_0.15_150)]" />
+              {t(lang).hero.sec1}
+            </div>
         </Reveal>
 
         <Reveal variant="zoom-in" delay={200} className="md:absolute md:inset-y-0 md:right-0 md:-top-36 md:w-[75%] lg:w-[70%] md:pointer-events-none">
