@@ -123,7 +123,7 @@ function Hero({ lang }: { lang: Lang }) {
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
 
               {/* Financial Health gauge — top right */}
-              <div className="float-slow absolute right-[6%] top-[6%] w-[22%] max-w-[180px] text-center">
+              <div className="float-slow absolute right-[26%] top-[6%] w-[18%] max-w-[160px] text-center">
                 <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
                 <div className="relative mt-1 aspect-square">
                   <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
