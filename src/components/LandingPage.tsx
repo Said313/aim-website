@@ -443,24 +443,24 @@ function Vision({ lang }: { lang: Lang }) {
           })}
         </div>
 
-        <Reveal variant="up" delay={200} className="mt-10">
-          <div className="glass-card rounded-3xl p-8 md:p-10 flex items-start gap-5">
-            <div className="h-12 w-12 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center flex-none">
+        <Reveal variant="up" delay={200} className="mt-16">
+          <div className="glass-card rounded-3xl p-8 md:p-12 max-w-4xl mx-auto text-center">
+            <div className="h-12 w-12 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center mx-auto mb-6">
               <Sparkles className="h-5 w-5 text-accent" />
             </div>
-            <p className="text-base md:text-lg leading-relaxed">
+            <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
               {r.closingA}{" "}
               <span className="text-foreground font-medium">{r.closingB}</span>{" "}
               <span className="text-brand-gradient font-semibold">{r.closingC}</span>
             </p>
+            <div className="mt-8 pt-8 border-t border-border/60">
+              <p className="font-display text-lg md:text-xl font-semibold">
+                {r.banner}
+              </p>
+            </div>
           </div>
         </Reveal>
 
-        <Reveal variant="zoom-in" delay={300} className="mt-10 text-center">
-          <div className="inline-block glass-card rounded-full px-6 py-3 text-sm font-medium">
-            {r.banner}
-          </div>
-        </Reveal>
       </div>
     </section>
   );
