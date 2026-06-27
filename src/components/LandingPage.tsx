@@ -23,6 +23,7 @@ import heroImg from "@/assets/hero-mountain.jpg";
 import appMockup from "@/assets/app-mockup.png";
 import logo from "@/assets/aim-logo.png";
 import freedomMountain from "@/assets/freedom-mountain.png";
+import founderUmidzhan from "@/assets/founder-umidzhan.png";
 import { Reveal } from "@/components/Reveal";
 import { UserWaitlistForm } from "@/components/UserWaitlistForm";
 import { InvestorContactForm } from "@/components/InvestorContactForm";
