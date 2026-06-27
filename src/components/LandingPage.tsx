@@ -72,8 +72,8 @@ function Nav({ lang }: { lang: Lang }) {
 function Hero({ lang }: { lang: Lang }) {
   const s = t(lang).hero;
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-24 md:pt-32 md:pb-32">
-      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-8 items-center min-h-[600px]">
+    <section id="top" className="relative md:overflow-hidden pt-20 pb-20 md:pt-32 md:pb-32">
+      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-6 md:gap-8 items-start md:items-center min-h-[600px]">
         <Reveal variant="left" className="relative z-10">
           <div className="flex flex-wrap items-center gap-2 mb-6">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
@@ -118,7 +118,7 @@ function Hero({ lang }: { lang: Lang }) {
           </div>
         </Reveal>
 
-        <Reveal variant="zoom-in" delay={200} className="-mx-6 -my-12 md:mx-0 md:my-0 md:absolute md:inset-y-0 md:right-0 md:-top-36 md:w-[75%] lg:w-[70%] md:pointer-events-none">
+        <Reveal variant="zoom-in" delay={200} className="-mx-6 order-first sticky top-16 self-start z-0 md:order-none md:static md:self-auto md:mx-0 md:my-0 md:absolute md:inset-y-0 md:right-0 md:-top-36 md:w-[75%] lg:w-[70%] md:pointer-events-none">
           <div className="relative h-[60vh] min-h-[420px] md:h-full md:rounded-3xl overflow-hidden">
             <img
               src={heroImg}
