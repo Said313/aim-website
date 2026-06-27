@@ -56,7 +56,7 @@ function Nav() {
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="glass-card rounded-full flex items-center justify-between px-4 py-2.5">
           <a href="#top" className="flex items-center gap-2">
-            <Logo className="h-12 w-12" />
+            <Logo className="h-8 w-8" />
             <span className="font-display text-xl font-semibold tracking-tight">Aim</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
@@ -140,7 +140,7 @@ function Hero() {
               src={appMockup}
               alt=""
               aria-hidden="true"
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[38%] max-w-[180px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+              className="absolute -bottom-6 -right-6 w-[38%] max-w-[180px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] rotate-3"
             />
           </div>
 
@@ -658,7 +658,7 @@ function Footer() {
     <footer className="border-t border-border py-12">
       <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2">
-          <Logo className="h-10 w-10" />
+          <Logo className="h-7 w-7" />
           <span className="font-display font-semibold">Aim</span>
           <span className="text-muted-foreground text-sm ml-2">· Your AI CFO</span>
         </div>
