@@ -161,7 +161,7 @@ const en = {
     errGeneric: "Something went wrong. Please try again.",
   },
   langSwitch: "Language",
-} as const;
+};
 
 type Dict = typeof en;
 
