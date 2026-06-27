@@ -110,6 +110,7 @@ function Hero({ lang }: { lang: Lang }) {
               <ShieldCheck className="h-3.5 w-3.5 text-[oklch(0.78_0.15_150)]" />
               {t(lang).hero.sec1}
             </div>
+          </div>
         </Reveal>
 
         <Reveal variant="zoom-in" delay={200} className="md:absolute md:inset-y-0 md:right-0 md:-top-36 md:w-[75%] lg:w-[70%] md:pointer-events-none">
