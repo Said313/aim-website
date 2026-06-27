@@ -68,7 +68,7 @@ function Hero({ lang }: { lang: Lang }) {
   const s = t(lang).hero;
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
-      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-8 items-center">
+      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-8 items-center min-h-[600px]">
         <Reveal variant="left" className="relative z-10">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
@@ -105,19 +105,20 @@ function Hero({ lang }: { lang: Lang }) {
           </div>
         </Reveal>
 
-        <Reveal variant="zoom-in" delay={200} className="relative md:-ml-32 lg:-ml-48 md:-mr-8">
-          <div className="relative rounded-3xl overflow-hidden md:w-[130%] lg:w-[140%]">
+        <Reveal variant="zoom-in" delay={200} className="md:absolute md:inset-y-0 md:right-0 md:-top-36 md:w-[75%] lg:w-[70%] md:pointer-events-none">
+          <div className="relative h-full rounded-3xl overflow-hidden">
             <img
               src={heroImg}
               alt=""
               width={1024}
               height={1024}
-              className="w-full h-auto object-cover brightness-110 contrast-105 saturate-110"
+              className="w-full h-full object-cover brightness-110 contrast-105 saturate-110"
             />
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background via-background/70 to-transparent pointer-events-none" />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/90 via-background/40 to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background via-background/50 to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-background/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background via-background/60 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-background/60 to-transparent pointer-events-none" />
 
             {/* Naked metric labels & diagrams floating over the mountain (right half only) */}
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
