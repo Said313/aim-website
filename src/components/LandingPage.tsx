@@ -487,6 +487,70 @@ function CTA({ lang }: { lang: Lang }) {
   );
 }
 
+function RoleSelector({ lang }: { lang: Lang }) {
+  const s = t(lang).cta;
+  const [role, setRole] = useState<"user" | "investor" | null>(null);
+
+  if (role === null) {
+    return (
+      <Reveal variant="up" className="max-w-3xl mx-auto">
+        <div className="text-center text-xs uppercase tracking-[0.2em] text-accent mb-6">
+          {s.rolePrompt}
+        </div>
+        <div className="grid sm:grid-cols-2 gap-5">
+          <button
+            type="button"
+            onClick={() => setRole("user")}
+            className="glass-card rounded-3xl p-8 text-left transition hover:-translate-y-1 hover:bg-white/5 duration-300 group"
+          >
+            <div className="h-12 w-12 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center mb-5">
+              <User className="h-5 w-5 text-accent" />
+            </div>
+            <h3 className="font-display text-xl font-semibold">{s.roleUser}</h3>
+            <p className="text-sm text-muted-foreground mt-2">{s.roleUserDesc}</p>
+            <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+              {s.userLabel} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </div>
+          </button>
+          <button
+            type="button"
+            onClick={() => setRole("investor")}
+            className="glass-card rounded-3xl p-8 text-left transition hover:-translate-y-1 hover:bg-white/5 duration-300 group"
+          >
+            <div className="h-12 w-12 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center mb-5">
+              <Briefcase className="h-5 w-5 text-accent" />
+            </div>
+            <h3 className="font-display text-xl font-semibold">{s.roleInvestor}</h3>
+            <p className="text-sm text-muted-foreground mt-2">{s.roleInvestorDesc}</p>
+            <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+              {s.investorLabel} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </div>
+          </button>
+        </div>
+      </Reveal>
+    );
+  }
+
+  return (
+    <Reveal variant="up" className="max-w-xl mx-auto">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-accent">
+          {role === "user" ? <Sparkles className="h-4 w-4" /> : <Briefcase className="h-4 w-4" />}
+          <span>{role === "user" ? s.userLabel : s.investorLabel}</span>
+        </div>
+        <button
+          type="button"
+          onClick={() => setRole(null)}
+          className="text-xs text-muted-foreground hover:text-foreground transition"
+        >
+          {s.back}
+        </button>
+      </div>
+      {role === "user" ? <UserWaitlistForm lang={lang} /> : <InvestorContactForm lang={lang} />}
+    </Reveal>
+  );
+}
+
 function Founders({ lang }: { lang: Lang }) {
   const s = t(lang).founders;
   const founders = [
