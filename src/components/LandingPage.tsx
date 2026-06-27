@@ -123,10 +123,10 @@ function Hero({ lang }: { lang: Lang }) {
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
 
               {/* Three metrics in one row across the top */}
-              <div className="absolute left-[20%] right-[20%] top-1/2 -translate-y-1/2 flex items-center justify-between gap-4 md:gap-6">
+              <div className="absolute left-[22%] right-[28%] lg:right-[32%] top-1/2 -translate-y-1/2 grid grid-cols-3 items-stretch gap-3 md:gap-4">
 
                 {/* Financial Health gauge */}
-                <div className="flex-1 max-w-[170px] text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
                   <div className="relative mt-2 aspect-square">
                     <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
@@ -149,7 +149,7 @@ function Hero({ lang }: { lang: Lang }) {
                 </div>
 
                 {/* Ranking distribution */}
-                <div className="flex-1 max-w-[170px] text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
                   <div className="mt-2">
                     <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
@@ -163,7 +163,7 @@ function Hero({ lang }: { lang: Lang }) {
                 </div>
 
                 {/* Freedom Age */}
-                <div className="flex-1 max-w-[170px] text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
                   <div className="mt-2 flex items-baseline justify-center gap-2">
                     <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient leading-none">51</span>
