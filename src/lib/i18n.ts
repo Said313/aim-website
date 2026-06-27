@@ -72,13 +72,11 @@ const en = {
     titleB: "your life.",
     items: [
       { title: "Ask anything", text: "Get clear answers to any question about your money, in plain language." },
-      { title: "Understand the why", text: "AI explains the changes in your spending, income and financial habits." },
-      { title: "Plan the future", text: "Set goals, model scenarios, and see the consequences of decisions before you make them." },
-      { title: "Personal recommendations", text: "Practical, tailored advice that helps you reach your goals faster." },
       { title: "All finance in one place", text: "Banks, cards, accounts, investments and credit — unified via Open Banking." },
-      { title: "Private by design", text: "Bank-level encryption. Your data is yours. Read-only access, always." },
       { title: "Financial health & freedom age", text: "Track your financial health score in real time and see the age at which you can reach financial freedom." },
       { title: "Goal trajectory", text: "Watch the live trajectory toward each personal financial goal and know exactly what to adjust to land on time." },
+      { title: "Private & confidential", text: "Bank-level encryption. Your data is yours. Read-only access, always." },
+      { title: "Personal recommendations", text: "Practical, tailored advice that helps you reach your goals faster." },
     ],
   },
   problem: {
@@ -215,13 +213,11 @@ const ru: Dict = {
     titleB: "вашу жизнь.",
     items: [
       { title: "Спросите что угодно", text: "Понятные ответы на любой вопрос о ваших деньгах — простым языком." },
-      { title: "Понимайте причины", text: "AI объясняет изменения в расходах, доходах и финансовых привычках." },
-      { title: "Планируйте будущее", text: "Ставьте цели, моделируйте сценарии и видите последствия решений заранее." },
-      { title: "Персональные рекомендации", text: "Практичные советы под ваши задачи, чтобы достигать целей быстрее." },
       { title: "Все финансы в одном месте", text: "Банки, карты, счета, инвестиции и кредиты — объединены через Open Banking." },
-      { title: "Приватность по умолчанию", text: "Шифрование банковского уровня. Доступ только на чтение. Данные — ваши." },
       { title: "Финансовое здоровье и возраст свободы", text: "Отслеживайте свой индекс финансового здоровья в реальном времени и узнайте возраст, в котором вы достигнете финансовой свободы." },
       { title: "Траектория целей", text: "Видите живую траекторию к каждой личной финансовой цели и точно знаете, что скорректировать, чтобы прийти вовремя." },
+      { title: "Приватно и конфиденциально", text: "Шифрование банковского уровня. Доступ только на чтение. Данные — ваши." },
+      { title: "Персональные рекомендации", text: "Практичные советы под ваши задачи, чтобы достигать целей быстрее." },
     ],
   },
   problem: {
@@ -356,13 +352,11 @@ const kz: Dict = {
     titleB: "қаржы директоры.",
     items: [
       { title: "Кез келген нәрсе сұраңыз", text: "Ақшаңыз туралы кез келген сұраққа қарапайым тілмен жауап." },
-      { title: "Себебін түсініңіз", text: "AI шығындарыңыз, табысыңыз және қаржылық әдеттеріңіздегі өзгерістерді түсіндіреді." },
-      { title: "Болашақты жоспарлаңыз", text: "Мақсат қойыңыз, сценарийлерді модельдеңіз және шешімдердің салдарын алдын ала көріңіз." },
-      { title: "Жеке ұсыныстар", text: "Мақсаттарыңызға тез жетуге көмектесетін практикалық кеңестер." },
       { title: "Барлық қаржы бір жерде", text: "Банктер, карталар, шоттар, инвестициялар мен несиелер — Open Banking арқылы біріктірілген." },
-      { title: "Жеке өмір қорғалған", text: "Банктік шифрлеу. Деректер сіздікі. Тек оқуға арналған қол жеткізу." },
       { title: "Қаржылық денсаулық және еркіндік жасы", text: "Қаржылық денсаулық индексіңізді нақты уақытта қадағалаңыз және қаржылық еркіндікке жететін жасыңызды біліңіз." },
       { title: "Мақсат траекториясы", text: "Әр жеке қаржылық мақсатқа жету траекториясын тірі көріп, уақытында жету үшін нені реттеу керектігін біліңіз." },
+      { title: "Жеке және құпия", text: "Банктік шифрлеу. Деректер сіздікі. Тек оқуға арналған қол жеткізу." },
+      { title: "Жеке ұсыныстар", text: "Мақсаттарыңызға тез жетуге көмектесетін практикалық кеңестер." },
     ],
   },
   problem: {

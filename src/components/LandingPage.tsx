@@ -26,7 +26,7 @@ import { InvestorContactForm } from "@/components/InvestorContactForm";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { t, type Lang } from "@/lib/i18n";
 
-const FEATURE_ICONS = [MessageSquare, TrendingUp, Target, Star, Building2, ShieldCheck, Activity, LineChart];
+const FEATURE_ICONS = [MessageSquare, Building2, Activity, LineChart, ShieldCheck, Star];
 const PLATFORM_ICONS = [Smartphone, Watch, Monitor, Globe];
 
 function Logo({ className = "h-9 w-9", alt }: { className?: string; alt: string }) {
