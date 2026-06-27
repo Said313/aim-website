@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Brain,
   Building2,
@@ -16,6 +17,7 @@ import {
   Briefcase,
   Activity,
   LineChart,
+  User,
 } from "lucide-react";
 import heroImg from "@/assets/hero-mountain.jpg";
 import appMockup from "@/assets/app-mockup.png";
