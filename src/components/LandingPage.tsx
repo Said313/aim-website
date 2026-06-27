@@ -123,12 +123,12 @@ function Hero({ lang }: { lang: Lang }) {
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
 
               {/* Three metrics in one row across the top */}
-              <div className="absolute left-[20%] right-[20%] top-[8%] flex items-start justify-between gap-4 md:gap-6">
+              <div className="absolute left-[20%] right-[20%] top-1/2 -translate-y-1/2 flex items-center justify-between gap-4 md:gap-6">
 
                 {/* Financial Health gauge */}
-                <div className="float-slow flex-1 max-w-[160px] text-center">
+                <div className="flex-1 max-w-[170px] text-center">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
-                  <div className="relative mt-1 aspect-square">
+                  <div className="relative mt-2 aspect-square">
                     <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
                       <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="6" />
                       <circle cx="50" cy="50" r="42" fill="none" stroke="url(#gaugeG)" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${0.82 * 2 * Math.PI * 42} ${2 * Math.PI * 42}`} />
@@ -145,35 +145,35 @@ function Hero({ lang }: { lang: Lang }) {
                       <span className="text-[9px] md:text-xs text-white/85">/ 100</span>
                     </div>
                   </div>
-                  <div className="mt-1 text-[10px] md:text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
+                  <div className="mt-2 text-[10px] md:text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
                 </div>
 
                 {/* Ranking distribution */}
-                <div className="float-slow flex-1 max-w-[180px] text-center" style={{ animationDelay: "1.2s" }}>
+                <div className="flex-1 max-w-[170px] text-center">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
-                  <div className="mt-1">
+                  <div className="mt-2">
                     <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
                     <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient">13%</span>
                   </div>
-                  <svg viewBox="0 0 100 30" className="w-full mt-1 drop-shadow-[0_0_10px_rgba(167,139,250,0.6)]">
+                  <svg viewBox="0 0 100 30" className="w-full mt-2 drop-shadow-[0_0_10px_rgba(167,139,250,0.6)]">
                     <path d="M0,28 C20,26 30,22 40,12 C45,4 50,-2 55,-2 C60,-2 65,4 70,14 C80,24 90,27 100,28" stroke="#e879f9" strokeWidth="1.5" fill="none" />
                     <circle cx="78" cy="22" r="2.5" fill="#22d3ee" />
                   </svg>
-                  <div className="text-[10px] md:text-xs text-white/85 mt-0.5">Ahead of 87% of users</div>
+                  <div className="text-[10px] md:text-xs text-white/85 mt-1">Ahead of 87% of users</div>
                 </div>
 
                 {/* Freedom Age */}
-                <div className="float-slow flex-1 max-w-[170px] text-center" style={{ animationDelay: "2.4s" }}>
+                <div className="flex-1 max-w-[170px] text-center">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
-                  <div className="mt-1 flex items-baseline justify-center gap-2">
-                    <span className="font-display text-4xl md:text-6xl font-semibold text-brand-gradient leading-none">51</span>
+                  <div className="mt-2 flex items-baseline justify-center gap-2">
+                    <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient leading-none">51</span>
                     <span className="text-xs md:text-sm text-white/85">yrs</span>
                   </div>
-                  <svg viewBox="0 0 100 24" className="w-full mt-1 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
+                  <svg viewBox="0 0 100 24" className="w-full mt-2 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
                     <path d="M0,22 L25,16 L45,18 L65,6 L85,12 L100,8" stroke="#22d3ee" strokeWidth="1.5" fill="none" />
                     <circle cx="65" cy="6" r="2.5" fill="#ff3ea5" />
                   </svg>
-                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-0.5">↓ −2 yrs in 6 mo</div>
+                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-1">↓ −2 yrs in 6 mo</div>
                 </div>
 
               </div>
