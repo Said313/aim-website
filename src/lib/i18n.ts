@@ -1,0 +1,450 @@
+export const LANGS = ["en", "ru", "kz"] as const;
+export type Lang = (typeof LANGS)[number];
+export const DEFAULT_LANG: Lang = "en";
+
+export const LANG_LABELS: Record<Lang, string> = {
+  en: "English",
+  ru: "Русский",
+  kz: "Қазақша",
+};
+
+export const LANG_SHORT: Record<Lang, string> = {
+  en: "EN",
+  ru: "RU",
+  kz: "KZ",
+};
+
+export const HTML_LANG: Record<Lang, string> = {
+  en: "en",
+  ru: "ru",
+  kz: "kk",
+};
+
+export function isLang(x: string | undefined): x is Lang {
+  return !!x && (LANGS as readonly string[]).includes(x);
+}
+
+const en = {
+  meta: {
+    title: "Aim — Your AI CFO. Confidence to live bigger.",
+    description:
+      "Aim is your personal AI CFO. Connect every bank account via Open Banking, get insights, set goals, plan the future. Working worldwide.",
+    ogTitle: "Aim — Your AI CFO",
+    ogDescription:
+      "Personal AI CFO that takes finance off your plate, so you can focus on what matters.",
+  },
+  nav: {
+    features: "Features",
+    platforms: "Platforms",
+    vision: "Vision",
+    investors: "Investors",
+    cta: "Join waitlist",
+  },
+  hero: {
+    badge: "Working worldwide",
+    srTitle: "Aim — Your Personal AI CFO.",
+    line1: "Confidence to",
+    line2: "live bigger.",
+    desc: "Aim is your personal AI CFO. It connects every bank account via Open Banking, understands your life, and turns complex finances into clear next steps — so you can focus on what truly matters.",
+    ctaPrimary: "Get early access",
+    ctaSecondary: "See what it does",
+    sec1: "Bank-grade security",
+    sec2: "Open Banking",
+  },
+  stats: [
+    { value: "1st", label: "Company onboarded to Open Banking" },
+    { value: "1st", label: "Fintech AI startup in the region" },
+    { value: "100+", label: "Users on the pre-launch waitlist" },
+  ],
+  marquee: [
+    "Open Banking",
+    "AI CFO",
+    "Goals",
+    "Insights",
+    "Investments",
+    "Budget",
+    "Confidence",
+    "Plan ahead",
+  ],
+  features: {
+    eyebrow: "What Aim does",
+    titleA: "A CFO that understands",
+    titleB: "your life.",
+    items: [
+      { title: "Ask anything", text: "Get clear answers to any question about your money, in plain language." },
+      { title: "Understand the why", text: "AI explains the changes in your spending, income and financial habits." },
+      { title: "Plan the future", text: "Set goals, model scenarios, and see the consequences of decisions before you make them." },
+      { title: "Personal recommendations", text: "Practical, tailored advice that helps you reach your goals faster." },
+      { title: "All finance in one place", text: "Banks, cards, accounts, investments and credit — unified via Open Banking." },
+      { title: "Private by design", text: "Bank-level encryption. Your data is yours. Read-only access, always." },
+    ],
+  },
+  problem: {
+    eyebrow: "The problem",
+    title: "Too many banks. Too little clarity.",
+    bullets: [
+      "Dozens of bank apps, cards and spreadsheets — no single picture.",
+      "Managing money takes time, attention, and financial knowledge most people don't have.",
+      "It's easy to get lost, miss something, and make costly mistakes.",
+    ],
+    closer: "People don't need another tool. They need a financial partner.",
+  },
+  solution: {
+    eyebrow: "Our answer",
+    title: "One AI CFO. Every account. Real decisions.",
+    bullets: [
+      "Aim aggregates every account through secure Open Banking.",
+      "AI understands your habits, goals and life — not just transactions.",
+      "Complex data becomes simple recommendations you can act on today.",
+    ],
+    closer: "The right moment for a new standard in personal finance.",
+  },
+  platforms: {
+    eyebrow: "Everywhere you are",
+    titleA: "One AI CFO,",
+    titleB: "every device.",
+    items: [
+      { title: "Mobile app", text: "iOS & Android. The full Aim experience in your pocket." },
+      { title: "Watch app", text: "Glanceable balance, goals and alerts on your wrist." },
+      { title: "Web app", text: "Deep analytics and planning on the big screen." },
+      { title: "Worldwide", text: "Designed for users everywhere." },
+    ],
+  },
+  vision: {
+    eyebrow: "Our vision",
+    titleA: "A world where every person has a personal",
+    titleB: "AI CFO",
+    titleC: "— helping them live the life they actually dream of.",
+    desc: "Premium AI. A marketplace. Investments, insurance, lending, mortgages — and much more. We're just getting started.",
+  },
+  founders: {
+    eyebrow: "Founders",
+    titleA: "Built by people who",
+    titleB: "aim higher.",
+    desc: "On a mission to give everyone a personal AI CFO.",
+    role: "Co-founder",
+  },
+  cta: {
+    titleA: "Be the first to",
+    titleB: "aim higher.",
+    desc: "Join the waitlist or get in touch as an investor. Early users get premium AI features free at launch.",
+    userLabel: "User waitlist",
+    investorLabel: "Investor contact",
+  },
+  footer: {
+    tagline: "Your AI CFO",
+    copyright: "Aim. Made in Kazakhstan, for the world.",
+  },
+  forms: {
+    name: "Name",
+    namePh: "Your full name",
+    email: "Email",
+    emailPh: "you@email.com",
+    phone: "Phone number",
+    phonePh: "+1 555 000 0000",
+    company: "Company / Fund",
+    companyPh: "Your firm",
+    message: "Message",
+    messagePh: "Tell us about your interest…",
+    submitUser: "Join the waitlist",
+    submittingUser: "Joining…",
+    submitInvestor: "Get in touch",
+    submittingInvestor: "Sending…",
+    successUserTitle: "You're on the waitlist!",
+    successUserDesc: "We'll email you the moment early access opens.",
+    successInvestorTitle: "Thank you!",
+    successInvestorDesc: "We'll be in touch shortly.",
+    addAnother: "Add another",
+    errName: "Please enter your name.",
+    errEmail: "Please enter a valid email.",
+    errPhone: "Please enter your phone number.",
+    errGeneric: "Something went wrong. Please try again.",
+  },
+  langSwitch: "Language",
+};
+
+type Dict = typeof en;
+
+const ru: Dict = {
+  meta: {
+    title: "Aim — Ваш AI-финдиректор. Уверенность, чтобы жить шире.",
+    description:
+      "Aim — ваш персональный AI-финдиректор. Подключите все банковские счета через Open Banking, получайте инсайты, ставьте цели, планируйте будущее. Работаем по всему миру.",
+    ogTitle: "Aim — Ваш AI-финдиректор",
+    ogDescription:
+      "Персональный AI-финдиректор берёт финансы на себя — а вы сосредотачиваетесь на главном.",
+  },
+  nav: {
+    features: "Возможности",
+    platforms: "Платформы",
+    vision: "Видение",
+    investors: "Инвесторам",
+    cta: "В лист ожидания",
+  },
+  hero: {
+    badge: "Работаем по всему миру",
+    srTitle: "Aim — Ваш персональный AI-финдиректор.",
+    line1: "Уверенность, чтобы",
+    line2: "жить шире.",
+    desc: "Aim — ваш персональный AI-финдиректор. Он подключает все банковские счета через Open Banking, понимает вашу жизнь и превращает сложные финансы в чёткие шаги — чтобы вы могли сосредоточиться на главном.",
+    ctaPrimary: "Получить ранний доступ",
+    ctaSecondary: "Что он умеет",
+    sec1: "Банковская безопасность",
+    sec2: "Open Banking",
+  },
+  stats: [
+    { value: "1-я", label: "Компания, подключённая к Open Banking" },
+    { value: "1-й", label: "Финтех AI-стартап в регионе" },
+    { value: "100+", label: "Пользователей в листе ожидания" },
+  ],
+  marquee: [
+    "Open Banking",
+    "AI-финдиректор",
+    "Цели",
+    "Инсайты",
+    "Инвестиции",
+    "Бюджет",
+    "Уверенность",
+    "Планирование",
+  ],
+  features: {
+    eyebrow: "Что делает Aim",
+    titleA: "Финдиректор, который понимает",
+    titleB: "вашу жизнь.",
+    items: [
+      { title: "Спросите что угодно", text: "Понятные ответы на любой вопрос о ваших деньгах — простым языком." },
+      { title: "Понимайте причины", text: "AI объясняет изменения в расходах, доходах и финансовых привычках." },
+      { title: "Планируйте будущее", text: "Ставьте цели, моделируйте сценарии и видите последствия решений заранее." },
+      { title: "Персональные рекомендации", text: "Практичные советы под ваши задачи, чтобы достигать целей быстрее." },
+      { title: "Все финансы в одном месте", text: "Банки, карты, счета, инвестиции и кредиты — объединены через Open Banking." },
+      { title: "Приватность по умолчанию", text: "Шифрование банковского уровня. Доступ только на чтение. Данные — ваши." },
+    ],
+  },
+  problem: {
+    eyebrow: "Проблема",
+    title: "Слишком много банков. Слишком мало ясности.",
+    bullets: [
+      "Десятки банковских приложений, карт и таблиц — и ни одной общей картины.",
+      "Управлять деньгами требует времени, внимания и знаний, которых у большинства нет.",
+      "Легко запутаться, что-то упустить и совершить дорогую ошибку.",
+    ],
+    closer: "Людям нужен не очередной инструмент. Им нужен финансовый партнёр.",
+  },
+  solution: {
+    eyebrow: "Наш ответ",
+    title: "Один AI-финдиректор. Все счета. Реальные решения.",
+    bullets: [
+      "Aim объединяет все счета через защищённый Open Banking.",
+      "AI понимает ваши привычки, цели и жизнь — не только транзакции.",
+      "Сложные данные превращаются в простые рекомендации, по которым можно действовать сегодня.",
+    ],
+    closer: "Самое время для нового стандарта личных финансов.",
+  },
+  platforms: {
+    eyebrow: "Везде, где вы",
+    titleA: "Один AI-финдиректор,",
+    titleB: "на каждом устройстве.",
+    items: [
+      { title: "Мобильное приложение", text: "iOS и Android. Полный опыт Aim в кармане." },
+      { title: "Приложение для часов", text: "Баланс, цели и уведомления на запястье." },
+      { title: "Веб-приложение", text: "Глубокая аналитика и планирование на большом экране." },
+      { title: "По всему миру", text: "Создано для пользователей повсюду." },
+    ],
+  },
+  vision: {
+    eyebrow: "Наше видение",
+    titleA: "Мир, где у каждого есть личный",
+    titleB: "AI-финдиректор",
+    titleC: "— помогающий жить той жизнью, о которой мечтают.",
+    desc: "Premium AI. Маркетплейс. Инвестиции, страхование, кредиты, ипотека — и многое другое. Мы только начинаем.",
+  },
+  founders: {
+    eyebrow: "Основатели",
+    titleA: "Создано теми, кто",
+    titleB: "целится выше.",
+    desc: "Наша миссия — дать каждому персонального AI-финдиректора.",
+    role: "Сооснователь",
+  },
+  cta: {
+    titleA: "Будьте первым, кто",
+    titleB: "целится выше.",
+    desc: "Запишитесь в лист ожидания или свяжитесь как инвестор. Ранним пользователям — premium AI бесплатно на старте.",
+    userLabel: "Лист ожидания",
+    investorLabel: "Контакт для инвесторов",
+  },
+  footer: {
+    tagline: "Ваш AI-финдиректор",
+    copyright: "Aim. Сделано в Казахстане, для всего мира.",
+  },
+  forms: {
+    name: "Имя",
+    namePh: "Ваше полное имя",
+    email: "Email",
+    emailPh: "you@email.com",
+    phone: "Телефон",
+    phonePh: "+7 700 000 0000",
+    company: "Компания / Фонд",
+    companyPh: "Ваша организация",
+    message: "Сообщение",
+    messagePh: "Расскажите о вашем интересе…",
+    submitUser: "В лист ожидания",
+    submittingUser: "Отправка…",
+    submitInvestor: "Связаться",
+    submittingInvestor: "Отправка…",
+    successUserTitle: "Вы в листе ожидания!",
+    successUserDesc: "Мы напишем, как только откроется ранний доступ.",
+    successInvestorTitle: "Спасибо!",
+    successInvestorDesc: "Мы свяжемся с вами в ближайшее время.",
+    addAnother: "Добавить ещё",
+    errName: "Пожалуйста, укажите имя.",
+    errEmail: "Укажите корректный email.",
+    errPhone: "Укажите номер телефона.",
+    errGeneric: "Что-то пошло не так. Попробуйте снова.",
+  },
+  langSwitch: "Язык",
+};
+
+const kz: Dict = {
+  meta: {
+    title: "Aim — Сіздің AI қаржы директорыңыз. Үлкен өмір сүруге сенімділік.",
+    description:
+      "Aim — сіздің жеке AI қаржы директорыңыз. Барлық банк шоттарын Open Banking арқылы қосыңыз, түсініктер алыңыз, мақсат қойыңыз, болашақты жоспарлаңыз. Бүкіл әлемде жұмыс істейміз.",
+    ogTitle: "Aim — Сіздің AI қаржы директорыңыз",
+    ogDescription:
+      "Жеке AI қаржы директоры қаржыңызды өз мойнына алады — сіз ең маңыздыға назар аударасыз.",
+  },
+  nav: {
+    features: "Мүмкіндіктер",
+    platforms: "Платформалар",
+    vision: "Көзқарас",
+    investors: "Инвесторлар",
+    cta: "Күту тізіміне",
+  },
+  hero: {
+    badge: "Бүкіл әлемде жұмыс істейміз",
+    srTitle: "Aim — Сіздің жеке AI қаржы директорыңыз.",
+    line1: "Үлкен өмір сүруге",
+    line2: "сенімділік.",
+    desc: "Aim — сіздің жеке AI қаржы директорыңыз. Ол барлық банк шоттарын Open Banking арқылы қосады, өміріңізді түсінеді және күрделі қаржыны нақты қадамдарға айналдырады — сіз шынымен маңыздыға назар аударасыз.",
+    ctaPrimary: "Ерте қол жеткізу",
+    ctaSecondary: "Не істейді",
+    sec1: "Банктік деңгейдегі қауіпсіздік",
+    sec2: "Open Banking",
+  },
+  stats: [
+    { value: "1-ші", label: "Open Banking-ке қосылған компания" },
+    { value: "1-ші", label: "Аймақтағы Финтех AI стартап" },
+    { value: "100+", label: "Күту тізіміндегі пайдаланушылар" },
+  ],
+  marquee: [
+    "Open Banking",
+    "AI қаржы директоры",
+    "Мақсаттар",
+    "Түсініктер",
+    "Инвестициялар",
+    "Бюджет",
+    "Сенімділік",
+    "Жоспарлау",
+  ],
+  features: {
+    eyebrow: "Aim не істейді",
+    titleA: "Өміріңізді түсінетін",
+    titleB: "қаржы директоры.",
+    items: [
+      { title: "Кез келген нәрсе сұраңыз", text: "Ақшаңыз туралы кез келген сұраққа қарапайым тілмен жауап." },
+      { title: "Себебін түсініңіз", text: "AI шығындарыңыз, табысыңыз және қаржылық әдеттеріңіздегі өзгерістерді түсіндіреді." },
+      { title: "Болашақты жоспарлаңыз", text: "Мақсат қойыңыз, сценарийлерді модельдеңіз және шешімдердің салдарын алдын ала көріңіз." },
+      { title: "Жеке ұсыныстар", text: "Мақсаттарыңызға тез жетуге көмектесетін практикалық кеңестер." },
+      { title: "Барлық қаржы бір жерде", text: "Банктер, карталар, шоттар, инвестициялар мен несиелер — Open Banking арқылы біріктірілген." },
+      { title: "Жеке өмір қорғалған", text: "Банктік шифрлеу. Деректер сіздікі. Тек оқуға арналған қол жеткізу." },
+    ],
+  },
+  problem: {
+    eyebrow: "Мәселе",
+    title: "Банктер тым көп. Анықтық тым аз.",
+    bullets: [
+      "Ондаған банк қосымшалары, карталар мен кестелер — бірыңғай сурет жоқ.",
+      "Ақша басқару көпшілікте жоқ уақыт, назар және білім талап етеді.",
+      "Адасу, бір нәрсені жіберіп алу және қымбат қателіктер жасау оңай.",
+    ],
+    closer: "Адамдарға тағы бір құрал емес, қаржылық серіктес қажет.",
+  },
+  solution: {
+    eyebrow: "Біздің жауап",
+    title: "Бір AI қаржы директоры. Барлық шот. Шынайы шешімдер.",
+    bullets: [
+      "Aim барлық шоттарды қауіпсіз Open Banking арқылы біріктіреді.",
+      "AI әдеттеріңізді, мақсаттарыңызды және өміріңізді түсінеді — тек транзакцияларды емес.",
+      "Күрделі деректер бүгін әрекет етуге болатын қарапайым ұсыныстарға айналады.",
+    ],
+    closer: "Жеке қаржының жаңа стандартына уақыт жетті.",
+  },
+  platforms: {
+    eyebrow: "Сіз қайда болсаңыз да",
+    titleA: "Бір AI қаржы директоры,",
+    titleB: "әр құрылғыда.",
+    items: [
+      { title: "Мобильді қосымша", text: "iOS және Android. Қалтаңыздағы толық Aim тәжірибесі." },
+      { title: "Сағат қосымшасы", text: "Білегіңіздегі баланс, мақсаттар және хабарламалар." },
+      { title: "Веб-қосымша", text: "Үлкен экрандағы терең аналитика мен жоспарлау." },
+      { title: "Бүкіл әлемде", text: "Кез келген елдегі пайдаланушылар үшін жасалған." },
+    ],
+  },
+  vision: {
+    eyebrow: "Біздің көзқарас",
+    titleA: "Әр адамның жеке",
+    titleB: "AI қаржы директоры",
+    titleC: "болатын әлем — олар армандайтын өмірмен өмір сүруге көмектеседі.",
+    desc: "Premium AI. Маркетплейс. Инвестициялар, сақтандыру, несие, ипотека — және басқа да көп нәрсе. Біз әлі бастадық.",
+  },
+  founders: {
+    eyebrow: "Құрылтайшылар",
+    titleA: "Жоғары",
+    titleB: "көздейтіндер жасады.",
+    desc: "Біздің миссия — әр адамға жеке AI қаржы директорын беру.",
+    role: "Бірге құрылтайшы",
+  },
+  cta: {
+    titleA: "Жоғары көздейтін",
+    titleB: "алғашқы болыңыз.",
+    desc: "Күту тізіміне жазылыңыз немесе инвестор ретінде хабарласыңыз. Ерте пайдаланушылар premium AI мүмкіндіктерін іске қосылғанда тегін алады.",
+    userLabel: "Күту тізімі",
+    investorLabel: "Инвесторлар үшін байланыс",
+  },
+  footer: {
+    tagline: "Сіздің AI қаржы директорыңыз",
+    copyright: "Aim. Қазақстанда, бүкіл әлем үшін жасалған.",
+  },
+  forms: {
+    name: "Аты-жөні",
+    namePh: "Толық атыңыз",
+    email: "Email",
+    emailPh: "you@email.com",
+    phone: "Телефон",
+    phonePh: "+7 700 000 0000",
+    company: "Компания / Қор",
+    companyPh: "Сіздің ұйым",
+    message: "Хабарлама",
+    messagePh: "Қызығушылығыңыз туралы айтыңыз…",
+    submitUser: "Күту тізіміне",
+    submittingUser: "Жіберілуде…",
+    submitInvestor: "Хабарласу",
+    submittingInvestor: "Жіберілуде…",
+    successUserTitle: "Сіз күту тізіміндесіз!",
+    successUserDesc: "Ерте қол жеткізу ашылғанда хат жібереміз.",
+    successInvestorTitle: "Рахмет!",
+    successInvestorDesc: "Жақын арада хабарласамыз.",
+    addAnother: "Тағы біреуін қосу",
+    errName: "Атыңызды енгізіңіз.",
+    errEmail: "Дұрыс email енгізіңіз.",
+    errPhone: "Телефон нөмірін енгізіңіз.",
+    errGeneric: "Бірдеңе дұрыс емес болды. Қайталап көріңіз.",
+  },
+  langSwitch: "Тіл",
+};
+
+export const translations: Record<Lang, Dict> = { en, ru, kz };
+
+export function t(lang: Lang): Dict {
+  return translations[lang] ?? translations[DEFAULT_LANG];
+}
