@@ -158,17 +158,46 @@ function Hero({ lang }: { lang: Lang }) {
                 </div>
 
                 {/* Ranking distribution */}
-                <div className="h-full flex flex-col text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col items-center justify-center text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
-                  <div className="mt-2">
-                    <span className="text-base md:text-xl text-white/90 font-medium">Top </span>
-                    <span className="font-display text-3xl md:text-5xl font-semibold text-white">13%</span>
+                  <div className="mt-2 flex items-baseline justify-center gap-1">
+                    <span className="text-base md:text-xl text-white/90 font-medium">Top</span>
+                    <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">13%</span>
                   </div>
-                  <svg viewBox="0 0 100 30" className="w-full mt-2 drop-shadow-[0_0_10px_rgba(167,139,250,0.6)]">
-                    <path d="M0,28 C20,26 30,22 40,12 C45,4 50,-2 55,-2 C60,-2 65,4 70,14 C80,24 90,27 100,28" stroke="#e879f9" strokeWidth="1.5" fill="none" />
-                    <circle cx="78" cy="22" r="2.5" fill="#22d3ee" />
+                  <svg viewBox="0 0 100 34" className="w-full mt-3 drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="bellFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.55" />
+                        <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
+                      </linearGradient>
+                      <linearGradient id="bellStroke" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stopColor="#ff3ea5" />
+                        <stop offset="50%" stopColor="#a78bfa" />
+                        <stop offset="100%" stopColor="#22d3ee" />
+                      </linearGradient>
+                      <linearGradient id="bellHi" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.9" />
+                        <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.1" />
+                      </linearGradient>
+                      <clipPath id="bellTopClip">
+                        <rect x="87" y="0" width="13" height="34" />
+                      </clipPath>
+                    </defs>
+                    {/* baseline */}
+                    <line x1="0" y1="30" x2="100" y2="30" stroke="rgba(255,255,255,0.18)" strokeWidth="0.5" />
+                    {/* bell curve filled area */}
+                    <path d="M0,30 C15,30 25,29 35,24 C42,19 46,10 50,6 C54,10 58,19 65,24 C75,29 85,30 100,30 Z" fill="url(#bellFill)" />
+                    {/* top 13% highlight */}
+                    <g clipPath="url(#bellTopClip)">
+                      <path d="M0,30 C15,30 25,29 35,24 C42,19 46,10 50,6 C54,10 58,19 65,24 C75,29 85,30 100,30 Z" fill="url(#bellHi)" />
+                    </g>
+                    {/* curve stroke */}
+                    <path d="M0,30 C15,30 25,29 35,24 C42,19 46,10 50,6 C54,10 58,19 65,24 C75,29 85,30 100,30" stroke="url(#bellStroke)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    {/* you marker */}
+                    <line x1="87" y1="30" x2="87" y2="22" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="1.5 1.5" />
+                    <circle cx="87" cy="22" r="2.4" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.8" />
                   </svg>
-                  <div className="text-[10px] md:text-xs text-white/85 mt-1">Ahead of 87% of users</div>
+                  <div className="text-[10px] md:text-xs text-white/85 mt-2">Ahead of 87% of users</div>
                 </div>
 
                 {/* Freedom Age */}
