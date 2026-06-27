@@ -201,17 +201,30 @@ function Hero({ lang }: { lang: Lang }) {
                 </div>
 
                 {/* Freedom Age */}
-                <div className="h-full flex flex-col text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col items-center justify-center text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
                   <div className="mt-2 flex items-baseline justify-center gap-2">
                     <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">51</span>
                     <span className="text-xs md:text-sm text-white/85">yrs</span>
                   </div>
-                  <svg viewBox="0 0 100 24" className="w-full mt-2 drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
-                    <path d="M0,22 L25,16 L45,18 L65,6 L85,12 L100,8" stroke="#22d3ee" strokeWidth="1.5" fill="none" />
-                    <circle cx="65" cy="6" r="2.5" fill="#ff3ea5" />
+                  <svg viewBox="0 0 100 32" className="w-full mt-3 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="freedomFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.45" />
+                        <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
+                      </linearGradient>
+                      <linearGradient id="freedomStroke" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stopColor="#a78bfa" />
+                        <stop offset="60%" stopColor="#22d3ee" />
+                        <stop offset="100%" stopColor="#5eead4" />
+                      </linearGradient>
+                    </defs>
+                    <line x1="0" y1="28" x2="100" y2="28" stroke="rgba(255,255,255,0.12)" strokeWidth="0.5" />
+                    <path d="M0,24 C12,22 20,20 30,18 C42,15 50,14 60,11 C72,8 82,7 100,5 L100,28 L0,28 Z" fill="url(#freedomFill)" />
+                    <path d="M0,24 C12,22 20,20 30,18 C42,15 50,14 60,11 C72,8 82,7 100,5" stroke="url(#freedomStroke)" strokeWidth="1.6" fill="none" strokeLinecap="round" />
+                    <circle cx="60" cy="11" r="2.4" fill="#ff3ea5" stroke="#0a0a1a" strokeWidth="0.8" />
                   </svg>
-                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-1">↓ −2 yrs in 6 mo</div>
+                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-2">↓ −2 yrs in 6 mo</div>
                 </div>
 
               </div>
