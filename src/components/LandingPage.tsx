@@ -340,9 +340,15 @@ function Platforms({ lang }: { lang: Lang }) {
 
 function Vision({ lang }: { lang: Lang }) {
   const s = t(lang).vision;
+  const r = s.roadmap;
+  const stageAccents = [
+    { dot: "bg-[oklch(0.72_0.18_320)]", text: "text-[oklch(0.78_0.18_320)]" },
+    { dot: "bg-accent", text: "text-accent" },
+    { dot: "bg-[oklch(0.78_0.15_200)]", text: "text-[oklch(0.82_0.15_200)]" },
+  ];
   return (
     <section id="vision" className="py-24 md:py-32">
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <Reveal variant="zoom-out" className="glass-card rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
           <Sparkles className="h-8 w-8 text-accent mx-auto mb-6" />
           <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">{s.eyebrow}</div>
@@ -350,6 +356,76 @@ function Vision({ lang }: { lang: Lang }) {
             {s.titleA} <span className="text-brand-gradient">{s.titleB}</span> {s.titleC}
           </h2>
           <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto">{s.desc}</p>
+        </Reveal>
+
+        {/* Roadmap */}
+        <Reveal variant="up" delay={100} className="mt-16 text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] text-accent mb-6">
+            <Sparkles className="h-3.5 w-3.5" />
+            {s.eyebrow}
+          </div>
+          <h3 className="font-display text-3xl md:text-5xl font-semibold leading-tight">
+            {r.title} <span className="text-brand-gradient">{r.titleAccent}</span>
+          </h3>
+          <p className="mt-5 text-muted-foreground">{r.desc}</p>
+        </Reveal>
+
+        <div className="mt-12 grid md:grid-cols-3 gap-5 items-stretch relative">
+          {/* Connector line */}
+          <div aria-hidden="true" className="hidden md:block absolute top-5 left-[16%] right-[16%] border-t border-dashed border-border" />
+          {r.stages.map((stage, i) => {
+            const accent = stageAccents[i % stageAccents.length];
+            return (
+              <Reveal
+                key={stage.title}
+                variant={i === 1 ? "up" : i === 0 ? "left" : "right"}
+                delay={i * 150}
+                className="relative"
+              >
+                <div className="flex items-center gap-3 mb-4 justify-center md:justify-start">
+                  <span className={`h-9 w-9 rounded-full ${accent.dot} text-background font-display font-semibold flex items-center justify-center text-sm shadow-glow`}>
+                    {i + 1}
+                  </span>
+                  <span className={`text-[10px] uppercase tracking-[0.2em] font-semibold ${accent.text}`}>{stage.tag}</span>
+                </div>
+                <div className="glass-card rounded-3xl p-7 h-full flex flex-col">
+                  <h4 className="font-display text-xl font-semibold">{stage.title}</h4>
+                  <p className="text-sm text-muted-foreground mt-2">{stage.desc}</p>
+                  <ul className="mt-5 space-y-2.5 text-sm text-muted-foreground flex-1">
+                    {stage.bullets.map((b) => (
+                      <li key={b} className="flex gap-2.5">
+                        <Check className={`h-4 w-4 mt-0.5 flex-none ${accent.text}`} />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 pt-5 border-t border-border text-xs">
+                    <div className="text-muted-foreground">{stage.audienceLabel}</div>
+                    <div className={`font-semibold mt-1 ${accent.text}`}>{stage.audience}</div>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        <Reveal variant="zoom-in" delay={200} className="mt-10 text-center">
+          <div className="inline-block glass-card rounded-full px-6 py-3 text-sm font-medium">
+            {r.banner}
+          </div>
+        </Reveal>
+
+        <Reveal variant="up" delay={250} className="mt-8">
+          <div className="glass-card rounded-3xl p-8 md:p-10 flex items-start gap-5">
+            <div className="h-12 w-12 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center flex-none">
+              <Sparkles className="h-5 w-5 text-accent" />
+            </div>
+            <p className="text-base md:text-lg leading-relaxed">
+              {r.closingA}{" "}
+              <span className="text-foreground font-medium">{r.closingB}</span>{" "}
+              <span className="text-brand-gradient font-semibold">{r.closingC}</span>
+            </p>
+          </div>
         </Reveal>
       </div>
     </section>
