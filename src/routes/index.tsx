@@ -61,7 +61,7 @@ function Nav() {
             <a href="#features" className="hover:text-foreground transition">Features</a>
             <a href="#platforms" className="hover:text-foreground transition">Platforms</a>
             <a href="#vision" className="hover:text-foreground transition">Vision</a>
-            <a href="#faq" className="hover:text-foreground transition">FAQ</a>
+            <a href="#investors" className="hover:text-foreground transition">Investors</a>
           </nav>
           <a
             href="#waitlist"
