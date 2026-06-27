@@ -586,7 +586,7 @@ function Founders({ lang }: { lang: Lang }) {
                 )}
               </div>
               <div className="min-w-0">
-                <div className="font-display text-lg font-semibold leading-tight">{f.name}</div>
+                <div className="font-display text-lg font-semibold leading-tight whitespace-nowrap">{f.name}</div>
                 <div className="text-sm text-muted-foreground mt-1">{f.role}</div>
               </div>
             </Reveal>
