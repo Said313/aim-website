@@ -105,14 +105,6 @@ function Hero({ lang }: { lang: Lang }) {
               {s.ctaSecondary}
             </a>
           </div>
-          <div className="mt-10 flex items-center gap-6 text-xs text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-accent" /> {s.sec1}
-            </div>
-            <div className="flex items-center gap-2">
-              <Globe className="h-4 w-4 text-accent" /> {s.sec2}
-            </div>
-          </div>
         </Reveal>
 
         <Reveal variant="zoom-in" delay={200} className="md:absolute md:inset-y-0 md:right-0 md:-top-36 md:w-[75%] lg:w-[70%] md:pointer-events-none">
