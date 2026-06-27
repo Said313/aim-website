@@ -67,7 +67,7 @@ function Nav({ lang }: { lang: Lang }) {
 function Hero({ lang }: { lang: Lang }) {
   const s = t(lang).hero;
   return (
-    <section id="top" className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
+    <section id="top" className="relative overflow-hidden pt-28 pb-24 md:pt-32 md:pb-32">
       <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-8 items-center min-h-[600px]">
         <Reveal variant="left" className="relative z-10">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground mb-6">
@@ -124,7 +124,7 @@ function Hero({ lang }: { lang: Lang }) {
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
 
               {/* Three metrics in one row across the top */}
-              <div className="absolute left-[22%] right-[28%] lg:right-[32%] top-1/2 -translate-y-1/2 grid grid-cols-3 items-stretch gap-3 md:gap-4">
+              <div className="absolute left-[30%] right-[6%] top-1/2 -translate-y-1/2 grid grid-cols-3 items-stretch gap-3 md:gap-4">
 
                 {/* Financial Health gauge */}
                 <div className="h-full flex flex-col text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
