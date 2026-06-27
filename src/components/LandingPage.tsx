@@ -38,8 +38,8 @@ function Nav({ lang }: { lang: Lang }) {
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="glass-card rounded-full flex items-center justify-between px-4 py-2.5">
           <a href="#top" className="flex items-center gap-2">
-            <Logo className="h-8 w-8" alt="Aim Personal AI CFO" />
-            <span className="font-display text-xl font-semibold tracking-tight">Aim</span>
+            <Logo className="h-16 w-16" alt="Aim Personal AI CFO" />
+            <span className="font-display text-2xl font-semibold tracking-tight">Aim</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#features" className="hover:text-foreground transition">{s.nav.features}</a>
