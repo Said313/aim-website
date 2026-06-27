@@ -141,15 +141,15 @@ function Hero() {
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] max-w-[176px] aspect-[9/19.5] rotate-3 drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
             >
               {/* Titanium outer frame */}
-              <div className="absolute inset-0 rounded-[2.2rem] bg-[#1a1a1c] ring-1 ring-white/10 shadow-[inset_0_0_0_1.5px_#2a2a2d]" />
+              <div className="absolute inset-0 rounded-[1.4rem] bg-[#1a1a1c] ring-1 ring-white/10 shadow-[inset_0_0_0_1.5px_#2a2a2d]" />
               {/* Inner bezel */}
-              <div className="absolute inset-[3px] rounded-[2rem] bg-black" />
+              <div className="absolute inset-[3px] rounded-[1.25rem] bg-black" />
               {/* Side buttons */}
               <div className="absolute -left-[2px] top-[22%] h-[8%] w-[2px] rounded-l-sm bg-[#2a2a2d]" />
               <div className="absolute -left-[2px] top-[34%] h-[12%] w-[2px] rounded-l-sm bg-[#2a2a2d]" />
               <div className="absolute -right-[2px] top-[28%] h-[14%] w-[2px] rounded-r-sm bg-[#2a2a2d]" />
               {/* Screen */}
-              <div className="absolute inset-[6px] rounded-[1.75rem] overflow-hidden bg-black">
+              <div className="absolute inset-[6px] rounded-[1.05rem] overflow-hidden bg-black">
                 <img
                   src={appMockup}
                   alt=""
