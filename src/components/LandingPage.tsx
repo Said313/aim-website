@@ -441,13 +441,7 @@ function Vision({ lang }: { lang: Lang }) {
           })}
         </div>
 
-        <Reveal variant="zoom-in" delay={200} className="mt-10 text-center">
-          <div className="inline-block glass-card rounded-full px-6 py-3 text-sm font-medium">
-            {r.banner}
-          </div>
-        </Reveal>
-
-        <Reveal variant="up" delay={250} className="mt-8">
+        <Reveal variant="up" delay={200} className="mt-10">
           <div className="glass-card rounded-3xl p-8 md:p-10 flex items-start gap-5">
             <div className="h-12 w-12 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center flex-none">
               <Sparkles className="h-5 w-5 text-accent" />
@@ -457,6 +451,12 @@ function Vision({ lang }: { lang: Lang }) {
               <span className="text-foreground font-medium">{r.closingB}</span>{" "}
               <span className="text-brand-gradient font-semibold">{r.closingC}</span>
             </p>
+          </div>
+        </Reveal>
+
+        <Reveal variant="zoom-in" delay={300} className="mt-10 text-center">
+          <div className="inline-block glass-card rounded-full px-6 py-3 text-sm font-medium">
+            {r.banner}
           </div>
         </Reveal>
       </div>
