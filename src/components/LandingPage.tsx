@@ -160,7 +160,7 @@ function Hero({ lang }: { lang: Lang }) {
               </div>
 
               {/* Freedom Age — bottom right */}
-              <div className="float-slow absolute right-[7%] bottom-[8%] w-[24%] max-w-[200px] text-center" style={{ animationDelay: "2.4s" }}>
+              <div className="float-slow absolute right-[27%] bottom-[10%] w-[19%] max-w-[180px] text-center" style={{ animationDelay: "2.4s" }}>
                 <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
                 <div className="mt-1 flex items-baseline justify-center gap-2">
                   <span className="font-display text-4xl md:text-6xl font-semibold text-brand-gradient leading-none">51</span>
