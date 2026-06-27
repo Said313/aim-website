@@ -80,14 +80,6 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
-      <img
-        src={heroImg}
-        alt=""
-        width={1600}
-        height={1200}
-        className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none"
-      />
-      <div className="absolute inset-0 bg-background/70 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
         <Reveal variant="left">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground mb-6">
@@ -129,19 +121,27 @@ function Hero() {
           </div>
         </Reveal>
 
-        <Reveal variant="zoom-in" delay={200} className="relative flex justify-center">
-          <div className="float-slow">
+        <Reveal variant="zoom-in" delay={200} className="relative">
+          <div className="float-slow relative rounded-3xl overflow-hidden border border-border shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
+            <img
+              src={heroImg}
+              alt="A person on a mountain summit at twilight overlooking a city below"
+              width={1024}
+              height={1024}
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
             <img
               src={appMockup}
-              alt="Aim mobile app dashboard"
-              width={520}
-              height={780}
-              className="relative w-[80%] max-w-[460px] mx-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)]"
+              alt=""
+              aria-hidden="true"
+              className="absolute -bottom-6 -right-6 w-[38%] max-w-[180px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] rotate-3"
             />
           </div>
         </Reveal>
       </div>
     </section>
+
   );
 }
 
