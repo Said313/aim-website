@@ -24,6 +24,7 @@ import appMockup from "@/assets/app-mockup.png";
 import logo from "@/assets/aim-logo.png";
 import freedomMountain from "@/assets/freedom-mountain.png";
 import founderUmidzhan from "@/assets/founder-umidzhan.png";
+import founderSaidgaffor from "@/assets/founder-saidgaffor.png";
 import { Reveal } from "@/components/Reveal";
 import { UserWaitlistForm } from "@/components/UserWaitlistForm";
 import { InvestorContactForm } from "@/components/InvestorContactForm";
@@ -558,7 +559,7 @@ function Founders({ lang }: { lang: Lang }) {
   const s = t(lang).founders;
   const founders = [
     { name: "Umidzhan Rakhmankulov", initials: "UR", photo: founderUmidzhan, role: s.roleCeo },
-    { name: "Saidgaffor Sabyrov", initials: "SS", photo: null as string | null, role: s.roleCto },
+    { name: "Saidgaffor Sabyrov", initials: "SS", photo: founderSaidgaffor, role: s.roleCto },
   ];
   return (
     <section id="founders" className="py-24 md:py-32">
