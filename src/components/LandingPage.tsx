@@ -155,7 +155,7 @@ function Hero({ lang }: { lang: Lang }) {
                       </defs>
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                      <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">82</span>
+                      <span className="font-display text-2xl md:text-5xl font-semibold text-white leading-none">82</span>
                       <span className="text-[9px] md:text-xs text-white/85">/ 100</span>
                     </div>
                   </div>
