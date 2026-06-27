@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Logo({ className = "h-9 w-9" }: { className?: string }) {
-  return <img src={logo} alt="Aim Personal AI CFO" width={64} height={64} className={className} />;
+  return <img src={logo} alt="Aim Personal AI CFO" className={`${className} object-contain`} />;
 }
 
 function Nav() {
