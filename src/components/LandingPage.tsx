@@ -202,21 +202,23 @@ function Hero({ lang }: { lang: Lang }) {
                 </div>
 
                 {/* Freedom Age */}
-                <div className="h-full flex flex-col items-center justify-center text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
+                <div className="h-full flex flex-col items-center text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
                   <div className="mt-2 flex items-baseline justify-center gap-2">
                     <span className="font-display text-3xl md:text-5xl font-semibold text-white leading-none">51</span>
                     <span className="text-xs md:text-sm text-white/85">yrs</span>
                   </div>
-                  <img
-                    src={freedomMountain}
-                    alt="Mountain with flag at summit"
-                    loading="lazy"
-                    width={512}
-                    height={512}
-                    className="w-24 md:w-28 h-auto mt-2 drop-shadow-[0_0_18px_rgba(167,139,250,0.45)]"
-                  />
-                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4] mt-2">↓ −2 yrs in 6 mo</div>
+                  <div className="flex-1 flex items-center justify-center w-full my-1">
+                    <img
+                      src={freedomMountain}
+                      alt="Mountain with flag at summit"
+                      loading="lazy"
+                      width={512}
+                      height={512}
+                      className="w-20 md:w-24 h-auto opacity-90"
+                    />
+                  </div>
+                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4]">↓ −2 yrs in 6 mo</div>
                 </div>
 
               </div>
