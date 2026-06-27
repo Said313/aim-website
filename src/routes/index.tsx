@@ -140,7 +140,7 @@ function Hero() {
               src={appMockup}
               alt=""
               aria-hidden="true"
-              className="absolute -bottom-6 -right-6 w-[38%] max-w-[180px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] rotate-3"
+              className="absolute bottom-4 right-4 w-[32%] max-w-[170px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] rotate-3"
             />
           </div>
 
