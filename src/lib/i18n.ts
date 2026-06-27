@@ -77,6 +77,8 @@ const en = {
       { title: "Personal recommendations", text: "Practical, tailored advice that helps you reach your goals faster." },
       { title: "All finance in one place", text: "Banks, cards, accounts, investments and credit — unified via Open Banking." },
       { title: "Private by design", text: "Bank-level encryption. Your data is yours. Read-only access, always." },
+      { title: "Financial health & freedom age", text: "Track your financial health score in real time and see the age at which you can reach financial freedom." },
+      { title: "Goal trajectory", text: "Watch the live trajectory toward each personal financial goal and know exactly what to adjust to land on time." },
     ],
   },
   problem: {
@@ -218,6 +220,8 @@ const ru: Dict = {
       { title: "Персональные рекомендации", text: "Практичные советы под ваши задачи, чтобы достигать целей быстрее." },
       { title: "Все финансы в одном месте", text: "Банки, карты, счета, инвестиции и кредиты — объединены через Open Banking." },
       { title: "Приватность по умолчанию", text: "Шифрование банковского уровня. Доступ только на чтение. Данные — ваши." },
+      { title: "Финансовое здоровье и возраст свободы", text: "Отслеживайте свой индекс финансового здоровья в реальном времени и узнайте возраст, в котором вы достигнете финансовой свободы." },
+      { title: "Траектория целей", text: "Видите живую траекторию к каждой личной финансовой цели и точно знаете, что скорректировать, чтобы прийти вовремя." },
     ],
   },
   problem: {
@@ -357,6 +361,8 @@ const kz: Dict = {
       { title: "Жеке ұсыныстар", text: "Мақсаттарыңызға тез жетуге көмектесетін практикалық кеңестер." },
       { title: "Барлық қаржы бір жерде", text: "Банктер, карталар, шоттар, инвестициялар мен несиелер — Open Banking арқылы біріктірілген." },
       { title: "Жеке өмір қорғалған", text: "Банктік шифрлеу. Деректер сіздікі. Тек оқуға арналған қол жеткізу." },
+      { title: "Қаржылық денсаулық және еркіндік жасы", text: "Қаржылық денсаулық индексіңізді нақты уақытта қадағалаңыз және қаржылық еркіндікке жететін жасыңызды біліңіз." },
+      { title: "Мақсат траекториясы", text: "Әр жеке қаржылық мақсатқа жету траекториясын тірі көріп, уақытында жету үшін нені реттеу керектігін біліңіз." },
     ],
   },
   problem: {
