@@ -476,7 +476,7 @@ function CTA({ lang }: { lang: Lang }) {
     <section id="waitlist" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal variant="zoom-in" className="text-center max-w-3xl mx-auto mb-14">
-          <Brain className="h-64 w-64 text-accent mx-auto mb-6" strokeWidth={1.25} />
+          <Brain className="h-32 w-32 text-accent mx-auto mb-6" strokeWidth={1.25} />
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
             {s.titleA} <span className="text-brand-gradient">{s.titleB}</span>
           </h2>
