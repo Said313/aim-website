@@ -80,7 +80,7 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
-      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1.1fr_1fr] gap-12 items-center">
+      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-8 items-center">
         <Reveal variant="left">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
@@ -121,15 +121,16 @@ function Hero() {
           </div>
         </Reveal>
 
-        <Reveal variant="zoom-in" delay={200} className="relative">
-          <div className="float-slow relative rounded-3xl overflow-hidden">
+        <Reveal variant="zoom-in" delay={200} className="relative md:-mr-24 lg:-mr-32">
+          <div className="float-slow relative rounded-3xl overflow-hidden md:scale-125 md:origin-left">
             <img
               src={heroImg}
               alt="A person on a mountain summit at twilight overlooking a city below"
               width={1024}
               height={1024}
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover brightness-125 contrast-105 saturate-110"
             />
+
             {/* Edge shading — blends image into the page background */}
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none" />
