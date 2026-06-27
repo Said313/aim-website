@@ -165,6 +165,12 @@ const en = {
     desc: "Join the waitlist or get in touch as an investor. Early users get premium AI features free at launch.",
     userLabel: "User waitlist",
     investorLabel: "Investor contact",
+    rolePrompt: "I'm here as…",
+    roleUser: "A future user",
+    roleUserDesc: "Join the waitlist for early access.",
+    roleInvestor: "An investor",
+    roleInvestorDesc: "Get in touch about Aim.",
+    back: "← Choose a different option",
   },
   footer: {
     tagline: "Your AI CFO",
