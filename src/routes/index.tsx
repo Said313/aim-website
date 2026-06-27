@@ -256,7 +256,7 @@ function Features() {
         <Reveal variant="up" className="max-w-2xl mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">What Aim does</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            A CFO that understands <span className="text-accent">your life.</span>
+            A CFO that understands <span className="text-brand-gradient">your life.</span>
           </h2>
         </Reveal>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -341,7 +341,7 @@ function Platforms() {
         <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">Everywhere you are</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            One AI CFO, <span className="text-accent">every device.</span>
+            One AI CFO, <span className="text-brand-gradient">every device.</span>
           </h2>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -374,7 +374,7 @@ function Vision() {
           <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Our vision</div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-[1.05]">
             A world where every person has a personal{" "}
-            <span className="text-accent">AI CFO</span> — helping them live the life
+            <span className="text-brand-gradient">AI CFO</span> — helping them live the life
             they actually dream of.
           </h2>
           <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -394,7 +394,7 @@ function CTA() {
         <Reveal variant="zoom-in" className="text-center max-w-3xl mx-auto mb-14">
           <Brain className="h-10 w-10 text-accent mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
-            Be the first to <span className="text-accent">aim higher.</span>
+            Be the first to <span className="text-brand-gradient">aim higher.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
             Join the waitlist or get in touch as an investor. Early users get premium AI features free at launch.
@@ -434,7 +434,7 @@ function Founders() {
         <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">Founders</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            Built by people who <span className="text-accent">aim higher.</span>
+            Built by people who <span className="text-brand-gradient">aim higher.</span>
           </h2>
           <p className="mt-5 text-muted-foreground">
             On a mission to give everyone a personal AI CFO.
