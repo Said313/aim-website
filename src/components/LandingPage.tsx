@@ -125,7 +125,7 @@ function Hero({ lang }: { lang: Lang }) {
               alt=""
               width={1024}
               height={1024}
-              className="w-full h-full object-cover brightness-110 contrast-105 saturate-110"
+              className="w-full h-full object-cover brightness-[1.35] contrast-110 saturate-125"
             />
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background via-background/70 to-transparent pointer-events-none" />
