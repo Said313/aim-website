@@ -479,22 +479,8 @@ function CTA({ lang }: { lang: Lang }) {
           <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">{s.desc}</p>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <Reveal variant="left">
-            <div className="flex items-center gap-2 mb-4 text-xs uppercase tracking-[0.2em] text-accent">
-              <Sparkles className="h-4 w-4" />
-              <span>{s.userLabel}</span>
-            </div>
-            <UserWaitlistForm lang={lang} />
-          </Reveal>
-
-          <Reveal variant="right" delay={120}>
-            <div id="investors" className="flex items-center gap-2 mb-4 text-xs uppercase tracking-[0.2em] text-accent scroll-mt-24">
-              <Briefcase className="h-4 w-4" />
-              <span>{s.investorLabel}</span>
-            </div>
-            <InvestorContactForm lang={lang} />
-          </Reveal>
+        <div id="investors" className="scroll-mt-24">
+          <RoleSelector lang={lang} />
         </div>
       </div>
     </section>
