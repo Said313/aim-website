@@ -122,7 +122,7 @@ function Hero() {
         </Reveal>
 
         <Reveal variant="zoom-in" delay={200} className="relative">
-          <div className="float-slow relative rounded-3xl overflow-hidden border border-border shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
+          <div className="float-slow relative rounded-3xl overflow-hidden">
             <img
               src={heroImg}
               alt="A person on a mountain summit at twilight overlooking a city below"
@@ -130,7 +130,12 @@ function Hero() {
               height={1024}
               className="w-full h-auto object-cover"
             />
-            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
+            {/* Edge shading — blends image into the page background */}
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background/60 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background/70 to-transparent pointer-events-none" />
             <img
               src={appMockup}
               alt=""
@@ -138,6 +143,7 @@ function Hero() {
               className="absolute -bottom-6 -right-6 w-[38%] max-w-[180px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] rotate-3"
             />
           </div>
+
         </Reveal>
       </div>
     </section>
