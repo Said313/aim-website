@@ -119,24 +119,34 @@ function Hero({ lang }: { lang: Lang }) {
             <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-background via-background/80 to-transparent pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background via-background/60 to-transparent pointer-events-none" />
             <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-background via-background/70 to-transparent pointer-events-none" />
-            <div
-              aria-hidden="true"
-              className="float-slow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] max-w-[176px] aspect-[9/19.5] rotate-3 drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
-            >
-              <div className="absolute inset-0 rounded-[1.4rem] bg-[#1a1a1c] ring-1 ring-white/10 shadow-[inset_0_0_0_1.5px_#2a2a2d]" />
-              <div className="absolute inset-[3px] rounded-[1.25rem] bg-black" />
-              <div className="absolute -left-[2px] top-[22%] h-[8%] w-[2px] rounded-l-sm bg-[#2a2a2d]" />
-              <div className="absolute -left-[2px] top-[34%] h-[12%] w-[2px] rounded-l-sm bg-[#2a2a2d]" />
-              <div className="absolute -right-[2px] top-[28%] h-[14%] w-[2px] rounded-r-sm bg-[#2a2a2d]" />
-              <div className="absolute inset-[6px] rounded-[1.05rem] overflow-hidden bg-black">
-                <img
-                  src={appMockup}
-                  alt=""
-                  className="w-full h-full object-cover brightness-125 contrast-110 saturate-125"
-                />
-                <div className="absolute top-[1.5%] left-1/2 -translate-x-1/2 w-[32%] h-[4.2%] rounded-full bg-black" />
+            {/* Floating metrics over the mountain */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+              <div className="float-slow absolute left-[6%] top-[18%] glass-card rounded-2xl px-5 py-4 md:px-6 md:py-5 shadow-[0_20px_60px_rgba(0,0,0,0.5)] rotate-[-4deg]">
+                <div className="text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground">Financial Health</div>
+                <div className="mt-1 flex items-baseline gap-1">
+                  <span className="font-display text-4xl md:text-6xl font-semibold text-brand-gradient leading-none">82</span>
+                  <span className="text-sm md:text-base text-muted-foreground">/100</span>
+                </div>
+                <div className="mt-1 text-[10px] md:text-xs text-accent">↑ +3 this month</div>
+              </div>
+
+              <div className="float-slow absolute right-[4%] top-[8%] glass-card rounded-2xl px-5 py-4 md:px-6 md:py-5 shadow-[0_20px_60px_rgba(0,0,0,0.5)] rotate-[3deg]" style={{ animationDelay: "1.2s" }}>
+                <div className="text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground">Top Ranking</div>
+                <div className="mt-1 flex items-baseline gap-1">
+                  <span className="font-display text-4xl md:text-6xl font-semibold text-brand-gradient leading-none">13%</span>
+                </div>
+                <div className="mt-1 text-[10px] md:text-xs text-muted-foreground">of Aim users</div>
+              </div>
+
+              <div className="float-slow absolute left-1/2 -translate-x-1/2 bottom-[14%] glass-card rounded-2xl px-5 py-4 md:px-6 md:py-5 shadow-[0_20px_60px_rgba(0,0,0,0.5)] rotate-[-2deg]" style={{ animationDelay: "2.4s" }}>
+                <div className="text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground">Freedom Age</div>
+                <div className="mt-1 flex items-baseline gap-2">
+                  <span className="font-display text-4xl md:text-6xl font-semibold text-brand-gradient leading-none">51</span>
+                  <span className="text-xs md:text-sm text-accent">↓ −2 yrs</span>
+                </div>
               </div>
             </div>
+
           </div>
         </Reveal>
       </div>
