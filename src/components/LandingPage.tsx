@@ -186,17 +186,17 @@ function Hero({ lang }: { lang: Lang }) {
                     </defs>
                     {/* baseline */}
                     <line x1="0" y1="30" x2="100" y2="30" stroke="rgba(255,255,255,0.18)" strokeWidth="0.5" />
-                    {/* bell curve filled area */}
-                    <path d="M0,30 C15,30 25,29 35,24 C42,19 46,10 50,6 C54,10 58,19 65,24 C75,29 85,30 100,30 Z" fill="url(#bellFill)" />
+                    {/* bell curve filled area — wider, flatter normal distribution */}
+                    <path d="M-5,30 C10,30 20,29 30,26 C38,22 44,14 50,12 C56,14 62,22 70,26 C80,29 90,30 105,30 Z" fill="url(#bellFill)" />
                     {/* top 13% highlight */}
                     <g clipPath="url(#bellTopClip)">
-                      <path d="M0,30 C15,30 25,29 35,24 C42,19 46,10 50,6 C54,10 58,19 65,24 C75,29 85,30 100,30 Z" fill="url(#bellHi)" />
+                      <path d="M-5,30 C10,30 20,29 30,26 C38,22 44,14 50,12 C56,14 62,22 70,26 C80,29 90,30 105,30 Z" fill="url(#bellHi)" />
                     </g>
                     {/* curve stroke */}
-                    <path d="M0,30 C15,30 25,29 35,24 C42,19 46,10 50,6 C54,10 58,19 65,24 C75,29 85,30 100,30" stroke="url(#bellStroke)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    <path d="M0,30 C12,30 20,29 30,26 C38,22 44,14 50,12 C56,14 62,22 70,26 C80,29 88,30 100,30" stroke="url(#bellStroke)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                     {/* you marker */}
-                    <line x1="87" y1="30" x2="87" y2="22" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="1.5 1.5" />
-                    <circle cx="87" cy="22" r="2.4" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.8" />
+                    <line x1="87" y1="30" x2="87" y2="24" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="1.5 1.5" />
+                    <circle cx="87" cy="24" r="2.4" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.8" />
                   </svg>
                   <div className="text-[10px] md:text-xs text-white/85 mt-2">Ahead of 87% of users</div>
                 </div>
