@@ -124,7 +124,7 @@ function Hero({ lang }: { lang: Lang }) {
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
 
               {/* Three metrics in one row across the top */}
-              <div className="absolute left-[22%] right-[28%] lg:right-[32%] top-1/2 -translate-y-1/2 grid grid-cols-3 items-stretch gap-3 md:gap-4">
+              <div className="absolute left-[30%] right-[6%] top-1/2 -translate-y-1/2 grid grid-cols-3 items-stretch gap-3 md:gap-4">
 
                 {/* Financial Health gauge */}
                 <div className="h-full flex flex-col text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
