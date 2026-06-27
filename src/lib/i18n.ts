@@ -77,6 +77,8 @@ const en = {
       { title: "Personal recommendations", text: "Practical, tailored advice that helps you reach your goals faster." },
       { title: "All finance in one place", text: "Banks, cards, accounts, investments and credit — unified via Open Banking." },
       { title: "Private by design", text: "Bank-level encryption. Your data is yours. Read-only access, always." },
+      { title: "Financial health & freedom age", text: "Track your financial health score in real time and see the age at which you can reach financial freedom." },
+      { title: "Goal trajectory", text: "Watch the live trajectory toward each personal financial goal and know exactly what to adjust to land on time." },
     ],
   },
   problem: {
