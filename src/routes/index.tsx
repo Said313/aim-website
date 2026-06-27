@@ -80,7 +80,7 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
-      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
+      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1.1fr_1fr] gap-12 items-center">
         <Reveal variant="left">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
