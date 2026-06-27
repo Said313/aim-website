@@ -163,7 +163,7 @@ function Hero({ lang }: { lang: Lang }) {
                 </div>
 
                 {/* Freedom Age */}
-                <div className="flex-1 max-w-[170px] text-center">
+                <div className="flex-1 max-w-[170px] text-center rounded-2xl bg-black/55 backdrop-blur-sm px-3 py-4 ring-1 ring-white/10">
                   <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
                   <div className="mt-2 flex items-baseline justify-center gap-2">
                     <span className="font-display text-3xl md:text-5xl font-semibold text-brand-gradient leading-none">51</span>
