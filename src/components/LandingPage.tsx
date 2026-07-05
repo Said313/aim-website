@@ -74,8 +74,8 @@ function Hero({ lang }: { lang: Lang }) {
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-24 md:pt-32 md:pb-32">
       <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-8 items-center min-h-[600px]">
-        <Reveal variant="left" className="relative z-10">
-          <div className="flex flex-wrap items-center gap-2 mb-6">
+        <Reveal variant="fade" className="relative z-10 md:col-span-2 md:col-start-1 flex flex-col items-center text-center">
+          <div className="flex flex-wrap justify-center items-center gap-2 mb-6">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
               {s.badge}
@@ -89,14 +89,14 @@ function Hero({ lang }: { lang: Lang }) {
               Open Banking
             </div>
           </div>
-          <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight">
+          <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F8F7F3]">
             <span className="sr-only">{s.srTitle} </span>
             <span aria-hidden="true">{s.line1}</span>
             <br aria-hidden="true" />
-            <span className="text-brand-gradient" aria-hidden="true">{s.line2}</span>
+            <span aria-hidden="true">{s.line2}</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">{s.desc}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="#waitlist"
               className="bg-accent text-accent-foreground rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
@@ -117,6 +117,7 @@ function Hero({ lang }: { lang: Lang }) {
             </div>
           </div>
         </Reveal>
+
 
         <Reveal variant="zoom-in" delay={200} className="-mx-6 -my-12 md:mx-0 md:my-0 md:absolute md:inset-y-0 md:right-0 md:-top-36 md:w-[75%] lg:w-[70%] md:pointer-events-none">
           <div className="relative h-[60vh] min-h-[420px] md:h-full md:rounded-3xl overflow-hidden">
