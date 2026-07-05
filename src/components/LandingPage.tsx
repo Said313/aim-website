@@ -125,13 +125,18 @@ function Hero({ lang }: { lang: Lang }) {
               alt=""
               width={1024}
               height={1024}
-              className="w-full h-full object-cover brightness-[1.35] contrast-110 saturate-125 md:brightness-110 md:contrast-105 md:saturate-110 [mask-image:linear-gradient(to_bottom,transparent_0%,black_22%,black_72%,transparent_100%)] md:[mask-image:none]"
+              className="w-full h-full object-cover brightness-[1.3] contrast-105 saturate-110 md:brightness-105 md:contrast-100 md:saturate-105 [filter:hue-rotate(-25deg)_saturate(1.05)_brightness(1.05)] md:[filter:hue-rotate(-25deg)_saturate(1.05)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_22%,black_72%,transparent_100%)] md:[mask-image:none]"
             />
-            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_55%,var(--color-background)_98%)] md:bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--color-background)_95%)]" />
-            <div className="absolute inset-x-0 top-0 h-40 md:h-40 bg-gradient-to-b from-background via-background/80 md:via-background/70 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-1/2 md:h-1/2 bg-gradient-to-t from-background via-background/80 md:via-background/85 via-40% to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 left-0 w-1/6 md:w-1/3 bg-gradient-to-r from-background/60 md:from-background via-background/20 md:via-background/60 to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-1/6 md:w-1/5 bg-gradient-to-l from-background/40 md:from-background/60 to-transparent pointer-events-none" />
+            {/* Warm evergreen color grade */}
+            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(91,112,101,0.18)_0%,rgba(48,64,64,0.30)_60%,rgba(48,64,64,0.55)_100%)] mix-blend-multiply" />
+            {/* Emerald atmospheric bloom */}
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_60%_45%,rgba(105,255,205,0.15),transparent_55%),radial-gradient(ellipse_at_30%_70%,rgba(170,255,220,0.08),transparent_60%)]" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(48,64,64,0.95)_98%)] md:bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(48,64,64,0.9)_95%)]" />
+            <div className="absolute inset-x-0 top-0 h-40 md:h-40 bg-gradient-to-b from-[#5B7065] via-[rgba(91,112,101,0.7)] to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 md:h-1/2 bg-gradient-to-t from-[#304040] via-[rgba(48,64,64,0.85)] via-40% to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-1/6 md:w-1/3 bg-gradient-to-r from-[rgba(48,64,64,0.55)] md:from-[#304040] via-[rgba(48,64,64,0.2)] md:via-[rgba(48,64,64,0.55)] to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/6 md:w-1/5 bg-gradient-to-l from-[rgba(48,64,64,0.4)] md:from-[rgba(48,64,64,0.6)] to-transparent pointer-events-none" />
+
 
             {/* Naked metric labels & diagrams floating over the mountain (right half only) */}
             <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
