@@ -139,102 +139,111 @@ function Hero({ lang }: { lang: Lang }) {
             <div className="absolute inset-y-0 right-0 w-1/6 md:w-1/5 bg-gradient-to-l from-[rgba(48,64,64,0.4)] md:from-[rgba(48,64,64,0.6)] to-transparent pointer-events-none" />
 
 
-            {/* Naked metric labels & diagrams floating over the mountain (right half only) */}
-            <div aria-hidden="true" className="absolute inset-0 z-20 pointer-events-none [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
+            {/* Cinematic climb animation — user's financial journey to the summit */}
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              className="absolute inset-0 z-20 w-full h-full pointer-events-none"
+            >
+              <defs>
+                <radialGradient id="orbGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="rgba(180,255,225,1)" />
+                  <stop offset="45%" stopColor="rgba(120,255,210,0.95)" />
+                  <stop offset="100%" stopColor="rgba(120,255,210,0)" />
+                </radialGradient>
+                <radialGradient id="summitGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="rgba(180,255,225,0.9)" />
+                  <stop offset="60%" stopColor="rgba(120,255,210,0.25)" />
+                  <stop offset="100%" stopColor="rgba(120,255,210,0)" />
+                </radialGradient>
+                <path
+                  id="climbPath"
+                  d="M 18 92 Q 26 84 32 78 T 44 64 T 55 48 T 66 32 T 74 20"
+                  fill="none"
+                />
+              </defs>
 
-              {/* Three metrics in one row across the top */}
-              <div className="absolute left-4 right-4 md:left-[6%] md:right-[6%] bottom-6 md:bottom-10 grid grid-cols-3 items-stretch gap-2 md:gap-4">
+              {/* Faint path guide */}
+              <use
+                href="#climbPath"
+                stroke="rgba(120,255,210,0.18)"
+                strokeWidth="0.35"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <use
+                href="#climbPath"
+                stroke="rgba(120,255,210,0.55)"
+                strokeWidth="0.15"
+                strokeLinecap="round"
+                fill="none"
+              />
 
-                {/* Financial Health gauge */}
-                <div className="h-full flex flex-col text-center rounded-2xl bg-black/65 md:bg-black/55 backdrop-blur-md px-2 md:px-3 py-3 md:py-4 ring-1 ring-white/20 md:ring-white/10">
-                  <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
-                  <div className="relative mt-2 aspect-square">
-                    <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
-                      <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="6" />
-                      <circle cx="50" cy="50" r="42" fill="none" stroke="url(#gaugeG)" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${0.82 * 2 * Math.PI * 42} ${2 * Math.PI * 42}`} />
-                      <defs>
-                        <linearGradient id="gaugeG" x1="0" y1="0" x2="1" y2="1">
-                          <stop offset="0%" stopColor="#ff3ea5" />
-                          <stop offset="50%" stopColor="#a78bfa" />
-                          <stop offset="100%" stopColor="#22d3ee" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                    <div className="absolute inset-0 flex flex-col items-center justify-center">
-                      <span className="font-display text-2xl md:text-5xl font-semibold text-white leading-none">82</span>
-                      <span className="text-[9px] md:text-xs text-white/85">/ 100</span>
-                    </div>
-                  </div>
-                  <div className="mt-2 text-[10px] md:text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
-                </div>
+              {/* Milestones — flash + persistent soft glow */}
+              {[
+                { cx: 32, cy: 78, begin: "4s" },
+                { cx: 48, cy: 60, begin: "8s" },
+                { cx: 62, cy: 38, begin: "12s" },
+              ].map((m, i) => (
+                <g key={i}>
+                  {/* Persistent illumination after activation */}
+                  <circle cx={m.cx} cy={m.cy} r="0.9" fill="rgba(120,255,210,0.9)">
+                    <animate attributeName="opacity" values="0.35;0.35" dur="16s" begin={m.begin} repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0" to="0.35" dur="0.4s" begin={m.begin} fill="freeze" />
+                  </circle>
+                  {/* Expanding ring */}
+                  <circle cx={m.cx} cy={m.cy} fill="none" stroke="rgba(120,255,210,0.85)" strokeWidth="0.25">
+                    <animate attributeName="r" from="0.6" to="4.5" dur="1.2s" begin={m.begin} repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.9" to="0" dur="1.2s" begin={m.begin} repeatCount="indefinite" />
+                  </circle>
+                  {/* Bright flash */}
+                  <circle cx={m.cx} cy={m.cy} r="1.6" fill="url(#orbGrad)">
+                    <animate attributeName="opacity" values="0;1;0" dur="1.2s" begin={m.begin} repeatCount="indefinite" />
+                  </circle>
+                  {/* Scattering particles */}
+                  {[0, 1, 2, 3, 4].map((p) => {
+                    const angle = (p / 5) * Math.PI * 2 + i;
+                    const dx = Math.cos(angle) * 3;
+                    const dy = Math.sin(angle) * 3;
+                    return (
+                      <circle key={p} cx={m.cx} cy={m.cy} r="0.25" fill="rgba(120,255,210,0.95)">
+                        <animate attributeName="cx" from={m.cx} to={m.cx + dx} dur="1s" begin={m.begin} repeatCount="indefinite" />
+                        <animate attributeName="cy" from={m.cy} to={m.cy + dy} dur="1s" begin={m.begin} repeatCount="indefinite" />
+                        <animate attributeName="opacity" values="0;1;0" dur="1s" begin={m.begin} repeatCount="indefinite" />
+                      </circle>
+                    );
+                  })}
+                </g>
+              ))}
 
-                <div className="h-full flex flex-col items-center text-center rounded-2xl bg-black/65 md:bg-black/55 backdrop-blur-md px-2 md:px-3 py-3 md:py-4 ring-1 ring-white/20 md:ring-white/10">
-                  <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
-                  <div className="mt-2 flex items-baseline justify-center gap-1">
-                    <span className="text-sm md:text-xl text-white/90 font-medium">Top</span>
-                    <span className="font-display text-2xl md:text-5xl font-semibold text-white leading-none">13%</span>
-                  </div>
-                  <div className="flex-1 flex items-center justify-center w-full my-1">
-                    <svg viewBox="0 0 100 34" className="w-full drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]" preserveAspectRatio="none">
-                    <defs>
-                      <linearGradient id="bellFill" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.55" />
-                        <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
-                      </linearGradient>
-                      <linearGradient id="bellStroke" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stopColor="#ff3ea5" />
-                        <stop offset="50%" stopColor="#a78bfa" />
-                        <stop offset="100%" stopColor="#22d3ee" />
-                      </linearGradient>
-                      <linearGradient id="bellHi" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.9" />
-                        <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.1" />
-                      </linearGradient>
-                      <clipPath id="bellTopClip">
-                        <rect x="87" y="0" width="13" height="34" />
-                      </clipPath>
-                    </defs>
-                    {/* baseline */}
-                    <line x1="0" y1="30" x2="100" y2="30" stroke="rgba(255,255,255,0.18)" strokeWidth="0.5" />
-                    {/* bell curve filled area — true Gaussian */}
-                    <path d="M-2,30 L0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99 L102,30 Z" fill="url(#bellFill)" />
-                    {/* top 13% highlight */}
-                    <g clipPath="url(#bellTopClip)">
-                      <path d="M-2,30 L0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99 L102,30 Z" fill="url(#bellHi)" />
-                    </g>
-                    {/* curve stroke */}
-                    <path d="M0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99" stroke="url(#bellStroke)" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
-                    {/* you marker */}
-                    <line x1="87" y1="30" x2="87" y2="29.5" stroke="#22d3ee" strokeWidth="0.6" strokeDasharray="1.5 1.5" />
-                    <circle cx="87" cy="29.5" r="1.8" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.6" />
-                    </svg>
-                  </div>
-                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4]">Ahead of 87% of users</div>
-                </div>
+              {/* Summit pulse + rays */}
+              <g>
+                <circle cx="74" cy="20" r="3" fill="url(#summitGrad)">
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="16s" begin="15s" repeatCount="indefinite" />
+                  <animate attributeName="r" values="1;5;5;2" keyTimes="0;0.1;0.85;1" dur="16s" begin="15s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="74" cy="20" fill="none" stroke="rgba(120,255,210,0.7)" strokeWidth="0.2">
+                  <animate attributeName="r" from="1" to="12" dur="2.5s" begin="15.5s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.8" to="0" dur="2.5s" begin="15.5s" repeatCount="indefinite" />
+                </circle>
+              </g>
 
+              {/* Climbing orb — the user */}
+              <g>
+                <circle r="1.4" fill="url(#orbGrad)" opacity="0.85">
+                  <animateMotion dur="16s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.42 0 0.58 1">
+                    <mpath href="#climbPath" />
+                  </animateMotion>
+                </circle>
+                <circle r="0.55" fill="rgba(255,255,255,0.95)">
+                  <animateMotion dur="16s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.42 0 0.58 1">
+                    <mpath href="#climbPath" />
+                  </animateMotion>
+                </circle>
+              </g>
+            </svg>
 
-                {/* Freedom Age */}
-                <div className="h-full flex flex-col items-center text-center rounded-2xl bg-black/65 md:bg-black/55 backdrop-blur-md px-2 md:px-3 py-3 md:py-4 ring-1 ring-white/20 md:ring-white/10">
-                  <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
-                  <div className="mt-2 flex items-baseline justify-center gap-1 md:gap-2">
-                    <span className="font-display text-2xl md:text-5xl font-semibold text-white leading-none">51</span>
-                    <span className="text-[11px] md:text-sm text-white/85">yrs</span>
-                  </div>
-                  <div className="flex-1 flex items-center justify-center w-full my-1">
-                    <img
-                      src={freedomMountain}
-                      alt="Mountain with flag at summit"
-                      loading="lazy"
-                      width={512}
-                      height={512}
-                      className="w-20 md:w-24 h-auto opacity-90"
-                    />
-                  </div>
-                  <div className="text-[10px] md:text-xs font-semibold text-[#5eead4]">↓ −2 yrs in 6 mo</div>
-                </div>
-
-              </div>
-            </div>
 
           </div>
         </Reveal>
