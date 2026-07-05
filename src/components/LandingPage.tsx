@@ -253,6 +253,102 @@ function Hero({ lang }: { lang: Lang }) {
   );
 }
 
+function MetricsSection() {
+  return (
+    <section aria-label="Key financial metrics" className="pt-16 pb-20 md:pt-16 md:pb-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="rounded-3xl bg-white/[0.03] ring-1 ring-white/5 px-4 md:px-8 py-8 md:py-10 [text-shadow:0_2px_12px_rgba(0,0,0,0.55)]">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 items-stretch">
+            {/* Financial Health gauge */}
+            <Reveal variant="up" delay={0} className="h-full flex flex-col text-center rounded-2xl bg-black/40 backdrop-blur-md px-4 py-5 ring-1 ring-white/10">
+              <div className="text-[11px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
+              <div className="relative mt-3 aspect-square mx-auto w-full max-w-[180px]">
+                <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="6" />
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="url(#gaugeG2)" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${0.82 * 2 * Math.PI * 42} ${2 * Math.PI * 42}`} />
+                  <defs>
+                    <linearGradient id="gaugeG2" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#ff3ea5" />
+                      <stop offset="50%" stopColor="#a78bfa" />
+                      <stop offset="100%" stopColor="#22d3ee" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <span className="font-display text-4xl md:text-5xl font-semibold text-white leading-none">82</span>
+                  <span className="text-xs text-white/85">/ 100</span>
+                </div>
+              </div>
+              <div className="mt-3 text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
+            </Reveal>
+
+            {/* Your Ranking */}
+            <Reveal variant="up" delay={120} className="h-full flex flex-col items-center text-center rounded-2xl bg-black/40 backdrop-blur-md px-4 py-5 ring-1 ring-white/10">
+              <div className="text-[11px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
+              <div className="mt-3 flex items-baseline justify-center gap-1">
+                <span className="text-lg md:text-xl text-white/90 font-medium">Top</span>
+                <span className="font-display text-4xl md:text-5xl font-semibold text-white leading-none">13%</span>
+              </div>
+              <div className="flex-1 flex items-center justify-center w-full my-2">
+                <svg viewBox="0 0 100 34" className="w-full max-w-[220px] drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="bellFill2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.55" />
+                      <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
+                    </linearGradient>
+                    <linearGradient id="bellStroke2" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#ff3ea5" />
+                      <stop offset="50%" stopColor="#a78bfa" />
+                      <stop offset="100%" stopColor="#22d3ee" />
+                    </linearGradient>
+                    <linearGradient id="bellHi2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.9" />
+                      <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.1" />
+                    </linearGradient>
+                    <clipPath id="bellTopClip2">
+                      <rect x="87" y="0" width="13" height="34" />
+                    </clipPath>
+                  </defs>
+                  <line x1="0" y1="30" x2="100" y2="30" stroke="rgba(255,255,255,0.18)" strokeWidth="0.5" />
+                  <path d="M-2,30 L0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99 L102,30 Z" fill="url(#bellFill2)" />
+                  <g clipPath="url(#bellTopClip2)">
+                    <path d="M-2,30 L0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99 L102,30 Z" fill="url(#bellHi2)" />
+                  </g>
+                  <path d="M0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99" stroke="url(#bellStroke2)" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                  <line x1="87" y1="30" x2="87" y2="29.5" stroke="#22d3ee" strokeWidth="0.6" strokeDasharray="1.5 1.5" />
+                  <circle cx="87" cy="29.5" r="1.8" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.6" />
+                </svg>
+              </div>
+              <div className="text-xs font-semibold text-[#5eead4]">Ahead of 87% of users</div>
+            </Reveal>
+
+            {/* Freedom Age */}
+            <Reveal variant="up" delay={240} className="h-full flex flex-col items-center text-center rounded-2xl bg-black/40 backdrop-blur-md px-4 py-5 ring-1 ring-white/10">
+              <div className="text-[11px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
+              <div className="mt-3 flex items-baseline justify-center gap-2">
+                <span className="font-display text-4xl md:text-5xl font-semibold text-white leading-none">51</span>
+                <span className="text-sm text-white/85">yrs</span>
+              </div>
+              <div className="flex-1 flex items-center justify-center w-full my-2">
+                <img
+                  src={freedomMountain}
+                  alt="Mountain with flag at summit"
+                  loading="lazy"
+                  width={512}
+                  height={512}
+                  className="w-24 md:w-28 h-auto opacity-90"
+                />
+              </div>
+              <div className="text-xs font-semibold text-[#5eead4]">↓ −2 yrs in 6 mo</div>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function StatBar({ lang }: { lang: Lang }) {
   const stats = t(lang).stats;
   return (
