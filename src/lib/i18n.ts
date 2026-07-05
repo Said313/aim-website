@@ -43,8 +43,9 @@ const en = {
   hero: {
     badge: "Working worldwide",
     srTitle: "Aim — Your Personal AI CFO.",
-    line1: "Confidence to",
-    line2: "live bigger.",
+    line1: "Your money",
+    line2: "smarter than ever",
+
     desc: "Aim is your personal AI CFO. It connects every bank account via Open Banking, understands your life, and turns complex finances into clear next steps — so you can focus on what truly matters.",
     ctaPrimary: "Get early access",
     ctaSecondary: "See what it does",
