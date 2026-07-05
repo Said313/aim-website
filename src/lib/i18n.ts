@@ -43,8 +43,9 @@ const en = {
   hero: {
     badge: "Working worldwide",
     srTitle: "Aim — Your Personal AI CFO.",
-    line1: "Confidence to",
-    line2: "live bigger.",
+    line1: "Your money",
+    line2: "smarter than ever",
+
     desc: "Aim is your personal AI CFO. It connects every bank account via Open Banking, understands your life, and turns complex finances into clear next steps — so you can focus on what truly matters.",
     ctaPrimary: "Get early access",
     ctaSecondary: "See what it does",
@@ -227,8 +228,9 @@ const ru: Dict = {
   hero: {
     badge: "Работаем по всему миру",
     srTitle: "Aim — Ваш персональный AI-финдиректор.",
-    line1: "Уверенность, чтобы",
-    line2: "жить шире.",
+    line1: "Ваши деньги",
+    line2: "умнее, чем когда-либо",
+
     desc: "Aim — ваш персональный AI-финдиректор. Он подключает все банковские счета через Open Banking, понимает вашу жизнь и превращает сложные финансы в чёткие шаги — чтобы вы могли сосредоточиться на главном.",
     ctaPrimary: "Получить ранний доступ",
     ctaSecondary: "Что он умеет",
@@ -409,8 +411,9 @@ const kz: Dict = {
   hero: {
     badge: "Бүкіл әлемде жұмыс істейміз",
     srTitle: "Aim — Сіздің жеке AI қаржы директорыңыз.",
-    line1: "Үлкен өмір сүруге",
-    line2: "сенімділік.",
+    line1: "Ақшаңыз",
+    line2: "бұрынғыдан ақылды",
+
     desc: "Aim — сіздің жеке AI қаржы директорыңыз. Ол барлық банк шоттарын Open Banking арқылы қосады, өміріңізді түсінеді және күрделі қаржыны нақты қадамдарға айналдырады — сіз шынымен маңыздыға назар аударасыз.",
     ctaPrimary: "Ерте қол жеткізу",
     ctaSecondary: "Не істейді",
