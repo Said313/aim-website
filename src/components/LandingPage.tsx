@@ -72,8 +72,9 @@ function Nav({ lang }: { lang: Lang }) {
 function Hero({ lang }: { lang: Lang }) {
   const s = t(lang).hero;
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-24 md:pt-32 md:pb-32">
-      <div className="relative mx-auto max-w-7xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-8 items-center min-h-[600px]">
+    <section id="top" className="relative overflow-hidden pt-28 pb-24 md:pt-32 md:pb-32 min-h-screen flex items-center">
+      <div className="relative mx-auto max-w-7xl w-full px-6 grid gap-8 items-center min-h-[600px]">
+
         <Reveal variant="fade" className="relative z-10 md:col-span-2 md:col-start-1 flex flex-col items-center text-center">
           <div className="flex flex-wrap justify-center items-center gap-2 mb-6">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
