@@ -74,7 +74,7 @@ export function UserWaitlistForm({ lang = DEFAULT_LANG }: { lang?: Lang }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-accent text-accent-foreground rounded-full px-6 py-3.5 text-sm font-semibold shadow-glow hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-6 py-3.5 text-sm font-semibold shadow-glow hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {loading ? s.submittingUser : s.submitUser}
       </button>
