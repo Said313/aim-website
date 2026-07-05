@@ -126,112 +126,20 @@ function Hero({ lang }: { lang: Lang }) {
             <img
               src={heroImg}
               alt=""
-              width={1024}
-              height={1024}
-              className="w-full h-full object-cover brightness-[1.3] contrast-105 saturate-110 md:brightness-105 md:contrast-100 md:saturate-105 [filter:hue-rotate(35deg)_saturate(1.1)_brightness(1.02)] md:[filter:hue-rotate(35deg)_saturate(1.1)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_22%,black_72%,transparent_100%)] md:[mask-image:none]"
+              width={1536}
+              height={1536}
+              className="w-full h-full object-cover object-center"
             />
-            {/* Warm evergreen color grade */}
-            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(91,112,101,0.18)_0%,rgba(48,64,64,0.30)_60%,rgba(48,64,64,0.55)_100%)] mix-blend-multiply" />
-            {/* Emerald atmospheric bloom */}
-            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_60%_45%,rgba(105,255,205,0.15),transparent_55%),radial-gradient(ellipse_at_30%_70%,rgba(170,255,220,0.08),transparent_60%)]" />
-            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(48,64,64,0.95)_98%)] md:bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(48,64,64,0.9)_95%)]" />
-            <div className="absolute inset-x-0 top-0 h-40 md:h-40 bg-gradient-to-b from-[#5B7065] via-[rgba(91,112,101,0.7)] to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-1/2 md:h-1/2 bg-gradient-to-t from-[#304040] via-[rgba(48,64,64,0.85)] via-40% to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 left-0 w-1/6 md:w-1/3 bg-gradient-to-r from-[rgba(48,64,64,0.55)] md:from-[#304040] via-[rgba(48,64,64,0.2)] md:via-[rgba(48,64,64,0.55)] to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-1/6 md:w-1/5 bg-gradient-to-l from-[rgba(48,64,64,0.4)] md:from-[rgba(48,64,64,0.6)] to-transparent pointer-events-none" />
+            {/* Soft evergreen atmospheric grade */}
+            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(48,64,64,0.15)_0%,rgba(48,64,64,0.35)_60%,rgba(48,64,64,0.7)_100%)]" />
+            {/* Emerald bloom around summit */}
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_60%_25%,rgba(120,255,210,0.12),transparent_55%)]" />
+            {/* Vignette to blend edges into page */}
+            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#5B7065] to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#304040] via-[rgba(48,64,64,0.7)] to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-1/6 md:w-1/4 bg-gradient-to-r from-[#304040] to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/6 md:w-1/6 bg-gradient-to-l from-[rgba(48,64,64,0.5)] to-transparent pointer-events-none" />
 
-
-            {/* Cinematic climb animation — user's financial journey to the summit */}
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              className="absolute inset-0 z-20 w-full h-full pointer-events-none"
-            >
-              <defs>
-                <radialGradient id="orbGrad" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="rgba(180,255,225,1)" />
-                  <stop offset="45%" stopColor="rgba(120,255,210,0.95)" />
-                  <stop offset="100%" stopColor="rgba(120,255,210,0)" />
-                </radialGradient>
-                <radialGradient id="summitGrad" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="rgba(180,255,225,0.9)" />
-                  <stop offset="60%" stopColor="rgba(120,255,210,0.25)" />
-                  <stop offset="100%" stopColor="rgba(120,255,210,0)" />
-                </radialGradient>
-                <path
-                  id="climbPath"
-                  d="M 18 92 Q 26 84 32 78 T 44 64 T 55 48 T 66 32 T 74 20"
-                  fill="none"
-                />
-              </defs>
-
-              {/* Guide path is invisible — orb travels along the mountain's existing painted trail */}
-
-
-              {/* Milestones — flash + persistent soft glow */}
-              {[
-                { cx: 32, cy: 78, begin: "4s" },
-                { cx: 48, cy: 60, begin: "8s" },
-                { cx: 62, cy: 38, begin: "12s" },
-              ].map((m, i) => (
-                <g key={i}>
-                  {/* Persistent illumination after activation */}
-                  <circle cx={m.cx} cy={m.cy} r="0.9" fill="rgba(120,255,210,0.9)">
-                    <animate attributeName="opacity" values="0.35;0.35" dur="16s" begin={m.begin} repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0" to="0.35" dur="0.4s" begin={m.begin} fill="freeze" />
-                  </circle>
-                  {/* Expanding ring */}
-                  <circle cx={m.cx} cy={m.cy} fill="none" stroke="rgba(120,255,210,0.85)" strokeWidth="0.25">
-                    <animate attributeName="r" from="0.6" to="4.5" dur="1.2s" begin={m.begin} repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.9" to="0" dur="1.2s" begin={m.begin} repeatCount="indefinite" />
-                  </circle>
-                  {/* Bright flash */}
-                  <circle cx={m.cx} cy={m.cy} r="1.6" fill="url(#orbGrad)">
-                    <animate attributeName="opacity" values="0;1;0" dur="1.2s" begin={m.begin} repeatCount="indefinite" />
-                  </circle>
-                  {/* Scattering particles */}
-                  {[0, 1, 2, 3, 4].map((p) => {
-                    const angle = (p / 5) * Math.PI * 2 + i;
-                    const dx = Math.cos(angle) * 3;
-                    const dy = Math.sin(angle) * 3;
-                    return (
-                      <circle key={p} cx={m.cx} cy={m.cy} r="0.25" fill="rgba(120,255,210,0.95)">
-                        <animate attributeName="cx" from={m.cx} to={m.cx + dx} dur="1s" begin={m.begin} repeatCount="indefinite" />
-                        <animate attributeName="cy" from={m.cy} to={m.cy + dy} dur="1s" begin={m.begin} repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="0;1;0" dur="1s" begin={m.begin} repeatCount="indefinite" />
-                      </circle>
-                    );
-                  })}
-                </g>
-              ))}
-
-              {/* Summit pulse + rays */}
-              <g>
-                <circle cx="74" cy="20" r="3" fill="url(#summitGrad)">
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.85;1" dur="16s" begin="15s" repeatCount="indefinite" />
-                  <animate attributeName="r" values="1;5;5;2" keyTimes="0;0.1;0.85;1" dur="16s" begin="15s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="74" cy="20" fill="none" stroke="rgba(120,255,210,0.7)" strokeWidth="0.2">
-                  <animate attributeName="r" from="1" to="12" dur="2.5s" begin="15.5s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" from="0.8" to="0" dur="2.5s" begin="15.5s" repeatCount="indefinite" />
-                </circle>
-              </g>
-
-              {/* Climbing orb — the user */}
-              <g>
-                <circle r="1.4" fill="url(#orbGrad)" opacity="0.85">
-                  <animateMotion dur="16s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.42 0 0.58 1">
-                    <mpath href="#climbPath" />
-                  </animateMotion>
-                </circle>
-                <circle r="0.55" fill="rgba(255,255,255,0.95)">
-                  <animateMotion dur="16s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.42 0 0.58 1">
-                    <mpath href="#climbPath" />
-                  </animateMotion>
-                </circle>
-              </g>
-            </svg>
 
 
           </div>
