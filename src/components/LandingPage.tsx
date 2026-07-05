@@ -732,6 +732,8 @@ export function LandingPage({ lang }: { lang: Lang }) {
     <main className="min-h-screen">
       <Nav lang={lang} />
       <Hero lang={lang} />
+      <MetricsSection />
+
       <StatBar lang={lang} />
       <Marquee lang={lang} />
       <Features lang={lang} />
