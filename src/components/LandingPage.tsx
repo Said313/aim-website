@@ -166,21 +166,8 @@ function Hero({ lang }: { lang: Lang }) {
                 />
               </defs>
 
-              {/* Faint path guide */}
-              <use
-                href="#climbPath"
-                stroke="rgba(120,255,210,0.18)"
-                strokeWidth="0.35"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <use
-                href="#climbPath"
-                stroke="rgba(120,255,210,0.55)"
-                strokeWidth="0.15"
-                strokeLinecap="round"
-                fill="none"
-              />
+              {/* Guide path is invisible — orb travels along the mountain's existing painted trail */}
+
 
               {/* Milestones — flash + persistent soft glow */}
               {[
