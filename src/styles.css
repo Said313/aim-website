@@ -101,6 +101,14 @@
   background: var(--gradient-brand);
 }
 
+@utility bg-primary-gradient {
+  background: var(--gradient-primary);
+}
+
+@utility bg-primary-gradient-hover {
+  background: linear-gradient(135deg, #AFA1FF 0%, #8FA0FF 100%);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
