@@ -58,7 +58,7 @@ function Nav({ lang }: { lang: Lang }) {
             <LanguageSwitcher current={lang} />
             <a
               href="#waitlist"
-              className="bg-accent text-accent-foreground rounded-full px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold hover:opacity-90 transition whitespace-nowrap"
+              className="bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold hover:opacity-90 transition whitespace-nowrap"
             >
               {s.nav.cta}
             </a>
@@ -99,7 +99,7 @@ function Hero({ lang }: { lang: Lang }) {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="#waitlist"
-              className="bg-accent text-accent-foreground rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
+              className="bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
             >
               {s.ctaPrimary} <ArrowRight className="h-4 w-4" />
             </a>
