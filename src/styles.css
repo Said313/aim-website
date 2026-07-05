@@ -39,49 +39,50 @@
   /* Evergreen forest palette */
   --background: #304040;
   --foreground: #F8F7F3;
-  --card: #3a4d4a;
+  --card: #263332;
   --card-foreground: #F8F7F3;
-  --popover: #3a4d4a;
+  --popover: #263332;
   --popover-foreground: #F8F7F3;
-  /* Primary button gradient endpoints */
-  --primary: #9B8BFF;
-  --primary-foreground: #14201d;
-  --secondary: rgba(255, 255, 255, 0.08);
-  --secondary-foreground: #C8D1CC;
-  --muted: rgba(255, 255, 255, 0.06);
-  --muted-foreground: #A8B3AE;
-  --accent: #8C82FF;
+  /* Primary button gradient endpoints (softened periwinkle) */
+  --primary: #9B8CFF;
+  --primary-foreground: #F8F7F3;
+  --secondary: rgba(255, 255, 255, 0.06);
+  --secondary-foreground: #F8F7F3;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #A5B2AB;
+  --accent: #78FFD2;
   --accent-foreground: #14201d;
   --destructive: oklch(0.65 0.24 25);
   --destructive-foreground: #F8F7F3;
-  --border: rgba(255, 255, 255, 0.10);
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: #8C82FF;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.10);
+  --ring: rgba(120, 255, 210, 0.45);
 
   --color-body: #E6E8E5;
   --color-heading: #F8F7F3;
   --color-secondary-text: #C8D1CC;
 
-  /* Accent gradient — magenta → periwinkle → cyan */
+  /* Accent gradient — soft emerald flow */
   --gradient-brand: linear-gradient(
     90deg,
-    #C96BE6 0%,
-    #8C82FF 50%,
-    #57CFEF 100%
+    #78FFD2 0%,
+    #9B8CFF 60%,
+    #7D93FF 100%
   );
 
-  /* Primary button gradient */
-  --gradient-primary: linear-gradient(135deg, #9B8BFF 0%, #7B8CFF 100%);
+  /* Primary button gradient — periwinkle */
+  --gradient-primary: linear-gradient(135deg, #9B8CFF 0%, #7D93FF 100%);
 
-  --shadow-soft: 0 20px 60px -20px rgba(0, 0, 0, 0.55);
-  --shadow-glow: 0 30px 80px -30px rgba(140, 130, 255, 0.45);
+  --shadow-soft: 0 24px 60px rgba(20, 35, 30, 0.28);
+  --shadow-glow: 0 24px 60px -18px rgba(125, 147, 255, 0.35);
 
 }
 
 @utility glass-card {
-  background: rgba(48, 64, 64, 0.45);
+  background: rgba(38, 51, 50, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(24px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
 
 
@@ -92,9 +93,7 @@
 @utility text-brand-gradient {
   background: var(--gradient-brand);
   background-clip: text;
-  -webkit-background-clip: text;
   color: transparent;
-  -webkit-text-fill-color: transparent;
 }
 
 @utility bg-brand-gradient {
@@ -106,7 +105,7 @@
 }
 
 @utility bg-primary-gradient-hover {
-  background: linear-gradient(135deg, #AFA1FF 0%, #8FA0FF 100%);
+  background: linear-gradient(135deg, #ADA3FF 0%, #8EA3FF 100%);
 }
 
 @layer base {
@@ -118,7 +117,7 @@
   }
   body {
     background-color: #304040;
-    background-image: linear-gradient(180deg, #5B7065 0%, #435551 35%, #304040 75%, #2a3838 100%);
+    background-image: linear-gradient(180deg, #5B7065 0%, #44584F 45%, #304040 100%);
     background-attachment: fixed;
     color: #E6E8E5;
     font-family: var(--font-sans);
@@ -131,6 +130,7 @@
     letter-spacing: -0.02em;
   }
 }
+
 
 /* ---------- Slow, cinematic animations ---------- */
 @keyframes reveal-up {
