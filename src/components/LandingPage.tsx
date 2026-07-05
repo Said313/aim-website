@@ -78,15 +78,15 @@ function Hero({ lang }: { lang: Lang }) {
         <Reveal variant="fade" className="relative z-10 md:col-span-2 md:col-start-1 flex flex-col items-center text-center">
           <div className="flex flex-wrap justify-center items-center gap-2 mb-6">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#7B8CFF] animate-pulse" />
               {s.badge}
             </div>
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.72_0.18_320)]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#D37BFF]" />
               Artificial Intelligence
             </div>
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.78_0.15_200)]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#78FFD2]" />
               Open Banking
             </div>
           </div>
@@ -113,7 +113,7 @@ function Hero({ lang }: { lang: Lang }) {
           </div>
           <div className="mt-5">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-              <ShieldCheck className="h-3.5 w-3.5 text-[oklch(0.78_0.15_150)]" />
+              <ShieldCheck className="h-3.5 w-3.5 text-[#78FFD2]" />
               {t(lang).hero.sec1}
             </div>
           </div>
@@ -128,7 +128,7 @@ function Hero({ lang }: { lang: Lang }) {
               alt=""
               width={1024}
               height={1024}
-              className="w-full h-full object-cover brightness-[1.3] contrast-105 saturate-110 md:brightness-105 md:contrast-100 md:saturate-105 [filter:hue-rotate(-25deg)_saturate(1.05)_brightness(1.05)] md:[filter:hue-rotate(-25deg)_saturate(1.05)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_22%,black_72%,transparent_100%)] md:[mask-image:none]"
+              className="w-full h-full object-cover brightness-[1.3] contrast-105 saturate-110 md:brightness-105 md:contrast-100 md:saturate-105 [filter:hue-rotate(35deg)_saturate(1.1)_brightness(1.02)] md:[filter:hue-rotate(35deg)_saturate(1.1)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_22%,black_72%,transparent_100%)] md:[mask-image:none]"
             />
             {/* Warm evergreen color grade */}
             <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(91,112,101,0.18)_0%,rgba(48,64,64,0.30)_60%,rgba(48,64,64,0.55)_100%)] mix-blend-multiply" />
@@ -262,17 +262,17 @@ function MetricsSection() {
         <div className="rounded-3xl bg-white/[0.03] ring-1 ring-white/5 px-4 md:px-8 py-8 md:py-10 [text-shadow:0_2px_12px_rgba(0,0,0,0.55)]">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 items-stretch">
             {/* Financial Health gauge */}
-            <Reveal variant="up" delay={0} className="h-full flex flex-col text-center rounded-2xl bg-black/40 backdrop-blur-md px-4 py-5 ring-1 ring-white/10">
+            <Reveal variant="up" delay={0} className="h-full flex flex-col text-center rounded-2xl bg-[rgba(38,51,50,0.78)] backdrop-blur-2xl px-4 py-5 ring-1 ring-white/10 shadow-[0_24px_60px_rgba(20,35,30,0.28)]">
               <div className="text-[11px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Financial Health</div>
               <div className="relative mt-3 aspect-square mx-auto w-full max-w-[180px]">
-                <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]">
+                <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 drop-shadow-[0_0_12px_rgba(120,255,210,0.55)]">
                   <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="6" />
                   <circle cx="50" cy="50" r="42" fill="none" stroke="url(#gaugeG2)" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${0.82 * 2 * Math.PI * 42} ${2 * Math.PI * 42}`} />
                   <defs>
                     <linearGradient id="gaugeG2" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#ff3ea5" />
-                      <stop offset="50%" stopColor="#a78bfa" />
-                      <stop offset="100%" stopColor="#22d3ee" />
+                      <stop offset="0%" stopColor="#78FFD2" />
+                      <stop offset="50%" stopColor="#9B8CFF" />
+                      <stop offset="100%" stopColor="#7D93FF" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -281,31 +281,31 @@ function MetricsSection() {
                   <span className="text-xs text-white/85">/ 100</span>
                 </div>
               </div>
-              <div className="mt-3 text-xs font-semibold text-[#5eead4]">↑ +3 this month</div>
+              <div className="mt-3 text-xs font-semibold text-[#78FFD2]">↑ +3 this month</div>
             </Reveal>
 
             {/* Your Ranking */}
-            <Reveal variant="up" delay={120} className="h-full flex flex-col items-center text-center rounded-2xl bg-black/40 backdrop-blur-md px-4 py-5 ring-1 ring-white/10">
+            <Reveal variant="up" delay={120} className="h-full flex flex-col items-center text-center rounded-2xl bg-[rgba(38,51,50,0.78)] backdrop-blur-2xl px-4 py-5 ring-1 ring-white/10 shadow-[0_24px_60px_rgba(20,35,30,0.28)]">
               <div className="text-[11px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Your Ranking</div>
               <div className="mt-3 flex items-baseline justify-center gap-1">
                 <span className="text-lg md:text-xl text-white/90 font-medium">Top</span>
                 <span className="font-display text-4xl md:text-5xl font-semibold text-white leading-none">13%</span>
               </div>
               <div className="flex-1 flex items-center justify-center w-full my-2">
-                <svg viewBox="0 0 100 34" className="w-full max-w-[220px] drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]" preserveAspectRatio="none">
+                <svg viewBox="0 0 100 34" className="w-full max-w-[220px] drop-shadow-[0_0_10px_rgba(155,140,255,0.45)]" preserveAspectRatio="none">
                   <defs>
                     <linearGradient id="bellFill2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.55" />
-                      <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#9B8CFF" stopOpacity="0.55" />
+                      <stop offset="100%" stopColor="#9B8CFF" stopOpacity="0" />
                     </linearGradient>
                     <linearGradient id="bellStroke2" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="#ff3ea5" />
-                      <stop offset="50%" stopColor="#a78bfa" />
-                      <stop offset="100%" stopColor="#22d3ee" />
+                      <stop offset="0%" stopColor="#78FFD2" />
+                      <stop offset="50%" stopColor="#9B8CFF" />
+                      <stop offset="100%" stopColor="#7D93FF" />
                     </linearGradient>
                     <linearGradient id="bellHi2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.9" />
-                      <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.1" />
+                      <stop offset="0%" stopColor="#7D93FF" stopOpacity="0.9" />
+                      <stop offset="100%" stopColor="#7D93FF" stopOpacity="0.1" />
                     </linearGradient>
                     <clipPath id="bellTopClip2">
                       <rect x="87" y="0" width="13" height="34" />
@@ -317,15 +317,15 @@ function MetricsSection() {
                     <path d="M-2,30 L0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99 L102,30 Z" fill="url(#bellHi2)" />
                   </g>
                   <path d="M0,29.99 L2,29.98 L4,29.97 L6,29.94 L8,29.90 L10,29.84 L12,29.74 L14,29.60 L16,29.38 L18,29.07 L20,28.63 L22,28.04 L24,27.27 L26,26.28 L28,25.06 L30,23.60 L32,21.91 L34,20.02 L36,17.99 L38,15.89 L40,13.84 L42,11.94 L44,10.31 L46,9.06 L48,8.27 L50,8.00 L52,8.27 L54,9.06 L56,10.31 L58,11.94 L60,13.84 L62,15.89 L64,17.99 L66,20.02 L68,21.91 L70,23.60 L72,25.06 L74,26.28 L76,27.27 L78,28.04 L80,28.63 L82,29.07 L84,29.38 L86,29.60 L88,29.74 L90,29.84 L92,29.90 L94,29.94 L96,29.97 L98,29.98 L100,29.99" stroke="url(#bellStroke2)" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
-                  <line x1="87" y1="30" x2="87" y2="29.5" stroke="#22d3ee" strokeWidth="0.6" strokeDasharray="1.5 1.5" />
-                  <circle cx="87" cy="29.5" r="1.8" fill="#22d3ee" stroke="#0a0a1a" strokeWidth="0.6" />
+                  <line x1="87" y1="30" x2="87" y2="29.5" stroke="#78FFD2" strokeWidth="0.6" strokeDasharray="1.5 1.5" />
+                  <circle cx="87" cy="29.5" r="1.8" fill="#78FFD2" stroke="#263332" strokeWidth="0.6" />
                 </svg>
               </div>
-              <div className="text-xs font-semibold text-[#5eead4]">Ahead of 87% of users</div>
+              <div className="text-xs font-semibold text-[#78FFD2]">Ahead of 87% of users</div>
             </Reveal>
 
             {/* Freedom Age */}
-            <Reveal variant="up" delay={240} className="h-full flex flex-col items-center text-center rounded-2xl bg-black/40 backdrop-blur-md px-4 py-5 ring-1 ring-white/10">
+            <Reveal variant="up" delay={240} className="h-full flex flex-col items-center text-center rounded-2xl bg-[rgba(38,51,50,0.78)] backdrop-blur-2xl px-4 py-5 ring-1 ring-white/10 shadow-[0_24px_60px_rgba(20,35,30,0.28)]">
               <div className="text-[11px] md:text-xs uppercase tracking-[0.18em] text-white font-medium">Freedom Age</div>
               <div className="mt-3 flex items-baseline justify-center gap-2">
                 <span className="font-display text-4xl md:text-5xl font-semibold text-white leading-none">51</span>
@@ -341,7 +341,7 @@ function MetricsSection() {
                   className="w-24 md:w-28 h-auto opacity-90"
                 />
               </div>
-              <div className="text-xs font-semibold text-[#5eead4]">↓ −2 yrs in 6 mo</div>
+              <div className="text-xs font-semibold text-[#78FFD2]">↓ −2 yrs in 6 mo</div>
             </Reveal>
           </div>
         </div>
@@ -497,9 +497,9 @@ function Vision({ lang }: { lang: Lang }) {
   const s = t(lang).vision;
   const r = s.roadmap;
   const stageAccents = [
-    { dot: "bg-[oklch(0.72_0.18_320)]", text: "text-[oklch(0.78_0.18_320)]" },
+    { dot: "bg-[#D37BFF]", text: "text-[#D37BFF]" },
     { dot: "bg-accent", text: "text-accent" },
-    { dot: "bg-[oklch(0.78_0.15_200)]", text: "text-[oklch(0.82_0.15_200)]" },
+    { dot: "bg-[#78FFD2]", text: "text-[#78FFD2]" },
   ];
   return (
     <section id="vision" className="py-24 md:py-32">
