@@ -72,11 +72,11 @@ function Nav({ lang }: { lang: Lang }) {
 function Hero({ lang }: { lang: Lang }) {
   const s = t(lang).hero;
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-24 md:pt-32 md:pb-32 min-h-screen flex items-center">
-      <div className="relative mx-auto max-w-7xl w-full px-6 grid gap-8 items-center min-h-[600px]">
+    <section id="top" className="relative overflow-hidden pt-32 pb-28 md:pt-40 md:pb-36 min-h-screen flex items-center">
+      <div className="relative mx-auto max-w-7xl w-full px-6 grid gap-8 items-center min-h-[680px]">
 
-        <Reveal variant="fade" className="relative z-10 md:col-span-2 md:col-start-1 flex flex-col items-center text-center">
-          <div className="flex flex-wrap justify-center items-center gap-2 mb-6">
+        <Reveal variant="fade" className="relative z-10 flex flex-col items-center text-center md:items-start md:text-left md:max-w-[580px]">
+          <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mb-8">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-[#7B8CFF] animate-pulse" />
               {s.badge}
@@ -96,8 +96,8 @@ function Hero({ lang }: { lang: Lang }) {
             <br aria-hidden="true" />
             <span aria-hidden="true">{s.line2}</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">{s.desc}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
+          <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-3">
             <a
               href="#waitlist"
               className="bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
@@ -111,7 +111,7 @@ function Hero({ lang }: { lang: Lang }) {
               {s.ctaSecondary}
             </a>
           </div>
-          <div className="mt-5">
+          <div className="mt-6">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
               <ShieldCheck className="h-3.5 w-3.5 text-[#78FFD2]" />
               {t(lang).hero.sec1}
