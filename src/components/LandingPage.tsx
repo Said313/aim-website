@@ -72,79 +72,81 @@ function Nav({ lang }: { lang: Lang }) {
 function Hero({ lang }: { lang: Lang }) {
   const s = t(lang).hero;
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-28 md:pt-40 md:pb-36 min-h-screen flex items-center">
-      <div className="relative mx-auto max-w-7xl w-full px-6 grid gap-8 items-center min-h-[680px]">
+    <section id="top" className="relative overflow-hidden min-h-screen">
+      {/* Full-bleed cinematic mountain background */}
+      <Reveal variant="zoom-in" delay={200} className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <div className="relative w-full h-full overflow-hidden">
+          <img
+            src={heroImg}
+            alt=""
+            width={1536}
+            height={1536}
+            className="absolute inset-[-8%] w-[116%] h-[116%] object-cover object-[center_32%]"
+          />
+          {/* Soft evergreen atmospheric grade */}
+          <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(48,64,64,0.10)_0%,rgba(48,64,64,0.25)_50%,rgba(48,64,64,0.55)_100%)]" />
+          {/* Emerald bloom around summit */}
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_55%_22%,rgba(120,255,210,0.10),transparent_50%)]" />
+          {/* Atmospheric depth haze behind the mountain */}
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_35%,rgba(91,112,101,0.18),transparent_55%)]" />
+          {/* Top edge blend into nav/page */}
+          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#5B7065]/80 via-[#5B7065]/30 to-transparent pointer-events-none" />
+          {/* Bottom edge soft blend into page background */}
+          <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-[#304040] via-[rgba(48,64,64,0.45)] to-transparent pointer-events-none" />
+          {/* Left edge vignette */}
+          <div className="absolute inset-y-0 left-0 w-1/5 md:w-[22%] bg-gradient-to-r from-[#304040]/90 via-[#304040]/40 to-transparent pointer-events-none" />
+          {/* Right edge vignette */}
+          <div className="absolute inset-y-0 right-0 w-1/6 md:w-[15%] bg-gradient-to-l from-[rgba(48,64,64,0.45)] to-transparent pointer-events-none" />
+        </div>
+      </Reveal>
 
-        <Reveal variant="fade" className="relative z-10 flex flex-col items-center text-center md:items-start md:text-left md:max-w-[580px]">
-          <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mb-8">
-            <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#7B8CFF] animate-pulse" />
-              {s.badge}
+      {/* Hero content */}
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-32 pb-28 md:pt-40 md:pb-36 min-h-screen flex items-center">
+        <div className="grid gap-8 items-center w-full">
+          <Reveal variant="fade" className="flex flex-col items-center text-center md:items-start md:text-left md:max-w-[580px]">
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mb-8">
+              <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#7B8CFF] animate-pulse" />
+                {s.badge}
+              </div>
+              <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#D37BFF]" />
+                Artificial Intelligence
+              </div>
+              <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#78FFD2]" />
+                Open Banking
+              </div>
             </div>
-            <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#D37BFF]" />
-              Artificial Intelligence
+            <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F8F7F3]">
+              <span className="sr-only">{s.srTitle} </span>
+              <span aria-hidden="true">{s.line1}</span>
+              <br aria-hidden="true" />
+              <span aria-hidden="true">{s.line2}</span>
+            </h1>
+            <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
+            <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-3">
+              <a
+                href="#waitlist"
+                className="bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
+              >
+                {s.ctaPrimary} <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#features"
+                className="glass-card rounded-full px-6 py-3.5 text-sm font-semibold hover:bg-white/5 transition"
+              >
+                {s.ctaSecondary}
+              </a>
             </div>
-            <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#78FFD2]" />
-              Open Banking
+            <div className="mt-6">
+              <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
+                <ShieldCheck className="h-3.5 w-3.5 text-[#78FFD2]" />
+                {t(lang).hero.sec1}
+              </div>
             </div>
-          </div>
-          <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F8F7F3]">
-            <span className="sr-only">{s.srTitle} </span>
-            <span aria-hidden="true">{s.line1}</span>
-            <br aria-hidden="true" />
-            <span aria-hidden="true">{s.line2}</span>
-          </h1>
-          <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
-          <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-3">
-            <a
-              href="#waitlist"
-              className="bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
-            >
-              {s.ctaPrimary} <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#features"
-              className="glass-card rounded-full px-6 py-3.5 text-sm font-semibold hover:bg-white/5 transition"
-            >
-              {s.ctaSecondary}
-            </a>
-          </div>
-          <div className="mt-6">
-            <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-              <ShieldCheck className="h-3.5 w-3.5 text-[#78FFD2]" />
-              {t(lang).hero.sec1}
-            </div>
-          </div>
-        </Reveal>
-
-
-        <Reveal variant="zoom-in" delay={200} className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <div className="relative w-full h-full overflow-hidden">
-
-            <img
-              src={heroImg}
-              alt=""
-              width={1536}
-              height={1536}
-              className="w-full h-full object-cover object-center"
-            />
-            {/* Soft evergreen atmospheric grade */}
-            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(48,64,64,0.15)_0%,rgba(48,64,64,0.35)_60%,rgba(48,64,64,0.7)_100%)]" />
-            {/* Emerald bloom around summit */}
-            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_60%_25%,rgba(120,255,210,0.12),transparent_55%)]" />
-            {/* Vignette to blend edges into page */}
-            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#5B7065] to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#304040] via-[rgba(48,64,64,0.7)] to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 left-0 w-1/6 md:w-1/4 bg-gradient-to-r from-[#304040] to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-1/6 md:w-1/6 bg-gradient-to-l from-[rgba(48,64,64,0.5)] to-transparent pointer-events-none" />
-
-
-
-          </div>
-        </Reveal>
-
+          </Reveal>
+        </div>
       </div>
     </section>
   );
