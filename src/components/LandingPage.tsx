@@ -90,14 +90,14 @@ function Hero({ lang }: { lang: Lang }) {
               Open Banking
             </div>
           </div>
-          <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F8F7F3]">
+          <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F8F7F3] md:max-w-[680px]">
             <span className="sr-only">{s.srTitle} </span>
             <span aria-hidden="true">{s.line1}</span>
             <br aria-hidden="true" />
             <span aria-hidden="true">{s.line2}</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">{s.desc}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
+          <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-3">
             <a
               href="#waitlist"
               className="bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
