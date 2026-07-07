@@ -90,7 +90,7 @@ function Hero({ lang }: { lang: Lang }) {
               Open Banking
             </div>
           </div>
-          <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F8F7F3] md:max-w-[680px]">
+          <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F8F7F3]">
             <span className="sr-only">{s.srTitle} </span>
             <span aria-hidden="true">{s.line1}</span>
             <br aria-hidden="true" />
