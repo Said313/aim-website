@@ -19,7 +19,7 @@ import {
   LineChart,
   User,
 } from "lucide-react";
-import heroImg from "@/assets/hero-mountain.jpg";
+
 import appMockup from "@/assets/app-mockup.png";
 import logo from "@/assets/aim-logo.png";
 import freedomMountain from "@/assets/freedom-mountain.png";
