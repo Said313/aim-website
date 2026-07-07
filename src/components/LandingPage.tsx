@@ -111,7 +111,7 @@ function Hero({ lang }: { lang: Lang }) {
               {s.ctaSecondary}
             </a>
           </div>
-          <div className="mt-5">
+          <div className="mt-6">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
               <ShieldCheck className="h-3.5 w-3.5 text-[#78FFD2]" />
               {t(lang).hero.sec1}
