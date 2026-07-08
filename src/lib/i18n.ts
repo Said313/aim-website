@@ -70,7 +70,7 @@ const en = {
   features: {
     eyebrow: "What Aim does",
     titleA: "A CFO that understands",
-    titleB: "your life.",
+    titleB: "\nyour life.",
     items: [
       { title: "Ask anything", text: "Get clear answers to any question about your money, in plain language." },
       { title: "All finance in one place", text: "Banks, cards, accounts, investments and credit — unified via Open Banking." },
@@ -255,7 +255,7 @@ const ru: Dict = {
   features: {
     eyebrow: "Что делает Aim",
     titleA: "Финдиректор, который понимает",
-    titleB: "вашу жизнь.",
+    titleB: "\nвашу жизнь.",
     items: [
       { title: "Спросите что угодно", text: "Понятные ответы на любой вопрос о ваших деньгах — простым языком." },
       { title: "Все финансы в одном месте", text: "Банки, карты, счета, инвестиции и кредиты — объединены через Open Banking." },

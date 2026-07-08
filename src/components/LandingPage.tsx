@@ -312,7 +312,7 @@ function Features({ lang }: { lang: Lang }) {
         <Reveal variant="up" className="max-w-2xl mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            {s.titleA} <span className="text-brand-gradient">{s.titleB}</span>
+            {s.titleA} <span className="text-brand-gradient whitespace-pre-line">{s.titleB}</span>
           </h2>
         </Reveal>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
