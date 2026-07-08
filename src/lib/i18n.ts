@@ -116,7 +116,7 @@ const en = {
     titleA: "A world where every person has a personal",
     titleB: "AI CFO",
     titleC: " - helping them live the life they actually dream of.",
-    desc: "Premium AI. A marketplace. Investments, insurance, lending, mortgages — and much more. We're just getting started.",
+    desc: "Premium AI. A marketplace. Investments, insurance, lending, mortgages - and much more. We're just getting started.",
     roadmap: {
       title: "One Platform.",
       titleAccent: "Limitless Impact.",
