@@ -373,7 +373,7 @@ function ProblemSolution({ lang }: { lang: Lang }) {
         </Reveal>
       </div>
       <div className="mx-auto max-w-7xl px-6 mt-16 md:mt-20 flex justify-center">
-        <div style={{ marginRight: "80px", marginLeft: "120px" }}>
+        <div>
           <Reveal variant="up" className="flex flex-col items-center text-center">
             <a
               href="#waitlist"
