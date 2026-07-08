@@ -54,7 +54,7 @@ const en = {
   },
   stats: [
     { value: "1st", label: "Company onboarded to Open Banking in Central Asia" },
-    { value: "1st", label: "Fintech AI startup in the region" },
+    { value: "1st", label: "Fintech AI startup in Kazakhstan" },
     { value: "2,000+", label: "Users on the pre-launch waitlist" },
   ],
   marquee: [
