@@ -84,7 +84,7 @@ const en = {
     eyebrow: "The problem",
     title: "Too many banks. Too little clarity.",
     bullets: [
-      "Dozens of bank apps, cards and spreadsheets — no single picture.",
+      "Dozens of bank apps, cards and spreadsheets- no single picture.",
       "Managing money takes time, attention, and financial knowledge most people don't have.",
       "It's easy to get lost, miss something, and make costly mistakes.",
     ],
