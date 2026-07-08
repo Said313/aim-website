@@ -370,7 +370,11 @@ function ProblemSolution({ lang }: { lang: Lang }) {
             ))}
           </ul>
           <p className="mt-8 text-foreground font-medium">{sl.closer}</p>
-          <div style={{ marginTop: "32px" }}>
+        </Reveal>
+      </div>
+      <div className="mx-auto max-w-7xl px-6 mt-16 md:mt-20 flex justify-end">
+        <div style={{ marginRight: "80px", marginLeft: "120px" }}>
+          <Reveal variant="up" className="flex flex-col items-center text-center">
             <a
               href="#waitlist"
               className="bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
@@ -387,8 +391,8 @@ function ProblemSolution({ lang }: { lang: Lang }) {
             >
               {t(lang).solution.ctaNote}
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
