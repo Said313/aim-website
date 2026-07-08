@@ -17,10 +17,9 @@ const SCREENS = [
 ] as const;
 type Screen = (typeof SCREENS)[number];
 
-const INTERVAL = 3200; // ms between MacBook changes
-const STAGGER = 800; // ms between devices
+const INTERVAL = 3600; // ms between synchronized screen changes
 
-function useRotator(offset: number) {
+function useSyncedRotator() {
   const [i, setI] = useState(0);
   const [visible, setVisible] = useState(true);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -37,18 +36,11 @@ function useRotator(offset: number) {
 
   useEffect(() => {
     if (!visible) return;
-    let intervalId: ReturnType<typeof setInterval> | undefined;
-    const startId = setTimeout(() => {
-      setI((x) => x + 1);
-      intervalId = setInterval(() => setI((x) => x + 1), INTERVAL);
-    }, offset);
-    return () => {
-      clearTimeout(startId);
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, [visible, offset]);
+    const id = setInterval(() => setI((x) => x + 1), INTERVAL);
+    return () => clearInterval(id);
+  }, [visible]);
 
-  return { screen: SCREENS[i % SCREENS.length] as Screen, ref };
+  return { screen: SCREENS[i % SCREENS.length] as Screen, index: i, ref };
 }
 
 /* -------------------- Screen renderers -------------------- */
