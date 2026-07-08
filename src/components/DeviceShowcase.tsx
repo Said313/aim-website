@@ -436,7 +436,7 @@ function MacBook({ screen }: { screen: Screen }) {
 
 function IPhone({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[158px] h-[326px]">
+    <div className="relative w-[182px] h-[375px]">
       {/* Frame — space black titanium */}
       <div
         className="absolute inset-0 rounded-[42px] p-[3px]"
