@@ -389,74 +389,55 @@ function WatchScreen({ screen }: { screen: Screen }) {
 function MacBook({ screen }: { screen: Screen }) {
   return (
     <div className="relative w-[540px] max-w-full">
-      {/* Lid / display assembly */}
+      {/* Lid / display assembly — space black */}
       <div
-        className="relative rounded-t-[14px] p-[6px] pb-[7px]"
+        className="relative rounded-t-[16px] p-[5px] pb-[6px]"
         style={{
           background:
-            "linear-gradient(180deg, #cbd0d4 0%, #9aa1a6 45%, #6d7378 100%)",
+            "linear-gradient(180deg, #2a2e31 0%, #1c2023 45%, #101315 100%)",
           boxShadow:
-            "inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -1px 0 rgba(0,0,0,0.35), 0 30px 60px -22px rgba(0,0,0,0.55)",
+            "inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.5), 0 30px 60px -22px rgba(0,0,0,0.6)",
         }}
       >
         {/* Bezel */}
         <div
-          className="relative rounded-[8px] p-[7px]"
+          className="relative rounded-[10px] p-[6px] pt-[10px]"
           style={{
-            background: "linear-gradient(180deg, #0a0d0e 0%, #05080a 100%)",
-            boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.06)",
+            background: "#000",
+            boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.04)",
           }}
         >
-          {/* Camera notch */}
-          <div className="absolute top-[3px] left-1/2 -translate-x-1/2 h-[6px] w-[70px] rounded-b-md bg-black z-20">
-            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[3px] w-[3px] rounded-full bg-[#111] ring-1 ring-white/10" />
-          </div>
+          {/* Camera dot */}
+          <span className="absolute top-[3px] left-1/2 -translate-x-1/2 h-[3px] w-[3px] rounded-full bg-[#0e1112] ring-1 ring-white/10 z-20" />
           {/* Screen surface */}
-          <div className="relative rounded-[3px] overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0d1514]">
+          <div className="relative rounded-[4px] overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#152524] via-[#182b28] to-[#0f1a19]">
             <div key={screen} className="ds-fade absolute inset-0">
               <MacScreen screen={screen} />
             </div>
             {/* Glass reflection */}
             <div
-              className="absolute inset-0 pointer-events-none opacity-[0.14]"
+              className="absolute inset-0 pointer-events-none opacity-[0.10]"
               style={{
                 background:
                   "linear-gradient(115deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.05) 22%, transparent 42%)",
                 mixBlendMode: "screen",
               }}
             />
-            {/* Specular sweep */}
-            <div
-              className="absolute -inset-y-4 -left-1/3 w-1/3 rotate-[18deg] pointer-events-none opacity-[0.06]"
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)",
-              }}
-            />
           </div>
         </div>
       </div>
-      {/* Base / deck (aluminum) */}
-      <div className="relative">
-        <div
-          className="h-[10px] rounded-b-[3px]"
-          style={{
-            background:
-              "linear-gradient(180deg, #b9bec2 0%, #8b9096 45%, #5b6065 100%)",
-            boxShadow:
-              "inset 0 1px 0 rgba(255,255,255,0.4), 0 2px 3px rgba(0,0,0,0.35)",
-          }}
-        />
-        {/* Rounded chin lip */}
-        <div
-          className="mx-auto h-[5px] w-[26%] rounded-b-[10px]"
-          style={{
-            background:
-              "linear-gradient(180deg, #3a3f43 0%, #14181a 100%)",
-            boxShadow: "0 6px 14px -4px rgba(0,0,0,0.55)",
-          }}
-        />
-      </div>
+      {/* Deck — dark aluminum, no protruding chin */}
+      <div
+        className="h-[9px] rounded-b-[6px] mx-[-2px]"
+        style={{
+          background:
+            "linear-gradient(180deg, #33383b 0%, #1c2022 55%, #0e1112 100%)",
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.15), 0 3px 5px rgba(0,0,0,0.45)",
+        }}
+      />
+      {/* Thin foot line under deck */}
+      <div className="mx-auto h-[2px] w-[22%] rounded-b-full bg-black/70 blur-[1px]" />
     </div>
   );
 }
@@ -464,32 +445,32 @@ function MacBook({ screen }: { screen: Screen }) {
 function IPhone({ screen }: { screen: Screen }) {
   return (
     <div className="relative w-[158px] h-[326px]">
-      {/* Titanium frame */}
+      {/* Frame — space black titanium */}
       <div
-        className="absolute inset-0 rounded-[40px] p-[3px]"
+        className="absolute inset-0 rounded-[42px] p-[3px]"
         style={{
           background:
-            "linear-gradient(155deg, #d8dcdf 0%, #9ea3a8 40%, #5d6367 70%, #2d3134 100%)",
+            "linear-gradient(155deg, #4a4f52 0%, #2b2f32 35%, #16191b 70%, #0a0c0d 100%)",
           boxShadow:
-            "0 1px 0 rgba(255,255,255,0.35) inset, 0 -1px 0 rgba(0,0,0,0.35) inset, 0 35px 60px -18px rgba(0,0,0,0.6), 0 12px 24px -10px rgba(0,0,0,0.5)",
+            "0 1px 0 rgba(255,255,255,0.18) inset, 0 -1px 0 rgba(0,0,0,0.6) inset, 0 35px 60px -18px rgba(0,0,0,0.65), 0 12px 24px -10px rgba(0,0,0,0.5)",
         }}
       >
         {/* Inner bezel */}
         <div
-          className="relative w-full h-full rounded-[37px] overflow-hidden"
+          className="relative w-full h-full rounded-[39px] overflow-hidden"
           style={{
-            background: "#05080a",
-            boxShadow: "inset 0 0 0 2px #0a0d0f",
+            background: "#000",
+            boxShadow: "inset 0 0 0 2px #0a0c0d",
           }}
         >
           {/* Screen */}
-          <div className="relative w-full h-full rounded-[34px] overflow-hidden bg-gradient-to-br from-[#0d1a19] via-[#122120] to-[#0b1313]">
+          <div className="relative w-full h-full rounded-[36px] overflow-hidden bg-gradient-to-br from-[#152524] via-[#182b28] to-[#0f1a19]">
             {/* Dynamic Island */}
-            <div className="absolute top-[9px] left-1/2 -translate-x-1/2 h-[22px] w-[86px] rounded-full bg-black z-20 ring-1 ring-white/5" />
+            <div className="absolute top-[10px] left-1/2 -translate-x-1/2 h-[22px] w-[86px] rounded-full bg-black z-20 ring-1 ring-white/[0.03]" />
             <PhoneScreen screen={screen} />
             {/* Glass reflection */}
             <div
-              className="absolute inset-0 pointer-events-none opacity-[0.16]"
+              className="absolute inset-0 pointer-events-none opacity-[0.12]"
               style={{
                 background:
                   "linear-gradient(120deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.04) 20%, transparent 45%)",
@@ -499,88 +480,96 @@ function IPhone({ screen }: { screen: Screen }) {
           </div>
         </div>
       </div>
-      {/* Side buttons */}
-      <span className="absolute -left-[2px] top-[70px] h-[26px] w-[2px] rounded-l bg-gradient-to-b from-[#c5c9cc] to-[#5a5f63]" />
-      <span className="absolute -left-[2px] top-[110px] h-[42px] w-[2px] rounded-l bg-gradient-to-b from-[#c5c9cc] to-[#5a5f63]" />
-      <span className="absolute -right-[2px] top-[96px] h-[58px] w-[2px] rounded-r bg-gradient-to-b from-[#c5c9cc] to-[#5a5f63]" />
+      {/* Side buttons — dark */}
+      <span className="absolute -left-[2px] top-[70px] h-[26px] w-[2px] rounded-l bg-gradient-to-b from-[#3a3e41] to-[#141618]" />
+      <span className="absolute -left-[2px] top-[110px] h-[42px] w-[2px] rounded-l bg-gradient-to-b from-[#3a3e41] to-[#141618]" />
+      <span className="absolute -right-[2px] top-[96px] h-[58px] w-[2px] rounded-r bg-gradient-to-b from-[#3a3e41] to-[#141618]" />
     </div>
   );
 }
 
 function Watch({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[108px]">
-      {/* Band top */}
+    <div className="relative w-[108px] flex flex-col items-center">
+      {/* Band top — tapered to match case width */}
       <div
-        className="mx-auto h-8 w-[62px] rounded-t-[10px]"
+        className="relative w-[80px] h-9"
         style={{
           background:
-            "linear-gradient(180deg, #2a2f31 0%, #171b1d 60%, #0d1112 100%)",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08)",
+            "linear-gradient(180deg, #1a1d1f 0%, #101315 60%, #0a0d0e 100%)",
+          clipPath: "polygon(6% 0, 94% 0, 100% 100%, 0% 100%)",
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
         }}
-      />
-      {/* Case (titanium) */}
+      >
+        {/* Band segment line */}
+        <span className="absolute inset-x-2 top-[55%] h-[1px] bg-white/[0.04]" />
+      </div>
+      {/* Case — space black aluminum */}
       <div
-        className="relative rounded-[26px] p-[3px]"
+        className="relative rounded-[24px] p-[3px] w-full -mt-[2px]"
         style={{
           background:
-            "linear-gradient(155deg, #d0d5d9 0%, #8f9498 45%, #4d5256 100%)",
+            "linear-gradient(155deg, #40454a 0%, #23272a 40%, #0f1214 100%)",
           boxShadow:
-            "0 1px 0 rgba(255,255,255,0.4) inset, 0 -1px 0 rgba(0,0,0,0.35) inset, 0 22px 40px -12px rgba(0,0,0,0.6)",
+            "0 1px 0 rgba(255,255,255,0.18) inset, 0 -1px 0 rgba(0,0,0,0.6) inset, 0 22px 40px -12px rgba(0,0,0,0.65)",
         }}
       >
         <div
-          className="relative aspect-square rounded-[22px] overflow-hidden"
+          className="relative aspect-square rounded-[20px] overflow-hidden"
           style={{
             background:
-              "linear-gradient(135deg, #0f1a1a 0%, #12211f 45%, #0b1313 100%)",
+              "linear-gradient(135deg, #152524 0%, #182b28 45%, #0f1a19 100%)",
             boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.7)",
           }}
         >
           <WatchScreen screen={screen} />
           {/* Glass reflection */}
           <div
-            className="absolute inset-0 pointer-events-none opacity-[0.18]"
+            className="absolute inset-0 pointer-events-none opacity-[0.14]"
             style={{
               background:
-                "linear-gradient(125deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.05) 22%, transparent 45%)",
+                "linear-gradient(125deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.04) 22%, transparent 45%)",
               mixBlendMode: "screen",
             }}
           />
         </div>
         {/* Digital crown */}
         <div
-          className="absolute right-[-5px] top-1/2 -translate-y-1/2 h-[18px] w-[6px] rounded-r-[3px]"
+          className="absolute right-[-4px] top-[38%] h-[16px] w-[5px] rounded-r-[3px]"
           style={{
             background:
-              "linear-gradient(180deg, #d0d5d9 0%, #7a7f83 100%)",
+              "linear-gradient(180deg, #4a4e52 0%, #1a1d1f 100%)",
             boxShadow:
-              "0 1px 2px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.2)",
+              "0 1px 2px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.08)",
           }}
         >
-          <span className="absolute inset-y-[3px] right-[1px] w-[1px] bg-black/40 rounded" />
+          <span className="absolute inset-y-[2px] right-[1px] w-[1px] bg-black/60 rounded" />
         </div>
         {/* Side button */}
         <div
-          className="absolute right-[-3px] top-[calc(50%+18px)] h-[10px] w-[4px] rounded-r-[2px]"
+          className="absolute right-[-3px] top-[calc(38%+22px)] h-[9px] w-[3px] rounded-r-[2px]"
           style={{
             background:
-              "linear-gradient(180deg, #b9bec2 0%, #5b6065 100%)",
+              "linear-gradient(180deg, #3a3e41 0%, #14171a 100%)",
           }}
         />
       </div>
-      {/* Band bottom */}
+      {/* Band bottom — tapered */}
       <div
-        className="mx-auto h-8 w-[62px] rounded-b-[10px]"
+        className="relative w-[80px] h-9 -mt-[2px]"
         style={{
           background:
-            "linear-gradient(0deg, #2a2f31 0%, #171b1d 60%, #0d1112 100%)",
+            "linear-gradient(0deg, #1a1d1f 0%, #101315 60%, #0a0d0e 100%)",
+          clipPath: "polygon(0 0, 100% 0, 94% 100%, 6% 100%)",
           boxShadow: "inset 0 -1px 0 rgba(255,255,255,0.05)",
         }}
-      />
+      >
+        <span className="absolute inset-x-2 top-[45%] h-[1px] bg-white/[0.04]" />
+      </div>
     </div>
   );
 }
+
 
 /* -------------------- Root -------------------- */
 
