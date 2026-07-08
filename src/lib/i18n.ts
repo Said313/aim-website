@@ -120,7 +120,7 @@ const en = {
     roadmap: {
       title: "One Platform.",
       titleAccent: "Limitless Impact.",
-      desc: "We're building an AI platform that grows with your needs — from personal finance to corporate ecosystems.",
+      desc: "We're building an AI platform that grows with your needs - from personal finance to corporate ecosystems.",
       stages: [
         {
           tag: "Today",
@@ -149,7 +149,7 @@ const en = {
       ],
       banner: "One platform. One AI engine. Endless possibilities.",
       closingA: "We're not building yet another finance app.",
-      closingB: "We're building one AI platform for financial management —",
+      closingB: "We're building one AI platform for financial management - ",
       closingC: "from personal budgets to growing businesses and beyond.",
     },
   },
