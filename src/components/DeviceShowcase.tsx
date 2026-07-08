@@ -491,18 +491,17 @@ function IPhone({ screen }: { screen: Screen }) {
 function Watch({ screen }: { screen: Screen }) {
   return (
     <div className="relative w-[108px] flex flex-col items-center">
-      {/* Band top — tapered to match case width */}
+      {/* Band top — matches case width, tapered slightly */}
       <div
-        className="relative w-[80px] h-9"
+        className="relative w-[96px] h-10"
         style={{
           background:
             "linear-gradient(180deg, #1a1d1f 0%, #101315 60%, #0a0d0e 100%)",
-          clipPath: "polygon(6% 0, 94% 0, 100% 100%, 0% 100%)",
+          clipPath: "polygon(8% 0, 92% 0, 100% 100%, 0% 100%)",
           boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
         }}
       >
-        {/* Band segment line */}
-        <span className="absolute inset-x-2 top-[55%] h-[1px] bg-white/[0.04]" />
+        <span className="absolute inset-x-3 top-[55%] h-[1px] bg-white/[0.04]" />
       </div>
       {/* Case — space black aluminum */}
       <div
