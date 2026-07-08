@@ -95,7 +95,7 @@ const en = {
     title: "One AI CFO. Every account. Real decisions.",
     bullets: [
       "Aim aggregates every account through secure Open Banking.",
-      "AI understands your habits, goals and life — not just transactions.",
+      "AI understands your habits, goals and life - not just transactions.",
       "Complex data becomes simple recommendations you can act on today.",
     ],
     closer: "The right moment for a new standard in personal finance.",
