@@ -99,6 +99,7 @@ const en = {
       "Complex data becomes simple recommendations you can act on today.",
     ],
     closer: "The right moment for a new standard in personal finance.",
+    ctaNote: "Join the waitlist and be among the first to experience Aim.",
   },
   platforms: {
     eyebrow: "Everywhere you are",
@@ -284,6 +285,7 @@ const ru: Dict = {
       "Сложные данные превращаются в простые рекомендации, по которым можно действовать сегодня.",
     ],
     closer: "Самое время для нового стандарта личных финансов.",
+    ctaNote: "Запишитесь в лист ожидания и станьте одним из первых, кто попробует Aim.",
   },
   platforms: {
     eyebrow: "Везде, где вы",
@@ -467,6 +469,7 @@ const kz: Dict = {
       "Күрделі деректер бүгін әрекет етуге болатын қарапайым ұсыныстарға айналады.",
     ],
     closer: "Жеке қаржының жаңа стандартына уақыт жетті.",
+    ctaNote: "Күту тізіміне тіркеліп, Aim-ды бірінші болып сынап көріңіз.",
   },
   platforms: {
     eyebrow: "Сіз қайда болсаңыз да",
