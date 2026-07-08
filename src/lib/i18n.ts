@@ -46,7 +46,7 @@ const en = {
     line1: "Your money",
     line2: "smarter than ever",
 
-    desc: "Everything about your money. Clear, simple, and powered by AI.",
+    desc: "Aim connects all your accounts and turns your financial data into simple, personalized guidance.",
     ctaPrimary: "Get early access",
     ctaSecondary: "See what it does",
     sec1: "Bank-grade security",
