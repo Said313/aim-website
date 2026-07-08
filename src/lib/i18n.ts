@@ -73,7 +73,7 @@ const en = {
     titleB: "\nyour life.",
     items: [
       { title: "Ask anything", text: "Get clear answers to any question about your money, in plain language." },
-      { title: "All finance in one place", text: "Banks, cards, accounts, investments and credit — unified via Open Banking." },
+      { title: "All finance in one place", text: "Banks, cards, accounts, investments and credit - unified via Open Banking." },
       { title: "Financial health & freedom age", text: "Track your financial health score in real time and see the age at which you can reach financial freedom." },
       { title: "Goal trajectory", text: "Watch the live trajectory toward each personal financial goal and know exactly what to adjust to land on time." },
       { title: "Private & confidential", text: "Bank-level encryption. Your data is yours. Read-only access, always." },
