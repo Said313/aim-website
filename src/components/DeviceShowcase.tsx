@@ -380,7 +380,7 @@ function WatchScreen({ screen }: { screen: Screen }) {
 
 function MacBook({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[540px] max-w-full">
+    <div className="relative w-[594px] max-w-full">
       {/* Lid / display assembly — space black */}
       <div
         className="relative rounded-t-[16px] p-[5px] pb-[6px]"
