@@ -103,8 +103,8 @@ const en = {
   },
   platforms: {
     eyebrow: "Everywhere you are",
-    titleA: "One AI CFO,",
-    titleB: "every device.",
+    titleA: "One AI CFO,\u00a0",
+    titleB: "\nevery device.",
     items: [
       { title: "Mobile app", text: "iOS & Android. The full Aim experience in your pocket." },
       { title: "Watch app", text: "Glanceable balance, goals and alerts on your wrist." },
