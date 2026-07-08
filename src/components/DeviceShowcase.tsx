@@ -17,9 +17,10 @@ const SCREENS = [
 ] as const;
 type Screen = (typeof SCREENS)[number];
 
-const INTERVAL = 3600; // ms between synchronized screen changes
+const INTERVAL = 3200; // ms between MacBook changes
+const STAGGER = 800; // ms between devices
 
-function useSyncedRotator() {
+function useRotator(offset: number) {
   const [i, setI] = useState(0);
   const [visible, setVisible] = useState(true);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -36,11 +37,18 @@ function useSyncedRotator() {
 
   useEffect(() => {
     if (!visible) return;
-    const id = setInterval(() => setI((x) => x + 1), INTERVAL);
-    return () => clearInterval(id);
-  }, [visible]);
+    let intervalId: ReturnType<typeof setInterval> | undefined;
+    const startId = setTimeout(() => {
+      setI((x) => x + 1);
+      intervalId = setInterval(() => setI((x) => x + 1), INTERVAL);
+    }, offset);
+    return () => {
+      clearTimeout(startId);
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [visible, offset]);
 
-  return { screen: SCREENS[i % SCREENS.length] as Screen, index: i, ref };
+  return { screen: SCREENS[i % SCREENS.length] as Screen, ref };
 }
 
 /* -------------------- Screen renderers -------------------- */
@@ -380,278 +388,91 @@ function WatchScreen({ screen }: { screen: Screen }) {
 
 function MacBook({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[594px] max-w-full">
-      {/* Lid / display assembly — space black */}
-      <div
-        className="relative rounded-t-[16px] p-[5px] pb-[6px]"
-        style={{
-          background:
-            "linear-gradient(180deg, #2a2e31 0%, #1c2023 45%, #101315 100%)",
-          boxShadow:
-            "inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.5), 0 30px 60px -22px rgba(0,0,0,0.6)",
-        }}
-      >
-        {/* Bezel */}
-        <div
-          className="relative rounded-[10px] p-[6px] pt-[10px]"
-          style={{
-            background: "#000",
-            boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.04)",
-          }}
-        >
-          {/* Camera dot */}
-          <span className="absolute top-[3px] left-1/2 -translate-x-1/2 h-[3px] w-[3px] rounded-full bg-[#0e1112] ring-1 ring-white/10 z-20" />
-          {/* Screen surface */}
-          <div className="relative rounded-[4px] overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#1c322f] via-[#20372f] to-[#152724]">
-            <div key={screen} className="ds-fade absolute inset-0">
-              <MacScreen screen={screen} />
-            </div>
-            {/* Glass reflection */}
-            <div
-              className="absolute inset-0 pointer-events-none opacity-[0.10]"
-              style={{
-                background:
-                  "linear-gradient(115deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.05) 22%, transparent 42%)",
-                mixBlendMode: "screen",
-              }}
-            />
+    <div className="relative w-[540px] max-w-full">
+      {/* Screen */}
+      <div className="relative rounded-t-xl bg-[#0e1516] ring-1 ring-white/10 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.55)] p-2 pb-2">
+        <div className="relative rounded-md overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0d1514]">
+          <div key={screen} className="ds-fade absolute inset-0">
+            <MacScreen screen={screen} />
           </div>
         </div>
       </div>
-      {/* Deck — dark aluminum, no protruding chin */}
-      <div
-        className="h-[9px] rounded-b-[6px] mx-[-2px]"
-        style={{
-          background:
-            "linear-gradient(180deg, #33383b 0%, #1c2022 55%, #0e1112 100%)",
-          boxShadow:
-            "inset 0 1px 0 rgba(255,255,255,0.15), 0 3px 5px rgba(0,0,0,0.45)",
-        }}
-      />
-      {/* Thin foot line under deck */}
-      <div className="mx-auto h-[2px] w-[22%] rounded-b-full bg-black/70 blur-[1px]" />
+      {/* Base */}
+      <div className="relative">
+        <div className="h-2 bg-gradient-to-b from-[#20292b] to-[#0b1213] rounded-b-sm" />
+        <div className="mx-auto h-1 w-1/3 bg-[#0a0e0f] rounded-b-xl" />
+      </div>
     </div>
   );
 }
 
 function IPhone({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[182px] h-[375px]">
-      {/* Frame — space black titanium */}
-      <div
-        className="absolute inset-0 rounded-[42px] p-[3px]"
-        style={{
-          background:
-            "linear-gradient(155deg, #4a4f52 0%, #2b2f32 35%, #16191b 70%, #0a0c0d 100%)",
-          boxShadow:
-            "0 1px 0 rgba(255,255,255,0.18) inset, 0 -1px 0 rgba(0,0,0,0.6) inset, 0 35px 60px -18px rgba(0,0,0,0.65), 0 12px 24px -10px rgba(0,0,0,0.5)",
-        }}
-      >
-        {/* Inner bezel */}
-        <div
-          className="relative w-full h-full rounded-[39px] overflow-hidden"
-          style={{
-            background: "#000",
-            boxShadow: "inset 0 0 0 2px #0a0c0d",
-          }}
-        >
-          {/* Screen */}
-          <div className="relative w-full h-full rounded-[36px] overflow-hidden bg-gradient-to-br from-[#1c322f] via-[#20372f] to-[#152724]">
-            {/* Dynamic Island */}
-            <div className="absolute top-[10px] left-1/2 -translate-x-1/2 h-[22px] w-[86px] rounded-full bg-black z-20 ring-1 ring-white/[0.03]" />
-            <PhoneScreen screen={screen} />
-            {/* Glass reflection */}
-            <div
-              className="absolute inset-0 pointer-events-none opacity-[0.12]"
-              style={{
-                background:
-                  "linear-gradient(120deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.04) 20%, transparent 45%)",
-                mixBlendMode: "screen",
-              }}
-            />
-          </div>
-        </div>
+    <div className="relative w-[150px] h-[310px] rounded-[32px] bg-[#0a0f10] ring-1 ring-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] p-1.5">
+      <div className="relative w-full h-full rounded-[26px] overflow-hidden bg-gradient-to-br from-[#0d1a19] via-[#122120] to-[#0b1313]">
+        {/* Notch */}
+        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 h-3 w-14 rounded-full bg-black z-10" />
+        <PhoneScreen screen={screen} />
       </div>
-      {/* Side buttons — dark */}
-      <span className="absolute -left-[2px] top-[70px] h-[26px] w-[2px] rounded-l bg-gradient-to-b from-[#3a3e41] to-[#141618]" />
-      <span className="absolute -left-[2px] top-[110px] h-[42px] w-[2px] rounded-l bg-gradient-to-b from-[#3a3e41] to-[#141618]" />
-      <span className="absolute -right-[2px] top-[96px] h-[58px] w-[2px] rounded-r bg-gradient-to-b from-[#3a3e41] to-[#141618]" />
     </div>
   );
 }
 
 function Watch({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[108px] flex flex-col items-center">
-      {/* Band top — matches case width, tapered slightly */}
-      <div
-        className="relative w-[96px] h-10"
-        style={{
-          background:
-            "linear-gradient(180deg, #1a1d1f 0%, #101315 60%, #0a0d0e 100%)",
-          clipPath: "polygon(8% 0, 92% 0, 100% 100%, 0% 100%)",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
-        }}
-      >
-        <span className="absolute inset-x-3 top-[55%] h-[1px] bg-white/[0.04]" />
-      </div>
-      {/* Case — space black aluminum */}
-      <div
-        className="relative rounded-[24px] p-[3px] w-full -mt-[2px]"
-        style={{
-          background:
-            "linear-gradient(155deg, #40454a 0%, #23272a 40%, #0f1214 100%)",
-          boxShadow:
-            "0 1px 0 rgba(255,255,255,0.18) inset, 0 -1px 0 rgba(0,0,0,0.6) inset, 0 22px 40px -12px rgba(0,0,0,0.65)",
-        }}
-      >
-        <div
-          className="relative aspect-square rounded-[20px] overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(135deg, #1c322f 0%, #20372f 45%, #152724 100%)",
-            boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.7)",
-          }}
-        >
+    <div className="relative w-[100px]">
+      {/* Band top */}
+      <div className="mx-auto h-6 w-16 bg-gradient-to-b from-[#1a1f1f] to-[#0d1112] rounded-t-md" />
+      {/* Case */}
+      <div className="relative rounded-[22px] bg-[#0a0e0f] ring-1 ring-white/15 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.6)] p-1">
+        <div className="relative aspect-square rounded-[16px] overflow-hidden bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0b1313]">
           <WatchScreen screen={screen} />
-          {/* Glass reflection */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-[0.14]"
-            style={{
-              background:
-                "linear-gradient(125deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.04) 22%, transparent 45%)",
-              mixBlendMode: "screen",
-            }}
-          />
         </div>
-        {/* Digital crown */}
-        <div
-          className="absolute right-[-4px] top-[38%] h-[16px] w-[5px] rounded-r-[3px]"
-          style={{
-            background:
-              "linear-gradient(180deg, #4a4e52 0%, #1a1d1f 100%)",
-            boxShadow:
-              "0 1px 2px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.08)",
-          }}
-        >
-          <span className="absolute inset-y-[2px] right-[1px] w-[1px] bg-black/60 rounded" />
-        </div>
-        {/* Side button */}
-        <div
-          className="absolute right-[-3px] top-[calc(38%+22px)] h-[9px] w-[3px] rounded-r-[2px]"
-          style={{
-            background:
-              "linear-gradient(180deg, #3a3e41 0%, #14171a 100%)",
-          }}
-        />
+        {/* Crown */}
+        <div className="absolute right-[-3px] top-1/2 -translate-y-1/2 h-4 w-1.5 rounded-r bg-[#1a1f20]" />
       </div>
-      {/* Band bottom — matches case width, tapered slightly */}
-      <div
-        className="relative w-[96px] h-10 -mt-[2px]"
-        style={{
-          background:
-            "linear-gradient(0deg, #1a1d1f 0%, #101315 60%, #0a0d0e 100%)",
-          clipPath: "polygon(0 0, 100% 0, 92% 100%, 8% 100%)",
-          boxShadow: "inset 0 -1px 0 rgba(255,255,255,0.05)",
-        }}
-      >
-        <span className="absolute inset-x-3 top-[45%] h-[1px] bg-white/[0.04]" />
-      </div>
+      {/* Band bottom */}
+      <div className="mx-auto h-6 w-16 bg-gradient-to-t from-[#1a1f1f] to-[#0d1112] rounded-b-md" />
     </div>
   );
 }
 
-
 /* -------------------- Root -------------------- */
 
 export function DeviceShowcase() {
-  const { screen, index, ref } = useSyncedRotator();
+  const mac = useRotator(0);
+  const phone = useRotator(STAGGER);
+  const watch = useRotator(STAGGER * 2);
 
   return (
     <div
-      ref={ref}
+      ref={mac.ref}
       aria-hidden="true"
-      className="pointer-events-none select-none hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[58%] max-w-[820px] pr-8"
-      style={{ perspective: "1800px", perspectiveOrigin: "50% 40%" }}
+      className="pointer-events-none select-none hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[54%] max-w-[720px] pr-6"
     >
       <style>{`
-        @keyframes ds-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+        @keyframes ds-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
         @keyframes ds-slide-in { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
-        .ds-fade  { animation: ds-fade-in  600ms cubic-bezier(0.4,0,0.2,1) both; }
-        .ds-slide { animation: ds-slide-in 600ms cubic-bezier(0.4,0,0.2,1) both; }
-
-        @keyframes ds-breathe-mac   { 0%,100% { transform: rotateY(-8deg)  rotateX(4deg)  translateY(0); } 50% { transform: rotateY(-8deg)  rotateX(4deg)  translateY(-2.5px); } }
-        @keyframes ds-breathe-phone { 0%,100% { transform: rotateY(-18deg) rotateX(8deg)  translateY(0); } 50% { transform: rotateY(-18deg) rotateX(8deg)  translateY(-2px); } }
-        @keyframes ds-breathe-watch { 0%,100% { transform: rotateY(-28deg) rotateX(14deg) translateY(0); } 50% { transform: rotateY(-28deg) rotateX(14deg) translateY(-2px); } }
-
-        .ds-mac   { animation: ds-breathe-mac   9s ease-in-out infinite; transform-style: preserve-3d; will-change: transform; }
-        .ds-phone { animation: ds-breathe-phone 8s ease-in-out infinite; transform-style: preserve-3d; will-change: transform; }
-        .ds-watch { animation: ds-breathe-watch 10s ease-in-out infinite; transform-style: preserve-3d; will-change: transform; }
-
-        /* Sync pulse — soft glow that ripples across all devices on transition */
-        @keyframes ds-sync-pulse {
-          0%   { opacity: 0; }
-          30%  { opacity: 0.55; }
-          100% { opacity: 0; }
-        }
-        .ds-sync {
-          position: absolute; inset: 0; border-radius: 24px;
-          background: radial-gradient(60% 45% at 60% 45%, rgba(120,255,210,0.18), transparent 70%);
-          filter: blur(20px);
-          pointer-events: none;
-          animation: ds-sync-pulse 900ms ease-out both;
-        }
-
+        .ds-fade { animation: ds-fade-in 800ms cubic-bezier(0.4,0,0.2,1) both; }
+        .ds-slide { animation: ds-slide-in 800ms cubic-bezier(0.4,0,0.2,1) both; }
         @media (prefers-reduced-motion: reduce) {
-          .ds-fade, .ds-slide, .ds-sync { animation: none !important; }
-          .ds-mac   { animation: none !important; transform: rotateY(-8deg)  rotateX(4deg); }
-          .ds-phone { animation: none !important; transform: rotateY(-18deg) rotateX(8deg); }
-          .ds-watch { animation: none !important; transform: rotateY(-28deg) rotateX(14deg); }
+          .ds-fade, .ds-slide { animation: none !important; }
         }
       `}</style>
-
-      <div className="relative flex items-end justify-center" style={{ transformStyle: "preserve-3d" }}>
-        {/* Ambient contact shadow (soft floor) */}
-        <div className="absolute inset-x-16 -bottom-4 h-16 bg-black/55 blur-3xl rounded-full" />
-        <div className="absolute inset-x-28 bottom-3 h-6 bg-black/40 blur-2xl rounded-full" />
-
-        {/* Sync pulse — retriggers on every screen change */}
-        <span key={`pulse-${index}`} className="ds-sync" />
-
-        {/* MacBook — background anchor */}
-        <div
-          className="relative z-10 ds-mac"
-          style={{
-            transformOrigin: "60% 100%",
-            filter:
-              "drop-shadow(0 50px 45px rgba(0,0,0,0.5)) drop-shadow(0 12px 18px rgba(0,0,0,0.35))",
-          }}
-        >
-          <MacBook screen={screen} />
+      <div className="relative flex items-end justify-center">
+        {/* Ambient shadow */}
+        <div className="absolute inset-x-8 bottom-0 h-10 bg-black/40 blur-2xl rounded-full" />
+        {/* MacBook — anchor */}
+        <div className="relative z-10">
+          <MacBook screen={mac.screen} />
         </div>
-
-        {/* iPhone — focal point, overlaps macbook naturally, moved toward center */}
-        <div
-          className="absolute left-[14%] bottom-[-56px] z-20 ds-phone"
-          style={{
-            transformOrigin: "70% 100%",
-            filter:
-              "drop-shadow(0 34px 30px rgba(0,0,0,0.55)) drop-shadow(0 8px 14px rgba(0,0,0,0.4))",
-          }}
-        >
-          <IPhone screen={screen} />
+        {/* iPhone — front-left of macbook */}
+        <div className="absolute left-[6%] bottom-[-30px] z-20">
+          <IPhone screen={phone.screen} />
         </div>
-
-        {/* Watch — foreground, overlaps lower-right of phone, lifted so nothing clips */}
-        <div
-          className="absolute left-[30%] bottom-[24px] z-30 ds-watch"
-          style={{
-            transformOrigin: "60% 100%",
-            filter:
-              "drop-shadow(0 22px 22px rgba(0,0,0,0.6)) drop-shadow(0 6px 10px rgba(0,0,0,0.4))",
-          }}
-        >
-          <Watch screen={screen} />
+        {/* Watch — front of iPhone */}
+        <div className="absolute left-[28%] bottom-[-45px] z-30">
+          <Watch screen={watch.screen} />
         </div>
       </div>
     </div>
@@ -659,4 +480,3 @@ export function DeviceShowcase() {
 }
 
 export default DeviceShowcase;
-
