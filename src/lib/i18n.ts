@@ -54,7 +54,7 @@ const en = {
   },
   stats: [
     { value: "1st", label: "Company onboarded to Open Banking in Central Asia" },
-    { value: "1st", label: "Fintech AI startup in the region" },
+    { value: "1st", label: "Fintech AI startup in Kazakhstan" },
     { value: "2,000+", label: "Users on the pre-launch waitlist" },
   ],
   marquee: [
@@ -239,7 +239,7 @@ const ru: Dict = {
   },
   stats: [
     { value: "1-я", label: "Компания, подключённая к Open Banking в Центральной Азии" },
-    { value: "1-й", label: "Финтех AI-стартап в регионе" },
+    { value: "1-й", label: "Финтех AI-стартап в Казахстане" },
     { value: "2 000+", label: "Пользователей в листе ожидания" },
   ],
   marquee: [
@@ -422,7 +422,7 @@ const kz: Dict = {
   },
   stats: [
     { value: "1-ші", label: "Орталық Азияда Open Banking-ке қосылған компания" },
-    { value: "1-ші", label: "Аймақтағы Финтех AI стартап" },
+    { value: "1-ші", label: "Қазақстандағы Финтех AI стартап" },
     { value: "2 000+", label: "Күту тізіміндегі пайдаланушылар" },
   ],
   marquee: [
