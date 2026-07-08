@@ -285,15 +285,15 @@ function StatBar({ lang }: { lang: Lang }) {
   );
 }
 
-function Marquee({ lang }: { lang: Lang }) {
-  const words = t(lang).marquee;
-  const row = [...words, ...words];
+function Marquee({ lang: _lang }: { lang: Lang }) {
+  const row = Array.from({ length: 16 });
   return (
+
     <div className="border-b border-border overflow-hidden py-6">
-      <div className="drift-marquee flex gap-12 whitespace-nowrap text-muted-foreground/70">
-        {row.map((w, i) => (
-          <span key={i} className="flex items-center gap-12 font-display text-2xl tracking-tight">
-            {w}
+      <div className="drift-marquee flex gap-32 whitespace-nowrap text-muted-foreground/70">
+        {row.map((_, i) => (
+          <span key={i} className="flex items-center gap-32 font-display text-2xl tracking-tight">
+            Aim
             <span className="h-1.5 w-1.5 rounded-full bg-accent/60" />
           </span>
         ))}
@@ -301,6 +301,7 @@ function Marquee({ lang }: { lang: Lang }) {
     </div>
   );
 }
+
 
 function Features({ lang }: { lang: Lang }) {
   const s = t(lang).features;
