@@ -37,15 +37,14 @@ function useRotator(offset: number) {
 
   useEffect(() => {
     if (!visible) return;
-    const start = setTimeout(() => {
+    let intervalId: ReturnType<typeof setInterval> | undefined;
+    const startId = setTimeout(() => {
       setI((x) => x + 1);
-      const id = setInterval(() => setI((x) => x + 1), INTERVAL);
-      (start as unknown as { _id?: number })._id = id as unknown as number;
+      intervalId = setInterval(() => setI((x) => x + 1), INTERVAL);
     }, offset);
     return () => {
-      clearTimeout(start);
-      const id = (start as unknown as { _id?: number })._id;
-      if (id) clearInterval(id);
+      clearTimeout(startId);
+      if (intervalId) clearInterval(intervalId);
     };
   }, [visible, offset]);
 
