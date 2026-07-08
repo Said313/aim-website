@@ -553,17 +553,17 @@ function Watch({ screen }: { screen: Screen }) {
           }}
         />
       </div>
-      {/* Band bottom — tapered */}
+      {/* Band bottom — matches case width, tapered slightly */}
       <div
-        className="relative w-[80px] h-9 -mt-[2px]"
+        className="relative w-[96px] h-10 -mt-[2px]"
         style={{
           background:
             "linear-gradient(0deg, #1a1d1f 0%, #101315 60%, #0a0d0e 100%)",
-          clipPath: "polygon(0 0, 100% 0, 94% 100%, 6% 100%)",
+          clipPath: "polygon(0 0, 100% 0, 92% 100%, 8% 100%)",
           boxShadow: "inset 0 -1px 0 rgba(255,255,255,0.05)",
         }}
       >
-        <span className="absolute inset-x-2 top-[45%] h-[1px] bg-white/[0.04]" />
+        <span className="absolute inset-x-3 top-[45%] h-[1px] bg-white/[0.04]" />
       </div>
     </div>
   );
