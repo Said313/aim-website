@@ -17,10 +17,9 @@ const SCREENS = [
 ] as const;
 type Screen = (typeof SCREENS)[number];
 
-const INTERVAL = 3200; // ms between MacBook changes
-const STAGGER = 800; // ms between devices
+const INTERVAL = 3600; // ms between synchronized screen changes
 
-function useRotator(offset: number) {
+function useSyncedRotator() {
   const [i, setI] = useState(0);
   const [visible, setVisible] = useState(true);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -37,18 +36,11 @@ function useRotator(offset: number) {
 
   useEffect(() => {
     if (!visible) return;
-    let intervalId: ReturnType<typeof setInterval> | undefined;
-    const startId = setTimeout(() => {
-      setI((x) => x + 1);
-      intervalId = setInterval(() => setI((x) => x + 1), INTERVAL);
-    }, offset);
-    return () => {
-      clearTimeout(startId);
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, [visible, offset]);
+    const id = setInterval(() => setI((x) => x + 1), INTERVAL);
+    return () => clearInterval(id);
+  }, [visible]);
 
-  return { screen: SCREENS[i % SCREENS.length] as Screen, ref };
+  return { screen: SCREENS[i % SCREENS.length] as Screen, index: i, ref };
 }
 
 /* -------------------- Screen renderers -------------------- */
@@ -388,7 +380,7 @@ function WatchScreen({ screen }: { screen: Screen }) {
 
 function MacBook({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[540px] max-w-full">
+    <div className="relative w-[594px] max-w-full">
       {/* Lid / display assembly — space black */}
       <div
         className="relative rounded-t-[16px] p-[5px] pb-[6px]"
@@ -410,7 +402,7 @@ function MacBook({ screen }: { screen: Screen }) {
           {/* Camera dot */}
           <span className="absolute top-[3px] left-1/2 -translate-x-1/2 h-[3px] w-[3px] rounded-full bg-[#0e1112] ring-1 ring-white/10 z-20" />
           {/* Screen surface */}
-          <div className="relative rounded-[4px] overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#152524] via-[#182b28] to-[#0f1a19]">
+          <div className="relative rounded-[4px] overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#1c322f] via-[#20372f] to-[#152724]">
             <div key={screen} className="ds-fade absolute inset-0">
               <MacScreen screen={screen} />
             </div>
@@ -444,7 +436,7 @@ function MacBook({ screen }: { screen: Screen }) {
 
 function IPhone({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[158px] h-[326px]">
+    <div className="relative w-[182px] h-[375px]">
       {/* Frame — space black titanium */}
       <div
         className="absolute inset-0 rounded-[42px] p-[3px]"
@@ -464,7 +456,7 @@ function IPhone({ screen }: { screen: Screen }) {
           }}
         >
           {/* Screen */}
-          <div className="relative w-full h-full rounded-[36px] overflow-hidden bg-gradient-to-br from-[#152524] via-[#182b28] to-[#0f1a19]">
+          <div className="relative w-full h-full rounded-[36px] overflow-hidden bg-gradient-to-br from-[#1c322f] via-[#20372f] to-[#152724]">
             {/* Dynamic Island */}
             <div className="absolute top-[10px] left-1/2 -translate-x-1/2 h-[22px] w-[86px] rounded-full bg-black z-20 ring-1 ring-white/[0.03]" />
             <PhoneScreen screen={screen} />
@@ -517,7 +509,7 @@ function Watch({ screen }: { screen: Screen }) {
           className="relative aspect-square rounded-[20px] overflow-hidden"
           style={{
             background:
-              "linear-gradient(135deg, #152524 0%, #182b28 45%, #0f1a19 100%)",
+              "linear-gradient(135deg, #1c322f 0%, #20372f 45%, #152724 100%)",
             boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.7)",
           }}
         >
@@ -573,72 +565,93 @@ function Watch({ screen }: { screen: Screen }) {
 /* -------------------- Root -------------------- */
 
 export function DeviceShowcase() {
-  const mac = useRotator(0);
-  const phone = useRotator(STAGGER);
-  const watch = useRotator(STAGGER * 2);
+  const { screen, index, ref } = useSyncedRotator();
 
   return (
     <div
-      ref={mac.ref}
+      ref={ref}
       aria-hidden="true"
-      className="pointer-events-none select-none hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[54%] max-w-[760px] pr-6"
-      style={{ perspective: "1600px", perspectiveOrigin: "50% 40%" }}
+      className="pointer-events-none select-none hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[58%] max-w-[820px] pr-8"
+      style={{ perspective: "1800px", perspectiveOrigin: "50% 40%" }}
     >
       <style>{`
-        @keyframes ds-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+        @keyframes ds-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
         @keyframes ds-slide-in { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
-        .ds-fade { animation: ds-fade-in 850ms cubic-bezier(0.4,0,0.2,1) both; }
-        .ds-slide { animation: ds-slide-in 850ms cubic-bezier(0.4,0,0.2,1) both; }
+        .ds-fade  { animation: ds-fade-in  600ms cubic-bezier(0.4,0,0.2,1) both; }
+        .ds-slide { animation: ds-slide-in 600ms cubic-bezier(0.4,0,0.2,1) both; }
 
-        @keyframes ds-breathe-mac  { 0%,100% { transform: rotateY(-9deg)  rotateX(3deg)  translateY(0); } 50% { transform: rotateY(-9deg)  rotateX(3deg)  translateY(-2.5px); } }
-        @keyframes ds-breathe-phone { 0%,100% { transform: rotateY(12deg)  rotateX(4deg)  translateY(0); } 50% { transform: rotateY(12deg)  rotateX(4deg)  translateY(-2px); } }
-        @keyframes ds-breathe-watch { 0%,100% { transform: rotateY(18deg)  rotateX(8deg)  translateY(0); } 50% { transform: rotateY(18deg)  rotateX(8deg)  translateY(-2px); } }
+        @keyframes ds-breathe-mac   { 0%,100% { transform: rotateY(-8deg)  rotateX(4deg)  translateY(0); } 50% { transform: rotateY(-8deg)  rotateX(4deg)  translateY(-2.5px); } }
+        @keyframes ds-breathe-phone { 0%,100% { transform: rotateY(-18deg) rotateX(8deg)  translateY(0); } 50% { transform: rotateY(-18deg) rotateX(8deg)  translateY(-2px); } }
+        @keyframes ds-breathe-watch { 0%,100% { transform: rotateY(-28deg) rotateX(14deg) translateY(0); } 50% { transform: rotateY(-28deg) rotateX(14deg) translateY(-2px); } }
 
         .ds-mac   { animation: ds-breathe-mac   9s ease-in-out infinite; transform-style: preserve-3d; will-change: transform; }
         .ds-phone { animation: ds-breathe-phone 8s ease-in-out infinite; transform-style: preserve-3d; will-change: transform; }
         .ds-watch { animation: ds-breathe-watch 10s ease-in-out infinite; transform-style: preserve-3d; will-change: transform; }
 
+        /* Sync pulse — soft glow that ripples across all devices on transition */
+        @keyframes ds-sync-pulse {
+          0%   { opacity: 0; }
+          30%  { opacity: 0.55; }
+          100% { opacity: 0; }
+        }
+        .ds-sync {
+          position: absolute; inset: 0; border-radius: 24px;
+          background: radial-gradient(60% 45% at 60% 45%, rgba(120,255,210,0.18), transparent 70%);
+          filter: blur(20px);
+          pointer-events: none;
+          animation: ds-sync-pulse 900ms ease-out both;
+        }
+
         @media (prefers-reduced-motion: reduce) {
-          .ds-fade, .ds-slide { animation: none !important; }
-          .ds-mac   { animation: none !important; transform: rotateY(-9deg) rotateX(3deg); }
-          .ds-phone { animation: none !important; transform: rotateY(12deg) rotateX(4deg); }
-          .ds-watch { animation: none !important; transform: rotateY(18deg) rotateX(8deg); }
+          .ds-fade, .ds-slide, .ds-sync { animation: none !important; }
+          .ds-mac   { animation: none !important; transform: rotateY(-8deg)  rotateX(4deg); }
+          .ds-phone { animation: none !important; transform: rotateY(-18deg) rotateX(8deg); }
+          .ds-watch { animation: none !important; transform: rotateY(-28deg) rotateX(14deg); }
         }
       `}</style>
 
       <div className="relative flex items-end justify-center" style={{ transformStyle: "preserve-3d" }}>
-        {/* Ambient contact shadow */}
-        <div className="absolute inset-x-12 -bottom-2 h-14 bg-black/55 blur-3xl rounded-full" />
-        <div className="absolute inset-x-24 bottom-2 h-6 bg-black/40 blur-2xl rounded-full" />
+        {/* Ambient contact shadow (soft floor) */}
+        <div className="absolute inset-x-16 -bottom-4 h-16 bg-black/55 blur-3xl rounded-full" />
+        <div className="absolute inset-x-28 bottom-3 h-6 bg-black/40 blur-2xl rounded-full" />
 
-        {/* MacBook — anchor, tilted away from viewer */}
+        {/* Sync pulse — retriggers on every screen change */}
+        <span key={`pulse-${index}`} className="ds-sync" />
+
+        {/* MacBook — background anchor */}
         <div
           className="relative z-10 ds-mac"
-          style={{ transformOrigin: "60% 100%", filter: "drop-shadow(0 40px 40px rgba(0,0,0,0.45))" }}
-        >
-          <MacBook screen={mac.screen} />
-        </div>
-
-        {/* iPhone — overlaps lower-left of macbook */}
-        <div
-          className="absolute left-[4%] bottom-[-42px] z-20 ds-phone"
-          style={{
-            transformOrigin: "70% 100%",
-            filter: "drop-shadow(0 30px 28px rgba(0,0,0,0.55))",
-          }}
-        >
-          <IPhone screen={phone.screen} />
-        </div>
-
-        {/* Watch — front of iPhone */}
-        <div
-          className="absolute left-[26%] bottom-[-60px] z-30 ds-watch"
           style={{
             transformOrigin: "60% 100%",
-            filter: "drop-shadow(0 22px 22px rgba(0,0,0,0.6))",
+            filter:
+              "drop-shadow(0 50px 45px rgba(0,0,0,0.5)) drop-shadow(0 12px 18px rgba(0,0,0,0.35))",
           }}
         >
-          <Watch screen={watch.screen} />
+          <MacBook screen={screen} />
+        </div>
+
+        {/* iPhone — focal point, overlaps macbook naturally, moved toward center */}
+        <div
+          className="absolute left-[14%] bottom-[-56px] z-20 ds-phone"
+          style={{
+            transformOrigin: "70% 100%",
+            filter:
+              "drop-shadow(0 34px 30px rgba(0,0,0,0.55)) drop-shadow(0 8px 14px rgba(0,0,0,0.4))",
+          }}
+        >
+          <IPhone screen={screen} />
+        </div>
+
+        {/* Watch — foreground, overlaps lower-right of phone, lifted so nothing clips */}
+        <div
+          className="absolute left-[30%] bottom-[24px] z-30 ds-watch"
+          style={{
+            transformOrigin: "60% 100%",
+            filter:
+              "drop-shadow(0 22px 22px rgba(0,0,0,0.6)) drop-shadow(0 6px 10px rgba(0,0,0,0.4))",
+          }}
+        >
+          <Watch screen={screen} />
         </div>
       </div>
     </div>
