@@ -402,7 +402,7 @@ function MacBook({ screen }: { screen: Screen }) {
           {/* Camera dot */}
           <span className="absolute top-[3px] left-1/2 -translate-x-1/2 h-[3px] w-[3px] rounded-full bg-[#0e1112] ring-1 ring-white/10 z-20" />
           {/* Screen surface */}
-          <div className="relative rounded-[4px] overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#152524] via-[#182b28] to-[#0f1a19]">
+          <div className="relative rounded-[4px] overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#1c322f] via-[#20372f] to-[#152724]">
             <div key={screen} className="ds-fade absolute inset-0">
               <MacScreen screen={screen} />
             </div>
@@ -456,7 +456,7 @@ function IPhone({ screen }: { screen: Screen }) {
           }}
         >
           {/* Screen */}
-          <div className="relative w-full h-full rounded-[36px] overflow-hidden bg-gradient-to-br from-[#152524] via-[#182b28] to-[#0f1a19]">
+          <div className="relative w-full h-full rounded-[36px] overflow-hidden bg-gradient-to-br from-[#1c322f] via-[#20372f] to-[#152724]">
             {/* Dynamic Island */}
             <div className="absolute top-[10px] left-1/2 -translate-x-1/2 h-[22px] w-[86px] rounded-full bg-black z-20 ring-1 ring-white/[0.03]" />
             <PhoneScreen screen={screen} />
