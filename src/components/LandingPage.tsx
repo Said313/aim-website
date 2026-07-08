@@ -285,10 +285,10 @@ function StatBar({ lang }: { lang: Lang }) {
   );
 }
 
-function Marquee({ lang }: { lang: Lang }) {
-  const words = t(lang).marquee;
-  const row = [...words, ...words];
+function Marquee({ lang: _lang }: { lang: Lang }) {
+  const row = Array.from({ length: 16 });
   return (
+
     <div className="border-b border-border overflow-hidden py-6">
       <div className="drift-marquee flex gap-32 whitespace-nowrap text-muted-foreground/70">
         {row.map((_, i) => (
