@@ -26,7 +26,7 @@ import freedomMountain from "@/assets/freedom-mountain.png";
 import founderUmidzhan from "@/assets/founder-umidzhan.png";
 import founderSaidgaffor from "@/assets/founder-saidgaffor.png";
 import { Reveal } from "@/components/Reveal";
-import { FinancialConstellation } from "@/components/FinancialConstellation";
+import { DeviceShowcase } from "@/components/DeviceShowcase";
 import { UserWaitlistForm } from "@/components/UserWaitlistForm";
 import { InvestorContactForm } from "@/components/InvestorContactForm";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
