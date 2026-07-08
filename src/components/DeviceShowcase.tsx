@@ -509,7 +509,7 @@ function Watch({ screen }: { screen: Screen }) {
           className="relative aspect-square rounded-[20px] overflow-hidden"
           style={{
             background:
-              "linear-gradient(135deg, #152524 0%, #182b28 45%, #0f1a19 100%)",
+              "linear-gradient(135deg, #1c322f 0%, #20372f 45%, #152724 100%)",
             boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.7)",
           }}
         >
