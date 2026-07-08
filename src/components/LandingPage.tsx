@@ -91,20 +91,6 @@ function Hero({ lang }: { lang: Lang }) {
       <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-36 pb-28 md:pt-44 md:pb-36 min-h-screen flex items-start md:items-center">
         <div className="w-full">
           <Reveal variant="fade" className="flex flex-col items-center text-center md:items-start md:text-left max-w-[620px]">
-            <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mb-8">
-              <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#7B8CFF] animate-pulse" />
-                {s.badge}
-              </div>
-              <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#D37BFF]" />
-                Artificial Intelligence
-              </div>
-              <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#78FFD2]" />
-                Open Banking
-              </div>
-            </div>
             <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F8F7F3]">
               <span className="sr-only">{s.srTitle} </span>
               <span aria-hidden="true">{s.line1}</span>
@@ -112,7 +98,54 @@ function Hero({ lang }: { lang: Lang }) {
               <span aria-hidden="true">{s.line2}</span>
             </h1>
             <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
-            <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-3">
+            <div
+              className="flex flex-wrap justify-center md:justify-start items-center gap-2.5"
+              style={{ marginTop: "24px" }}
+            >
+              {[
+                { color: "#7B8CFF", label: "AI Powered", pulse: true },
+                { color: "#78FFD2", label: "Open Banking" },
+                { color: "#D37BFF", label: "Available Worldwide" },
+              ].map((b) => (
+                <div
+                  key={b.label}
+                  className="inline-flex items-center gap-2"
+                  style={{
+                    height: "40px",
+                    padding: "0 17px",
+                    borderRadius: "999px",
+                    background: "rgba(35,45,42,0.55)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    backdropFilter: "blur(9px)",
+                    WebkitBackdropFilter: "blur(9px)",
+                  }}
+                >
+                  <span
+                    className={b.pulse ? "animate-pulse" : ""}
+                    style={{
+                      height: "8px",
+                      width: "8px",
+                      borderRadius: "999px",
+                      background: b.color,
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontSize: "15px",
+                      fontWeight: 500,
+                      letterSpacing: "0.01em",
+                      color: "#E6E8E5",
+                    }}
+                  >
+                    {b.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div
+              className="flex flex-wrap justify-center md:justify-start gap-3"
+              style={{ marginTop: "32px" }}
+            >
               <a
                 href="#waitlist"
                 className="bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
@@ -126,6 +159,7 @@ function Hero({ lang }: { lang: Lang }) {
                 {s.ctaSecondary}
               </a>
             </div>
+
             <div className="mt-8">
               <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
                 <ShieldCheck className="h-3.5 w-3.5 text-[#78FFD2]" />
