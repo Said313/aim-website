@@ -162,6 +162,8 @@ const en = {
     role: "Co-founder",
     roleCeo: "Founder & CEO",
     roleCto: "Founder & CTO",
+    nameUmidzhan: "Umidzhan Rakhmankulov",
+    nameSaidgaffor: "Saidgaffor Sabyrov",
   },
   cta: {
     titleA: "Be the first to",
@@ -348,6 +350,8 @@ const ru: Dict = {
     role: "Сооснователь",
     roleCeo: "Основатель и CEO",
     roleCto: "Основатель и CTO",
+    nameUmidzhan: "Умиджан Рахманкулов",
+    nameSaidgaffor: "Саидгаффор Сабыров",
   },
   cta: {
     titleA: "Будьте первым, кто",
@@ -532,6 +536,8 @@ const kz: Dict = {
     role: "Бірге құрылтайшы",
     roleCeo: "Құрылтайшы және CEO",
     roleCto: "Құрылтайшы және CTO",
+    nameUmidzhan: "Умиджан Рахманкулов",
+    nameSaidgaffor: "Саидгаффор Сабыров",
   },
   cta: {
     titleA: "Жоғары көздейтін",
