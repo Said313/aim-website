@@ -108,9 +108,9 @@ function Hero({ lang }: { lang: Lang }) {
               style={{ marginTop: "24px" }}
             >
               {[
-                { color: "#7B8CFF", label: "AI Powered", pulse: true },
-                { color: "#78FFD2", label: "Open Banking" },
-                { color: "#D37BFF", label: "Available Worldwide" },
+                { color: "#7B8CFF", label: s.badgeAi, pulse: true },
+                { color: "#78FFD2", label: s.badgeOpenBanking },
+                { color: "#D37BFF", label: s.badgeWorldwide },
               ].map((b) => (
                 <div
                   key={b.label}
