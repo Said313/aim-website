@@ -143,11 +143,11 @@ function MacScreen({ screen }: { screen: Screen }) {
       </div>
       <div className="grid grid-cols-[24%_1fr] gap-1.5 h-[calc(100%-14px)]">
         {/* Sidebar */}
-        <div className="rounded-md bg-white/[0.04] p-1.5 space-y-1">
+        <div className="rounded-md bg-white/[0.08] ring-1 ring-white/10 p-1.5 space-y-1">
           {["Overview", "Accounts", "Transactions", "Analytics", "Goals", "Settings"].map((l, i) => (
             <div
               key={l}
-              className={`flex items-center gap-1 rounded px-1 py-0.5 ${i === 3 ? "bg-white/10 text-white" : "text-white/50"}`}
+              className={`flex items-center gap-1 rounded px-1 py-0.5 ${i === 3 ? "bg-emerald-300/25 text-white" : "text-white/70"}`}
             >
               <span className="h-1 w-1 rounded-full bg-current opacity-70" />
               <span className="truncate">{l}</span>
