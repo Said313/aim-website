@@ -258,6 +258,9 @@ const ru: Dict = {
     ctaSecondary: "Что он умеет",
     sec1: "Банковская безопасность",
     sec2: "Open Banking",
+    badgeAi: "На основе AI",
+    badgeOpenBanking: "Open Banking",
+    badgeWorldwide: "Доступно по всему миру",
   },
   stats: [
     { value: "1-я", label: "Компания, подключённая к Open Banking в Центральной Азии" },
