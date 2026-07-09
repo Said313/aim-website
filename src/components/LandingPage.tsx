@@ -429,6 +429,19 @@ function Platforms({ lang }: { lang: Lang }) {
             );
           })}
         </div>
+        <div className="mt-16 md:mt-20 flex justify-center">
+          <Reveal variant="up" className="flex flex-col items-center text-center">
+            <a
+              href="#waitlist"
+              className="bg-primary-gradient text-primary-foreground hover:bg-primary-gradient-hover rounded-full px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-glow hover:opacity-90 transition"
+            >
+              {t(lang).hero.ctaPrimary} <ArrowRight className="h-4 w-4" />
+            </a>
+            <p style={{ marginTop: "16px", fontSize: "14px", fontWeight: 500, color: "rgba(255,255,255,0.65)" }}>
+              {t(lang).solution.ctaNote}
+            </p>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
