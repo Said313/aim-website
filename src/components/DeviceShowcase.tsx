@@ -472,7 +472,13 @@ function IPhone({ screen }: { screen: Screen }) {
 
       {/* Inner bezel */}
       <div className="relative w-full h-full rounded-[33px] bg-black p-[2px]">
-        <div className="relative w-full h-full rounded-[31px] overflow-hidden bg-gradient-to-br from-[#0d1a19] via-[#122120] to-[#0b1313]">
+        <div
+          className="relative w-full h-full rounded-[31px] overflow-hidden"
+          style={{
+            background:
+              "radial-gradient(120% 100% at 30% 0%, #22403a 0%, #172d29 45%, #0e1e1c 100%)",
+          }}
+        >
           {/* Dynamic Island */}
           <div className="absolute top-2 left-1/2 -translate-x-1/2 h-[22px] w-[86px] rounded-full bg-black z-20 ring-1 ring-white/[0.03]" />
           <PhoneScreen screen={screen} />
@@ -481,7 +487,7 @@ function IPhone({ screen }: { screen: Screen }) {
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "linear-gradient(150deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 35%)",
+                "linear-gradient(150deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 40%)",
             }}
           />
         </div>
@@ -489,6 +495,7 @@ function IPhone({ screen }: { screen: Screen }) {
     </div>
   );
 }
+
 
 function Watch({ screen }: { screen: Screen }) {
   return (
