@@ -51,6 +51,9 @@ const en = {
     ctaSecondary: "See what it does",
     sec1: "Bank-grade security",
     sec2: "Open Banking",
+    badgeAi: "AI Powered",
+    badgeOpenBanking: "Open Banking",
+    badgeWorldwide: "Available Worldwide",
   },
   stats: [
     { value: "1st", label: "Company onboarded to Open Banking in Central Asia" },
