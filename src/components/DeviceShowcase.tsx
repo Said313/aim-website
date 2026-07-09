@@ -389,18 +389,58 @@ function WatchScreen({ screen }: { screen: Screen }) {
 function MacBook({ screen }: { screen: Screen }) {
   return (
     <div className="relative w-[540px] max-w-full">
-      {/* Screen */}
-      <div className="relative rounded-t-xl bg-[#0e1516] ring-1 ring-white/10 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.55)] p-2 pb-2">
-        <div className="relative rounded-md overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0d1514]">
-          <div key={screen} className="ds-fade absolute inset-0">
-            <MacScreen screen={screen} />
+      {/* Lid — brushed aluminum */}
+      <div
+        className="relative rounded-t-[14px] p-[10px] pb-[8px]"
+        style={{
+          background:
+            "linear-gradient(180deg,#d9dde0 0%,#c3c8cc 45%,#a8aeb3 100%)",
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.18), 0 30px 70px -25px rgba(0,0,0,0.55)",
+        }}
+      >
+        {/* Bezel */}
+        <div
+          className="relative rounded-[6px] overflow-hidden aspect-[16/10]"
+          style={{
+            background: "#0a0d0e",
+            boxShadow:
+              "inset 0 0 0 1px #05070a, inset 0 0 0 2px #1a1e21",
+          }}
+        >
+          {/* Notch */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1.5 w-16 rounded-b-md bg-black z-20" />
+          {/* Screen surface */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0d1514]">
+            <div key={screen} className="ds-fade absolute inset-0">
+              <MacScreen screen={screen} />
+            </div>
+            {/* Subtle glare */}
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(115deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 40%)",
+              }}
+            />
           </div>
         </div>
       </div>
-      {/* Base */}
+      {/* Hinge shadow */}
+      <div className="h-[3px] bg-gradient-to-b from-[#7a7f83] to-[#3d4144]" />
+      {/* Base wedge */}
       <div className="relative">
-        <div className="h-2 bg-gradient-to-b from-[#20292b] to-[#0b1213] rounded-b-sm" />
-        <div className="mx-auto h-1 w-1/3 bg-[#0a0e0f] rounded-b-xl" />
+        <div
+          className="h-[10px] rounded-b-[10px]"
+          style={{
+            background:
+              "linear-gradient(180deg,#c8ccd0 0%,#a3a8ac 55%,#7a7f83 100%)",
+            boxShadow:
+              "inset 0 1px 0 rgba(255,255,255,0.7), 0 12px 30px -10px rgba(0,0,0,0.5)",
+          }}
+        />
+        {/* Trackpad notch */}
+        <div className="mx-auto -mt-[6px] h-[5px] w-1/3 rounded-b-lg bg-[#2a2e31]/60" />
       </div>
     </div>
   );
@@ -408,11 +448,36 @@ function MacBook({ screen }: { screen: Screen }) {
 
 function IPhone({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[150px] h-[310px] rounded-[32px] bg-[#0a0f10] ring-1 ring-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] p-1.5">
-      <div className="relative w-full h-full rounded-[26px] overflow-hidden bg-gradient-to-br from-[#0d1a19] via-[#122120] to-[#0b1313]">
-        {/* Notch */}
-        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 h-3 w-14 rounded-full bg-black z-10" />
-        <PhoneScreen screen={screen} />
+    <div
+      className="relative w-[152px] h-[314px] rounded-[36px] p-[3px]"
+      style={{
+        background:
+          "linear-gradient(145deg,#4a4f52 0%,#2b2f31 40%,#1a1d1f 70%,#3a3e40 100%)",
+        boxShadow:
+          "0 25px 60px -15px rgba(0,0,0,0.65), inset 0 0 0 1px rgba(255,255,255,0.08)",
+      }}
+    >
+      {/* Side buttons */}
+      <div className="absolute -left-[2px] top-[70px] h-6 w-[3px] rounded-l bg-[#1a1d1f]" />
+      <div className="absolute -left-[2px] top-[104px] h-10 w-[3px] rounded-l bg-[#1a1d1f]" />
+      <div className="absolute -left-[2px] top-[150px] h-10 w-[3px] rounded-l bg-[#1a1d1f]" />
+      <div className="absolute -right-[2px] top-[110px] h-14 w-[3px] rounded-r bg-[#1a1d1f]" />
+
+      {/* Inner bezel */}
+      <div className="relative w-full h-full rounded-[33px] bg-black p-[2px]">
+        <div className="relative w-full h-full rounded-[31px] overflow-hidden bg-gradient-to-br from-[#0d1a19] via-[#122120] to-[#0b1313]">
+          {/* Dynamic Island */}
+          <div className="absolute top-2 left-1/2 -translate-x-1/2 h-[22px] w-[86px] rounded-full bg-black z-20 ring-1 ring-white/[0.03]" />
+          <PhoneScreen screen={screen} />
+          {/* Glare */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(150deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 35%)",
+            }}
+          />
+        </div>
       </div>
     </div>
   );
@@ -420,22 +485,58 @@ function IPhone({ screen }: { screen: Screen }) {
 
 function Watch({ screen }: { screen: Screen }) {
   return (
-    <div className="relative w-[100px]">
-      {/* Band top */}
-      <div className="mx-auto h-6 w-16 bg-gradient-to-b from-[#1a1f1f] to-[#0d1112] rounded-t-md" />
+    <div className="relative w-[104px]">
+      {/* Band top — sport loop weave */}
+      <div
+        className="mx-auto h-8 w-[70px] rounded-t-[10px]"
+        style={{
+          background:
+            "repeating-linear-gradient(90deg,#2b2f2e 0 2px,#22262a 2px 4px)",
+          boxShadow: "inset 0 -3px 6px rgba(0,0,0,0.5)",
+        }}
+      />
       {/* Case */}
-      <div className="relative rounded-[22px] bg-[#0a0e0f] ring-1 ring-white/15 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.6)] p-1">
-        <div className="relative aspect-square rounded-[16px] overflow-hidden bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0b1313]">
-          <WatchScreen screen={screen} />
+      <div
+        className="relative rounded-[26px] p-[3px]"
+        style={{
+          background:
+            "linear-gradient(145deg,#3a3f42 0%,#1e2224 55%,#4a4f52 100%)",
+          boxShadow:
+            "0 20px 40px -12px rgba(0,0,0,0.65), inset 0 0 0 1px rgba(255,255,255,0.08)",
+        }}
+      >
+        <div className="relative aspect-square rounded-[22px] overflow-hidden bg-black p-[2px]">
+          <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0b1313]">
+            <WatchScreen screen={screen} />
+            {/* Glare */}
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(140deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0) 40%)",
+              }}
+            />
+          </div>
         </div>
-        {/* Crown */}
-        <div className="absolute right-[-3px] top-1/2 -translate-y-1/2 h-4 w-1.5 rounded-r bg-[#1a1f20]" />
+        {/* Digital Crown */}
+        <div className="absolute right-[-4px] top-[38%] h-5 w-[5px] rounded-r-md bg-gradient-to-b from-[#6a6f72] via-[#3a3e40] to-[#6a6f72] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.15)]" />
+        {/* Side button */}
+        <div className="absolute right-[-3px] top-[62%] h-3 w-[4px] rounded-r bg-[#1a1d1f]" />
       </div>
       {/* Band bottom */}
-      <div className="mx-auto h-6 w-16 bg-gradient-to-t from-[#1a1f1f] to-[#0d1112] rounded-b-md" />
+      <div
+        className="mx-auto h-8 w-[70px] rounded-b-[10px]"
+        style={{
+          background:
+            "repeating-linear-gradient(90deg,#2b2f2e 0 2px,#22262a 2px 4px)",
+          boxShadow: "inset 0 3px 6px rgba(0,0,0,0.5)",
+        }}
+      />
     </div>
   );
 }
+
+
 
 /* -------------------- Root -------------------- */
 
