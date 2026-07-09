@@ -410,21 +410,28 @@ function MacBook({ screen }: { screen: Screen }) {
         >
           {/* Notch */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1.5 w-16 rounded-b-md bg-black z-20" />
-          {/* Screen surface */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0d1514]">
+          {/* Screen surface — brighter emerald-tinted panel */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(120% 90% at 20% 0%, #1f3a35 0%, #172a28 40%, #0f1f1d 100%)",
+            }}
+          >
             <div key={screen} className="ds-fade absolute inset-0">
               <MacScreen screen={screen} />
             </div>
-            {/* Subtle glare */}
+            {/* Screen glare */}
             <div
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(115deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 40%)",
+                  "linear-gradient(115deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 45%)",
               }}
             />
           </div>
         </div>
+
       </div>
       {/* Hinge shadow */}
       <div className="h-[3px] bg-gradient-to-b from-[#7a7f83] to-[#3d4144]" />
