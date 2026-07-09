@@ -143,11 +143,11 @@ function MacScreen({ screen }: { screen: Screen }) {
       </div>
       <div className="grid grid-cols-[24%_1fr] gap-1.5 h-[calc(100%-14px)]">
         {/* Sidebar */}
-        <div className="rounded-md bg-white/[0.04] p-1.5 space-y-1">
+        <div className="rounded-md bg-white/[0.08] ring-1 ring-white/10 p-1.5 space-y-1">
           {["Overview", "Accounts", "Transactions", "Analytics", "Goals", "Settings"].map((l, i) => (
             <div
               key={l}
-              className={`flex items-center gap-1 rounded px-1 py-0.5 ${i === 3 ? "bg-white/10 text-white" : "text-white/50"}`}
+              className={`flex items-center gap-1 rounded px-1 py-0.5 ${i === 3 ? "bg-emerald-300/25 text-white" : "text-white/70"}`}
             >
               <span className="h-1 w-1 rounded-full bg-current opacity-70" />
               <span className="truncate">{l}</span>
@@ -218,15 +218,18 @@ function MacScreen({ screen }: { screen: Screen }) {
 function Tile({ label, active, children }: { label: string; active: boolean; children: React.ReactNode }) {
   return (
     <div
-      className={`rounded-md bg-white/[0.04] p-1 ring-1 ring-white/5 transition-all duration-700 ${
-        active ? "ring-emerald-300/40 bg-white/[0.07]" : ""
+      className={`rounded-md p-1 ring-1 transition-all duration-700 ${
+        active
+          ? "ring-emerald-300/50 bg-white/[0.14]"
+          : "ring-white/10 bg-white/[0.08]"
       }`}
     >
-      <div className="text-[5.5px] uppercase tracking-wider text-white/45 mb-0.5">{label}</div>
+      <div className="text-[5.5px] uppercase tracking-wider text-white/70 mb-0.5">{label}</div>
       {children}
     </div>
   );
 }
+
 
 /* -------------------- iPhone simplified mobile -------------------- */
 
@@ -410,21 +413,28 @@ function MacBook({ screen }: { screen: Screen }) {
         >
           {/* Notch */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1.5 w-16 rounded-b-md bg-black z-20" />
-          {/* Screen surface */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0d1514]">
+          {/* Screen surface — brighter emerald-tinted panel */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(120% 90% at 20% 0%, #1f3a35 0%, #172a28 40%, #0f1f1d 100%)",
+            }}
+          >
             <div key={screen} className="ds-fade absolute inset-0">
               <MacScreen screen={screen} />
             </div>
-            {/* Subtle glare */}
+            {/* Screen glare */}
             <div
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(115deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 40%)",
+                  "linear-gradient(115deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 45%)",
               }}
             />
           </div>
         </div>
+
       </div>
       {/* Hinge shadow */}
       <div className="h-[3px] bg-gradient-to-b from-[#7a7f83] to-[#3d4144]" />
@@ -465,7 +475,13 @@ function IPhone({ screen }: { screen: Screen }) {
 
       {/* Inner bezel */}
       <div className="relative w-full h-full rounded-[33px] bg-black p-[2px]">
-        <div className="relative w-full h-full rounded-[31px] overflow-hidden bg-gradient-to-br from-[#0d1a19] via-[#122120] to-[#0b1313]">
+        <div
+          className="relative w-full h-full rounded-[31px] overflow-hidden"
+          style={{
+            background:
+              "radial-gradient(120% 100% at 30% 0%, #22403a 0%, #172d29 45%, #0e1e1c 100%)",
+          }}
+        >
           {/* Dynamic Island */}
           <div className="absolute top-2 left-1/2 -translate-x-1/2 h-[22px] w-[86px] rounded-full bg-black z-20 ring-1 ring-white/[0.03]" />
           <PhoneScreen screen={screen} />
@@ -474,7 +490,7 @@ function IPhone({ screen }: { screen: Screen }) {
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "linear-gradient(150deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 35%)",
+                "linear-gradient(150deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 40%)",
             }}
           />
         </div>
@@ -482,6 +498,7 @@ function IPhone({ screen }: { screen: Screen }) {
     </div>
   );
 }
+
 
 function Watch({ screen }: { screen: Screen }) {
   return (
@@ -506,18 +523,25 @@ function Watch({ screen }: { screen: Screen }) {
         }}
       >
         <div className="relative aspect-square rounded-[22px] overflow-hidden bg-black p-[2px]">
-          <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0b1313]">
+          <div
+            className="relative w-full h-full rounded-[20px] overflow-hidden"
+            style={{
+              background:
+                "radial-gradient(110% 100% at 30% 0%, #22403a 0%, #14282584 60%, #0b1a18 100%)",
+            }}
+          >
             <WatchScreen screen={screen} />
             {/* Glare */}
             <div
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(140deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0) 40%)",
+                  "linear-gradient(140deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 45%)",
               }}
             />
           </div>
         </div>
+
         {/* Digital Crown */}
         <div className="absolute right-[-4px] top-[38%] h-5 w-[5px] rounded-r-md bg-gradient-to-b from-[#6a6f72] via-[#3a3e40] to-[#6a6f72] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.15)]" />
         {/* Side button */}
@@ -560,22 +584,42 @@ export function DeviceShowcase() {
           .ds-fade, .ds-slide { animation: none !important; }
         }
       `}</style>
-      <div className="relative flex items-end justify-center">
-        {/* Ambient shadow */}
-        <div className="absolute inset-x-8 bottom-0 h-10 bg-black/40 blur-2xl rounded-full" />
-        {/* MacBook — anchor */}
-        <div className="relative z-10">
+      <div
+        className="relative flex items-end justify-center"
+        style={{ perspective: "1600px", perspectiveOrigin: "50% 30%" }}
+      >
+        {/* Ambient floor shadow */}
+        <div className="absolute inset-x-4 -bottom-4 h-16 bg-black/55 blur-3xl rounded-full" />
+        {/* Emerald under-glow */}
+        <div className="absolute inset-x-16 bottom-2 h-10 rounded-full opacity-60 blur-2xl"
+          style={{ background: "radial-gradient(closest-side, rgba(120,255,210,0.35), transparent 70%)" }}
+        />
+        {/* MacBook — tilted back */}
+        <div
+          className="relative z-10"
+          style={{
+            transform: "rotateX(6deg) rotateY(-10deg) rotateZ(0.5deg)",
+            transformStyle: "preserve-3d",
+          }}
+        >
           <MacBook screen={mac.screen} />
         </div>
-        {/* iPhone — front-left of macbook */}
-        <div className="absolute left-[6%] bottom-[-30px] z-20">
+        {/* iPhone — angled forward */}
+        <div
+          className="absolute left-[6%] bottom-[-30px] z-20"
+          style={{ transform: "rotateX(4deg) rotateY(14deg) rotateZ(-2deg)" }}
+        >
           <IPhone screen={phone.screen} />
         </div>
-        {/* Watch — front of iPhone */}
-        <div className="absolute left-[28%] bottom-[-45px] z-30">
+        {/* Watch — slight tilt */}
+        <div
+          className="absolute left-[28%] bottom-[-45px] z-30"
+          style={{ transform: "rotateX(8deg) rotateY(-6deg) rotateZ(-3deg)" }}
+        >
           <Watch screen={watch.screen} />
         </div>
       </div>
+
     </div>
   );
 }
