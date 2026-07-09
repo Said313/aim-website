@@ -91,10 +91,8 @@
   box-shadow: var(--shadow-glow);
 }
 
-@utility text-brand-gradient {
-  background: var(--gradient-brand);
-  background-clip: text;
-  color: transparent;
+@utility text-mint-accent {
+  color: #7AF4CF;
 }
 
 @utility bg-brand-gradient {
