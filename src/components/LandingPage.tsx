@@ -693,11 +693,11 @@ function Footer({ lang }: { lang: Lang }) {
         style={{ maxWidth: 1280, paddingLeft: 48, paddingRight: 48, paddingTop: 96, paddingBottom: 56 }}
       >
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
-          style={{ columnGap: 72, rowGap: 56 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:1.7fr_0.9fr_0.9fr_0.9fr_1.2fr]"
+          style={{ columnGap: 48, rowGap: 56 }}
         >
           {/* Column 1 - Newsletter */}
-          <div className="lg:col-span-1 sm:col-span-2 lg:min-w-0">
+          <div className="lg:col-span-1 sm:col-span-2 lg:min-w-0 lg:pr-6">
             <div className="flex items-center gap-2 mb-5">
               <Logo className="h-7 w-7" alt="Aim" />
               <span className="font-display font-semibold text-[17px]" style={{ color: "#F3F2EE" }}>Aim</span>
@@ -710,7 +710,7 @@ function Footer({ lang }: { lang: Lang }) {
             </p>
             <form
               onSubmit={(e) => { e.preventDefault(); setEmail(""); }}
-              className="relative mt-5 group"
+              className="relative mt-5 group w-full max-w-[420px]"
             >
               <input
                 type="email"
@@ -722,8 +722,8 @@ function Footer({ lang }: { lang: Lang }) {
                 style={{
                   height: 56,
                   borderRadius: 18,
-                  paddingLeft: 20,
-                  paddingRight: 56,
+                  paddingLeft: 24,
+                  paddingRight: 64,
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.06)",
                   color: "#F3F2EE",
@@ -746,7 +746,7 @@ function Footer({ lang }: { lang: Lang }) {
 
           {/* Columns 2-4 */}
           {[colProduct, colCompany, colResources].map((col) => (
-            <div key={col.title}>
+            <div key={col.title} className="lg:min-w-0">
               <h4 className="font-display font-semibold mb-5" style={{ fontSize: 18, color: "#F3F2EE" }}>
                 {col.title}
               </h4>
@@ -756,7 +756,7 @@ function Footer({ lang }: { lang: Lang }) {
                     <a
                       href="#"
                       className="transition-colors duration-200 hover:[color:#F3F2EE]"
-                      style={{ fontSize: 16, fontWeight: 400, color: "#BDC8C1" }}
+                      style={{ fontSize: 15, fontWeight: 400, color: "#BDC8C1" }}
                     >
                       {link}
                     </a>
@@ -769,26 +769,28 @@ function Footer({ lang }: { lang: Lang }) {
           {/* Column 5 - Download & Social */}
           <div>
             <h4 className="font-display font-semibold mb-5" style={{ fontSize: 18, color: "#F3F2EE" }}>
-              {s.colDownload}
+              Download Aim App
             </h4>
             <a
               href="#"
-              className="inline-flex items-center gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(122,244,207,0.35)]"
+              aria-label="Download on the App Store"
+              className="inline-flex items-center gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)]"
               style={{
-                padding: "12px 18px",
-                background: "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03))",
-                border: "1px solid rgba(255,255,255,0.10)",
+                width: 190,
+                padding: "10px 16px",
+                background: "#000000",
+                border: "1px solid rgba(255,255,255,0.12)",
                 color: "#F3F2EE",
               }}
             >
-              <Apple className="h-6 w-6" strokeWidth={1.5} />
+              <Apple className="h-7 w-7" strokeWidth={1.5} fill="#F3F2EE" />
               <div className="flex flex-col leading-tight">
-                <span style={{ fontSize: 11, color: "#A7B4AD" }}>{s.downloadFor}</span>
-                <span style={{ fontSize: 15, fontWeight: 600 }}>macOS</span>
+                <span style={{ fontSize: 10, letterSpacing: 0.3, color: "#D6DED8" }}>Download on the</span>
+                <span style={{ fontSize: 17, fontWeight: 600, letterSpacing: 0.2 }}>App Store</span>
               </div>
             </a>
-            <p className="mt-3" style={{ fontSize: 13, color: "#A7B4AD", lineHeight: 1.55 }}>
-              {s.downloadNote}
+            <p className="mt-3 max-w-[220px]" style={{ fontSize: 13, color: "#A7B4AD", lineHeight: 1.55 }}>
+              Available for iPhone and iPad. Android version coming soon.
             </p>
 
             <h4 className="font-display font-semibold mt-8 mb-4" style={{ fontSize: 18, color: "#F3F2EE" }}>
@@ -813,6 +815,7 @@ function Footer({ lang }: { lang: Lang }) {
             </div>
           </div>
         </div>
+
 
         {/* Bottom row */}
         <div
