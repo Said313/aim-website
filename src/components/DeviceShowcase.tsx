@@ -520,18 +520,25 @@ function Watch({ screen }: { screen: Screen }) {
         }}
       >
         <div className="relative aspect-square rounded-[22px] overflow-hidden bg-black p-[2px]">
-          <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0b1313]">
+          <div
+            className="relative w-full h-full rounded-[20px] overflow-hidden"
+            style={{
+              background:
+                "radial-gradient(110% 100% at 30% 0%, #22403a 0%, #14282584 60%, #0b1a18 100%)",
+            }}
+          >
             <WatchScreen screen={screen} />
             {/* Glare */}
             <div
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(140deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0) 40%)",
+                  "linear-gradient(140deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 45%)",
               }}
             />
           </div>
         </div>
+
         {/* Digital Crown */}
         <div className="absolute right-[-4px] top-[38%] h-5 w-[5px] rounded-r-md bg-gradient-to-b from-[#6a6f72] via-[#3a3e40] to-[#6a6f72] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.15)]" />
         {/* Side button */}
