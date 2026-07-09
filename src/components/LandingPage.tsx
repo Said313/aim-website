@@ -18,6 +18,11 @@ import {
   Activity,
   LineChart,
   User,
+  Apple,
+  Twitter,
+  Linkedin,
+  Instagram,
+  Youtube,
 } from "lucide-react";
 
 import appMockup from "@/assets/app-mockup.png";
@@ -667,19 +672,169 @@ function Founders({ lang }: { lang: Lang }) {
 
 function Footer({ lang }: { lang: Lang }) {
   const s = t(lang).footer;
+  const [email, setEmail] = useState("");
+  const year = new Date().getFullYear();
+
+  const colProduct = { title: s.colProduct, links: ["Features", "Platforms", "AI Assistant", "Open Banking", "Security"] };
+  const colCompany = { title: s.colCompany, links: ["Vision", "Investors", "Careers", "Contact", "Press"] };
+  const colResources = { title: s.colResources, links: ["Blog", "FAQ", "Privacy Policy", "Terms of Service"] };
+
+  const socials = [
+    { Icon: Twitter, label: "X", href: "#" },
+    { Icon: Linkedin, label: "LinkedIn", href: "#" },
+    { Icon: Instagram, label: "Instagram", href: "#" },
+    { Icon: Youtube, label: "YouTube", href: "#" },
+  ];
+
   return (
-    <footer className="border-t border-border py-12">
-      <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2">
-          <Logo className="h-7 w-7" alt="Aim" />
-          <span className="font-display font-semibold">Aim</span>
-          <span className="text-muted-foreground text-sm ml-2">· {s.tagline}</span>
+    <Reveal variant="up" as="footer" className="border-t border-white/[0.06]">
+      <div
+        className="mx-auto"
+        style={{ maxWidth: 1280, paddingLeft: 48, paddingRight: 48, paddingTop: 96, paddingBottom: 56 }}
+      >
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
+          style={{ columnGap: 72, rowGap: 56 }}
+        >
+          {/* Column 1 - Newsletter */}
+          <div className="lg:col-span-1 sm:col-span-2 lg:min-w-0">
+            <div className="flex items-center gap-2 mb-5">
+              <Logo className="h-7 w-7" alt="Aim" />
+              <span className="font-display font-semibold text-[17px]" style={{ color: "#F3F2EE" }}>Aim</span>
+            </div>
+            <h4 className="font-display font-semibold" style={{ fontSize: 18, color: "#F3F2EE" }}>
+              {s.newsletterTitle}
+            </h4>
+            <p className="mt-3" style={{ fontSize: 15, color: "#A7B4AD", lineHeight: 1.55 }}>
+              {s.newsletterDesc}
+            </p>
+            <form
+              onSubmit={(e) => { e.preventDefault(); setEmail(""); }}
+              className="relative mt-5 group"
+            >
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={s.emailPlaceholder}
+                className="w-full outline-none transition-shadow duration-300 focus:shadow-[0_0_0_1px_rgba(122,244,207,0.35),0_0_24px_rgba(122,244,207,0.18)]"
+                style={{
+                  height: 56,
+                  borderRadius: 18,
+                  paddingLeft: 20,
+                  paddingRight: 56,
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  color: "#F3F2EE",
+                  fontSize: 15,
+                }}
+              />
+              <button
+                type="submit"
+                aria-label="Subscribe"
+                className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-[14px] flex items-center justify-center transition-all duration-300 hover:bg-white/10"
+                style={{ color: "#F3F2EE" }}
+              >
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </form>
+            <p className="mt-3" style={{ fontSize: 13, color: "#A7B4AD" }}>
+              {s.noSpam}
+            </p>
+          </div>
+
+          {/* Columns 2-4 */}
+          {[colProduct, colCompany, colResources].map((col) => (
+            <div key={col.title}>
+              <h4 className="font-display font-semibold mb-5" style={{ fontSize: 18, color: "#F3F2EE" }}>
+                {col.title}
+              </h4>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link}>
+                    <a
+                      href="#"
+                      className="transition-colors duration-200 hover:[color:#F3F2EE]"
+                      style={{ fontSize: 16, fontWeight: 400, color: "#BDC8C1" }}
+                    >
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          {/* Column 5 - Download & Social */}
+          <div>
+            <h4 className="font-display font-semibold mb-5" style={{ fontSize: 18, color: "#F3F2EE" }}>
+              {s.colDownload}
+            </h4>
+            <a
+              href="#"
+              className="inline-flex items-center gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(122,244,207,0.35)]"
+              style={{
+                padding: "12px 18px",
+                background: "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03))",
+                border: "1px solid rgba(255,255,255,0.10)",
+                color: "#F3F2EE",
+              }}
+            >
+              <Apple className="h-6 w-6" strokeWidth={1.5} />
+              <div className="flex flex-col leading-tight">
+                <span style={{ fontSize: 11, color: "#A7B4AD" }}>{s.downloadFor}</span>
+                <span style={{ fontSize: 15, fontWeight: 600 }}>macOS</span>
+              </div>
+            </a>
+            <p className="mt-3" style={{ fontSize: 13, color: "#A7B4AD", lineHeight: 1.55 }}>
+              {s.downloadNote}
+            </p>
+
+            <h4 className="font-display font-semibold mt-8 mb-4" style={{ fontSize: 18, color: "#F3F2EE" }}>
+              {s.followUs}
+            </h4>
+            <div className="flex items-center gap-2">
+              {socials.map(({ Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="h-10 w-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.08]"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                    color: "#BDC8C1",
+                  }}
+                >
+                  <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} {s.copyright}
+
+        {/* Bottom row */}
+        <div
+          className="mt-16 pt-8 flex flex-col md:grid md:grid-cols-3 items-center gap-4 md:gap-6"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div className="text-center md:text-left" style={{ fontSize: 14, color: "#A7B4AD" }}>
+            © {year} Aim. {s.rights}
+          </div>
+          <div className="text-center" style={{ fontSize: 14, color: "#A7B4AD" }}>
+            {s.tagline2}
+          </div>
+          <div className="text-center md:text-right" style={{ fontSize: 14, color: "#A7B4AD" }}>
+            <a href="#" className="hover:[color:#F3F2EE] transition-colors">Privacy</a>
+            <span className="mx-2 opacity-50">•</span>
+            <a href="#" className="hover:[color:#F3F2EE] transition-colors">Terms</a>
+            <span className="mx-2 opacity-50">•</span>
+            <a href="#" className="hover:[color:#F3F2EE] transition-colors">Cookies</a>
+          </div>
         </div>
       </div>
-    </footer>
+    </Reveal>
   );
 }
 
