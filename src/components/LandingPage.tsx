@@ -675,9 +675,9 @@ function Footer({ lang }: { lang: Lang }) {
   const [email, setEmail] = useState("");
   const year = new Date().getFullYear();
 
-  const colProduct = { title: s.colProduct, links: ["Features", "Platforms", "AI Assistant", "Open Banking", "Security"] };
-  const colCompany = { title: s.colCompany, links: ["Vision", "Investors", "Careers", "Contact", "Press"] };
-  const colResources = { title: s.colResources, links: ["Blog", "FAQ", "Privacy Policy", "Terms of Service"] };
+  const colProduct = { title: s.colProduct, links: s.navProduct };
+  const colCompany = { title: s.colCompany, links: s.navCompany };
+  const colResources = { title: s.colResources, links: s.navResources };
 
   const socials = [
     { Icon: Twitter, label: "X", href: "#" },
