@@ -218,15 +218,18 @@ function MacScreen({ screen }: { screen: Screen }) {
 function Tile({ label, active, children }: { label: string; active: boolean; children: React.ReactNode }) {
   return (
     <div
-      className={`rounded-md bg-white/[0.04] p-1 ring-1 ring-white/5 transition-all duration-700 ${
-        active ? "ring-emerald-300/40 bg-white/[0.07]" : ""
+      className={`rounded-md p-1 ring-1 transition-all duration-700 ${
+        active
+          ? "ring-emerald-300/50 bg-white/[0.14]"
+          : "ring-white/10 bg-white/[0.08]"
       }`}
     >
-      <div className="text-[5.5px] uppercase tracking-wider text-white/45 mb-0.5">{label}</div>
+      <div className="text-[5.5px] uppercase tracking-wider text-white/70 mb-0.5">{label}</div>
       {children}
     </div>
   );
 }
+
 
 /* -------------------- iPhone simplified mobile -------------------- */
 
