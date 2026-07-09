@@ -91,7 +91,7 @@ function Hero({ lang }: { lang: Lang }) {
       <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-36 pb-28 md:pt-44 md:pb-36 min-h-screen flex items-start md:items-center">
         <div className="w-full">
           <Reveal variant="fade" className="flex flex-col items-center text-center md:items-start md:text-left max-w-[620px]">
-            <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F8F7F3]">
+            <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F3F2EE]">
               <span className="sr-only">{s.srTitle} </span>
               <span aria-hidden="true">{s.line1}</span>
               <br aria-hidden="true" />
@@ -134,7 +134,7 @@ function Hero({ lang }: { lang: Lang }) {
                       fontSize: "15px",
                       fontWeight: 500,
                       letterSpacing: "0.01em",
-                      color: "#E6E8E5",
+                      color: "#D6DED8",
                     }}
                   >
                     {b.label}
@@ -386,7 +386,7 @@ function ProblemSolution({ lang }: { lang: Lang }) {
                 marginTop: "16px",
                 fontSize: "14px",
                 fontWeight: 500,
-                color: "rgba(255,255,255,0.65)",
+                color: "#BDC8C1",
               }}
             >
               {t(lang).solution.ctaNote}
@@ -437,7 +437,7 @@ function Platforms({ lang }: { lang: Lang }) {
             >
               {t(lang).hero.ctaPrimary} <ArrowRight className="h-4 w-4" />
             </a>
-            <p style={{ marginTop: "16px", fontSize: "14px", fontWeight: 500, color: "rgba(255,255,255,0.65)" }}>
+            <p style={{ marginTop: "16px", fontSize: "14px", fontWeight: 500, color: "#BDC8C1" }}>
               {t(lang).solution.ctaNote}
             </p>
           </Reveal>

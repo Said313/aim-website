@@ -38,39 +38,40 @@
   --radius: 1rem;
   /* Evergreen forest palette */
   --background: #304040;
-  --foreground: #F8F7F3;
+  --foreground: #F3F2EE;
   --card: #263332;
-  --card-foreground: #F8F7F3;
+  --card-foreground: #F3F2EE;
   --popover: #263332;
-  --popover-foreground: #F8F7F3;
+  --popover-foreground: #F3F2EE;
   /* Primary button gradient endpoints (softened periwinkle) */
   --primary: #9B8CFF;
-  --primary-foreground: #F8F7F3;
+  --primary-foreground: #F3F2EE;
   --secondary: rgba(255, 255, 255, 0.06);
-  --secondary-foreground: #F8F7F3;
+  --secondary-foreground: #BDC8C1;
   --muted: rgba(255, 255, 255, 0.05);
-  --muted-foreground: #A5B2AB;
-  --accent: #78FFD2;
+  --muted-foreground: #A7B4AD;
+  --accent: #7AF4CF;
   --accent-foreground: #14201d;
   --destructive: oklch(0.65 0.24 25);
-  --destructive-foreground: #F8F7F3;
+  --destructive-foreground: #F3F2EE;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.10);
-  --ring: rgba(120, 255, 210, 0.45);
+  --ring: rgba(122, 244, 207, 0.45);
 
-  --color-body: #E6E8E5;
-  --color-heading: #F8F7F3;
-  --color-secondary-text: #C8D1CC;
+  --color-body: #D6DED8;
+  --color-heading: #F3F2EE;
+  --color-secondary-text: #BDC8C1;
+  --color-caption: #A7B4AD;
 
   /* Accent gradient — soft emerald flow */
   --gradient-brand: linear-gradient(
     90deg,
-    #78FFD2 0%,
+    #7AF4CF 0%,
     #9B8CFF 60%,
     #7D93FF 100%
   );
 
-  /* Primary button gradient — periwinkle */
+  /* Primary button gradient — periwinkle (unchanged) */
   --gradient-primary: linear-gradient(135deg, #9B8CFF 0%, #7D93FF 100%);
 
   --shadow-soft: 0 24px 60px rgba(20, 35, 30, 0.28);
@@ -119,7 +120,7 @@
     background-color: #304040;
     background-image: linear-gradient(180deg, #5B7065 0%, #44584F 45%, #304040 100%);
     background-attachment: fixed;
-    color: #E6E8E5;
+    color: #D6DED8;
     font-family: var(--font-sans);
     font-weight: 400;
     font-size: 18px;
