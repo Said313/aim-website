@@ -95,7 +95,7 @@ function Hero({ lang }: { lang: Lang }) {
               <span className="sr-only">{s.srTitle} </span>
               <span aria-hidden="true">{s.line1}</span>
               <br aria-hidden="true" />
-              <span aria-hidden="true">{s.line2}</span>
+              <span aria-hidden="true" className="whitespace-pre-line">{s.line2}</span>
             </h1>
             <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
             <div
