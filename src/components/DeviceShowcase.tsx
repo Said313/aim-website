@@ -537,36 +537,6 @@ function Watch({ screen }: { screen: Screen }) {
 }
 
 
-function IPhone({ screen }: { screen: Screen }) {
-  return (
-    <div className="relative w-[150px] h-[310px] rounded-[32px] bg-[#0a0f10] ring-1 ring-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] p-1.5">
-      <div className="relative w-full h-full rounded-[26px] overflow-hidden bg-gradient-to-br from-[#0d1a19] via-[#122120] to-[#0b1313]">
-        {/* Notch */}
-        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 h-3 w-14 rounded-full bg-black z-10" />
-        <PhoneScreen screen={screen} />
-      </div>
-    </div>
-  );
-}
-
-function Watch({ screen }: { screen: Screen }) {
-  return (
-    <div className="relative w-[100px]">
-      {/* Band top */}
-      <div className="mx-auto h-6 w-16 bg-gradient-to-b from-[#1a1f1f] to-[#0d1112] rounded-t-md" />
-      {/* Case */}
-      <div className="relative rounded-[22px] bg-[#0a0e0f] ring-1 ring-white/15 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.6)] p-1">
-        <div className="relative aspect-square rounded-[16px] overflow-hidden bg-gradient-to-br from-[#0f1a1a] via-[#12211f] to-[#0b1313]">
-          <WatchScreen screen={screen} />
-        </div>
-        {/* Crown */}
-        <div className="absolute right-[-3px] top-1/2 -translate-y-1/2 h-4 w-1.5 rounded-r bg-[#1a1f20]" />
-      </div>
-      {/* Band bottom */}
-      <div className="mx-auto h-6 w-16 bg-gradient-to-t from-[#1a1f1f] to-[#0d1112] rounded-b-md" />
-    </div>
-  );
-}
 
 /* -------------------- Root -------------------- */
 
