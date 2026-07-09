@@ -644,10 +644,10 @@ export function DeviceShowcase() {
         <ConnectionLines />
 
         {/* Floating status cards */}
-        <StatusCard className="top-2 left-2" delay="0s" dot="#7AF4CF" label="Open Banking connected" />
-        <StatusCard className="top-16 right-0" delay="1.2s" dot="#9B8CFF" label="AI analysis complete" />
-        <StatusCard className="bottom-20 left-0" delay="2.4s" dot="#7AF4CF" label="Portfolio +12.4%" />
-        <StatusCard className="bottom-2 right-4" delay="0.6s" dot="#7D93FF" label="Savings updated" />
+        <StatusCard className="hd-a" style={{ top: "3%", left: "44%" }} delay="0s" dot="#7AF4CF" label="Open Banking connected" />
+        <StatusCard className="hd-b" style={{ top: "16%", right: "1%" }} delay="1.2s" dot="#9B8CFF" label="AI analysis complete" />
+        <StatusCard className="hd-c" style={{ top: "60%", left: "10%" }} delay="2.4s" dot="#7AF4CF" label="Portfolio +12.4%" />
+        <StatusCard className="hd-a" style={{ bottom: "6%", right: "3%" }} delay="0.6s" dot="#7D93FF" label="Savings updated" />
       </div>
     </div>
   );
