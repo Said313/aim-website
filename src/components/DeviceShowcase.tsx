@@ -566,11 +566,13 @@ function ConnectionLines() {
 /* -------------------- Floating status cards -------------------- */
 function StatusCard({
   className,
+  style,
   delay,
   dot,
   label,
 }: {
   className: string;
+  style?: React.CSSProperties;
   delay: string;
   dot: string;
   label: string;
@@ -578,7 +580,7 @@ function StatusCard({
   return (
     <div
       className={`absolute z-30 rounded-xl bg-white/[0.06] ring-1 ring-white/10 backdrop-blur-md px-2.5 py-1.5 text-[10px] text-white/85 flex items-center gap-1.5 hd-card ${className}`}
-      style={{ animationDelay: delay }}
+      style={{ animationDelay: delay, ...style }}
     >
       <span className="h-1.5 w-1.5 rounded-full hd-pulse" style={{ background: dot, animationDelay: delay }} />
       {label}
@@ -644,10 +646,10 @@ export function DeviceShowcase() {
         <ConnectionLines />
 
         {/* Floating status cards */}
-        <StatusCard className="top-2 left-2" delay="0s" dot="#7AF4CF" label="Open Banking connected" />
-        <StatusCard className="top-16 right-0" delay="1.2s" dot="#9B8CFF" label="AI analysis complete" />
-        <StatusCard className="bottom-20 left-0" delay="2.4s" dot="#7AF4CF" label="Portfolio +12.4%" />
-        <StatusCard className="bottom-2 right-4" delay="0.6s" dot="#7D93FF" label="Savings updated" />
+        <StatusCard className="hd-a" style={{ top: "3%", left: "44%" }} delay="0s" dot="#7AF4CF" label="Open Banking connected" />
+        <StatusCard className="hd-b" style={{ top: "16%", right: "1%" }} delay="1.2s" dot="#9B8CFF" label="AI analysis complete" />
+        <StatusCard className="hd-c" style={{ top: "60%", left: "10%" }} delay="2.4s" dot="#7AF4CF" label="Portfolio +12.4%" />
+        <StatusCard className="hd-a" style={{ bottom: "6%", right: "3%" }} delay="0.6s" dot="#7D93FF" label="Savings updated" />
       </div>
     </div>
   );
