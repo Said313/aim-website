@@ -823,7 +823,7 @@ function Footer({ lang }: { lang: Lang }) {
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
           <div className="text-center md:text-left" style={{ fontSize: 14, color: "#A7B4AD" }}>
-            © {year} Aim. {s.rights}
+            © {year} {s.copyright}
           </div>
           <div className="text-center" style={{ fontSize: 14, color: "#A7B4AD" }}>
             {s.tagline2}
