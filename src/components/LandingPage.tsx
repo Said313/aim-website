@@ -625,8 +625,8 @@ function RoleSelector({ lang }: { lang: Lang }) {
 function Founders({ lang }: { lang: Lang }) {
   const s = t(lang).founders;
   const founders = [
-    { name: "Umidzhan Rakhmankulov", initials: "UR", photo: founderUmidzhan, role: s.roleCeo },
-    { name: "Saidgaffor Sabyrov", initials: "SS", photo: founderSaidgaffor, role: s.roleCto },
+    { name: s.nameUmidzhan, initials: "UR", photo: founderUmidzhan, role: s.roleCeo },
+    { name: s.nameSaidgaffor, initials: "SS", photo: founderSaidgaffor, role: s.roleCto },
   ];
   return (
     <section id="founders" className="py-24 md:py-32">
