@@ -194,6 +194,9 @@ const en = {
     followUs: "Follow us",
     rights: "All rights reserved.",
     tagline2: "Built for the future of personal finance.",
+    navProduct: ["Features", "Platforms", "AI Assistant", "Open Banking", "Security"],
+    navCompany: ["Vision", "Investors", "Careers", "Contact", "Press"],
+    navResources: ["Blog", "FAQ", "Privacy Policy", "Terms of Service"],
   },
   forms: {
     name: "Name",
@@ -395,6 +398,9 @@ const ru: Dict = {
     followUs: "Мы в соцсетях",
     rights: "Все права защищены.",
     tagline2: "Создано для будущего личных финансов.",
+    navProduct: ["Возможности", "Платформы", "AI-ассистент", "Open Banking", "Безопасность"],
+    navCompany: ["Видение", "Инвесторам", "Карьера", "Контакты", "Пресса"],
+    navResources: ["Блог", "FAQ", "Политика конфиденциальности", "Условия использования"],
   },
   forms: {
     name: "Имя",
@@ -594,6 +600,9 @@ const kz: Dict = {
     followUs: "Бізді қадағалаңыз",
     rights: "Барлық құқықтар қорғалған.",
     tagline2: "Жеке қаржының болашағы үшін жасалған.",
+    navProduct: ["Мүмкіндіктер", "Платформалар", "AI-ассистент", "Open Banking", "Қауіпсіздік"],
+    navCompany: ["Көзқарас", "Инвесторлар", "Мансап", "Байланыс", "Баспасөз"],
+    navResources: ["Блог", "FAQ", "Құпиялылық саясаты", "Қызмет көрсету шарттары"],
   },
   forms: {
     name: "Аты-жөні",
