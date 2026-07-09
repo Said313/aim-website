@@ -573,53 +573,92 @@ export function DeviceShowcase() {
     <div
       ref={mac.ref}
       aria-hidden="true"
-      className="pointer-events-none select-none hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[54%] max-w-[720px] pr-6"
+      className="pointer-events-none select-none hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[58%] max-w-[820px] pr-4"
     >
       <style>{`
         @keyframes ds-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-        @keyframes ds-slide-in { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
-        .ds-fade { animation: ds-fade-in 800ms cubic-bezier(0.4,0,0.2,1) both; }
-        .ds-slide { animation: ds-slide-in 800ms cubic-bezier(0.4,0,0.2,1) both; }
+        @keyframes ds-slide-in { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: none; } }
+        .ds-fade { animation: ds-fade-in 900ms cubic-bezier(0.22,1,0.36,1) both; }
+        .ds-slide { animation: ds-slide-in 900ms cubic-bezier(0.22,1,0.36,1) both; }
+
+        @keyframes ds-float-mac {
+          0%,100% { transform: translate3d(0,0,0) rotateX(10deg) rotateY(-13deg) rotateZ(0.4deg); }
+          50%     { transform: translate3d(0,-7px,0) rotateX(10.6deg) rotateY(-12.2deg) rotateZ(0.6deg); }
+        }
+        @keyframes ds-float-phone {
+          0%,100% { transform: translate3d(0,0,0) rotateX(6deg) rotateY(10deg) rotateZ(-2deg); }
+          50%     { transform: translate3d(0,-9px,0) rotateX(5.4deg) rotateY(10.8deg) rotateZ(-2.4deg); }
+        }
+        @keyframes ds-float-watch {
+          0%,100% { transform: translate3d(0,0,0) rotateX(9deg) rotateY(-6deg) rotateZ(-3deg); }
+          50%     { transform: translate3d(0,-6px,0) rotateX(9.6deg) rotateY(-5.4deg) rotateZ(-2.6deg); }
+        }
+        .ds-float-mac   { animation: ds-float-mac 11s ease-in-out infinite; transform-style: preserve-3d; will-change: transform; }
+        .ds-float-phone { animation: ds-float-phone 9s ease-in-out infinite; transform-style: preserve-3d; will-change: transform; }
+        .ds-float-watch { animation: ds-float-watch 8s ease-in-out infinite; transform-style: preserve-3d; will-change: transform; }
+
         @media (prefers-reduced-motion: reduce) {
-          .ds-fade, .ds-slide { animation: none !important; }
+          .ds-fade, .ds-slide, .ds-float-mac, .ds-float-phone, .ds-float-watch { animation: none !important; }
         }
       `}</style>
       <div
-        className="relative flex items-end justify-center"
-        style={{ perspective: "1600px", perspectiveOrigin: "50% 30%" }}
+        className="relative flex items-end justify-center pb-16"
+        style={{ perspective: "1800px", perspectiveOrigin: "50% 35%" }}
       >
-        {/* Ambient floor shadow */}
-        <div className="absolute inset-x-4 -bottom-4 h-16 bg-black/55 blur-3xl rounded-full" />
-        {/* Emerald under-glow */}
-        <div className="absolute inset-x-16 bottom-2 h-10 rounded-full opacity-60 blur-2xl"
-          style={{ background: "radial-gradient(closest-side, rgba(120,255,210,0.35), transparent 70%)" }}
-        />
-        {/* MacBook — tilted back */}
+        {/* Deep floor shadow — grounds the scene */}
         <div
-          className="relative z-10"
+          className="absolute left-[8%] right-[8%] -bottom-2 h-24 rounded-[50%] blur-3xl"
+          style={{ background: "radial-gradient(closest-side, rgba(0,0,0,0.75), transparent 70%)" }}
+        />
+        {/* Emerald ambient rim light */}
+        <div
+          className="absolute inset-x-10 -bottom-2 h-16 rounded-full opacity-45 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, rgba(120,255,210,0.28), transparent 70%)" }}
+        />
+        {/* Soft key light from upper-left */}
+        <div
+          className="absolute -top-16 -left-10 h-64 w-64 rounded-full opacity-40 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, rgba(255,255,255,0.18), transparent 70%)" }}
+        />
+
+        {/* MacBook — background plane, dominant */}
+        <div
+          className="relative z-10 ds-float-mac"
           style={{
-            transform: "rotateX(6deg) rotateY(-10deg) rotateZ(0.5deg)",
-            transformStyle: "preserve-3d",
+            filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.55)) drop-shadow(0 12px 18px rgba(0,0,0,0.35))",
           }}
         >
-          <MacBook screen={mac.screen} />
+          <div style={{ transform: "scale(1.15)", transformOrigin: "center bottom" }}>
+            <MacBook screen={mac.screen} />
+          </div>
         </div>
-        {/* iPhone — angled forward */}
+
+        {/* iPhone — middle plane, overlaps left of MacBook */}
         <div
-          className="absolute left-[6%] bottom-[-30px] z-20"
-          style={{ transform: "rotateX(4deg) rotateY(14deg) rotateZ(-2deg)" }}
+          className="absolute left-[2%] bottom-[6px] z-20 ds-float-phone"
+          style={{
+            filter:
+              "drop-shadow(-18px 30px 40px rgba(0,0,0,0.55)) drop-shadow(-6px 10px 14px rgba(0,0,0,0.45))",
+          }}
         >
-          <IPhone screen={phone.screen} />
+          <div style={{ transform: "scale(1.10)", transformOrigin: "center bottom" }}>
+            <IPhone screen={phone.screen} />
+          </div>
         </div>
-        {/* Watch — slight tilt */}
+
+        {/* Apple Watch — foreground plane, overlaps bottom-right of iPhone */}
         <div
-          className="absolute left-[28%] bottom-[-45px] z-30"
-          style={{ transform: "rotateX(8deg) rotateY(-6deg) rotateZ(-3deg)" }}
+          className="absolute left-[22%] bottom-[-18px] z-30 ds-float-watch"
+          style={{
+            filter:
+              "drop-shadow(-10px 24px 26px rgba(0,0,0,0.6)) drop-shadow(-4px 8px 10px rgba(0,0,0,0.5))",
+          }}
         >
-          <Watch screen={watch.screen} />
+          <div style={{ transform: "scale(1.20)", transformOrigin: "center bottom" }}>
+            <Watch screen={watch.screen} />
+          </div>
         </div>
       </div>
-
     </div>
   );
 }
