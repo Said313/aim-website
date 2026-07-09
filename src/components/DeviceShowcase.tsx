@@ -566,11 +566,13 @@ function ConnectionLines() {
 /* -------------------- Floating status cards -------------------- */
 function StatusCard({
   className,
+  style,
   delay,
   dot,
   label,
 }: {
   className: string;
+  style?: React.CSSProperties;
   delay: string;
   dot: string;
   label: string;
@@ -578,7 +580,7 @@ function StatusCard({
   return (
     <div
       className={`absolute z-30 rounded-xl bg-white/[0.06] ring-1 ring-white/10 backdrop-blur-md px-2.5 py-1.5 text-[10px] text-white/85 flex items-center gap-1.5 hd-card ${className}`}
-      style={{ animationDelay: delay }}
+      style={{ animationDelay: delay, ...style }}
     >
       <span className="h-1.5 w-1.5 rounded-full hd-pulse" style={{ background: dot, animationDelay: delay }} />
       {label}
