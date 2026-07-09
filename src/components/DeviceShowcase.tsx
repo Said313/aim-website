@@ -584,22 +584,42 @@ export function DeviceShowcase() {
           .ds-fade, .ds-slide { animation: none !important; }
         }
       `}</style>
-      <div className="relative flex items-end justify-center">
-        {/* Ambient shadow */}
-        <div className="absolute inset-x-8 bottom-0 h-10 bg-black/40 blur-2xl rounded-full" />
-        {/* MacBook — anchor */}
-        <div className="relative z-10">
+      <div
+        className="relative flex items-end justify-center"
+        style={{ perspective: "1600px", perspectiveOrigin: "50% 30%" }}
+      >
+        {/* Ambient floor shadow */}
+        <div className="absolute inset-x-4 -bottom-4 h-16 bg-black/55 blur-3xl rounded-full" />
+        {/* Emerald under-glow */}
+        <div className="absolute inset-x-16 bottom-2 h-10 rounded-full opacity-60 blur-2xl"
+          style={{ background: "radial-gradient(closest-side, rgba(120,255,210,0.35), transparent 70%)" }}
+        />
+        {/* MacBook — tilted back */}
+        <div
+          className="relative z-10"
+          style={{
+            transform: "rotateX(6deg) rotateY(-10deg) rotateZ(0.5deg)",
+            transformStyle: "preserve-3d",
+          }}
+        >
           <MacBook screen={mac.screen} />
         </div>
-        {/* iPhone — front-left of macbook */}
-        <div className="absolute left-[6%] bottom-[-30px] z-20">
+        {/* iPhone — angled forward */}
+        <div
+          className="absolute left-[6%] bottom-[-30px] z-20"
+          style={{ transform: "rotateX(4deg) rotateY(14deg) rotateZ(-2deg)" }}
+        >
           <IPhone screen={phone.screen} />
         </div>
-        {/* Watch — front of iPhone */}
-        <div className="absolute left-[28%] bottom-[-45px] z-30">
+        {/* Watch — slight tilt */}
+        <div
+          className="absolute left-[28%] bottom-[-45px] z-30"
+          style={{ transform: "rotateX(8deg) rotateY(-6deg) rotateZ(-3deg)" }}
+        >
           <Watch screen={watch.screen} />
         </div>
       </div>
+
     </div>
   );
 }
