@@ -312,7 +312,7 @@ function Features({ lang }: { lang: Lang }) {
         <Reveal variant="up" className="max-w-2xl mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            {s.titleA} <span className="text-mint-accent whitespace-pre-line">{s.titleB}</span>
+            {s.titleA} <span className="whitespace-pre-line">{s.titleB}</span>
           </h2>
         </Reveal>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -407,7 +407,7 @@ function Platforms({ lang }: { lang: Lang }) {
         <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            {s.titleA} <span className="text-mint-accent">{s.titleB}</span>
+            {s.titleA} <span className="">{s.titleB}</span>
           </h2>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -462,7 +462,7 @@ function Vision({ lang }: { lang: Lang }) {
           <Sparkles className="h-8 w-8 text-accent mx-auto mb-6" />
           <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-[1.05]">
-            {s.titleA} <span className="text-mint-accent">{s.titleB}</span> {s.titleC}
+            {s.titleA} <span className="">{s.titleB}</span> {s.titleC}
           </h2>
           <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto">{s.desc}</p>
         </Reveal>
@@ -470,7 +470,7 @@ function Vision({ lang }: { lang: Lang }) {
         {/* Roadmap */}
         <Reveal variant="up" delay={100} className="mt-16 text-center max-w-3xl mx-auto">
           <h3 className="font-display text-3xl md:text-5xl font-semibold leading-tight">
-            {r.title} <span className="text-mint-accent">{r.titleAccent}</span>
+            {r.title} <span className="">{r.titleAccent}</span>
           </h3>
           <p className="mt-5 text-muted-foreground">{r.desc}</p>
         </Reveal>
@@ -522,7 +522,7 @@ function Vision({ lang }: { lang: Lang }) {
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
               {r.closingA}{" "}
               <span className="text-foreground font-medium">{r.closingB}</span>{" "}
-              <span className="text-mint-accent font-semibold">{r.closingC}</span>
+              <span className="font-semibold">{r.closingC}</span>
             </p>
             <div className="mt-8 pt-8 border-t border-border/60">
               <p className="font-display text-lg md:text-xl font-semibold">
@@ -545,7 +545,7 @@ function CTA({ lang }: { lang: Lang }) {
         <Reveal variant="zoom-in" className="text-center max-w-3xl mx-auto mb-14">
           <Brain className="h-32 w-32 text-accent mx-auto mb-6" strokeWidth={1.25} />
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
-            {s.titleA} <span className="text-mint-accent">{s.titleB}</span>
+            {s.titleA} <span className="">{s.titleB}</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">{s.desc}</p>
         </Reveal>
@@ -634,7 +634,7 @@ function Founders({ lang }: { lang: Lang }) {
         <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-            {s.titleA} <span className="text-mint-accent">{s.titleB}</span>
+            {s.titleA} <span className="">{s.titleB}</span>
           </h2>
           <p className="mt-5 text-muted-foreground">{s.desc}</p>
         </Reveal>
