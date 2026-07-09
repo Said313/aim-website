@@ -463,6 +463,9 @@ const kz: Dict = {
     ctaSecondary: "Не істейді",
     sec1: "Банктік деңгейдегі қауіпсіздік",
     sec2: "Open Banking",
+    badgeAi: "AI негізінде",
+    badgeOpenBanking: "Open Banking",
+    badgeWorldwide: "Бүкіл әлемде қолжетімді",
   },
   stats: [
     { value: "1-ші", label: "Орталық Азияда Open Banking-ке қосылған компания" },
