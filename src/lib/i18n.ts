@@ -120,7 +120,7 @@ const en = {
     titleA: "A world where every person has a personal",
     titleB: "AI CFO",
     titleC: " - helping them live the life they actually dream of.",
-    desc: "Premium AI. A marketplace. Investments, insurance, lending, mortgages - and much more. We're just getting started.",
+    desc: "\n",
     roadmap: {
       title: "One Platform.",
       titleAccent: "Limitless Impact.",
@@ -327,7 +327,7 @@ const ru: Dict = {
     titleA: "Мир, где у каждого есть личный",
     titleB: "AI-финдиректор",
     titleC: "\u00a0-\u00a0помогающий жить той жизнью, о которой мечтают.",
-    desc: "Premium AI. Маркетплейс. Инвестиции, страхование, кредиты, ипотека — и многое другое. Мы только начинаем.",
+    desc: "\n",
     roadmap: {
       title: "Одна платформа.",
       titleAccent: "Безграничное влияние.",
