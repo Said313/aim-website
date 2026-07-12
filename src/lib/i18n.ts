@@ -46,7 +46,7 @@ const en = {
     line1: "Your money",
     line2: "smarter than ever",
 
-    desc: "Aim connects all your accounts and turns your financial data into simple, personalized guidance.",
+    desc: "Aim is your personal AI CFO. It connects every bank account\u00a0 understands your life, and turns complex finances into clear next steps — so you can focus on what truly matters.",
     ctaPrimary: "Get early access",
     ctaSecondary: "See what it does",
     sec1: "Bank-grade security",
