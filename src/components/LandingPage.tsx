@@ -31,7 +31,7 @@ import freedomMountain from "@/assets/freedom-mountain.png";
 import founderUmidzhan from "@/assets/founder-umidzhan.png";
 import founderSaidgaffor from "@/assets/founder-saidgaffor.png";
 import { Reveal } from "@/components/Reveal";
-import { DeviceShowcase } from "@/components/DeviceShowcase";
+import { Hero3D } from "@/components/Hero3D";
 import { UserWaitlistForm } from "@/components/UserWaitlistForm";
 import { InvestorContactForm } from "@/components/InvestorContactForm";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -89,8 +89,8 @@ function Hero({ lang }: { lang: Lang }) {
       {/* Subtle radial glow behind content */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_70%_35%,rgba(120,255,210,0.10),transparent_55%)]" />
 
-      {/* Multi-device product showcase — right side */}
-      <DeviceShowcase />
+      {/* 3D hero scene — right side */}
+      <Hero3D />
 
       {/* Hero content */}
       <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-36 pb-28 md:pt-44 md:pb-36 min-h-screen flex items-start md:items-center">
