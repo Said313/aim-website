@@ -4,39 +4,45 @@ import {
   PerspectiveCamera,
   Environment,
   ContactShadows,
+  SoftShadows,
   Preload,
   AdaptiveDpr,
   AdaptiveEvents,
+  BakeShadows,
 } from "@react-three/drei";
+import * as THREE from "three";
 import { MacBook, IPhone, AppleWatch } from "./hero3d/Devices";
 
 /**
- * Hero3D
- * Self-contained R3F scene for the landing hero. Renders three real 3D
- * devices (no PNGs) with HDRI environment reflections, contact shadows,
- * floating animation, and responsive/optimized rendering.
- *
- * Orbit controls are intentionally disabled — this is a decorative scene.
+ * Hero3D — self-contained R3F scene.
+ * PerspectiveCamera + HDRI Environment + ContactShadows + SoftShadows
+ * for PBR-friendly lighting and realistic contact AO. Orbit disabled.
  */
 
 function Scene() {
   return (
     <>
-      {/* Explicit perspective camera */}
-      <PerspectiveCamera makeDefault position={[0, 0.4, 5.4]} fov={38} near={0.1} far={50} />
+      <PerspectiveCamera makeDefault position={[0, 0.55, 5.6]} fov={36} near={0.1} far={50} />
 
-      {/* Base lighting */}
-      <ambientLight intensity={0.3} />
+      {/* Soft area-light shadows (screen-space) */}
+      <SoftShadows size={28} samples={12} focus={0.9} />
+
+      {/* Key + fill + rim lighting */}
+      <ambientLight intensity={0.25} />
       <directionalLight
-        position={[3.5, 4, 2]}
-        intensity={1.1}
-        color={"#EAF7F2"}
-        castShadow={false}
+        position={[3.5, 5, 3]}
+        intensity={1.15}
+        color="#EAF7F2"
+        castShadow
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+        shadow-bias={-0.0005}
       />
-      <pointLight position={[-3, -1, 2]} intensity={1.1} color={"#7AF4CF"} />
-      <pointLight position={[2.5, 2, -2]} intensity={0.7} color={"#9B8CFF"} />
+      <pointLight position={[-3, -0.5, 2.5]} intensity={1.2} color="#7AF4CF" />
+      <pointLight position={[2.5, 2.5, -2]} intensity={0.8} color="#9B8CFF" />
+      <pointLight position={[0, 1.5, 4]} intensity={0.35} color="#EAF7F2" />
 
-      {/* HDRI reflections (Environment loads an HDR preset from drei's CDN) */}
+      {/* HDRI reflections + image-based lighting (contributes AO cues) */}
       <Suspense fallback={null}>
         <Environment preset="city" />
       </Suspense>
@@ -46,26 +52,32 @@ function Scene() {
       <IPhone />
       <AppleWatch />
 
-      {/* Soft grounding */}
+      {/* Invisible ground for shadow catchers */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.4, 0]} receiveShadow>
+        <planeGeometry args={[14, 14]} />
+        <shadowMaterial opacity={0.35} />
+      </mesh>
+
+      {/* Contact shadows — grounds the composition */}
       <ContactShadows
-        position={[0, -1.4, 0]}
-        opacity={0.55}
-        scale={9}
-        blur={2.8}
+        position={[0, -1.395, 0.3]}
+        opacity={0.6}
+        scale={10}
+        blur={2.6}
         far={3.5}
+        resolution={1024}
         color="#000000"
       />
 
-      {/* Perf helpers */}
       <AdaptiveDpr pixelated={false} />
       <AdaptiveEvents />
+      <BakeShadows />
       <Preload all />
     </>
   );
 }
 
 export function Hero3D() {
-  // R3F needs the DOM — guard SSR.
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -77,18 +89,21 @@ export function Hero3D() {
         top: "50%",
         right: "max(40px, 4vw)",
         transform: "translateY(-50%)",
-        width: "min(720px, 52vw)",
-        height: "min(640px, 46vw)",
+        width: "min(760px, 54vw)",
+        height: "min(660px, 48vw)",
       }}
     >
       {mounted && (
         <Canvas
+          shadows="soft"
           dpr={[1, 1.75]}
           frameloop="always"
           gl={{
             antialias: true,
             alpha: true,
             powerPreference: "high-performance",
+            toneMapping: THREE.ACESFilmicToneMapping,
+            outputColorSpace: THREE.SRGBColorSpace,
           }}
           style={{ background: "transparent" }}
         >
