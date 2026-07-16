@@ -52,8 +52,8 @@ export function InvestorContactForm({ lang = DEFAULT_LANG }: { lang?: Lang }) {
         <div className="h-14 w-14 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center mx-auto mb-5">
           <CheckCircle2 className="h-7 w-7 text-accent" />
         </div>
-        <h3 className="font-display text-2xl font-semibold">{s.successInvestorTitle}</h3>
-        <p className="mt-3 text-sm text-muted-foreground">{s.successInvestorDesc}</p>
+        <h3 className="font-display text-2xl font-semibold text-[#F2F4F1]">{s.successInvestorTitle}</h3>
+        <p className="mt-3 text-sm text-[#B7C2BB]">{s.successInvestorDesc}</p>
         <button
           type="button"
           onClick={() => setSuccess(false)}
@@ -72,7 +72,7 @@ export function InvestorContactForm({ lang = DEFAULT_LANG }: { lang?: Lang }) {
       <Field id="inv-phone" label={s.phone} type="tel" value={phone} onChange={setPhone} placeholder={s.phonePh} autoComplete="tel" />
 
       <div className="text-left">
-        <label htmlFor="inv-message" className="block text-xs uppercase tracking-[0.18em] text-muted-foreground mb-2">
+        <label htmlFor="inv-message" className="block text-xs uppercase tracking-[0.18em] text-[#93A298] mb-2">
           {s.message}
         </label>
         <textarea
@@ -81,11 +81,11 @@ export function InvestorContactForm({ lang = DEFAULT_LANG }: { lang?: Lang }) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder={s.messagePh}
-          className="w-full bg-transparent border border-border rounded-2xl px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+          className="w-full bg-transparent border border-border rounded-2xl px-4 py-3 text-sm placeholder:text-[#7D8C83] focus:outline-none focus:ring-2 focus:ring-ring resize-none"
         />
       </div>
 
-      {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
+      {error && <p role="alert" className="text-sm text-[#FF6B6B]">{error}</p>}
 
       <button
         type="submit"
@@ -117,7 +117,7 @@ function Field({
 }) {
   return (
     <div className="text-left">
-      <label htmlFor={id} className="block text-xs uppercase tracking-[0.18em] text-muted-foreground mb-2">
+      <label htmlFor={id} className="block text-xs uppercase tracking-[0.18em] text-[#93A298] mb-2">
         {label}
       </label>
       <input
@@ -128,7 +128,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         autoComplete={autoComplete}
-        className="w-full bg-transparent border border-border rounded-2xl px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        className="w-full bg-transparent border border-border rounded-2xl px-4 py-3 text-sm placeholder:text-[#7D8C83] focus:outline-none focus:ring-2 focus:ring-ring"
       />
     </div>
   );

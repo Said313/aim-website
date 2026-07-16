@@ -118,7 +118,7 @@ function LaptopScreen() {
         (l, i) => (
           <g key={l}>
             {i === 0 && <rect x="8" y={44 + i * 24 - 10} width="70" height="18" rx="4" fill="rgba(122,244,207,0.10)" />}
-            <text x="16" y={44 + i * 24} fill={i === 0 ? "#F3F2EE" : "#8a9691"} fontFamily="Geist,sans-serif" fontSize="8.5">
+            <text x="16" y={44 + i * 24} fill={i === 0 ? "#F5F6F2" : "#7D8C83"} fontFamily="Geist,sans-serif" fontSize="8.5">
               {l}
             </text>
           </g>
@@ -129,7 +129,7 @@ function LaptopScreen() {
       {/* Financial Health */}
       <g transform="translate(100,14)">
         <rect width="130" height="96" rx="8" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="16" fill="#A7B4AD" fontSize="7.5" fontFamily="Geist,sans-serif">Financial Health</text>
+        <text x="10" y="16" fill="#93A298" fontSize="7.5" fontFamily="Geist,sans-serif">Financial Health</text>
         <g transform="translate(65,58)">
           <circle r={R} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="4" />
           <circle
@@ -142,60 +142,60 @@ function LaptopScreen() {
             transform="rotate(-90)"
             style={{ transition: "stroke-dasharray 1s ease" }}
           />
-          <text textAnchor="middle" y="2" fill="#F3F2EE" fontSize="14" fontWeight="700" fontFamily="Geist">
+          <text textAnchor="middle" y="2" fill="#F5F6F2" fontSize="14" fontWeight="700" fontFamily="Geist">
             {Math.round(health)}
           </text>
-          <text textAnchor="middle" y="11" fill="#A7B4AD" fontSize="6">/100</text>
+          <text textAnchor="middle" y="11" fill="#93A298" fontSize="6">/100</text>
         </g>
-        <text x="10" y="88" fill="#7AF4CF" fontSize="6.5" fontFamily="Geist">+3 this month</text>
+        <text x="10" y="88" fill="#62F4C4" fontSize="6.5" fontFamily="Geist">+3 this month</text>
       </g>
 
       {/* Your Ranking */}
       <g transform="translate(240,14)">
         <rect width="130" height="96" rx="8" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="16" fill="#A7B4AD" fontSize="7.5" fontFamily="Geist">Your Ranking</text>
-        <text x="10" y="36" fill="#F3F2EE" fontSize="16" fontWeight="700" fontFamily="Geist">{rankTargets[step]}</text>
+        <text x="10" y="16" fill="#93A298" fontSize="7.5" fontFamily="Geist">Your Ranking</text>
+        <text x="10" y="36" fill="#F5F6F2" fontSize="16" fontWeight="700" fontFamily="Geist">{rankTargets[step]}</text>
         <path d={linePath} fill="none" stroke="url(#peri)" strokeWidth="1.6" style={{ transition: "d 1s ease" }} />
       </g>
 
       {/* Freedom Age */}
       <g transform="translate(380,14)">
         <rect width="126" height="96" rx="8" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="16" fill="#A7B4AD" fontSize="7.5" fontFamily="Geist">Freedom Age</text>
-        <text x="10" y="36" fill="#F3F2EE" fontSize="16" fontWeight="700" fontFamily="Geist">{50 + (step % 3)} yrs</text>
+        <text x="10" y="16" fill="#93A298" fontSize="7.5" fontFamily="Geist">Freedom Age</text>
+        <text x="10" y="36" fill="#F5F6F2" fontSize="16" fontWeight="700" fontFamily="Geist">{50 + (step % 3)} yrs</text>
         {/* mountains */}
         <path d="M10,84 L34,54 L52,72 L72,44 L96,74 L116,58 L116,84 Z" fill="url(#peri)" opacity="0.85" />
-        <text x="10" y="94" fill="#A7B4AD" fontSize="6">+2 yrs in 6 mo</text>
+        <text x="10" y="94" fill="#93A298" fontSize="6">+2 yrs in 6 mo</text>
       </g>
 
       {/* Balance & Expenses */}
       <g transform="translate(100,120)">
         <rect width="200" height="80" rx="8" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="16" fill="#A7B4AD" fontSize="7.5">Total balance</text>
-        <text x="10" y="34" fill="#F3F2EE" fontSize="13" fontWeight="700" fontFamily="Geist">
+        <text x="10" y="16" fill="#93A298" fontSize="7.5">Total balance</text>
+        <text x="10" y="34" fill="#F5F6F2" fontSize="13" fontWeight="700" fontFamily="Geist">
           {Math.round(balance).toLocaleString("ru-RU")} ₸
         </text>
-        <text x="10" y="46" fill="#7AF4CF" fontSize="6.5">+12.6% vs last month</text>
+        <text x="10" y="46" fill="#62F4C4" fontSize="6.5">+12.6% vs last month</text>
         <polyline
           points={seriesA.map((y, i) => `${10 + i * 16},${72 - y * 0.22}`).join(" ")}
           fill="none"
-          stroke="#7AF4CF"
+          stroke="#62F4C4"
           strokeWidth="1.4"
         />
       </g>
       <g transform="translate(306,120)">
         <rect width="200" height="80" rx="8" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="16" fill="#A7B4AD" fontSize="7.5">Expenses</text>
-        <text x="10" y="34" fill="#F3F2EE" fontSize="13" fontWeight="700" fontFamily="Geist">
+        <text x="10" y="16" fill="#93A298" fontSize="7.5">Expenses</text>
+        <text x="10" y="34" fill="#F5F6F2" fontSize="13" fontWeight="700" fontFamily="Geist">
           1 {(825 + step * 12).toString().padStart(3, "0")} 430 ₸
         </text>
-        <text x="10" y="46" fill="#ff8b8b" fontSize="6.5">+8.3% vs last month</text>
+        <text x="10" y="46" fill="#FF6B6B" fontSize="6.5">+8.3% vs last month</text>
         <polyline
           points={seriesA
             .map((y, i) => `${10 + i * 16},${72 - (100 - y) * 0.22}`)
             .join(" ")}
           fill="none"
-          stroke="#ff8b8b"
+          stroke="#FF6B6B"
           strokeWidth="1.4"
         />
       </g>
@@ -203,7 +203,7 @@ function LaptopScreen() {
       {/* Income vs Expenses bars */}
       <g transform="translate(100,210)">
         <rect width="130" height="96" rx="8" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="14" fill="#A7B4AD" fontSize="7">Income vs Expenses</text>
+        <text x="10" y="14" fill="#93A298" fontSize="7">Income vs Expenses</text>
         {bars.map((h, i) => (
           <g key={i}>
             <rect
@@ -227,17 +227,17 @@ function LaptopScreen() {
           </g>
         ))}
         {["Jan", "Feb", "Mar", "Apr", "May", "Jun"].map((m, i) => (
-          <text key={m} x={14 + i * 18} y="92" fill="#5b6864" fontSize="4.5">{m}</text>
+          <text key={m} x={14 + i * 18} y="92" fill="#7D8C83" fontSize="4.5">{m}</text>
         ))}
       </g>
 
       {/* Donut spending */}
       <g transform="translate(240,210)">
         <rect width="130" height="96" rx="8" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="14" fill="#A7B4AD" fontSize="7">Spending by category</text>
+        <text x="10" y="14" fill="#93A298" fontSize="7">Spending by category</text>
         <g transform="translate(40,54)">
           {(() => {
-            const colors = ["#7AF4CF", "#9B8CFF", "#7D93FF", "#ff8b8b", "#5FD9B4"];
+            const colors = ["#62F4C4", "#9B8CFF", "#7D93FF", "#FF6B6B", "#5FD9B4"];
             const total = segs.reduce((a, b) => a + b, 0);
             let acc = 0;
             const r = 18;
@@ -264,8 +264,8 @@ function LaptopScreen() {
         </g>
         {["Housing 26%", "Transport 17%", "Food 16%", "Entertain 12%", "Other 29%"].map((l, i) => (
           <g key={l} transform={`translate(72, ${20 + i * 12})`}>
-            <circle r="2" fill={["#7AF4CF", "#9B8CFF", "#7D93FF", "#ff8b8b", "#5FD9B4"][i]} />
-            <text x="6" y="2.5" fill="#BDC8C1" fontSize="5.5">{l}</text>
+            <circle r="2" fill={["#62F4C4", "#9B8CFF", "#7D93FF", "#FF6B6B", "#5FD9B4"][i]} />
+            <text x="6" y="2.5" fill="#B6C2BA" fontSize="5.5">{l}</text>
           </g>
         ))}
       </g>
@@ -273,12 +273,12 @@ function LaptopScreen() {
       {/* Recent transactions */}
       <g transform="translate(376,210)">
         <rect width="130" height="96" rx="8" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="14" fill="#A7B4AD" fontSize="7">Recent transactions</text>
+        <text x="10" y="14" fill="#93A298" fontSize="7">Recent transactions</text>
         {tx.map((t, i) => (
           <g key={i} transform={`translate(10, ${28 + i * 16})`} style={{ opacity: 0, animation: `tx-in .6s ease ${i * 0.1}s forwards` }}>
-            <circle r="4" cx="4" cy="0" fill={t.pos ? "rgba(255,139,139,0.18)" : "rgba(122,244,207,0.18)"} />
-            <text x="12" y="2" fill="#F3F2EE" fontSize="6">{t.name}</text>
-            <text x="120" y="2" textAnchor="end" fill={t.pos ? "#ff8b8b" : "#7AF4CF"} fontSize="6">{t.amt}</text>
+            <circle r="4" cx="4" cy="0" fill={t.pos ? "rgba(255,107,107,0.18)" : "rgba(98,244,196,0.18)"} />
+            <text x="12" y="2" fill="#F5F6F2" fontSize="6">{t.name}</text>
+            <text x="120" y="2" textAnchor="end" fill={t.pos ? "#FF6B6B" : "#62F4C4"} fontSize="6">{t.amt}</text>
           </g>
         ))}
       </g>
@@ -318,16 +318,16 @@ function PhoneScreen() {
       </defs>
       <rect width="160" height="320" rx="18" fill="#0a1211" />
       {/* status */}
-      <text x="12" y="16" fill="#F3F2EE" fontSize="7.5" fontWeight="600" fontFamily="Geist">9:41</text>
-      <text x="148" y="16" textAnchor="end" fill="#A7B4AD" fontSize="6" fontFamily="Geist">••• 5G</text>
+      <text x="12" y="16" fill="#F5F6F2" fontSize="7.5" fontWeight="600" fontFamily="Geist">9:41</text>
+      <text x="148" y="16" textAnchor="end" fill="#93A298" fontSize="6" fontFamily="Geist">••• 5G</text>
       {/* logo */}
-      <text x="12" y="34" fill="#7AF4CF" fontSize="11" fontWeight="700" fontFamily="Geist">Aim</text>
-      <text x="12" y="46" fill="#A7B4AD" fontSize="6">Overview</text>
+      <text x="12" y="34" fill="#62F4C4" fontSize="11" fontWeight="700" fontFamily="Geist">Aim</text>
+      <text x="12" y="46" fill="#93A298" fontSize="6">Overview</text>
 
       {/* Health card */}
       <g transform="translate(10,54)">
         <rect width="140" height="76" rx="10" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="14" fill="#A7B4AD" fontSize="6.5">Financial Health</text>
+        <text x="10" y="14" fill="#93A298" fontSize="6.5">Financial Health</text>
         <g transform="translate(36,44)">
           <circle r={R} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3.5" />
           <circle
@@ -340,17 +340,17 @@ function PhoneScreen() {
             transform="rotate(-90)"
             style={{ transition: "stroke-dasharray 1s ease" }}
           />
-          <text textAnchor="middle" y="2" fill="#F3F2EE" fontSize="11" fontWeight="700">{Math.round(health)}</text>
-          <text textAnchor="middle" y="10" fill="#A7B4AD" fontSize="5">/100</text>
+          <text textAnchor="middle" y="2" fill="#F5F6F2" fontSize="11" fontWeight="700">{Math.round(health)}</text>
+          <text textAnchor="middle" y="10" fill="#93A298" fontSize="5">/100</text>
         </g>
-        <text x="70" y="42" fill="#F3F2EE" fontSize="6.5">+3 this month</text>
+        <text x="70" y="42" fill="#F5F6F2" fontSize="6.5">+3 this month</text>
       </g>
 
       {/* Ranking card */}
       <g transform="translate(10,138)">
         <rect width="140" height="70" rx="10" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="14" fill="#A7B4AD" fontSize="6.5">Your Ranking</text>
-        <text x="10" y="30" fill="#F3F2EE" fontSize="12" fontWeight="700">{rank}</text>
+        <text x="10" y="14" fill="#93A298" fontSize="6.5">Your Ranking</text>
+        <text x="10" y="30" fill="#F5F6F2" fontSize="12" fontWeight="700">{rank}</text>
         <polyline
           points={rankLine.map((y, i) => `${10 + i * 17},${62 - y * 0.6}`).join(" ")}
           fill="none"
@@ -363,8 +363,8 @@ function PhoneScreen() {
       {/* Freedom age card */}
       <g transform="translate(10,216)">
         <rect width="140" height="70" rx="10" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="14" fill="#A7B4AD" fontSize="6.5">Freedom Age</text>
-        <text x="10" y="30" fill="#F3F2EE" fontSize="12" fontWeight="700">{50 + (step % 3)} yrs</text>
+        <text x="10" y="14" fill="#93A298" fontSize="6.5">Freedom Age</text>
+        <text x="10" y="30" fill="#F5F6F2" fontSize="12" fontWeight="700">{50 + (step % 3)} yrs</text>
         <path d="M10,60 L34,38 L48,52 L66,30 L86,52 L104,42 L128,58 L128,64 L10,64 Z" fill="url(#pperi)" opacity="0.85" />
       </g>
 
@@ -373,8 +373,8 @@ function PhoneScreen() {
         <rect width="160" height="26" fill="#0a1211" />
         {["Overview","Analytics","AI","Trans"].map((l,i)=>(
           <g key={l} transform={`translate(${8 + i * 38},12)`}>
-            <circle r="6" fill={i===2?"rgba(122,244,207,0.15)":"transparent"} stroke={i===2?"#7AF4CF":"transparent"} strokeWidth="0.7"/>
-            <text textAnchor="middle" y="10" fill={i===0?"#F3F2EE":"#8a9691"} fontSize="4.5">{l}</text>
+            <circle r="6" fill={i===2?"rgba(98,244,196,0.15)":"transparent"} stroke={i===2?"#62F4C4":"transparent"} strokeWidth="0.7"/>
+            <text textAnchor="middle" y="10" fill={i===0?"#F5F6F2":"#7D8C83"} fontSize="4.5">{l}</text>
           </g>
         ))}
       </g>
@@ -396,10 +396,10 @@ function WatchScreen() {
   return (
     <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full">
       <rect width="100" height="100" rx="18" fill="#0a1211" />
-      <text x="10" y="14" fill="#7AF4CF" fontSize="7" fontWeight="700">Aim</text>
-      <text x="90" y="14" textAnchor="end" fill="#A7B4AD" fontSize="6">9:41</text>
-      <text x="10" y="30" fill="#A7B4AD" fontSize="5">Portfolio</text>
-      <text x="10" y="50" fill="#7AF4CF" fontSize="15" fontWeight="800">+{v.toFixed(1)}%</text>
+      <text x="10" y="14" fill="#62F4C4" fontSize="7" fontWeight="700">Aim</text>
+      <text x="90" y="14" textAnchor="end" fill="#93A298" fontSize="6">9:41</text>
+      <text x="10" y="30" fill="#93A298" fontSize="5">Portfolio</text>
+      <text x="10" y="50" fill="#62F4C4" fontSize="15" fontWeight="800">+{v.toFixed(1)}%</text>
       <polyline
         points={pts.map((y,i)=>`${10 + i*11},${88 - y}`).join(" ")}
         fill="none"
@@ -579,7 +579,7 @@ function StatusCard({
 }) {
   return (
     <div
-      className={`absolute z-30 rounded-xl bg-white/[0.06] ring-1 ring-white/10 backdrop-blur-md px-2.5 py-1.5 text-[10px] text-white/85 flex items-center gap-1.5 hd-card ${className}`}
+      className={`absolute z-30 rounded-xl bg-white/[0.06] ring-1 ring-white/10 backdrop-blur-md px-2.5 py-1.5 text-[10px] text-[#B6C2BA] flex items-center gap-1.5 hd-card ${className}`}
       style={{ animationDelay: delay, ...style }}
     >
       <span className="h-1.5 w-1.5 rounded-full hd-pulse" style={{ background: dot, animationDelay: delay }} />
