@@ -82,14 +82,15 @@ function Hero({ lang }: { lang: Lang }) {
       id="top"
       className="relative overflow-hidden min-h-screen"
     >
-      {/* Ambient hero lighting — soft OKLCH radial behind the device composition */}
+      {/* Ambient hero lighting — soft OKLCH emerald wash behind the device composition */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(45% 55% at 78% 48%, oklch(0.82 0.06 178 / 0.10), transparent 70%)",
+            "radial-gradient(45% 55% at 78% 48%, oklch(0.62 0.10 156 / 0.16), transparent 70%)",
         }}
       />
+
 
       {/* Multi-device product showcase — right side */}
       <DeviceShowcase />
