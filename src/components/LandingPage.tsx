@@ -421,7 +421,7 @@ function Vision({ lang }: { lang: Lang }) {
           <p className="mt-5 text-muted-foreground">{r.desc}</p>
         </Reveal>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-5 items-stretch relative">
+        <div className="mt-10 grid md:grid-cols-3 gap-5 items-stretch relative">
           {/* Connector line */}
           <div aria-hidden="true" className="hidden md:block absolute top-5 left-[16%] right-[16%] border-t border-dashed border-border" />
           {r.stages.map((stage, i) => {
@@ -460,7 +460,7 @@ function Vision({ lang }: { lang: Lang }) {
           })}
         </div>
 
-        <Reveal variant="up" delay={200} className="mt-16">
+        <Reveal variant="up" delay={200} className="mt-12">
           <div className="glass-card rounded-3xl p-8 md:p-12 max-w-4xl mx-auto text-center">
             <div className="h-12 w-12 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center mx-auto mb-6">
               <Sparkles className="h-5 w-5 text-accent" />
@@ -486,9 +486,9 @@ function Vision({ lang }: { lang: Lang }) {
 function CTA({ lang }: { lang: Lang }) {
   const s = t(lang).cta;
   return (
-    <section id="waitlist" className="py-24 md:py-32">
+    <section id="waitlist" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal variant="zoom-in" className="text-center max-w-3xl mx-auto mb-14">
+        <Reveal variant="zoom-in" className="text-center max-w-3xl mx-auto mb-12">
           <Brain className="h-32 w-32 text-accent mx-auto mb-6" strokeWidth={1.25} />
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
             {s.titleA} <span className="">{s.titleB}</span>
@@ -575,9 +575,9 @@ function Founders({ lang }: { lang: Lang }) {
     { name: s.nameSaidgaffor, initials: "SS", photo: founderSaidgaffor, role: s.roleCto },
   ];
   return (
-    <section id="founders" className="py-24 md:py-32">
+    <section id="founders" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
+        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-12">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
             {s.titleA} <span className="">{s.titleB}</span>
@@ -631,11 +631,11 @@ function Footer({ lang }: { lang: Lang }) {
     <Reveal variant="up" as="footer" className="border-t border-white/[0.06]">
       <div
         className="mx-auto"
-        style={{ maxWidth: 1280, paddingLeft: 48, paddingRight: 48, paddingTop: 96, paddingBottom: 56 }}
+        style={{ maxWidth: 1280, paddingLeft: 48, paddingRight: 48, paddingTop: 72, paddingBottom: 48 }}
       >
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:1.7fr_0.9fr_0.9fr_0.9fr_1.2fr]"
-          style={{ columnGap: 48, rowGap: 56 }}
+          style={{ columnGap: 48, rowGap: 48 }}
         >
           {/* Column 1 - Newsletter */}
           <div className="lg:col-span-1 sm:col-span-2 lg:min-w-0 lg:pr-6">
