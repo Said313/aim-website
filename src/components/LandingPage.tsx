@@ -96,7 +96,7 @@ function Hero({ lang }: { lang: Lang }) {
       <DeviceShowcase />
 
       {/* Hero content */}
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-32 pb-20 md:pt-36 md:pb-24 min-h-screen flex items-start md:items-center">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-32 pb-20 md:pt-36 md:pb-24 min-h-screen flex items-start md:items-start">
         <div className="w-full">
           <Reveal variant="fade" className="flex flex-col items-center text-center md:items-start md:text-left max-w-[620px]">
             <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F3F2EE]">
