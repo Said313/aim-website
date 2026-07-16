@@ -80,7 +80,7 @@ function Hero({ lang }: { lang: Lang }) {
   return (
     <section
       id="top"
-      className="relative overflow-hidden min-h-[92vh]"
+      className="relative overflow-hidden min-h-[84vh] lg:min-h-[92vh]"
     >
       {/* Ambient hero lighting — soft OKLCH emerald wash behind the device composition */}
       <div
@@ -96,7 +96,7 @@ function Hero({ lang }: { lang: Lang }) {
       <DeviceShowcase />
 
       {/* Hero content */}
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-28 pb-16 md:pt-32 md:pb-20 min-h-[92vh] flex items-start md:items-start">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-28 pb-16 md:pt-32 md:pb-20 min-h-[84vh] lg:min-h-[92vh] flex items-start md:items-start">
         <div className="w-full">
           <Reveal variant="fade" className="flex flex-col items-center text-center md:items-start md:text-left max-w-[620px]">
             <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F3F2EE]">
