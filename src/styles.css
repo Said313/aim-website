@@ -37,53 +37,54 @@
 :root {
   --radius: 1rem;
   /* Evergreen forest palette */
-  --background: #304040;
+  /* Vibrant emerald fintech palette */
+  --background: #0F1815;
   --foreground: #F3F2EE;
-  --card: #263332;
+  --card: #18241F;
   --card-foreground: #F3F2EE;
-  --popover: #263332;
+  --popover: #18241F;
   --popover-foreground: #F3F2EE;
-  /* Primary button gradient endpoints (softened periwinkle) */
-  --primary: #9B8CFF;
-  --primary-foreground: #F3F2EE;
-  --secondary: rgba(255, 255, 255, 0.06);
-  --secondary-foreground: #BDC8C1;
+  /* Primary — vibrant emerald */
+  --primary: #2E8B57;
+  --primary-foreground: #FFFFFF;
+  --secondary: #236B46;
+  --secondary-foreground: #F3F2EE;
   --muted: rgba(255, 255, 255, 0.05);
   --muted-foreground: #A7B4AD;
   --accent: #7AF4CF;
-  --accent-foreground: #14201d;
+  --accent-foreground: #0F1815;
   --destructive: oklch(0.65 0.24 25);
   --destructive-foreground: #F3F2EE;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.10);
-  --ring: rgba(122, 244, 207, 0.45);
+  --ring: rgba(46, 139, 87, 0.45);
 
   --color-body: #D6DED8;
   --color-heading: #F3F2EE;
   --color-secondary-text: #BDC8C1;
   --color-caption: #A7B4AD;
 
-  /* Accent gradient — soft emerald flow */
+  /* Accent gradient — emerald flow with mint highlight */
   --gradient-brand: linear-gradient(
     90deg,
-    #7AF4CF 0%,
-    #9B8CFF 60%,
-    #7D93FF 100%
+    #2E8B57 0%,
+    #379F65 55%,
+    #7AF4CF 100%
   );
 
-  /* Primary button gradient — periwinkle (unchanged) */
-  --gradient-primary: linear-gradient(135deg, #9B8CFF 0%, #7D93FF 100%);
+  /* Primary button gradient — emerald */
+  --gradient-primary: linear-gradient(135deg, #2E8B57 0%, #236B46 100%);
 
-  --shadow-soft: 0 24px 60px rgba(20, 35, 30, 0.28);
-  --shadow-glow: 0 24px 60px -18px rgba(125, 147, 255, 0.35);
+  --shadow-soft: 0 24px 60px rgba(10, 22, 18, 0.35);
+  --shadow-glow: 0 24px 60px -18px rgba(46, 139, 87, 0.45);
 
 }
 
 @utility glass-card {
-  background: rgba(38, 51, 50, 0.78);
+  background: rgba(24, 36, 31, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(24px);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -104,7 +105,7 @@
 }
 
 @utility bg-primary-gradient-hover {
-  background: linear-gradient(135deg, #ADA3FF 0%, #8EA3FF 100%);
+  background: linear-gradient(135deg, #379F65 0%, #2E8B57 100%);
 }
 
 @layer base {
