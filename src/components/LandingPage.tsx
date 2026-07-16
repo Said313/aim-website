@@ -404,7 +404,7 @@ function Vision({ lang }: { lang: Lang }) {
   return (
     <section id="vision" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal variant="zoom-out" className="glass-card rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden">
+        <Reveal variant="zoom-out" className="glass-card rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
           <Sparkles className="h-8 w-8 text-accent mx-auto mb-6" />
           <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-[1.05]">
