@@ -760,7 +760,7 @@ function Footer({ lang }: { lang: Lang }) {
 
         {/* Bottom row */}
         <div
-          className="mt-16 pt-8 flex flex-col md:grid md:grid-cols-3 items-center gap-4 md:gap-6"
+          className="mt-12 pt-8 flex flex-col md:grid md:grid-cols-3 items-center gap-4 md:gap-6"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
           <div className="text-center md:text-left" style={{ fontSize: 14, color: "#A7B4AD" }}>
