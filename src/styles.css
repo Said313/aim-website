@@ -264,10 +264,6 @@
 @media (prefers-reduced-motion: reduce) {
   body::before { animation: none !important; }
 }
-@keyframes drift-marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
 @keyframes orbit-slow {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
@@ -284,9 +280,9 @@
 
 .float-slow   { animation: float-slow 7s ease-in-out infinite; }
 .orbit-slow   { animation: orbit-slow 60s linear infinite; }
-.drift-marquee { animation: drift-marquee 40s linear infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal.in-view { opacity: 1 !important; animation: none !important; }
-  .float-slow, .orbit-slow, .drift-marquee { animation: none !important; }
+  .float-slow, .orbit-slow { animation: none !important; }
 }
+
