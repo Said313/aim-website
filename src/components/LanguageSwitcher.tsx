@@ -30,25 +30,25 @@ export function LanguageSwitcher({ current }: { current: Lang }) {
               active
                 ? {
                     background: "rgba(122,244,207,0.12)",
-                    color: "#F3F2EE",
+                    color: "#F5F6F2",
                     border: "1px solid rgba(122,244,207,0.35)",
                   }
                 : {
                     background: "transparent",
-                    color: "#A7B4AD",
+                    color: "#7D8C83",
                     border: "1px solid transparent",
                   }
             }
             onMouseEnter={(e) => {
               if (!active) {
                 e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-                e.currentTarget.style.color = "#F3F2EE";
+                e.currentTarget.style.color = "#F5F6F2";
               }
             }}
             onMouseLeave={(e) => {
               if (!active) {
                 e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "#A7B4AD";
+                e.currentTarget.style.color = "#7D8C83";
               }
             }}
           >

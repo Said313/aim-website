@@ -39,30 +39,48 @@
   /* Evergreen forest palette */
   /* Vibrant emerald fintech palette */
   --background: #0F1815;
-  --foreground: #F3F2EE;
+  --foreground: #D8E2DB;
   --card: #18241F;
-  --card-foreground: #F3F2EE;
+  --card-foreground: #F2F4F1;
   --popover: #18241F;
-  --popover-foreground: #F3F2EE;
+  --popover-foreground: #D8E2DB;
   /* Primary — vibrant emerald */
   --primary: #2E8B57;
   --primary-foreground: #FFFFFF;
   --secondary: #236B46;
-  --secondary-foreground: #F3F2EE;
+  --secondary-foreground: #EEF2ED;
   --muted: rgba(255, 255, 255, 0.05);
-  --muted-foreground: #A7B4AD;
+  --muted-foreground: #93A298;
   --accent: #7AF4CF;
   --accent-foreground: #0F1815;
-  --destructive: oklch(0.65 0.24 25);
-  --destructive-foreground: #F3F2EE;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #F5F6F2;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.10);
   --ring: rgba(46, 139, 87, 0.45);
 
-  --color-body: #D6DED8;
-  --color-heading: #F3F2EE;
-  --color-secondary-text: #BDC8C1;
-  --color-caption: #A7B4AD;
+  /* Premium fintech typography palette */
+  --color-hero-title: #F5F6F2;
+  --color-section-title: #EEF2ED;
+  --color-card-title: #F2F4F1;
+  --color-body: #D8E2DB;
+  --color-secondary-text: #B6C2BA;
+  --color-card-description: #B7C2BB;
+  --color-card-label: #95A49B;
+  --color-caption: #93A298;
+  --color-muted-ui: #7D8C83;
+  --color-nav-text: rgba(245, 246, 242, 0.78);
+  --color-nav-hover: #F5F6F2;
+  --color-nav-active: #FFFFFF;
+  --color-disabled: rgba(245, 246, 242, 0.35);
+  --color-footer-title: #EEF2ED;
+  --color-footer-link: #A9B6AE;
+  --color-footer-hover: #F5F6F2;
+  --color-footer-small: #86958B;
+  --color-success: #62F4C4;
+  --color-warning: #FFD166;
+  --color-error: #FF6B6B;
+  --color-kpi-value: #FFFFFF;
 
   /* Accent gradient — emerald flow with mint highlight */
   --gradient-brand: linear-gradient(
@@ -157,7 +175,7 @@
   }
   body {
     position: relative;
-    color: #D6DED8;
+    color: #D8E2DB;
     font-family: var(--font-sans);
     font-weight: 400;
     font-size: 18px;
@@ -184,20 +202,27 @@
     letter-spacing: -0.04em;
     line-height: 1.0;
     font-size: 48px;
+    color: #F5F6F2;
   }
   @media (min-width: 768px) { h1 { font-size: 64px; } }
   @media (min-width: 1024px) { h1 { font-size: 80px; } }
 
   h2 {
     font-size: 36px;
+    color: #EEF2ED;
   }
   @media (min-width: 768px) { h2 { font-size: 44px; } }
   @media (min-width: 1024px) { h2 { font-size: 52px; } }
 
   h3 {
     font-size: 28px;
+    color: #EEF2ED;
   }
   @media (min-width: 1024px) { h3 { font-size: 32px; } }
+
+  h4 {
+    color: #F2F4F1;
+  }
 
   p { line-height: 1.55; letter-spacing: 0; }
 
