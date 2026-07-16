@@ -593,7 +593,7 @@ export function DeviceShowcase() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none select-none hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[58%] max-w-[820px] pr-4"
+      className="pointer-events-none select-none hidden lg:block absolute right-0 top-[58%] -translate-y-1/2 w-[58%] max-w-[820px] pr-4"
     >
       <style>{`
         @keyframes hd-float-a { 0%,100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-6px,0); } }
