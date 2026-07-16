@@ -80,7 +80,7 @@ function Hero({ lang }: { lang: Lang }) {
   return (
     <section
       id="top"
-      className="relative overflow-hidden min-h-screen"
+      className="relative overflow-hidden min-h-[84vh] lg:min-h-[92vh]"
     >
       {/* Ambient hero lighting — soft OKLCH emerald wash behind the device composition */}
       <div
@@ -96,7 +96,7 @@ function Hero({ lang }: { lang: Lang }) {
       <DeviceShowcase />
 
       {/* Hero content */}
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-32 pb-20 md:pt-36 md:pb-24 min-h-screen flex items-start md:items-start">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-28 pb-16 md:pt-32 md:pb-20 min-h-[84vh] lg:min-h-[92vh] flex items-start md:items-start">
         <div className="w-full">
           <Reveal variant="fade" className="flex flex-col items-center text-center md:items-start md:text-left max-w-[620px]">
             <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F3F2EE]">
@@ -105,10 +105,10 @@ function Hero({ lang }: { lang: Lang }) {
               <br aria-hidden="true" />
               <span aria-hidden="true" className="whitespace-pre-line">{s.line2}</span>
             </h1>
-            <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
+            <p className="mt-6 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
             <div
               className="flex flex-wrap justify-center md:justify-start gap-3"
-              style={{ marginTop: "40px" }}
+              style={{ marginTop: "32px" }}
             >
               <a
                 href="#waitlist"
@@ -124,7 +124,7 @@ function Hero({ lang }: { lang: Lang }) {
               </a>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-6">
               <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
                 <ShieldCheck className="h-3.5 w-3.5 text-[#78FFD2]" />
                 {t(lang).hero.sec1}
@@ -139,7 +139,7 @@ function Hero({ lang }: { lang: Lang }) {
 
 function MetricsSection() {
   return (
-    <section aria-label="Key financial metrics" className="pt-16 pb-20 md:pt-16 md:pb-20">
+    <section aria-label="Key financial metrics" className="pt-12 pb-16 md:pt-12 md:pb-16">
       <div className="mx-auto max-w-6xl px-6">
         <div className="rounded-3xl bg-white/[0.03] ring-1 ring-white/5 px-4 md:px-8 py-8 md:py-10 [text-shadow:0_2px_12px_rgba(0,0,0,0.55)]">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 items-stretch">
@@ -237,7 +237,7 @@ function StatBar({ lang }: { lang: Lang }) {
   const stats = t(lang).stats;
   return (
     <section className="border-y border-border bg-card/30 backdrop-blur-sm overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 py-12 grid sm:grid-cols-3 gap-8">
+      <div className="mx-auto max-w-7xl px-6 py-10 grid sm:grid-cols-3 gap-8">
         {stats.map((s, i) => (
           <Reveal key={s.label} variant="up" delay={i * 150} className="text-center sm:text-left">
             <div className="font-display text-5xl font-semibold leading-none text-accent">{s.value}</div>
@@ -253,9 +253,9 @@ function Features({ lang }: { lang: Lang }) {
   const s = t(lang).features;
   const variants = ["up", "zoom-in", "roll", "left", "right", "zoom-out"] as const;
   return (
-    <section id="features" className="py-24 md:py-32">
+    <section id="features" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal variant="up" className="max-w-2xl mb-16">
+        <Reveal variant="up" className="max-w-2xl mb-12">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
             {s.titleA} <span className="whitespace-pre-line">{s.titleB}</span>
@@ -289,7 +289,7 @@ function ProblemSolution({ lang }: { lang: Lang }) {
   const p = t(lang).problem;
   const sl = t(lang).solution;
   return (
-    <section className="py-24 md:py-32 relative">
+    <section className="py-20 md:py-28 relative">
       <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12">
         <Reveal variant="left" className="glass-card rounded-3xl p-10">
           <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">{p.eyebrow}</div>
@@ -318,7 +318,7 @@ function ProblemSolution({ lang }: { lang: Lang }) {
           <p className="mt-8 text-foreground font-medium">{sl.closer}</p>
         </Reveal>
       </div>
-      <div className="mx-auto max-w-7xl px-6 mt-16 md:mt-20 flex justify-center">
+      <div className="mx-auto max-w-7xl px-6 mt-12 md:mt-16 flex justify-center">
         <div>
           <Reveal variant="up" className="flex flex-col items-center text-center">
             <a
@@ -348,9 +348,9 @@ function Platforms({ lang }: { lang: Lang }) {
   const s = t(lang).platforms;
   const variants = ["zoom-in", "up", "zoom-out", "roll"] as const;
   return (
-    <section id="platforms" className="py-24 md:py-32">
+    <section id="platforms" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
+        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-12">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
             {s.titleA} <span className="">{s.titleB}</span>
@@ -375,7 +375,7 @@ function Platforms({ lang }: { lang: Lang }) {
             );
           })}
         </div>
-        <div className="mt-16 md:mt-20 flex justify-center">
+        <div className="mt-12 md:mt-16 flex justify-center">
           <Reveal variant="up" className="flex flex-col items-center text-center">
             <a
               href="#waitlist"
@@ -402,7 +402,7 @@ function Vision({ lang }: { lang: Lang }) {
     { dot: "bg-[#78FFD2]", text: "text-[#78FFD2]" },
   ];
   return (
-    <section id="vision" className="py-24 md:py-32">
+    <section id="vision" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal variant="zoom-out" className="glass-card rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
           <Sparkles className="h-8 w-8 text-accent mx-auto mb-6" />
@@ -414,14 +414,14 @@ function Vision({ lang }: { lang: Lang }) {
         </Reveal>
 
         {/* Roadmap */}
-        <Reveal variant="up" delay={100} className="mt-16 text-center max-w-3xl mx-auto">
+        <Reveal variant="up" delay={100} className="mt-12 text-center max-w-3xl mx-auto">
           <h3 className="font-display text-3xl md:text-5xl font-semibold leading-tight">
             {r.title} <span className="">{r.titleAccent}</span>
           </h3>
           <p className="mt-5 text-muted-foreground">{r.desc}</p>
         </Reveal>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-5 items-stretch relative">
+        <div className="mt-10 grid md:grid-cols-3 gap-5 items-stretch relative">
           {/* Connector line */}
           <div aria-hidden="true" className="hidden md:block absolute top-5 left-[16%] right-[16%] border-t border-dashed border-border" />
           {r.stages.map((stage, i) => {
@@ -460,7 +460,7 @@ function Vision({ lang }: { lang: Lang }) {
           })}
         </div>
 
-        <Reveal variant="up" delay={200} className="mt-16">
+        <Reveal variant="up" delay={200} className="mt-12">
           <div className="glass-card rounded-3xl p-8 md:p-12 max-w-4xl mx-auto text-center">
             <div className="h-12 w-12 rounded-2xl border border-accent/30 bg-accent/10 flex items-center justify-center mx-auto mb-6">
               <Sparkles className="h-5 w-5 text-accent" />
@@ -486,9 +486,9 @@ function Vision({ lang }: { lang: Lang }) {
 function CTA({ lang }: { lang: Lang }) {
   const s = t(lang).cta;
   return (
-    <section id="waitlist" className="py-24 md:py-32">
+    <section id="waitlist" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal variant="zoom-in" className="text-center max-w-3xl mx-auto mb-14">
+        <Reveal variant="zoom-in" className="text-center max-w-3xl mx-auto mb-12">
           <Brain className="h-32 w-32 text-accent mx-auto mb-6" strokeWidth={1.25} />
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
             {s.titleA} <span className="">{s.titleB}</span>
@@ -575,9 +575,9 @@ function Founders({ lang }: { lang: Lang }) {
     { name: s.nameSaidgaffor, initials: "SS", photo: founderSaidgaffor, role: s.roleCto },
   ];
   return (
-    <section id="founders" className="py-24 md:py-32">
+    <section id="founders" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
+        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-12">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
             {s.titleA} <span className="">{s.titleB}</span>
@@ -631,11 +631,11 @@ function Footer({ lang }: { lang: Lang }) {
     <Reveal variant="up" as="footer" className="border-t border-white/[0.06]">
       <div
         className="mx-auto"
-        style={{ maxWidth: 1280, paddingLeft: 48, paddingRight: 48, paddingTop: 96, paddingBottom: 56 }}
+        style={{ maxWidth: 1280, paddingLeft: 48, paddingRight: 48, paddingTop: 72, paddingBottom: 48 }}
       >
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:1.7fr_0.9fr_0.9fr_0.9fr_1.2fr]"
-          style={{ columnGap: 48, rowGap: 56 }}
+          style={{ columnGap: 48, rowGap: 48 }}
         >
           {/* Column 1 - Newsletter */}
           <div className="lg:col-span-1 sm:col-span-2 lg:min-w-0 lg:pr-6">
@@ -760,7 +760,7 @@ function Footer({ lang }: { lang: Lang }) {
 
         {/* Bottom row */}
         <div
-          className="mt-16 pt-8 flex flex-col md:grid md:grid-cols-3 items-center gap-4 md:gap-6"
+          className="mt-12 pt-8 flex flex-col md:grid md:grid-cols-3 items-center gap-4 md:gap-6"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
           <div className="text-center md:text-left" style={{ fontSize: 14, color: "#A7B4AD" }}>
