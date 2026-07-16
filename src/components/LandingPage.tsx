@@ -105,10 +105,10 @@ function Hero({ lang }: { lang: Lang }) {
               <br aria-hidden="true" />
               <span aria-hidden="true" className="whitespace-pre-line">{s.line2}</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
+            <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
             <div
               className="flex flex-wrap justify-center md:justify-start gap-3"
-              style={{ marginTop: "24px" }}
+              style={{ marginTop: "40px" }}
             >
               <a
                 href="#waitlist"
