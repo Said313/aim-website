@@ -289,7 +289,7 @@ function ProblemSolution({ lang }: { lang: Lang }) {
   const p = t(lang).problem;
   const sl = t(lang).solution;
   return (
-    <section className="py-24 md:py-32 relative">
+    <section className="py-20 md:py-28 relative">
       <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12">
         <Reveal variant="left" className="glass-card rounded-3xl p-10">
           <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">{p.eyebrow}</div>
@@ -318,7 +318,7 @@ function ProblemSolution({ lang }: { lang: Lang }) {
           <p className="mt-8 text-foreground font-medium">{sl.closer}</p>
         </Reveal>
       </div>
-      <div className="mx-auto max-w-7xl px-6 mt-16 md:mt-20 flex justify-center">
+      <div className="mx-auto max-w-7xl px-6 mt-12 md:mt-16 flex justify-center">
         <div>
           <Reveal variant="up" className="flex flex-col items-center text-center">
             <a
@@ -348,9 +348,9 @@ function Platforms({ lang }: { lang: Lang }) {
   const s = t(lang).platforms;
   const variants = ["zoom-in", "up", "zoom-out", "roll"] as const;
   return (
-    <section id="platforms" className="py-24 md:py-32">
+    <section id="platforms" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-16">
+        <Reveal variant="up" className="text-center max-w-2xl mx-auto mb-12">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
             {s.titleA} <span className="">{s.titleB}</span>
@@ -375,7 +375,7 @@ function Platforms({ lang }: { lang: Lang }) {
             );
           })}
         </div>
-        <div className="mt-16 md:mt-20 flex justify-center">
+        <div className="mt-12 md:mt-16 flex justify-center">
           <Reveal variant="up" className="flex flex-col items-center text-center">
             <a
               href="#waitlist"
@@ -402,9 +402,9 @@ function Vision({ lang }: { lang: Lang }) {
     { dot: "bg-[#78FFD2]", text: "text-[#78FFD2]" },
   ];
   return (
-    <section id="vision" className="py-24 md:py-32">
+    <section id="vision" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal variant="zoom-out" className="glass-card rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
+        <Reveal variant="zoom-out" className="glass-card rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden">
           <Sparkles className="h-8 w-8 text-accent mx-auto mb-6" />
           <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-[1.05]">
@@ -414,7 +414,7 @@ function Vision({ lang }: { lang: Lang }) {
         </Reveal>
 
         {/* Roadmap */}
-        <Reveal variant="up" delay={100} className="mt-16 text-center max-w-3xl mx-auto">
+        <Reveal variant="up" delay={100} className="mt-12 text-center max-w-3xl mx-auto">
           <h3 className="font-display text-3xl md:text-5xl font-semibold leading-tight">
             {r.title} <span className="">{r.titleAccent}</span>
           </h3>
