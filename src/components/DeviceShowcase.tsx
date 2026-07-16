@@ -349,8 +349,8 @@ function PhoneScreen() {
       {/* Ranking card */}
       <g transform="translate(10,138)">
         <rect width="140" height="70" rx="10" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="14" fill="#A7B4AD" fontSize="6.5">Your Ranking</text>
-        <text x="10" y="30" fill="#F3F2EE" fontSize="12" fontWeight="700">{rank}</text>
+        <text x="10" y="14" fill="#93A298" fontSize="6.5">Your Ranking</text>
+        <text x="10" y="30" fill="#F5F6F2" fontSize="12" fontWeight="700">{rank}</text>
         <polyline
           points={rankLine.map((y, i) => `${10 + i * 17},${62 - y * 0.6}`).join(" ")}
           fill="none"
@@ -363,8 +363,8 @@ function PhoneScreen() {
       {/* Freedom age card */}
       <g transform="translate(10,216)">
         <rect width="140" height="70" rx="10" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="14" fill="#A7B4AD" fontSize="6.5">Freedom Age</text>
-        <text x="10" y="30" fill="#F3F2EE" fontSize="12" fontWeight="700">{50 + (step % 3)} yrs</text>
+        <text x="10" y="14" fill="#93A298" fontSize="6.5">Freedom Age</text>
+        <text x="10" y="30" fill="#F5F6F2" fontSize="12" fontWeight="700">{50 + (step % 3)} yrs</text>
         <path d="M10,60 L34,38 L48,52 L66,30 L86,52 L104,42 L128,58 L128,64 L10,64 Z" fill="url(#pperi)" opacity="0.85" />
       </g>
 
@@ -373,8 +373,8 @@ function PhoneScreen() {
         <rect width="160" height="26" fill="#0a1211" />
         {["Overview","Analytics","AI","Trans"].map((l,i)=>(
           <g key={l} transform={`translate(${8 + i * 38},12)`}>
-            <circle r="6" fill={i===2?"rgba(122,244,207,0.15)":"transparent"} stroke={i===2?"#7AF4CF":"transparent"} strokeWidth="0.7"/>
-            <text textAnchor="middle" y="10" fill={i===0?"#F3F2EE":"#8a9691"} fontSize="4.5">{l}</text>
+            <circle r="6" fill={i===2?"rgba(98,244,196,0.15)":"transparent"} stroke={i===2?"#62F4C4":"transparent"} strokeWidth="0.7"/>
+            <text textAnchor="middle" y="10" fill={i===0?"#F5F6F2":"#7D8C83"} fontSize="4.5">{l}</text>
           </g>
         ))}
       </g>
