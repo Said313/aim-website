@@ -96,7 +96,7 @@ function Hero({ lang }: { lang: Lang }) {
       <DeviceShowcase />
 
       {/* Hero content */}
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-36 pb-28 md:pt-44 md:pb-36 min-h-screen flex items-start md:items-center">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-32 pb-20 md:pt-36 md:pb-24 min-h-screen flex items-start md:items-center">
         <div className="w-full">
           <Reveal variant="fade" className="flex flex-col items-center text-center md:items-start md:text-left max-w-[620px]">
             <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F3F2EE]">
@@ -105,54 +105,10 @@ function Hero({ lang }: { lang: Lang }) {
               <br aria-hidden="true" />
               <span aria-hidden="true" className="whitespace-pre-line">{s.line2}</span>
             </h1>
-            <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
-            <div
-              className="flex flex-wrap justify-center md:justify-start items-center gap-2.5"
-              style={{ marginTop: "24px" }}
-            >
-              {[
-                { color: "#7B8CFF", label: s.badgeAi, pulse: true },
-                { color: "#78FFD2", label: s.badgeOpenBanking },
-                { color: "#D37BFF", label: s.badgeWorldwide },
-              ].map((b) => (
-                <div
-                  key={b.label}
-                  className="inline-flex items-center gap-2"
-                  style={{
-                    height: "40px",
-                    padding: "0 17px",
-                    borderRadius: "999px",
-                    background: "rgba(35,45,42,0.55)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    backdropFilter: "blur(9px)",
-                    WebkitBackdropFilter: "blur(9px)",
-                  }}
-                >
-                  <span
-                    className={b.pulse ? "animate-pulse" : ""}
-                    style={{
-                      height: "8px",
-                      width: "8px",
-                      borderRadius: "999px",
-                      background: b.color,
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontSize: "15px",
-                      fontWeight: 500,
-                      letterSpacing: "0.01em",
-                      color: "#D6DED8",
-                    }}
-                  >
-                    {b.label}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <p className="mt-6 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
             <div
               className="flex flex-wrap justify-center md:justify-start gap-3"
-              style={{ marginTop: "32px" }}
+              style={{ marginTop: "24px" }}
             >
               <a
                 href="#waitlist"

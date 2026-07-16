@@ -51,9 +51,6 @@ const en = {
     ctaSecondary: "See what it does",
     sec1: "Bank-grade security",
     sec2: "Open Banking",
-    badgeAi: "AI Powered",
-    badgeOpenBanking: "Open Banking",
-    badgeWorldwide: "Available Worldwide",
   },
   stats: [
     { value: "1st", label: "Company onboarded to Open Banking in Central Asia" },
@@ -258,9 +255,6 @@ const ru: Dict = {
     ctaSecondary: "Что он умеет",
     sec1: "Банковская безопасность",
     sec2: "Open Banking",
-    badgeAi: "На основе AI",
-    badgeOpenBanking: "Open Banking",
-    badgeWorldwide: "Доступно по всему миру",
   },
   stats: [
     { value: "1-я", label: "Компания, подключённая к Open Banking в Центральной Азии" },
@@ -463,9 +457,6 @@ const kz: Dict = {
     ctaSecondary: "Не істейді",
     sec1: "Банктік деңгейдегі қауіпсіздік",
     sec2: "Open Banking",
-    badgeAi: "AI негізінде",
-    badgeOpenBanking: "Open Banking",
-    badgeWorldwide: "Бүкіл әлемде қолжетімді",
   },
   stats: [
     { value: "1-ші", label: "Орталық Азияда Open Banking-ке қосылған компания" },
