@@ -399,7 +399,7 @@ function WatchScreen() {
       <text x="10" y="14" fill="#62F4C4" fontSize="7" fontWeight="700">Aim</text>
       <text x="90" y="14" textAnchor="end" fill="#93A298" fontSize="6">9:41</text>
       <text x="10" y="30" fill="#93A298" fontSize="5">Portfolio</text>
-      <text x="10" y="50" fill="#7AF4CF" fontSize="15" fontWeight="800">+{v.toFixed(1)}%</text>
+      <text x="10" y="50" fill="#62F4C4" fontSize="15" fontWeight="800">+{v.toFixed(1)}%</text>
       <polyline
         points={pts.map((y,i)=>`${10 + i*11},${88 - y}`).join(" ")}
         fill="none"
