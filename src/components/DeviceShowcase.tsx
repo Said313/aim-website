@@ -327,7 +327,7 @@ function PhoneScreen() {
       {/* Health card */}
       <g transform="translate(10,54)">
         <rect width="140" height="76" rx="10" fill="#111c1a" stroke="rgba(255,255,255,0.05)" />
-        <text x="10" y="14" fill="#A7B4AD" fontSize="6.5">Financial Health</text>
+        <text x="10" y="14" fill="#93A298" fontSize="6.5">Financial Health</text>
         <g transform="translate(36,44)">
           <circle r={R} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3.5" />
           <circle
@@ -340,10 +340,10 @@ function PhoneScreen() {
             transform="rotate(-90)"
             style={{ transition: "stroke-dasharray 1s ease" }}
           />
-          <text textAnchor="middle" y="2" fill="#F3F2EE" fontSize="11" fontWeight="700">{Math.round(health)}</text>
-          <text textAnchor="middle" y="10" fill="#A7B4AD" fontSize="5">/100</text>
+          <text textAnchor="middle" y="2" fill="#F5F6F2" fontSize="11" fontWeight="700">{Math.round(health)}</text>
+          <text textAnchor="middle" y="10" fill="#93A298" fontSize="5">/100</text>
         </g>
-        <text x="70" y="42" fill="#F3F2EE" fontSize="6.5">+3 this month</text>
+        <text x="70" y="42" fill="#F5F6F2" fontSize="6.5">+3 this month</text>
       </g>
 
       {/* Ranking card */}
