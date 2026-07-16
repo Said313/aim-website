@@ -249,8 +249,6 @@ function StatBar({ lang }: { lang: Lang }) {
   );
 }
 
-
-
 function Features({ lang }: { lang: Lang }) {
   const s = t(lang).features;
   const variants = ["up", "zoom-in", "roll", "left", "right", "zoom-out"] as const;

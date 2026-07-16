@@ -281,7 +281,6 @@
 .float-slow   { animation: float-slow 7s ease-in-out infinite; }
 .orbit-slow   { animation: orbit-slow 60s linear infinite; }
 
-
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal.in-view { opacity: 1 !important; animation: none !important; }
   .float-slow, .orbit-slow { animation: none !important; }
