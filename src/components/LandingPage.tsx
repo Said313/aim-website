@@ -31,7 +31,7 @@ import freedomMountain from "@/assets/freedom-mountain.png";
 import founderUmidzhan from "@/assets/founder-umidzhan.png";
 import founderSaidgaffor from "@/assets/founder-saidgaffor.png";
 import { Reveal } from "@/components/Reveal";
-import { DeviceShowcase } from "@/components/DeviceShowcase";
+import { Hero3D } from "@/components/Hero3D";
 import { UserWaitlistForm } from "@/components/UserWaitlistForm";
 import { InvestorContactForm } from "@/components/InvestorContactForm";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -92,8 +92,10 @@ function Hero({ lang }: { lang: Lang }) {
       />
 
 
-      {/* Multi-device product showcase — right side */}
-      <DeviceShowcase />
+      {/* Interactive 3D hero — right side */}
+      <div className="absolute inset-y-0 right-0 w-full md:w-[60%] lg:w-[55%] pointer-events-none">
+        <Hero3D className="w-full h-full" />
+      </div>
 
       {/* Hero content */}
       <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-28 pb-16 md:pt-32 md:pb-20 min-h-[84vh] lg:min-h-[92vh] flex items-start md:items-start">
