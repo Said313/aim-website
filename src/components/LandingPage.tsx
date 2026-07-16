@@ -80,7 +80,7 @@ function Hero({ lang }: { lang: Lang }) {
   return (
     <section
       id="top"
-      className="relative overflow-hidden min-h-screen"
+      className="relative overflow-hidden min-h-[92vh]"
     >
       {/* Ambient hero lighting — soft OKLCH emerald wash behind the device composition */}
       <div
@@ -96,7 +96,7 @@ function Hero({ lang }: { lang: Lang }) {
       <DeviceShowcase />
 
       {/* Hero content */}
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-32 pb-20 md:pt-36 md:pb-24 min-h-screen flex items-start md:items-start">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pt-28 pb-16 md:pt-32 md:pb-20 min-h-[92vh] flex items-start md:items-start">
         <div className="w-full">
           <Reveal variant="fade" className="flex flex-col items-center text-center md:items-start md:text-left max-w-[620px]">
             <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.02] tracking-tight text-[#F3F2EE]">
@@ -105,10 +105,10 @@ function Hero({ lang }: { lang: Lang }) {
               <br aria-hidden="true" />
               <span aria-hidden="true" className="whitespace-pre-line">{s.line2}</span>
             </h1>
-            <p className="mt-8 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
+            <p className="mt-6 text-lg text-muted-foreground max-w-[560px] leading-[1.7]">{s.desc}</p>
             <div
               className="flex flex-wrap justify-center md:justify-start gap-3"
-              style={{ marginTop: "40px" }}
+              style={{ marginTop: "32px" }}
             >
               <a
                 href="#waitlist"
@@ -124,7 +124,7 @@ function Hero({ lang }: { lang: Lang }) {
               </a>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-6">
               <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 text-xs text-muted-foreground">
                 <ShieldCheck className="h-3.5 w-3.5 text-[#78FFD2]" />
                 {t(lang).hero.sec1}
@@ -139,7 +139,7 @@ function Hero({ lang }: { lang: Lang }) {
 
 function MetricsSection() {
   return (
-    <section aria-label="Key financial metrics" className="pt-16 pb-20 md:pt-16 md:pb-20">
+    <section aria-label="Key financial metrics" className="pt-12 pb-16 md:pt-12 md:pb-16">
       <div className="mx-auto max-w-6xl px-6">
         <div className="rounded-3xl bg-white/[0.03] ring-1 ring-white/5 px-4 md:px-8 py-8 md:py-10 [text-shadow:0_2px_12px_rgba(0,0,0,0.55)]">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 items-stretch">
@@ -237,7 +237,7 @@ function StatBar({ lang }: { lang: Lang }) {
   const stats = t(lang).stats;
   return (
     <section className="border-y border-border bg-card/30 backdrop-blur-sm overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 py-12 grid sm:grid-cols-3 gap-8">
+      <div className="mx-auto max-w-7xl px-6 py-10 grid sm:grid-cols-3 gap-8">
         {stats.map((s, i) => (
           <Reveal key={s.label} variant="up" delay={i * 150} className="text-center sm:text-left">
             <div className="font-display text-5xl font-semibold leading-none text-accent">{s.value}</div>
@@ -253,9 +253,9 @@ function Features({ lang }: { lang: Lang }) {
   const s = t(lang).features;
   const variants = ["up", "zoom-in", "roll", "left", "right", "zoom-out"] as const;
   return (
-    <section id="features" className="py-24 md:py-32">
+    <section id="features" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal variant="up" className="max-w-2xl mb-16">
+        <Reveal variant="up" className="max-w-2xl mb-12">
           <div className="text-sm uppercase tracking-[0.2em] text-accent mb-4">{s.eyebrow}</div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
             {s.titleA} <span className="whitespace-pre-line">{s.titleB}</span>
