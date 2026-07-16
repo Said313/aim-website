@@ -81,13 +81,15 @@ function Hero({ lang }: { lang: Lang }) {
     <section
       id="top"
       className="relative overflow-hidden min-h-screen"
-      style={{
-        background:
-          "linear-gradient(180deg, #5B7065 0%, #4E645B 35%, #3E514A 70%, #304040 100%)",
-      }}
     >
-      {/* Subtle radial glow behind content */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_70%_35%,rgba(120,255,210,0.10),transparent_55%)]" />
+      {/* Ambient hero lighting — soft OKLCH radial behind the device composition */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(45% 55% at 78% 48%, oklch(0.82 0.06 178 / 0.10), transparent 70%)",
+        }}
+      />
 
       {/* Multi-device product showcase — right side */}
       <DeviceShowcase />
