@@ -114,15 +114,15 @@
   }
   html {
     scroll-behavior: smooth;
-    /* OKLCH pine → evergreen scroll transition over the first viewport.
-       Non-fixed so scrolling naturally reveals the deeper evergreen. */
-    background-color: oklch(0.36 0.018 170);
+    /* OKLCH emerald hero → deep evergreen scroll transition over first viewport.
+       Non-fixed so scrolling naturally reveals the deeper base. */
+    background-color: oklch(0.19 0.018 158);
     background-image: linear-gradient(
       180deg,
-      oklch(0.52 0.028 165) 0%,
-      oklch(0.46 0.024 168) 55%,
-      oklch(0.38 0.020 170) 90%,
-      oklch(0.36 0.018 170) 100%
+      oklch(0.34 0.055 155) 0%,
+      oklch(0.28 0.045 156) 45%,
+      oklch(0.22 0.030 158) 85%,
+      oklch(0.19 0.018 158) 100%
     );
     background-repeat: no-repeat;
     background-size: 100% 100vh;
@@ -136,11 +136,11 @@
     z-index: 0;
     background:
       /* Layer 4 — barely-there mint ambient behind hero illustration (right) */
-      radial-gradient(60% 45% at 78% 42%, oklch(0.86 0.12 178 / 0.07), transparent 70%),
-      /* Layer 3 — soft glow behind headline (left) */
-      radial-gradient(45% 40% at 22% 40%, oklch(0.78 0.05 175 / 0.09), transparent 72%),
+      radial-gradient(60% 45% at 78% 42%, oklch(0.90 0.14 172 / 0.07), transparent 70%),
+      /* Layer 3 — soft emerald glow behind headline (left) */
+      radial-gradient(45% 40% at 22% 40%, oklch(0.55 0.09 156 / 0.14), transparent 72%),
       /* Layer 2 — large upper-right depth light */
-      radial-gradient(70% 55% at 82% 12%, oklch(0.72 0.04 172 / 0.20), transparent 65%);
+      radial-gradient(70% 55% at 82% 12%, oklch(0.48 0.08 158 / 0.22), transparent 65%);
     animation: bg-drift 36s ease-in-out infinite alternate;
     will-change: transform, opacity;
   }
