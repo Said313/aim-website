@@ -83,7 +83,6 @@ export function DeviceShowcase() {
             snap
             polar={[-0.15, 0.2]}
             azimuth={[-0.5, 0.5]}
-            config={{ mass: 1, tension: 170, friction: 26 }}
           >
             <group>
               <MacBook />
