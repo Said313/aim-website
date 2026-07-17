@@ -40,7 +40,7 @@ export function Reveal({
   }, [once]);
 
   const style: CSSProperties = delay ? { animationDelay: `${delay}ms` } : {};
-  const Component = Tag as ElementType;
+  const Component = Tag as unknown as React.ComponentType<Record<string, unknown>>;
   return (
     <Component
       ref={ref}
