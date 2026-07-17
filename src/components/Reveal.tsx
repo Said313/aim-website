@@ -40,14 +40,15 @@ export function Reveal({
   }, [once]);
 
   const style: CSSProperties = delay ? { animationDelay: `${delay}ms` } : {};
+  const Component = Tag as ElementType;
   return (
-    <Tag
-      ref={ref as never}
+    <Component
+      ref={ref}
       data-variant={variant}
       className={`reveal ${className}`}
       style={style}
     >
       {children}
-    </Tag>
+    </Component>
   );
 }
