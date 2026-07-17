@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, type ReactNode, type ElementType, type CSSProperties } from "react";
+import { useEffect, useRef, type ReactNode, type ElementType, type CSSProperties } from "react";
 
 type Variant = "up" | "fade" | "zoom-in" | "zoom-out" | "left" | "right" | "roll";
 
@@ -40,15 +40,14 @@ export function Reveal({
   }, [once]);
 
   const style: CSSProperties = delay ? { animationDelay: `${delay}ms` } : {};
-  const Component = Tag as unknown as React.ComponentType<Record<string, unknown>>;
   return (
-    <Component
-      ref={ref}
+    <Tag
+      ref={ref as never}
       data-variant={variant}
       className={`reveal ${className}`}
       style={style}
     >
       {children}
-    </Component>
+    </Tag>
   );
 }

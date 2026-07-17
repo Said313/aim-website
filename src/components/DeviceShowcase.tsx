@@ -26,7 +26,6 @@ function useNormalizedScene(
   options?: {
     prune?: (name: string) => boolean;
     baseOnGround?: boolean;
-    verifySingleMesh?: string;
   },
 ) {
   const { scene } = useGLTF(url);
@@ -40,10 +39,7 @@ function useNormalizedScene(
       root.traverse((obj) => {
         if (options.prune!(obj.name)) toRemove.push(obj);
       });
-      for (const obj of toRemove) {
-        obj.clear();
-        obj.removeFromParent();
-      }
+      for (const obj of toRemove) obj.parent?.remove(obj);
     }
 
     // Also strip any lights/cameras that slipped through by type.
@@ -54,21 +50,6 @@ function useNormalizedScene(
       }
     });
     for (const obj of typeStrip) obj.parent?.remove(obj);
-
-    if (options?.verifySingleMesh) {
-      const retainedMeshes: THREE.Mesh[] = [];
-      root.traverse((obj) => {
-        if (obj.name === options.verifySingleMesh && (obj as THREE.Mesh).isMesh) {
-          retainedMeshes.push(obj as THREE.Mesh);
-        }
-      });
-
-      if (retainedMeshes.length !== 1) {
-        throw new Error(
-          `Expected exactly one ${options.verifySingleMesh} mesh, found ${retainedMeshes.length}`,
-        );
-      }
-    }
 
     // 2. Bake current transforms so we can safely fix mirroring / recenter.
     root.updateMatrixWorld(true);
@@ -115,13 +96,7 @@ function useNormalizedScene(
     container.scale.setScalar(scale);
 
     return container;
-  }, [
-    scene,
-    targetSize,
-    options?.prune,
-    options?.baseOnGround,
-    options?.verifySingleMesh,
-  ]);
+  }, [scene, targetSize, options?.prune, options?.baseOnGround]);
 }
 
 function MacBook() {
@@ -154,14 +129,16 @@ function IPhone() {
 function AppleWatch() {
   const obj = useNormalizedScene("/models/AppleWatch.glb", 0.7, {
     baseOnGround: true,
-    verifySingleMesh: "apple watch",
     prune: (name) => {
       if (!name) return false;
       // Blender helpers exported as root nodes.
       if (name === "Camera") return true;
       if (/^Area(\.\d+)?$/.test(name)) return true;
-      // Remove the complete duplicated watch subtree before rendering.
+      // Duplicated second watch instance and its children.
       if (name === "apple watch.001") return true;
+      if (/\.001$/.test(name) && /^(button|kordon|speaker protection|ı dunno what is this)/i.test(name)) {
+        return true;
+      }
       return false;
     },
   });
