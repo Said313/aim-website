@@ -1,34 +1,23 @@
-import {
-  useEffect,
-  useRef,
-  type ReactNode,
-  type ComponentPropsWithoutRef,
-  type CSSProperties,
-  type JSX,
-} from "react";
+import { createElement, useEffect, useRef, type ReactNode, type CSSProperties } from "react";
 
 type Variant = "up" | "fade" | "zoom-in" | "zoom-out" | "left" | "right" | "roll";
 
-type ElementTag = keyof JSX.IntrinsicElements;
-
-type RevealProps<T extends ElementTag = "div"> = {
-  children: ReactNode;
-  variant?: Variant;
-  delay?: number;
-  as?: T;
-  className?: string;
-  once?: boolean;
-} & Omit<ComponentPropsWithoutRef<T>, "children" | "as" | "className" | "variant" | "delay" | "once">;
-
-export function Reveal<T extends ElementTag = "div">({
+export function Reveal({
   children,
   variant = "up",
   delay = 0,
-  as,
+  as = "div",
   className = "",
   once = true,
   ...rest
-}: RevealProps<T>) {
+}: {
+  children: ReactNode;
+  variant?: Variant;
+  delay?: number;
+  as?: keyof JSX.IntrinsicElements;
+  className?: string;
+  once?: boolean;
+} & Record<string, unknown>) {
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -52,18 +41,14 @@ export function Reveal<T extends ElementTag = "div">({
   }, [once]);
 
   const style: CSSProperties = delay ? { animationDelay: `${delay}ms` } : {};
-  const Tag = (as ?? "div") as ElementTag;
-  return (
-    <Tag
-      ref={ref}
-      data-variant={variant}
-      className={`reveal ${className}`}
-      style={style}
-      {...rest}
-    >
-      {children}
-    </Tag>
-  );
+
+  return createElement(as, {
+    ref,
+    "data-variant": variant,
+    className: `reveal ${className}`,
+    style,
+    ...rest,
+  }, children);
 }
 
 export default Reveal;
