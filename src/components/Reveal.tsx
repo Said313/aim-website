@@ -13,7 +13,7 @@ export function Reveal({
   children: ReactNode;
   variant?: Variant;
   delay?: number;
-  as?: ElementType;
+  as?: keyof JSX.IntrinsicElements;
   className?: string;
   once?: boolean;
 }) {
