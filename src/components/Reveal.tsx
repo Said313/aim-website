@@ -1,21 +1,33 @@
-import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
+import {
+  useEffect,
+  useRef,
+  type ReactNode,
+  type ElementType,
+  type ComponentPropsWithoutRef,
+  type CSSProperties,
+} from "react";
 
 type Variant = "up" | "fade" | "zoom-in" | "zoom-out" | "left" | "right" | "roll";
 
-export function Reveal({
-  children,
-  variant = "up",
-  delay = 0,
-  className = "",
-  once = true,
-}: {
+type RevealProps<T extends ElementType = "div"> = {
   children: ReactNode;
   variant?: Variant;
   delay?: number;
+  as?: T;
   className?: string;
   once?: boolean;
-}) {
-  const ref = useRef<HTMLDivElement | null>(null);
+} & Omit<ComponentPropsWithoutRef<T>, "children" | "as" | "className" | "variant" | "delay" | "once">;
+
+export function Reveal<T extends ElementType = "div">({
+  children,
+  variant = "up",
+  delay = 0,
+  as,
+  className = "",
+  once = true,
+  ...rest
+}: RevealProps<T>) {
+  const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -38,15 +50,17 @@ export function Reveal({
   }, [once]);
 
   const style: CSSProperties = delay ? { animationDelay: `${delay}ms` } : {};
+  const Tag = as ?? ("div" as ElementType);
   return (
-    <div
-      ref={ref}
+    <Tag
+      ref={ref as never}
       data-variant={variant}
       className={`reveal ${className}`}
       style={style}
+      {...rest}
     >
       {children}
-    </div>
+    </Tag>
   );
 }
 
