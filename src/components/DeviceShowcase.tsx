@@ -127,7 +127,7 @@ function IPhone() {
 }
 
 function AppleWatch() {
-  const obj = useNormalizedScene("/models/AppleWatchUltra3.gltf", 0.35, {
+  const obj = useNormalizedScene("/models/AppleWatchUltra3.gltf", 0.22, {
     baseOnGround: true,
     prune: (name) => {
       if (!name) return false;
@@ -146,12 +146,13 @@ function AppleWatch() {
     <Float speed={1.6} rotationIntensity={0.22} floatIntensity={0.35}>
       <primitive
         object={obj}
-        position={[-0.55, -0.55, 1.55]}
+        position={[-0.75, -0.55, 1.15]}
         rotation={[0, -0.3, 0]}
       />
     </Float>
   );
 }
+
 
 
 export function DeviceShowcase() {
