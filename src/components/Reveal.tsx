@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode, type ElementType, type CSSProperties } from "react";
+import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
 
 type Variant = "up" | "fade" | "zoom-in" | "zoom-out" | "left" | "right" | "roll";
 
