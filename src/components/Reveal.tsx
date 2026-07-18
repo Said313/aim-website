@@ -55,7 +55,7 @@ export function Reveal<T extends ElementTag = "div">({
   const Tag = (as ?? "div") as ElementTag;
   return (
     <Tag
-      ref={ref as never}
+      ref={ref}
       data-variant={variant}
       className={`reveal ${className}`}
       style={style}
