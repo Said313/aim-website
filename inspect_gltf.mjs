@@ -10,7 +10,6 @@ async function inspect(path) {
   });
   
   const scene = gltf.scene;
-  console.log('File:', path);
   console.log('Root nodes:', scene.children.length);
   
   let meshCount = 0;
