@@ -11,7 +11,7 @@ import * as THREE from "three";
 
 useGLTF.preload("/models/MacBookPro.glb");
 useGLTF.preload("/models/iPhone16.glb");
-useGLTF.preload("/models/AppleWatch.glb");
+useGLTF.preload("/models/AppleWatchUltra3.gltf");
 
 /**
  * Clone a loaded GLTF scene and normalize it:
@@ -127,7 +127,7 @@ function IPhone() {
 }
 
 function AppleWatch() {
-  const obj = useNormalizedScene("/models/AppleWatch.glb", 0.7, {
+  const obj = useNormalizedScene("/models/AppleWatchUltra3.gltf", 0.7, {
     baseOnGround: true,
     prune: (name) => {
       if (!name) return false;
