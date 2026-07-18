@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode, type ElementType, type CSSProperties } from "react";
+import { createElement, useEffect, useRef, type ReactNode, type CSSProperties, type JSX } from "react";
 
 type Variant = "up" | "fade" | "zoom-in" | "zoom-out" | "left" | "right" | "roll";
 
@@ -6,17 +6,18 @@ export function Reveal({
   children,
   variant = "up",
   delay = 0,
-  as: Tag = "div",
+  as = "div",
   className = "",
   once = true,
+  ...rest
 }: {
   children: ReactNode;
   variant?: Variant;
   delay?: number;
-  as?: ElementType;
+  as?: keyof JSX.IntrinsicElements;
   className?: string;
   once?: boolean;
-}) {
+} & Record<string, unknown>) {
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -40,14 +41,14 @@ export function Reveal({
   }, [once]);
 
   const style: CSSProperties = delay ? { animationDelay: `${delay}ms` } : {};
-  return (
-    <Tag
-      ref={ref as never}
-      data-variant={variant}
-      className={`reveal ${className}`}
-      style={style}
-    >
-      {children}
-    </Tag>
-  );
+
+  return createElement(as, {
+    ref,
+    "data-variant": variant,
+    className: `reveal ${className}`,
+    style,
+    ...rest,
+  }, children);
 }
+
+export default Reveal;

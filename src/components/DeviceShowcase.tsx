@@ -11,7 +11,7 @@ import * as THREE from "three";
 
 useGLTF.preload("/models/MacBookPro.glb");
 useGLTF.preload("/models/iPhone16.glb");
-useGLTF.preload("/models/AppleWatch.glb");
+useGLTF.preload("/models/AppleWatchUltra3.gltf");
 
 /**
  * Clone a loaded GLTF scene and normalize it:
@@ -127,7 +127,7 @@ function IPhone() {
 }
 
 function AppleWatch() {
-  const obj = useNormalizedScene("/models/AppleWatch.glb", 0.7, {
+  const obj = useNormalizedScene("/models/AppleWatchUltra3.gltf", 0.6, {
     baseOnGround: true,
     prune: (name) => {
       if (!name) return false;
@@ -146,12 +146,17 @@ function AppleWatch() {
     <Float speed={1.6} rotationIntensity={0.22} floatIntensity={0.35}>
       <primitive
         object={obj}
-        position={[-0.4, -0.55, 1.7]}
-        rotation={[0, -0.3, 0]}
+        position={[-0.65, -0.45, 1.35]}
+        rotation={[0.35, -0.3, 0]}
       />
     </Float>
   );
 }
+
+
+
+
+
 
 export function DeviceShowcase() {
   return (
