@@ -2,14 +2,16 @@ import {
   useEffect,
   useRef,
   type ReactNode,
-  type ElementType,
   type ComponentPropsWithoutRef,
   type CSSProperties,
+  type JSX,
 } from "react";
 
 type Variant = "up" | "fade" | "zoom-in" | "zoom-out" | "left" | "right" | "roll";
 
-type RevealProps<T extends ElementType = "div"> = {
+type ElementTag = keyof JSX.IntrinsicElements;
+
+type RevealProps<T extends ElementTag = "div"> = {
   children: ReactNode;
   variant?: Variant;
   delay?: number;
@@ -18,7 +20,7 @@ type RevealProps<T extends ElementType = "div"> = {
   once?: boolean;
 } & Omit<ComponentPropsWithoutRef<T>, "children" | "as" | "className" | "variant" | "delay" | "once">;
 
-export function Reveal<T extends ElementType = "div">({
+export function Reveal<T extends ElementTag = "div">({
   children,
   variant = "up",
   delay = 0,
@@ -50,7 +52,7 @@ export function Reveal<T extends ElementType = "div">({
   }, [once]);
 
   const style: CSSProperties = delay ? { animationDelay: `${delay}ms` } : {};
-  const Tag = as ?? ("div" as ElementType);
+  const Tag = (as ?? "div") as ElementTag;
   return (
     <Tag
       ref={ref as never}
