@@ -1,651 +1,532 @@
-export const LANGS = ["en", "ru", "kz"] as const;
+export const LANGS = ["en", "kz", "ru"] as const;
 export type Lang = (typeof LANGS)[number];
 export const DEFAULT_LANG: Lang = "en";
+export const LANG_LABELS: Record<Lang, string> = { en: "English", kz: "Қазақша", ru: "Русский" };
+export const LANG_SHORT: Record<Lang, string> = { en: "EN", kz: "KZ", ru: "RU" };
+export const HTML_LANG: Record<Lang, string> = { en: "en", kz: "kk", ru: "ru" };
 
-export const LANG_LABELS: Record<Lang, string> = {
-  en: "English",
-  ru: "Русский",
-  kz: "Қазақша",
-};
-
-export const LANG_SHORT: Record<Lang, string> = {
-  en: "EN",
-  ru: "RU",
-  kz: "KZ",
-};
-
-export const HTML_LANG: Record<Lang, string> = {
-  en: "en",
-  ru: "ru",
-  kz: "kk",
-};
-
-export function isLang(x: string | undefined): x is Lang {
-  return !!x && (LANGS as readonly string[]).includes(x);
+export function isLang(value: string | undefined): value is Lang {
+  return LANGS.some((lang) => lang === value);
 }
 
 const en = {
   meta: {
-    title: "Aim — Your AI CFO. Confidence to live bigger.",
+    title: "Aim · Money, in focus",
     description:
-      "Aim is your personal AI CFO. Connect every bank account via Open Banking, get insights, set goals, plan the future. Working worldwide.",
-    ogTitle: "Aim — Your AI CFO",
-    ogDescription:
-      "Personal AI CFO that takes finance off your plate, so you can focus on what matters.",
+      "Aim is building a personal finance app for seeing what you have, understanding what you spend, and saving for what’s next. Starting in Kazakhstan.",
   },
   nav: {
-    features: "Features",
-    platforms: "Platforms",
-    vision: "Vision",
+    product: "Product",
+    market: "Opportunity",
+    team: "Team",
     investors: "Investors",
-    cta: "Join waitlist",
+    waitlist: "Join waitlist",
+    language: "Language",
+    skip: "Skip to content",
+    mainMenu: "Main navigation",
+    footerMenu: "Footer navigation",
   },
   hero: {
-    badge: "Working worldwide",
-    srTitle: "Aim — Your Personal AI CFO.",
-    line1: "Your money",
-    line2: "smarter than ever",
-
-    desc: "Aim is your personal AI CFO. It connects every bank account\u00a0 understands your life, and turns complex finances into clear next steps — so you can focus on what truly matters.",
-    ctaPrimary: "Get early access",
-    ctaSecondary: "See what it does",
-    sec1: "Bank-grade security",
-    sec2: "Open Banking",
+    stage: "Kazakhstan first",
+    title: "Money,",
+    accent: "in focus.",
+    description:
+      "See what you have, understand what you spend, and save for what’s next. Aim brings your everyday finances into one clear view.",
+    preview: "Explore the product",
   },
-  stats: [
-    { value: "1st", label: "Company onboarded to Open Banking in Central Asia" },
-    { value: "1st", label: "Fintech AI startup in Kazakhstan" },
-    { value: "2,000+", label: "Users on the pre-launch waitlist" },
-  ],
-  marquee: [
-    "Open Banking",
-    "AI CFO",
-    "Goals",
-    "Insights",
-    "Investments",
-    "Budget",
-    "Confidence",
-    "Plan ahead",
-  ],
-  features: {
-    eyebrow: "What Aim does",
-    titleA: "A CFO that understands",
-    titleB: "\nyour life.",
+  preview: {
+    overview: "Overview",
+    balance: "Total balance",
+    period: "Last 30 days",
+    cashFlow: "Cash flow",
+    income: "Income",
+    spending: "Spending",
+    net: "Net",
+    goal: "Emergency fund",
+    saved: "62% saved",
+  },
+  product: {
+    eyebrow: "The product",
+    title: "Make sense of your money.",
+    description:
+      "Aim starts with the records you already have. Bring in a statement, see where your money goes, and track the goals that matter to you.",
+    steps: [
+      {
+        title: "Bring your records together",
+        text: "Import a bank statement and review the transactions before adding them.",
+      },
+      {
+        title: "Understand your cash flow",
+        text: "Compare income and spending over time and find the categories driving the change.",
+      },
+      {
+        title: "See your goals take shape",
+        text: "Set a savings target, log contributions, and see how far you’ve come.",
+      },
+    ],
+    tabsLabel: "Explore product examples",
+    review: "Review statement",
+    groceries: "Groceries",
+    salary: "Salary",
+    transport: "Transport",
+    insights: "Monthly cash flow",
+    insightsDetail: "A breakdown of this month’s spending",
+    housing: "Housing",
+    everyday: "Everyday spending",
+    other: "Other",
+    goals: "Savings goal",
+    goalsDetail: "Progress toward a personal safety net",
+    of: "of",
+  },
+  market: {
+    eyebrow: "The opportunity",
+    title: "Starting in Kazakhstan.",
+    accent: "Built to travel.",
+    description:
+      "Kazakhstan is where we plan to test whether people will move from checking balances across apps to building a regular habit around their money. The same workflow could travel to markets with similar needs.",
+    stats: [
+      {
+        detail: "of transactions made by people in Kazakhstan were cashless by count in 2024.",
+        source: "National Bank of Kazakhstan",
+      },
+      {
+        detail: "of adults worldwide had a financial account in 2024.",
+        source: "World Bank · Global Findex",
+      },
+    ],
+    stages: [
+      {
+        label: "First market",
+        title: "Kazakhstan",
+        text: "Start with local statement formats, tenge, and users who manage money across several accounts.",
+      },
+      {
+        label: "Regional opportunity",
+        title: "Central Asia",
+        text: "Explore nearby markets and adapt statement imports, currency, and language support.",
+      },
+      {
+        label: "Longer term",
+        title: "Selected global markets",
+        text: "Expand where demand, data access, and local requirements make the product viable.",
+      },
+    ],
+    scenarioTitle: "What a subscription could look like",
+    scenarioNote:
+      "Illustrative assumptions only. Figures show a subscription run rate before costs at the assumed user count, conversion rate, and price.",
+    scenarioLabels: ["Monthly active users", "Paid conversion", "Monthly price"],
+    scenarioResult: "Illustrative annual run rate",
+    scenarioMarkets: ["Kazakhstan example", "International example"],
+  },
+  team: {
+    eyebrow: "The team",
+    title: "Meet the founders.",
+    names: ["Umidzhan Rakhmankulov", "Saidgaffor Sabyrov"],
+    roles: ["Founder & CEO", "Founder & CTO"],
+  },
+  faq: {
+    title: "Good to know.",
     items: [
-      { title: "Ask anything", text: "Get clear answers to any question about your money, in plain language." },
-      { title: "All finance in one place", text: "Banks, cards, accounts, investments and credit - unified via Open Banking." },
-      { title: "Financial health & freedom age", text: "Track your financial health score in real time and see the age at which you can reach financial freedom." },
-      { title: "Goal trajectory", text: "Watch the live trajectory toward each personal financial goal and know exactly what to adjust to land on time." },
-      { title: "Private & confidential", text: "Bank-level encryption. Your data is yours. Read-only access, always." },
-      { title: "Personal recommendations", text: "Practical, tailored advice that helps you reach your goals faster." },
+      {
+        question: "Can I use Aim today?",
+        answer:
+          "Aim is in development. Join the waitlist for updates about early access. Kazakhstan is the intended first market.",
+      },
+      {
+        question: "How will I add my transactions?",
+        answer:
+          "The current design starts with statement imports and manual entries. You can review imported transactions before adding them. Direct bank connections are a future possibility and would depend on local coverage.",
+      },
+      {
+        question: "Where does AI fit in?",
+        answer:
+          "The mobile designs include an assistant for exploring spending and voice entry for logging transactions. Both are part of the product design under development.",
+      },
+      {
+        question: "Will Aim be available outside Kazakhstan?",
+        answer:
+          "We’re starting with Kazakhstani users and local statement formats. Expansion would depend on local demand, data access, and support for each market’s language and currency.",
+      },
     ],
   },
-  problem: {
-    eyebrow: "The problem",
-    title: "Too many banks. Too little clarity.",
-    bullets: [
-      "Dozens of bank apps, cards and spreadsheets- no single picture.",
-      "Managing money takes time, attention, and financial knowledge most people don't have.",
-      "It's easy to get lost, miss something, and make costly mistakes.",
-    ],
-    closer: "People don't need another tool. They need a financial partner.",
-  },
-  solution: {
-    eyebrow: "Our answer",
-    title: "One AI CFO. Every account. Real decisions.",
-    bullets: [
-      "Aim aggregates every account through secure Open Banking.",
-      "AI understands your habits, goals and life - not just transactions.",
-      "Complex data becomes simple recommendations you can act on today.",
-    ],
-    closer: "The right moment for a new standard in personal finance.",
-    ctaNote: "Join the waitlist and be among the first to experience Aim.",
-  },
-  platforms: {
-    eyebrow: "Everywhere you are",
-    titleA: "One AI CFO,\u00a0",
-    titleB: "\nevery device.",
-    items: [
-      { title: "Mobile app", text: "iOS & Android. The full Aim experience in your pocket." },
-      { title: "Watch app", text: "Glanceable balance, goals and alerts on your wrist." },
-      { title: "Web app", text: "Deep analytics and planning on the big screen." },
-      { title: "Worldwide", text: "Designed for users everywhere." },
-    ],
-  },
-  vision: {
-    eyebrow: "Our vision",
-    titleA: "A world where every person has a personal",
-    titleB: "AI CFO",
-    titleC: " - helping them live the life they actually dream of.",
-    desc: "\n",
-    roadmap: {
-      title: "One Platform.",
-      titleAccent: "Limitless Impact.",
-      desc: "We're building an AI platform that grows with your needs - from personal finance to corporate ecosystems.",
-      stages: [
-        {
-          tag: "Today",
-          title: "Personal Finance AI",
-          desc: "Helping people fully control their finances.",
-          bullets: ["Open Banking", "Income & expense analysis", "AI financial advisor", "Financial goals", "Automated budgeting"],
-          audienceLabel: "Target audience:",
-          audience: "millions of users",
-        },
-        {
-          tag: "Next step",
-          title: "AI for Small & Medium Business",
-          desc: "Expanding the platform for entrepreneurs and companies.",
-          bullets: ["Business finance in one place", "Cash flow control", "AI profit analysis", "Expense management", "Automated financial reports"],
-          audienceLabel: "Target audience:",
-          audience: "small & medium business",
-        },
-        {
-          tag: "Long-term goal",
-          title: "AI Enterprise Platform",
-          desc: "Next-generation intelligent financial platform.",
-          bullets: ["Automation of financial processes", "AI instead of manual data processing", "Management accounting", "Planning and budgeting", "Workflow and approvals", "Proprietary generative AI model for simulating financial data and predictions", "Modern alternative to legacy ERP systems"],
-          audienceLabel: "Target audience:",
-          audience: "large companies & corporations",
-        },
-      ],
-      banner: "One platform. One AI engine. Endless possibilities.",
-      closingA: "We're not building yet another finance app.",
-      closingB: "We're building one AI platform for financial management - ",
-      closingC: "from personal budgets to growing businesses and beyond.",
-    },
-  },
-  founders: {
-    eyebrow: "Founders",
-    titleA: "Built by people who",
-    titleB: "aim higher.",
-    desc: "On a mission to give everyone a personal AI CFO.",
-    role: "Co-founder",
-    roleCeo: "Founder & CEO",
-    roleCto: "Founder & CTO",
-    nameUmidzhan: "Umidzhan Rakhmankulov",
-    nameSaidgaffor: "Saidgaffor Sabyrov",
-  },
-  cta: {
-    titleA: "Be the first to",
-    titleB: "aim higher.",
-    desc: "Join the waitlist or get in touch as an investor. Early users get premium AI features free at launch.",
-    userLabel: "User waitlist",
-    investorLabel: "Investor contact",
-    rolePrompt: "I'm here as…",
-    roleUser: "A future user",
-    roleUserDesc: "Join the waitlist for early access.",
-    roleInvestor: "An investor",
-    roleInvestorDesc: "Get in touch about Aim.",
-    back: "← Choose a different option",
-  },
-  footer: {
-    tagline: "Your AI CFO",
-    copyright: "Aim. Made in Kazakhstan, for the world.",
-    newsletterTitle: "Stay ahead with Aim",
-    newsletterDesc: "Get product updates, AI finance tips, and early access announcements.",
-    emailPlaceholder: "Enter your email",
-    noSpam: "No spam. Only important updates.",
-    colProduct: "Product",
-    colCompany: "Company",
-    colResources: "Resources",
-    colDownload: "Download",
-    downloadFor: "Download for",
-    downloadNote: "Available for macOS. Windows and mobile apps are coming soon.",
-    followUs: "Follow us",
-    rights: "All rights reserved.",
-    tagline2: "Built for the future of personal finance.",
-    navProduct: ["Features", "Platforms", "AI Assistant", "Open Banking", "Security"],
-    navCompany: ["Vision", "Investors", "Careers", "Contact", "Press"],
-    navResources: ["Blog", "FAQ", "Privacy Policy", "Terms of Service"],
-    feedbackLinks: "Aim Feedback links",
-    feedbackSupport: "Feedback support",
-    feedbackPrivacy: "Feedback privacy",
-    feedbackTerms: "Feedback terms",
-  },
-  forms: {
-    name: "Name",
-    namePh: "Your full name",
-    email: "Email",
-    emailPh: "you@email.com",
+  contact: {
+    title: "Get early access.",
+    description: "Join the waitlist for updates on Aim and the first release in Kazakhstan.",
+    investorTitle: "Talk to the founders.",
+    investorDescription:
+      "Interested in investing in Aim or partnering with us? Tell us a little about yourself.",
+    name: "Full name",
+    email: "Email address",
     phone: "Phone number",
-    phonePh: "+1 555 000 0000",
-    company: "Company / Fund",
-    companyPh: "Your firm",
-    message: "Message",
-    messagePh: "Tell us about your interest…",
-    submitUser: "Join the waitlist",
-    submittingUser: "Joining…",
-    submitInvestor: "Get in touch",
-    submittingInvestor: "Sending…",
-    successUserTitle: "You're on the waitlist!",
-    successUserDesc: "We'll email you the moment early access opens.",
-    successInvestorTitle: "Thank you!",
-    successInvestorDesc: "We'll be in touch shortly.",
-    addAnother: "Add another",
-    errName: "Please enter your name.",
-    errEmail: "Please enter a valid email.",
-    errPhone: "Please enter your phone number.",
-    errGeneric: "Something went wrong. Please try again.",
+    message: "Message (optional)",
+    waitlistNote:
+      "Aim collects these details through Google Apps Script to manage the waitlist and contact you about early access.",
+    investorNote:
+      "Aim collects these details through Google Apps Script to respond to your inquiry.",
+    submit: "Join the waitlist",
+    submitInvestor: "Contact the team",
+    submitting: "Sending…",
+    success: "You’re on the waitlist.",
+    successDetail: "We’ll use the email you provided to send early-access updates.",
+    successInvestor: "Your message was sent.",
+    successInvestorDetail: "The team can follow up using the contact details you provided.",
+    error: "We couldn’t send your details. Please check your connection and try again.",
+    noScript: "Enable JavaScript to submit this form.",
   },
-  langSwitch: "Language",
+  footer: "Made in Kazakhstan.",
+  feedbackNav: "Aim Feedback links",
+  feedbackLinks: {
+    support: "Feedback support",
+    privacy: "Feedback privacy",
+    terms: "Feedback terms",
+  },
 };
 
 type Dict = typeof en;
 
-const ru: Dict = {
-  meta: {
-    title: "Aim — Ваш AI-финдиректор. Уверенность, чтобы жить шире.",
-    description:
-      "Aim — ваш персональный AI-финдиректор. Подключите все банковские счета через Open Banking, получайте инсайты, ставьте цели, планируйте будущее. Работаем по всему миру.",
-    ogTitle: "Aim — Ваш AI-финдиректор",
-    ogDescription:
-      "Персональный AI-финдиректор берёт финансы на себя — а вы сосредотачиваетесь на главном.",
-  },
-  nav: {
-    features: "Возможности",
-    platforms: "Платформы",
-    vision: "Видение",
-    investors: "Инвесторам",
-    cta: "В лист ожидания",
-  },
-  hero: {
-    badge: "Работаем по всему миру",
-    srTitle: "Aim — Ваш персональный AI-финдиректор.",
-    line1: "Ваши деньги",
-    line2: "умнее, чем\nкогда-либо",
-
-    desc: "Aim подключает все ваши счета и превращает финансовые данные в простые, персональные рекомендации.",
-    ctaPrimary: "Получить ранний доступ",
-    ctaSecondary: "Что он умеет",
-    sec1: "Банковская безопасность",
-    sec2: "Open Banking",
-  },
-  stats: [
-    { value: "1-я", label: "Компания, подключённая к Open Banking в Центральной Азии" },
-    { value: "1-й", label: "Финтех AI-стартап в Казахстане" },
-    { value: "2 000+", label: "Пользователей в листе ожидания" },
-  ],
-  marquee: [
-    "Open Banking",
-    "AI-финдиректор",
-    "Цели",
-    "Инсайты",
-    "Инвестиции",
-    "Бюджет",
-    "Уверенность",
-    "Планирование",
-  ],
-  features: {
-    eyebrow: "Что делает Aim",
-    titleA: "Финдиректор, который понимает",
-    titleB: "\u00a0вашу жизнь.",
-    items: [
-      { title: "Спросите что угодно", text: "Понятные ответы на любой вопрос о ваших деньгах - простым языком." },
-      { title: "Все финансы в одном месте", text: "Банки, карты, счета, инвестиции и кредиты - объединены через Open Banking." },
-      { title: "Финансовое здоровье и возраст свободы", text: "Отслеживайте свой индекс финансового здоровья в реальном времени и узнайте возраст, в котором вы достигнете финансовой свободы." },
-      { title: "Траектория целей", text: "Видите живую траекторию к каждой личной финансовой цели и точно знаете, что скорректировать, чтобы прийти вовремя." },
-      { title: "Приватно и конфиденциально", text: "Шифрование банковского уровня. Доступ только на чтение. Данные ваши." },
-      { title: "Персональные рекомендации", text: "Практичные советы под ваши задачи, чтобы достигать целей быстрее." },
-    ],
-  },
-  problem: {
-    eyebrow: "Проблема",
-    title: "Слишком много банков. Слишком мало ясности.",
-    bullets: [
-      "Десятки банковских приложений, карт и таблиц - и ни одной общей картины.",
-      "Управлять деньгами требует времени, внимания и знаний, которых у большинства нет.",
-      "Легко запутаться, что-то упустить и совершить дорогую ошибку.",
-    ],
-    closer: "Людям нужен не очередной инструмент. Им нужен финансовый партнёр.",
-  },
-  solution: {
-    eyebrow: "Наш ответ",
-    title: "Один AI-финдиректор. Все счета. Реальные решения.",
-    bullets: [
-      "Aim объединяет все счета через защищённый Open Banking.",
-      "AI понимает ваши привычки, цели и жизнь - не только транзакции.",
-      "Сложные данные превращаются в простые рекомендации, по которым можно действовать сегодня.",
-    ],
-    closer: "Самое время для нового стандарта личных финансов.",
-    ctaNote: "Запишитесь в лист ожидания и станьте одним из первых, кто попробует Aim.",
-  },
-  platforms: {
-    eyebrow: "Везде, где вы",
-    titleA: "Один AI-финдиректор,",
-    titleB: "на каждом устройстве.",
-    items: [
-      { title: "Мобильное приложение", text: "iOS и Android. Полный опыт Aim в кармане." },
-      { title: "Приложение для часов", text: "Баланс, цели и уведомления на запястье." },
-      { title: "Веб-приложение", text: "Глубокая аналитика и планирование на большом экране." },
-      { title: "По всему миру", text: "Создано для пользователей повсюду." },
-    ],
-  },
-  vision: {
-    eyebrow: "Наше видение",
-    titleA: "Мир, где у каждого есть личный",
-    titleB: "AI-финдиректор",
-    titleC: "\u00a0-\u00a0помогающий жить той жизнью, о которой мечтают.",
-    desc: "\n",
-    roadmap: {
-      title: "Одна платформа.",
-      titleAccent: "Безграничное влияние.",
-      desc: "Мы строим AI-платформу, которая растёт вместе с вашими потребностями - от личных финансов до корпоративных экосистем.",
-      stages: [
-        {
-          tag: "Сегодня",
-          title: "Personal Finance AI",
-          desc: "Помогаем людям полностью контролировать свои финансы.",
-          bullets: ["Open Banking", "Анализ доходов и расходов", "AI-финансовый советник", "Финансовые цели", "Автоматическое бюджетирование"],
-          audienceLabel: "Целевая аудитория:",
-          audience: "миллионы пользователей",
-        },
-        {
-          tag: "Следующий этап",
-          title: "AI for Small & Medium Business",
-          desc: "Расширяем платформу для предпринимателей и компаний.",
-          bullets: ["Финансы бизнеса в одном месте", "Контроль денежных потоков", "AI-анализ прибыли", "Управление расходами", "Автоматические финансовые отчёты"],
-          audienceLabel: "Целевая аудитория:",
-          audience: "малый и средний бизнес",
-        },
-        {
-          tag: "Долгосрочная цель",
-          title: "AI Enterprise Platform",
-          desc: "Интеллектуальная финансовая платформа нового поколения.",
-          bullets: ["Автоматизация финансовых процессов", "AI вместо ручной обработки данных", "Управленческий учёт", "Планирование и бюджетирование", "Workflow и согласования", "Собственная генеративная AI-модель для симуляции финансовых данных и прогнозов", "Современная альтернатива legacy ERP-системам"],
-          audienceLabel: "Целевая аудитория:",
-          audience: "крупные компании и корпорации",
-        },
-      ],
-      banner: "Одна платформа. Единый AI-движок. Бесконечные возможности.",
-      closingA: "Мы создаём не очередное приложение для учёта финансов.",
-      closingB: "Мы строим единую\u00a0\nAI-платформу управления финансами -\u00a0",
-      closingC: "от личных бюджетов до растущего бизнеса и не только.",
-    },
-  },
-  founders: {
-    eyebrow: "Основатели",
-    titleA: "Создано теми, кто",
-    titleB: "целится выше.",
-    desc: "Наша миссия - дать каждому персонального AI-финдиректора.",
-    role: "Сооснователь",
-    roleCeo: "Основатель и CEO",
-    roleCto: "Основатель и CTO",
-    nameUmidzhan: "Умиджан Рахманкулов",
-    nameSaidgaffor: "Саидгаффор Сабыров",
-  },
-  cta: {
-    titleA: "Будьте первым, кто",
-    titleB: "целится выше.",
-    desc: "Запишитесь в лист ожидания или свяжитесь как инвестор. Ранним пользователям - premium AI бесплатно на старте.",
-    userLabel: "Лист ожидания",
-    investorLabel: "Контакт для инвесторов",
-    rolePrompt: "Я здесь как…",
-    roleUser: "Будущий пользователь",
-    roleUserDesc: "Записаться в лист ожидания.",
-    roleInvestor: "Инвестор",
-    roleInvestorDesc: "Связаться по поводу Aim.",
-    back: "← Выбрать другой вариант",
-  },
-  footer: {
-    tagline: "Ваш AI-финдиректор",
-    copyright: "Aim. Сделано в Казахстане, для всего мира.",
-    newsletterTitle: "Будьте впереди с Aim",
-    newsletterDesc: "Получайте обновления продукта, советы по AI-финансам и анонсы раннего доступа.",
-    emailPlaceholder: "Введите email",
-    noSpam: "Никакого спама. Только важные обновления.",
-    colProduct: "Продукт",
-    colCompany: "Компания",
-    colResources: "Ресурсы",
-    colDownload: "Скачать",
-    downloadFor: "Скачать для",
-    downloadNote: "Доступно для macOS. Приложения для Windows и мобильных - скоро.",
-    followUs: "Мы в соцсетях",
-    rights: "Все права защищены.",
-    tagline2: "Создано для будущего личных финансов.",
-    navProduct: ["Возможности", "Платформы", "AI-ассистент", "Open Banking", "Безопасность"],
-    navCompany: ["Видение", "Инвесторам", "Карьера", "Контакты", "Пресса"],
-    navResources: ["Блог", "FAQ", "Политика конфиденциальности", "Условия использования"],
-    feedbackLinks: "Ссылки Aim Feedback",
-    feedbackSupport: "Поддержка",
-    feedbackPrivacy: "Конфиденциальность",
-    feedbackTerms: "Условия",
-  },
-  forms: {
-    name: "Имя",
-    namePh: "Ваше полное имя",
-    email: "Email",
-    emailPh: "you@email.com",
-    phone: "Телефон",
-    phonePh: "+7 700 000 0000",
-    company: "Компания / Фонд",
-    companyPh: "Ваша организация",
-    message: "Сообщение",
-    messagePh: "Расскажите о вашем интересе…",
-    submitUser: "В лист ожидания",
-    submittingUser: "Отправка…",
-    submitInvestor: "Связаться",
-    submittingInvestor: "Отправка…",
-    successUserTitle: "Вы в листе ожидания!",
-    successUserDesc: "Мы напишем, как только откроется ранний доступ.",
-    successInvestorTitle: "Спасибо!",
-    successInvestorDesc: "Мы свяжемся с вами в ближайшее время.",
-    addAnother: "Добавить ещё",
-    errName: "Пожалуйста, укажите имя.",
-    errEmail: "Укажите корректный email.",
-    errPhone: "Укажите номер телефона.",
-    errGeneric: "Что-то пошло не так. Попробуйте снова.",
-  },
-  langSwitch: "Язык",
-};
-
 const kz: Dict = {
   meta: {
-    title: "Aim — Сіздің AI қаржы директорыңыз. Үлкен өмір сүруге сенімділік.",
+    title: "Aim · Қаржыңыз назарда",
     description:
-      "Aim — сіздің жеке AI қаржы директорыңыз. Барлық банк шоттарын Open Banking арқылы қосыңыз, түсініктер алыңыз, мақсат қойыңыз, болашақты жоспарлаңыз. Бүкіл әлемде жұмыс істейміз.",
-    ogTitle: "Aim — Сіздің AI қаржы директорыңыз",
-    ogDescription:
-      "Жеке AI қаржы директоры қаржыңызды өз мойнына алады — сіз ең маңыздыға назар аударасыз.",
+      "Aim кіріс пен шығысты түсінуге және мақсаттарыңызға ақша жинауға көмектесетін жеке қаржы қолданбасын әзірлеуде. Алғашқы нарық — Қазақстан.",
   },
   nav: {
-    features: "Мүмкіндіктер",
-    platforms: "Платформалар",
-    vision: "Көзқарас",
-    investors: "Инвесторлар",
-    cta: "Күту тізіміне",
+    product: "Өнім",
+    market: "Мүмкіндік",
+    team: "Команда",
+    investors: "Инвесторларға",
+    waitlist: "Кезекке жазылу",
+    language: "Тіл",
+    skip: "Мазмұнға өту",
+    mainMenu: "Негізгі мәзір",
+    footerMenu: "Төменгі мәзір",
   },
   hero: {
-    badge: "Бүкіл әлемде жұмыс істейміз",
-    srTitle: "Aim — Сіздің жеке AI қаржы директорыңыз.",
-    line1: "Ақшаңыз",
-    line2: "бұрынғыдан да ақылды",
-
-    desc: "Aim барлық шоттарыңызды қосып, қаржылық деректеріңізді қарапайым әрі жеке ұсыныстарға айналдырады.",
-    ctaPrimary: "Ерте қол жеткізу",
-    ctaSecondary: "Не істейді",
-    sec1: "Банктік деңгейдегі қауіпсіздік",
-    sec2: "Open Banking",
+    stage: "Алдымен Қазақстан",
+    title: "Қаржыңыз",
+    accent: "назарда.",
+    description:
+      "Қанша ақшаңыз барын, қайда жұмсайтыныңызды көріңіз және алдағы мақсаттарыңызға жинаңыз. Aim күнделікті қаржыңызды бір жерге жинақтайды.",
+    preview: "Өніммен танысу",
   },
-  stats: [
-    { value: "1-ші", label: "Орталық Азияда Open Banking-ке қосылған компания" },
-    { value: "1-ші", label: "Қазақстандағы Финтех AI стартап" },
-    { value: "2 000+", label: "Күту тізіміндегі пайдаланушылар" },
-  ],
-  marquee: [
-    "Open Banking",
-    "AI қаржы директоры",
-    "Мақсаттар",
-    "Түсініктер",
-    "Инвестициялар",
-    "Бюджет",
-    "Сенімділік",
-    "Жоспарлау",
-  ],
-  features: {
-    eyebrow: "Aim не істейді",
-    titleA: "Өміріңізді түсінетін",
-    titleB: "\nқаржы директоры.",
+  preview: {
+    overview: "Шолу",
+    balance: "Жалпы қалдық",
+    period: "Соңғы 30 күн",
+    cashFlow: "Ақша ағыны",
+    income: "Кіріс",
+    spending: "Шығыс",
+    net: "Таза ағын",
+    goal: "Төтенше жағдай қоры",
+    saved: "62% жиналды",
+  },
+  product: {
+    eyebrow: "Өнім",
+    title: "Қаржыңызды жақсырақ түсініңіз.",
+    description:
+      "Aim қолыңыздағы деректерден бастайды. Банк көшірмесін импорттап, ақшаңыздың қайда жұмсалғанын көріңіз және маңызды мақсаттарыңызды қадағалаңыз.",
+    steps: [
+      {
+        title: "Деректеріңізді жинақтаңыз",
+        text: "Банк көшірмесін импорттаңыз және операцияларды қоспас бұрын тексеріңіз.",
+      },
+      {
+        title: "Ақша ағынын түсініңіз",
+        text: "Кіріс пен шығысты уақыт бойынша салыстырып, өзгеріске әсер еткен санаттарды анықтаңыз.",
+      },
+      {
+        title: "Мақсатқа бір қадам жақындаңыз",
+        text: "Жинақ мақсатын қойыңыз, салымдарыңызды белгілеңіз және қанша жинағаныңызды көріңіз.",
+      },
+    ],
+    tabsLabel: "Өнім үлгілерін көру",
+    review: "Көшірмені тексеру",
+    groceries: "Азық-түлік",
+    salary: "Жалақы",
+    transport: "Көлік",
+    insights: "Айлық ақша ағыны",
+    insightsDetail: "Осы айдағы шығыстардың бөлінісі",
+    housing: "Тұрғын үй",
+    everyday: "Күнделікті шығын",
+    other: "Басқа",
+    goals: "Жинақ мақсаты",
+    goalsDetail: "Қаржылық қор жинаудағы ілгерілеу",
+    of: "/",
+  },
+  market: {
+    eyebrow: "Нарық мүмкіндігі",
+    title: "Қазақстаннан бастаймыз.",
+    accent: "Көкжиегіміз кең.",
+    description:
+      "Қазақстанда адамдардың әр қолданбадағы шот қалдығын қарап қана қоймай, жеке қаржысын жүйелі түрде басқаруға дайын екенін тексеруді жоспарлап отырмыз. Ұқсас қажеттіліктері бар елдерде де осы тәсілді қолдануға болады.",
+    stats: [
+      {
+        detail:
+          "— 2024 жылы Қазақстан халқы жасаған операциялардың саны бойынша қолма-қол ақшасыз операциялардың үлесі.",
+        source: "Қазақстан Ұлттық Банкі",
+      },
+      {
+        detail: "— 2024 жылы әлемде қаржылық шоты бар ересектердің үлесі.",
+        source: "Дүниежүзілік банк · Global Findex",
+      },
+    ],
+    stages: [
+      {
+        label: "Алғашқы нарық",
+        title: "Қазақстан",
+        text: "Жергілікті банк көшірмелерінен, теңгеден және ақшасын бірнеше шотта ұстайтын пайдаланушылардан бастаймыз.",
+      },
+      {
+        label: "Өңірлік мүмкіндік",
+        title: "Орталық Азия",
+        text: "Көрші нарықтарды зерттеп, көшірме импортын, валюталар мен тілдерді бейімдейміз.",
+      },
+      {
+        label: "Ұзақ мерзімде",
+        title: "Таңдаулы әлемдік нарықтар",
+        text: "Сұраныс, деректерге қолжетімділік және жергілікті талаптар мүмкіндік берген елдерге шығуды қарастырамыз.",
+      },
+    ],
+    scenarioTitle: "Жазылым үлгісі",
+    scenarioNote:
+      "Тек мысалға алынған болжамдар. Жылдық жазылым түсімі пайдаланушылар саны, ақылы жазылым үлесі және шартты баға бойынша есептелген. Шығындар ескерілмеген.",
+    scenarioLabels: ["Айлық белсенді қолданушылар", "Ақылы жазылым үлесі", "Айлық баға"],
+    scenarioResult: "Мысалдағы жылдық түсім",
+    scenarioMarkets: ["Қазақстан мысалы", "Халықаралық мысал"],
+  },
+  team: {
+    eyebrow: "Команда",
+    title: "Негізін қалаушылар.",
+    names: ["Умиджан Рахманкулов", "Саидгаффор Сабыров"],
+    roles: ["Негізін қалаушы және бас директор", "Негізін қалаушы және техникалық директор"],
+  },
+  faq: {
+    title: "Жиі қойылатын сұрақтар.",
     items: [
-      { title: "Кез келген нәрсе сұраңыз", text: "Ақшаңыз туралы кез келген сұраққа қарапайым тілмен жауап." },
-      { title: "Барлық қаржы бір жерде", text: "Банктер, карталар, шоттар, инвестициялар мен несиелер - Open Banking арқылы біріктірілген." },
-      { title: "Қаржылық денсаулық және еркіндік жасы", text: "Қаржылық денсаулық индексіңізді нақты уақытта қадағалаңыз және қаржылық еркіндікке жететін жасыңызды біліңіз." },
-      { title: "Мақсат траекториясы", text: "Әр жеке қаржылық мақсатқа жету траекториясын тірі көріп, уақытында жету үшін нені реттеу керектігін біліңіз." },
-      { title: "Жеке және құпия", text: "Банктік шифрлеу. Деректер сіздікі. Тек оқуға арналған қол жеткізу." },
-      { title: "Жеке ұсыныстар", text: "Мақсаттарыңызға тез жетуге көмектесетін практикалық кеңестер." },
+      {
+        question: "Aim-ді қазір қолдана аламын ба?",
+        answer:
+          "Aim әзірленіп жатыр. Ерте қолжетімділік туралы жаңалық алу үшін кезекке жазылыңыз. Алғашқы нарық ретінде Қазақстанды жоспарлап отырмыз.",
+      },
+      {
+        question: "Операцияларды қалай қосамын?",
+        answer:
+          "Қазіргі дизайнда банк көшірмесін импорттау және қолмен енгізу қарастырылған. Импортталған операцияларды қоспас бұрын тексеруге болады. Банктерді тікелей қосу мүмкіндігі жергілікті қамтуға байланысты кейін қарастырылады.",
+      },
+      {
+        question: "Жасанды интеллект қалай қолданылады?",
+        answer:
+          "Мобильді дизайнда шығындарды талдауға арналған көмекші және операцияларды дауыспен енгізу мүмкіндігі бар. Екі мүмкіндік те әлі әзірленіп жатыр.",
+      },
+      {
+        question: "Aim Қазақстаннан тыс жерде қолжетімді бола ма?",
+        answer:
+          "Қазақстандық пайдаланушылар мен жергілікті көшірме форматтарынан бастаймыз. Кеңею сұранысқа, деректерге қолжетімділікке және әр нарықтың тілі мен валютасын қолдауға байланысты.",
+      },
     ],
   },
-  problem: {
-    eyebrow: "Мәселе",
-    title: "Банктер тым көп. Анықтық тым аз.",
-    bullets: [
-      "Ондаған банк қосымшалары, карталар мен кестелер - бірыңғай сурет жоқ.",
-      "Ақша басқару көпшілікте жоқ уақыт, назар және білім талап етеді.",
-      "Адасу, бір нәрсені жіберіп алу және қымбат қателіктер жасау оңай.",
-    ],
-    closer: "Адамдарға тағы бір құрал емес, қаржылық серіктес қажет.",
+  contact: {
+    title: "Ерте қолжетімділік.",
+    description:
+      "Aim және Қазақстандағы алғашқы шығарылым туралы жаңалық алу үшін кезекке жазылыңыз.",
+    investorTitle: "Командамен байланысыңыз.",
+    investorDescription:
+      "Aim-ге инвестиция салу немесе серіктес болу қызық па? Өзіңіз туралы қысқаша айтып беріңіз.",
+    name: "Аты-жөніңіз",
+    email: "Электрондық пошта",
+    phone: "Телефон нөмірі",
+    message: "Хабарлама (міндетті емес)",
+    waitlistNote:
+      "Aim бұл деректерді кезекті жүргізу және ерте қолжетімділік туралы хабарлау үшін Google Apps Script арқылы жинайды.",
+    investorNote:
+      "Aim бұл деректерді өтінішіңізге жауап беру үшін Google Apps Script арқылы жинайды.",
+    submit: "Кезекке жазылу",
+    submitInvestor: "Хабарлама жіберу",
+    submitting: "Жіберілуде…",
+    success: "Сіз кезекке жазылдыңыз.",
+    successDetail: "Ерте қолжетімділік туралы жаңалықтарды көрсеткен поштаңызға жібереміз.",
+    successInvestor: "Хабарламаңыз жіберілді.",
+    successInvestorDetail: "Команда көрсеткен байланыс деректеріңізді пайдаланып жауап бере алады.",
+    error: "Деректеріңізді жібере алмадық. Байланысты тексеріп, қайта әрекет етіңіз.",
+    noScript: "Пішінді жіберу үшін JavaScript қосыңыз.",
   },
-  solution: {
-    eyebrow: "Біздің жауап",
-    title: "Бір AI қаржы директоры. Барлық шот. Шынайы шешімдер.",
-    bullets: [
-      "Aim барлық шоттарды қауіпсіз Open Banking арқылы біріктіреді.",
-      "AI әдеттеріңізді, мақсаттарыңызды және өміріңізді түсінеді - тек транзакцияларды емес.",
-      "Күрделі деректер бүгін әрекет етуге болатын қарапайым ұсыныстарға айналады.",
-    ],
-    closer: "Жеке қаржының жаңа стандартына уақыт жетті.",
-    ctaNote: "Күту тізіміне тіркеліп, Aim-ды бірінші болып сынап көріңіз.",
-  },
-  platforms: {
-    eyebrow: "Сіз қайда болсаңыз да",
-    titleA: "Бір AI қаржы директоры,",
-    titleB: "әр құрылғыда.",
-    items: [
-      { title: "Мобильді қосымша", text: "iOS және Android. Қалтаңыздағы толық Aim тәжірибесі." },
-      { title: "Сағат қосымшасы", text: "Білегіңіздегі баланс, мақсаттар және хабарламалар." },
-      { title: "Веб-қосымша", text: "Үлкен экрандағы терең аналитика мен жоспарлау." },
-      { title: "Бүкіл әлемде", text: "Кез келген елдегі пайдаланушылар үшін жасалған." },
-    ],
-  },
-  vision: {
-    eyebrow: "Біздің көзқарас",
-    titleA: "Әр адамның жеке",
-    titleB: "AI қаржы директоры",
-    titleC: "болатын әлем - олар армандайтын өмірмен өмір сүруге көмектеседі.",
-    desc: "\n",
-    roadmap: {
-      title: "Бір платформа.",
-      titleAccent: "Шексіз мүмкіндіктер.",
-      desc: "Біз сіздің қажеттіліктеріңізбен бірге өсетін AI платформасын құрып жатырмыз - жеке қаржыдан корпоративтік экожүйелерге дейін.",
-      stages: [
-        {
-          tag: "Бүгін",
-          title: "Personal Finance AI",
-          desc: "Адамдарға қаржысын толық бақылауға көмектесеміз.",
-          bullets: ["Open Banking", "Кіріс пен шығысты талдау", "AI қаржы кеңесшісі", "Қаржылық мақсаттар", "Автоматты бюджеттеу"],
-          audienceLabel: "Мақсатты аудитория:",
-          audience: "миллиондаған пайдаланушылар",
-        },
-        {
-          tag: "Келесі кезең",
-          title: "AI for Small & Medium Business",
-          desc: "Кәсіпкерлер мен компаниялар үшін платформаны кеңейтеміз.",
-          bullets: ["Бизнес қаржысы бір жерде", "Ақша ағынын бақылау", "AI пайда талдауы", "Шығыстарды басқару", "Автоматты қаржылық есептер"],
-          audienceLabel: "Мақсатты аудитория:",
-          audience: "шағын және орта бизнес",
-        },
-        {
-          tag: "Ұзақ мерзімді мақсат",
-          title: "AI Enterprise Platform",
-          desc: "Жаңа буын интеллектуалды қаржы платформасы.",
-          bullets: ["Қаржы процестерін автоматтандыру", "Қолмен өңдеудің орнына AI", "Басқарушылық есеп", "Жоспарлау мен бюджеттеу", "Workflow және келісімдер", "Қаржылық деректер мен болжамдарды модельдеуге арналған меншікті генеративті AI моделі", "Legacy ERP жүйелеріне заманауи балама"],
-          audienceLabel: "Мақсатты аудитория:",
-          audience: "ірі компаниялар мен корпорациялар",
-        },
-      ],
-      banner: "Бір платформа. Бірыңғай AI қозғалтқыш. Шексіз мүмкіндіктер.",
-      closingA: "Біз тағы бір қаржы қосымшасын жасап жатқан жоқпыз.\nБіз қаржыны басқарудың бірыңғай AI платформасын құрып жатырмыз,",
-      closingB: "\nБіз қаржыны басқарудың бірыңғай AI платформасын құрып жатырмыз -",
-      closingC: "\nжеке бюджеттен өсіп келе жатқан бизнеске дейін және одан әрі.",
-    },
-  },
-  founders: {
-    eyebrow: "Құрылтайшылар",
-    titleA: "Жоғары",
-    titleB: "көздейтіндер жасады.",
-    desc: "Біздің миссия - әр адамға жеке AI қаржы директорын беру.",
-    role: "Бірге құрылтайшы",
-    roleCeo: "Құрылтайшы және CEO",
-    roleCto: "Құрылтайшы және CTO",
-    nameUmidzhan: "Умиджан Рахманкулов",
-    nameSaidgaffor: "Саидгаффор Сабыров",
-  },
-  cta: {
-    titleA: "Жоғары көздейтін",
-    titleB: "алғашқы болыңыз.",
-    desc: "Күту тізіміне жазылыңыз немесе инвестор ретінде хабарласыңыз. Ерте пайдаланушылар premium AI мүмкіндіктерін іске қосылғанда тегін алады.",
-    userLabel: "Күту тізімі",
-    investorLabel: "Инвесторлар үшін байланыс",
-    rolePrompt: "Мен осында…",
-    roleUser: "Болашақ пайдаланушы",
-    roleUserDesc: "Күту тізіміне тіркелу.",
-    roleInvestor: "Инвестор",
-    roleInvestorDesc: "Aim туралы хабарласу.",
-    back: "← Басқа нұсқаны таңдау",
-  },
-  footer: {
-    tagline: "Сіздің AI қаржы директорыңыз",
-    copyright: "Aim. Қазақстанда, бүкіл әлем үшін жасалған.",
-    newsletterTitle: "Aim-мен алда болыңыз",
-    newsletterDesc: "Өнім жаңалықтары, AI қаржы кеңестері және ерте қол жеткізу туралы хабарламалар алыңыз.",
-    emailPlaceholder: "Email енгізіңіз",
-    noSpam: "Спам жоқ. Тек маңызды жаңалықтар.",
-    colProduct: "Өнім",
-    colCompany: "Компания",
-    colResources: "Ресурстар",
-    colDownload: "Жүктеп алу",
-    downloadFor: "Жүктеу",
-    downloadNote: "macOS үшін қолжетімді. Windows және мобильді қосымшалар жақында.",
-    followUs: "Бізді қадағалаңыз",
-    rights: "Барлық құқықтар қорғалған.",
-    tagline2: "Жеке қаржының болашағы үшін жасалған.",
-    navProduct: ["Мүмкіндіктер", "Платформалар", "AI-ассистент", "Open Banking", "Қауіпсіздік"],
-    navCompany: ["Көзқарас", "Инвесторлар", "Мансап", "Байланыс", "Баспасөз"],
-    navResources: ["Блог", "FAQ", "Құпиялылық саясаты", "Қызмет көрсету шарттары"],
-    feedbackLinks: "Aim Feedback сілтемелері",
-    feedbackSupport: "Қолдау",
-    feedbackPrivacy: "Құпиялық",
-    feedbackTerms: "Шарттар",
-  },
-  forms: {
-    name: "Аты-жөні",
-    namePh: "Толық атыңыз",
-    email: "Email",
-    emailPh: "you@email.com",
-    phone: "Телефон",
-    phonePh: "+7 700 000 0000",
-    company: "Компания / Қор",
-    companyPh: "Сіздің ұйым",
-    message: "Хабарлама",
-    messagePh: "Қызығушылығыңыз туралы айтыңыз…",
-    submitUser: "Күту тізіміне",
-    submittingUser: "Жіберілуде…",
-    submitInvestor: "Хабарласу",
-    submittingInvestor: "Жіберілуде…",
-    successUserTitle: "Сіз күту тізіміндесіз!",
-    successUserDesc: "Ерте қол жеткізу ашылғанда хат жібереміз.",
-    successInvestorTitle: "Рахмет!",
-    successInvestorDesc: "Жақын арада хабарласамыз.",
-    addAnother: "Тағы біреуін қосу",
-    errName: "Атыңызды енгізіңіз.",
-    errEmail: "Дұрыс email енгізіңіз.",
-    errPhone: "Телефон нөмірін енгізіңіз.",
-    errGeneric: "Бірдеңе дұрыс емес болды. Қайталап көріңіз.",
-  },
-  langSwitch: "Тіл",
+  footer: "Қазақстанда жасалған.",
+  feedbackNav: "Aim Feedback сілтемелері",
+  feedbackLinks: { support: "Қолдау", privacy: "Құпиялық", terms: "Шарттар" },
 };
 
-export const translations: Record<Lang, Dict> = { en, ru, kz };
+const ru: Dict = {
+  meta: {
+    title: "Aim · Деньги в фокусе",
+    description:
+      "Aim разрабатывает приложение для личных финансов, чтобы видеть остатки, понимать расходы и копить на важное. Начинаем с Казахстана.",
+  },
+  nav: {
+    product: "Продукт",
+    market: "Возможности",
+    team: "Команда",
+    investors: "Инвесторам",
+    waitlist: "В лист ожидания",
+    language: "Язык",
+    skip: "К содержанию",
+    mainMenu: "Основное меню",
+    footerMenu: "Нижнее меню",
+  },
+  hero: {
+    stage: "Сначала Казахстан",
+    title: "Деньги",
+    accent: "в фокусе.",
+    description:
+      "Узнайте, сколько у вас денег, куда они уходят и как продвигаются накопления. Aim собирает повседневные финансы в одном месте.",
+    preview: "Посмотреть продукт",
+  },
+  preview: {
+    overview: "Обзор",
+    balance: "Общий остаток",
+    period: "Последние 30 дней",
+    cashFlow: "Денежный поток",
+    income: "Доходы",
+    spending: "Расходы",
+    net: "Чистый поток",
+    goal: "Финансовая подушка",
+    saved: "Накоплено 62%",
+  },
+  product: {
+    eyebrow: "Продукт",
+    title: "Разберитесь в своих финансах.",
+    description:
+      "Aim начинает с данных, которые у вас уже есть. Загрузите выписку, посмотрите, куда уходят деньги, и следите за важными финансовыми целями.",
+    steps: [
+      {
+        title: "Соберите данные в одном месте",
+        text: "Импортируйте банковскую выписку и проверьте операции перед добавлением.",
+      },
+      {
+        title: "Разберитесь в движении денег",
+        text: "Сравните доходы и расходы за разные периоды и найдите категории, которые повлияли на изменения.",
+      },
+      {
+        title: "Следите за накоплениями",
+        text: "Поставьте цель, отмечайте пополнения и смотрите, сколько уже удалось накопить.",
+      },
+    ],
+    tabsLabel: "Примеры работы продукта",
+    review: "Проверка выписки",
+    groceries: "Продукты",
+    salary: "Зарплата",
+    transport: "Транспорт",
+    insights: "Денежный поток за месяц",
+    insightsDetail: "Расходы за месяц по категориям",
+    housing: "Жильё",
+    everyday: "Повседневные расходы",
+    other: "Прочее",
+    goals: "Цель накоплений",
+    goalsDetail: "Прогресс в накоплении финансовой подушки",
+    of: "из",
+  },
+  market: {
+    eyebrow: "Рыночная возможность",
+    title: "Начинаем с Казахстана.",
+    accent: "Смотрим шире.",
+    description:
+      "В Казахстане мы хотим выяснить, готовы ли люди перейти от просмотра остатков в нескольких приложениях к регулярному управлению деньгами. Этот подход может работать и в странах с похожими потребностями.",
+    stats: [
+      {
+        detail: "операций населения Казахстана в 2024 году были безналичными по количеству.",
+        source: "Национальный Банк Казахстана",
+      },
+      {
+        detail: "взрослых в мире имели финансовый счёт в 2024 году.",
+        source: "Всемирный банк · Global Findex",
+      },
+    ],
+    stages: [
+      {
+        label: "Первый рынок",
+        title: "Казахстан",
+        text: "Начинаем с местных форматов банковских выписок, тенге и пользователей с несколькими счетами.",
+      },
+      {
+        label: "Региональная возможность",
+        title: "Центральная Азия",
+        text: "Изучим соседние рынки и адаптируем импорт выписок, валюты и языки.",
+      },
+      {
+        label: "Долгосрочная цель",
+        title: "Отдельные мировые рынки",
+        text: "Рассмотрим выход на рынки, где есть спрос, доступ к данным и возможность соблюдать местные требования.",
+      },
+    ],
+    scenarioTitle: "Как может выглядеть подписка",
+    scenarioNote:
+      "Условные допущения. Годовая выручка от подписки рассчитана на основе условного числа пользователей, доли платных подписок и цены. Расходы не учитываются.",
+    scenarioLabels: ["Активные пользователи за месяц", "Доля платных подписок", "Цена в месяц"],
+    scenarioResult: "Годовая выручка в примере",
+    scenarioMarkets: ["Пример для Казахстана", "Международный пример"],
+  },
+  team: {
+    eyebrow: "Команда",
+    title: "Основатели Aim.",
+    names: ["Умиджан Рахманкулов", "Саидгаффор Сабыров"],
+    roles: ["Основатель и генеральный директор", "Основатель и технический директор"],
+  },
+  faq: {
+    title: "Частые вопросы.",
+    items: [
+      {
+        question: "Можно ли пользоваться Aim уже сейчас?",
+        answer:
+          "Aim в разработке. Запишитесь в лист ожидания, чтобы получать новости о раннем доступе. Первым рынком планируем сделать Казахстан.",
+      },
+      {
+        question: "Как я смогу добавлять операции?",
+        answer:
+          "В текущем дизайне предусмотрены импорт выписок и ручной ввод. Импортированные операции можно проверить перед добавлением. Возможность прямого подключения банков зависит от доступности в каждом регионе.",
+      },
+      {
+        question: "Как в Aim используется ИИ?",
+        answer:
+          "В дизайне мобильного приложения есть помощник для анализа расходов и голосовой ввод операций. Обе функции находятся в разработке.",
+      },
+      {
+        question: "Будет ли Aim доступен за пределами Казахстана?",
+        answer:
+          "Начинаем с казахстанских пользователей и местных форматов выписок. Выход в другие страны зависит от спроса, доступа к данным и поддержки местной валюты и языка.",
+      },
+    ],
+  },
+  contact: {
+    title: "Получите ранний доступ.",
+    description:
+      "Запишитесь в лист ожидания, чтобы получать новости об Aim и первом запуске в Казахстане.",
+    investorTitle: "Свяжитесь с основателями.",
+    investorDescription:
+      "Хотите инвестировать в Aim или стать нашим партнёром? Расскажите немного о себе.",
+    name: "Имя и фамилия",
+    email: "Электронная почта",
+    phone: "Номер телефона",
+    message: "Сообщение (необязательно)",
+    waitlistNote:
+      "Aim собирает эти данные через Google Apps Script для ведения листа ожидания и уведомлений о раннем доступе.",
+    investorNote:
+      "Aim собирает эти данные через Google Apps Script, чтобы ответить на ваше обращение.",
+    submit: "Записаться",
+    submitInvestor: "Связаться с командой",
+    submitting: "Отправляем…",
+    success: "Вы в листе ожидания.",
+    successDetail: "Мы отправим новости о раннем доступе на указанную почту.",
+    successInvestor: "Сообщение отправлено.",
+    successInvestorDetail: "Команда сможет ответить по указанным контактам.",
+    error: "Не удалось отправить данные. Проверьте соединение и попробуйте снова.",
+    noScript: "Включите JavaScript, чтобы отправить форму.",
+  },
+  footer: "Сделано в Казахстане.",
+  feedbackNav: "Ссылки Aim Feedback",
+  feedbackLinks: { support: "Поддержка", privacy: "Конфиденциальность", terms: "Условия" },
+};
+
+const dictionaries = { en, kz, ru };
 
 export function t(lang: Lang): Dict {
-  return translations[lang] ?? translations[DEFAULT_LANG];
+  return dictionaries[lang];
 }

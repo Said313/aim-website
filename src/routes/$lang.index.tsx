@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { LandingPage } from "@/components/LandingPage";
-import { isLang, type Lang } from "@/lib/i18n";
+import { isLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/$lang/")({
   component: LangIndex,
@@ -9,5 +9,5 @@ export const Route = createFileRoute("/$lang/")({
 function LangIndex() {
   const { lang } = Route.useParams();
   if (!isLang(lang)) throw notFound();
-  return <LandingPage lang={lang as Lang} />;
+  return <LandingPage lang={lang} />;
 }

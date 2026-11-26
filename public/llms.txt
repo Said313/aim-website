@@ -1,14 +1,9 @@
 # Aim
 
-> Aim is your personal AI CFO. It connects every bank account via Open Banking, understands your habits and goals, and turns complex finances into clear next steps. Working worldwide.
+> Aim is building a personal finance app with an AI assistant for spending, cash flow, and savings goals. Kazakhstan is the intended first market.
 
-Aim helps people manage, analyze, plan, save, and invest across all of their accounts in one place. The product is available as a mobile app (iOS & Android), a web app, and a watch app.
+The site offers a product preview, a market overview, an early-access waitlist, and an investor contact form. The site labels its subscription scenarios as illustrative.
 
-## Pages
-
-- [Home](/): Overview of Aim, the AI CFO product, key features, founders, and waitlist signup.
-
-## Optional
-
-- [Sitemap](/sitemap.xml): Machine-readable list of public routes.
-- [Robots](/robots.txt): Crawler directives.
+- [English](https://theaim.app/en/)
+- [Kazakh](https://theaim.app/kz/)
+- [Russian](https://theaim.app/ru/)

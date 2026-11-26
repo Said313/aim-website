@@ -27,10 +27,9 @@ export async function submitWaitlist(payload: WaitlistPayload): Promise<void> {
     headers: { "Content-Type": "text/plain;charset=utf-8" },
     body: JSON.stringify(payload),
     redirect: "follow",
+    signal: AbortSignal.timeout(15_000),
   });
   if (!res.ok) {
     throw new Error(`Submission failed (${res.status})`);
   }
 }
-
-export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -4,13 +4,14 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { DEFAULT_LANG, HTML_LANG, isLang } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -37,9 +38,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -80,51 +78,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Aim" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "Aim - Your Financial Compass" },
-      { property: "og:title", content: "Aim - Your Financial Compass" },
-      { name: "twitter:title", content: "Aim - Your Financial Compass" },
-      { name: "description", content: "Aim is an AI-powered financial compass that connects your bank accounts for comprehensive insights and management." },
-      { property: "og:description", content: "Aim is an AI-powered financial compass that connects your bank accounts for comprehensive insights and management." },
-      { name: "twitter:description", content: "Aim is an AI-powered financial compass that connects your bank accounts for comprehensive insights and management." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a3b91ae3-501a-433d-8bc4-dcd25c48a799/id-preview-68670db3--9b3fda90-dce2-4756-a87d-b5fed0ee6a49.lovable.app-1782471108403.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a3b91ae3-501a-433d-8bc4-dcd25c48a799/id-preview-68670db3--9b3fda90-dce2-4756-a87d-b5fed0ee6a49.lovable.app-1782471108403.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon.ico` },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap",
-      },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "Aim",
-          alternateName: "Aim AI CFO",
-          url: "/",
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Aim",
-          description:
-            "Personal AI CFO that connects every bank account via Open Banking and turns complex finances into clear next steps.",
-          url: "/",
-          logo: "/favicon.ico",
-          areaServed: "Worldwide",
-          founder: [
-            { "@type": "Person", name: "Umidzhan Rakhmankulov" },
-            { "@type": "Person", name: "Saidgaffor Sabyrov" },
-          ],
-        }),
+        href: "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz@1,6..72&family=Noto+Sans:wght@400..850&display=swap",
       },
     ],
   }),
@@ -135,8 +97,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const lang = useRouterState({
+    select: (state) => state.matches.find((match) => match.routeId === "/$lang")?.params.lang,
+  });
+
   return (
-    <html lang="en">
+    <html lang={HTML_LANG[isLang(lang) ? lang : DEFAULT_LANG]}>
       <head>
         <HeadContent />
       </head>

@@ -1,56 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-
-const BASE_URL = "https://theaim.app";
-
-interface SitemapEntry {
-  path: string;
-  lastmod?: string;
-  changefreq?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
-  priority?: string;
-}
+import { LANGS } from "@/lib/i18n";
+import { SITE_URL, localePath } from "@/lib/seo";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: async () => {
-        const entries: SitemapEntry[] = [
-          { path: "/", changefreq: "weekly", priority: "1.0" },
-          { path: "/en", changefreq: "weekly", priority: "1.0" },
-          { path: "/ru", changefreq: "weekly", priority: "1.0" },
-          { path: "/kz", changefreq: "weekly", priority: "1.0" },
-          { path: "/aim-feedback/support/" },
-          { path: "/aim-feedback/privacy/" },
-          { path: "/aim-feedback/terms/" },
-        ];
-
-        const urls = entries.map((e) =>
+      GET: () =>
+        new Response(
           [
-            `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
-            e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
-            e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
-            e.priority ? `    <priority>${e.priority}</priority>` : null,
-            `  </url>`,
-          ]
-            .filter(Boolean)
-            .join("\n"),
-        );
-
-        const xml = [
-          `<?xml version="1.0" encoding="UTF-8"?>`,
-          `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
-          ...urls,
-          `</urlset>`,
-        ].join("\n");
-
-        return new Response(xml, {
-          headers: {
-            "Content-Type": "application/xml",
-            "Cache-Control": "public, max-age=3600",
-          },
-        });
-      },
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+            ...LANGS.map((lang) => `  <url><loc>${SITE_URL}${localePath(lang)}</loc></url>`),
+            ...["support", "privacy", "terms"].map(
+              (page) => `  <url><loc>${SITE_URL}/aim-feedback/${page}/</loc></url>`,
+            ),
+            "</urlset>",
+          ].join("\n"),
+          { headers: { "Content-Type": "application/xml; charset=utf-8" } },
+        ),
     },
   },
 });

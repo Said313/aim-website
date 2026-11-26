@@ -43,24 +43,26 @@ export const Route = createFileRoute("/aim-feedback/$page")({
 function FeedbackInfo() {
   const { feedbackPage } = Route.useRouteContext();
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-6 py-12 sm:py-20">
-      <Link
-        to="/$lang"
-        params={{ lang: "en" }}
-        className="inline-flex items-center gap-2 font-semibold"
-      >
-        <img src={logo} alt="" width="30" height="30" />
-        Aim
-      </Link>
-      <h1 className="mt-10 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-        {pages[feedbackPage].title}
-      </h1>
-      <div className="mt-7 space-y-5 leading-7 text-muted-foreground [&_a]:text-accent [&_a]:underline [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:text-foreground">
-        {feedbackPage === "support" && <Support />}
-        {feedbackPage === "privacy" && <Privacy />}
-        {feedbackPage === "terms" && <Terms />}
-      </div>
-    </main>
+    <div className="min-h-screen bg-background text-foreground">
+      <main className="mx-auto min-h-screen max-w-3xl px-6 py-12 sm:py-20">
+        <Link
+          to="/$lang"
+          params={{ lang: "en" }}
+          className="inline-flex items-center gap-2 font-semibold"
+        >
+          <img src={logo} alt="" width="30" height="30" />
+          Aim
+        </Link>
+        <h1 className="mt-10 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+          {pages[feedbackPage].title}
+        </h1>
+        <div className="mt-7 space-y-5 leading-7 text-muted-foreground [&_a]:text-accent [&_a]:underline [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:text-foreground">
+          {feedbackPage === "support" && <Support />}
+          {feedbackPage === "privacy" && <Privacy />}
+          {feedbackPage === "terms" && <Terms />}
+        </div>
+      </main>
+    </div>
   );
 }
 
