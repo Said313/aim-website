@@ -620,7 +620,12 @@ function Footer({ lang }: { lang: Lang }) {
 
   const colProduct = { title: s.colProduct, links: s.navProduct };
   const colCompany = { title: s.colCompany, links: s.navCompany };
-  const colResources = { title: s.colResources, links: s.navResources };
+  const colResources = { title: s.colResources, links: s.navResources.slice(0, 2) };
+  const feedbackLinks = [
+    { page: "support", label: s.feedbackSupport },
+    { page: "privacy", label: s.feedbackPrivacy },
+    { page: "terms", label: s.feedbackTerms },
+  ];
 
   const socials = [
     { Icon: Twitter, label: "X", href: "#" },
@@ -772,11 +777,13 @@ function Footer({ lang }: { lang: Lang }) {
             {s.tagline2}
           </div>
           <div className="text-center md:text-right" style={{ fontSize: 14, color: "#86958B" }}>
-            <a href="#" className="hover:[color:#F5F6F2] transition-colors">Privacy</a>
-            <span className="mx-2 opacity-50">•</span>
-            <a href="#" className="hover:[color:#F5F6F2] transition-colors">Terms</a>
-            <span className="mx-2 opacity-50">•</span>
-            <a href="#" className="hover:[color:#F5F6F2] transition-colors">Cookies</a>
+            <nav aria-label={s.feedbackLinks} className="flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-end">
+              {feedbackLinks.map(({ page, label }) => (
+                <a key={page} href={`${import.meta.env.BASE_URL}aim-feedback/${page}/`} className="hover:[color:#F5F6F2] transition-colors">
+                  {label}
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
       </div>

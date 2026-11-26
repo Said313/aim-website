@@ -197,6 +197,10 @@ const en = {
     navProduct: ["Features", "Platforms", "AI Assistant", "Open Banking", "Security"],
     navCompany: ["Vision", "Investors", "Careers", "Contact", "Press"],
     navResources: ["Blog", "FAQ", "Privacy Policy", "Terms of Service"],
+    feedbackLinks: "Aim Feedback links",
+    feedbackSupport: "Feedback support",
+    feedbackPrivacy: "Feedback privacy",
+    feedbackTerms: "Feedback terms",
   },
   forms: {
     name: "Name",
@@ -401,6 +405,10 @@ const ru: Dict = {
     navProduct: ["Возможности", "Платформы", "AI-ассистент", "Open Banking", "Безопасность"],
     navCompany: ["Видение", "Инвесторам", "Карьера", "Контакты", "Пресса"],
     navResources: ["Блог", "FAQ", "Политика конфиденциальности", "Условия использования"],
+    feedbackLinks: "Ссылки Aim Feedback",
+    feedbackSupport: "Поддержка",
+    feedbackPrivacy: "Конфиденциальность",
+    feedbackTerms: "Условия",
   },
   forms: {
     name: "Имя",
@@ -603,6 +611,10 @@ const kz: Dict = {
     navProduct: ["Мүмкіндіктер", "Платформалар", "AI-ассистент", "Open Banking", "Қауіпсіздік"],
     navCompany: ["Көзқарас", "Инвесторлар", "Мансап", "Байланыс", "Баспасөз"],
     navResources: ["Блог", "FAQ", "Құпиялылық саясаты", "Қызмет көрсету шарттары"],
+    feedbackLinks: "Aim Feedback сілтемелері",
+    feedbackSupport: "Қолдау",
+    feedbackPrivacy: "Құпиялық",
+    feedbackTerms: "Шарттар",
   },
   forms: {
     name: "Аты-жөні",
