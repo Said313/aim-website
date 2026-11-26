@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as LangRouteImport } from './routes/$lang'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LangIndexRouteImport } from './routes/$lang.index'
+import { Route as AimFeedbackPageRouteImport } from './routes/aim-feedback.$page'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -34,16 +35,23 @@ const LangIndexRoute = LangIndexRouteImport.update({
   path: '/',
   getParentRoute: () => LangRoute,
 } as any)
+const AimFeedbackPageRoute = AimFeedbackPageRouteImport.update({
+  id: '/aim-feedback/$page',
+  path: '/aim-feedback/$page',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/aim-feedback/$page': typeof AimFeedbackPageRoute
   '/$lang/': typeof LangIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/aim-feedback/$page': typeof AimFeedbackPageRoute
   '/$lang': typeof LangIndexRoute
 }
 export interface FileRoutesById {
@@ -51,20 +59,28 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/aim-feedback/$page': typeof AimFeedbackPageRoute
   '/$lang/': typeof LangIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$lang' | '/sitemap.xml' | '/$lang/'
+  fullPaths: '/' | '/$lang' | '/sitemap.xml' | '/aim-feedback/$page' | '/$lang/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/$lang'
-  id: '__root__' | '/' | '/$lang' | '/sitemap.xml' | '/$lang/'
+  to: '/' | '/sitemap.xml' | '/aim-feedback/$page' | '/$lang'
+  id:
+    | '__root__'
+    | '/'
+    | '/$lang'
+    | '/sitemap.xml'
+    | '/aim-feedback/$page'
+    | '/$lang/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LangRoute: typeof LangRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AimFeedbackPageRoute: typeof AimFeedbackPageRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -97,6 +113,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangIndexRouteImport
       parentRoute: typeof LangRoute
     }
+    '/aim-feedback/$page': {
+      id: '/aim-feedback/$page'
+      path: '/aim-feedback/$page'
+      fullPath: '/aim-feedback/$page'
+      preLoaderRoute: typeof AimFeedbackPageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -114,7 +137,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LangRoute: LangRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AimFeedbackPageRoute: AimFeedbackPageRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

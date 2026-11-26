@@ -9,9 +9,13 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
-useGLTF.preload("/models/MacBookPro.glb");
-useGLTF.preload("/models/iPhone16.glb");
-useGLTF.preload("/models/AppleWatchUltra3.gltf");
+const models = {
+  laptop: `${import.meta.env.BASE_URL}models/MacBookPro.glb`,
+  phone: `${import.meta.env.BASE_URL}models/iPhone16.glb`,
+  watch: `${import.meta.env.BASE_URL}models/AppleWatchUltra3.gltf`,
+};
+
+Object.values(models).forEach((model) => useGLTF.preload(model));
 
 /**
  * Clone a loaded GLTF scene and normalize it:
@@ -101,7 +105,7 @@ function useNormalizedScene(
 
 function MacBook() {
   // Real MacBook Pro ~ 0.35m wide. Give it the largest footprint.
-  const obj = useNormalizedScene("/models/MacBookPro.glb", 1.8, {
+  const obj = useNormalizedScene(models.laptop, 1.8, {
     baseOnGround: true,
   });
   return (
@@ -112,7 +116,7 @@ function MacBook() {
 }
 
 function IPhone() {
-  const obj = useNormalizedScene("/models/iPhone16.glb", 0.9, {
+  const obj = useNormalizedScene(models.phone, 0.9, {
     baseOnGround: true,
   });
   return (
@@ -127,7 +131,7 @@ function IPhone() {
 }
 
 function AppleWatch() {
-  const obj = useNormalizedScene("/models/AppleWatchUltra3.gltf", 0.6, {
+  const obj = useNormalizedScene(models.watch, 0.6, {
     baseOnGround: true,
     prune: (name) => {
       if (!name) return false;
